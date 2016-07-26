@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Solução de problemas &mdash; Documentação do CodeIgniter 3.0.6</title>
+  <title>Resolução de problemas &mdash; Documentação do CodeIgniter 3.0.6</title>
 
 
 
@@ -58,7 +58,7 @@
 <li class="toctree-l2"><a class="reference internal" href="downloads.html">Baixando o CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html">Instruções de Instalação</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrading.html">Atualizando de uma versão anterior</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Solução de problemas</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Resolução de problemas</a></li>
 </ul>
 </li>
 </ul>
@@ -244,7 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="downloads.html">Baixando o CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html">Instruções de Instalação</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrading.html">Atualizando de uma versão anterior</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Solução de problemas</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Resolução de problemas</a></li>
 </ul>
 </li>
 </ul>
@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Instruções de Instalação</a> &raquo;</li>
 
-    <li>Solução de problemas</li>
+    <li>Resolução de problemas</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,19 +424,13 @@
           <div role="main" class="document">
 
   <div class="section" id="troubleshooting">
-<h1>Solução de problemas<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
-<p>If you find that no matter what you put in your URL only your default
-page is loading, it might be that your server does not support the
-REQUEST_URI variable needed to serve search-engine friendly URLs. As a
-first step, open your <em>application/config/config.php</em> file and look for
-the URI Protocol information. It will recommend that you try a couple
-alternate settings. If it still doesn&#8217;t work after you&#8217;ve tried this
-you&#8217;ll need to force CodeIgniter to add a question mark to your URLs. To
-do this open your <em>application/config/config.php</em> file and change this:</p>
+<h1>Resolução de problemas<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+
+<p>Se descobrir que, não importa o que você coloque em sua URL, apenas a página default está sendo carregada, é bem provável de que seu servidor não suporte a variável REQUEST_URI necessária para gerar URLs amigáveis aos motores de busca. Em um primeiro passo, abra seu arquivo <em>application/config/config.php</em> e procure pela informação URI Protocol. É recomendável que você experimente algumas configurações como alternativa. Se mesmo assim não funcionar, você precisará forçar o CodeIgniter para adicionar um ponto de interrogação em suas URLs. Para isto, abra seu arquivo <em>application/config/config.php</em> e altere isso aqui:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;index_page&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;index.php&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>To this:</p>
+<p>Para isso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;index_page&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;index.php?&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
