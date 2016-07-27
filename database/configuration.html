@@ -425,14 +425,11 @@
 
   <div class="section" id="database-configuration">
 <h1>Configuração do Banco de Dados<a class="headerlink" href="#database-configuration" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter has a config file that lets you store your database
-connection values (username, password, database name, etc.). The config
-file is located at application/config/database.php. You can also set
-database connection values for specific
-<a class="reference internal" href="../libraries/config.html"><em>environments</em></a> by placing <strong>database.php</strong>
-in the respective environment config folder.</p>
-<p>The config settings are stored in a multi-dimensional array with this
-prototype:</p>
+
+<p>O Codeigniter possui um arquivo de configuração que permite que você defina os dados de 
+conexão do banco de dados (usuário, senha, nome do banco de dados, etc.). O arquivo de configuração está localizado no caminho: application/config/database.php. Você pode também definir valores de conexão do banco de dados para especificos
+<a class="reference internal" href="../libraries/config.html"><em>ambientes</em></a> colocando o arquivo <strong>database.php</strong> na pasta de configuração do respectivo ambiente.</p>
+<p>As definições de configurações são definidas em um array multidimensional como neste exemplo: </p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;dsn&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
         <span class="s1">&#39;hostname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
@@ -455,10 +452,8 @@ prototype:</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Some database drivers (such as PDO, PostgreSQL, Oracle, ODBC) might
-require a full DSN string to be provided. If that is the case, you
-should use the &#8216;dsn&#8217; configuration setting, as if you&#8217;re using the
-driver&#8217;s underlying native PHP extension, like this:</p>
+
+<p>Alguns drivers de banco de dados (como por exemplo PDO, PostgreSQL, Oracle, ODBC) podem exigir o fornecimento do DNS completo. Se isso acontecer, você deve usar as definições de configuração &#8216;dsn&#8217;, como se você estivesse usando uma extensão de um driver PHP nativo subjacente, como esta: </p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="c1">// PDO</span>
 <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;dsn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pgsql:host=localhost;port=5432;dbname=database_name&#39;</span><span class="p">;</span>
 
@@ -467,18 +462,14 @@ driver&#8217;s underlying native PHP extension, like this:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you do not specify a DSN string for a driver that requires it, CodeIgniter
-will try to build it with the rest of the provided settings.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você não especificar o DNS para um driver que exige isso, o Codeigniter irá tentar definir com o restante das configurações fornecidas.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you provide a DSN string and it is missing some valid settings (e.g. the
-database character set), which are present in the rest of the configuration
-fields, CodeIgniter will append them.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você fornecer o DNS e estiver faltando alguma configuração válida (e.g. o conjunto de caracteres de banco de dados), que está presente no restante dos campos de configurações, o Codeigniter irá acrescentá-los.</p>
 </div>
-<p>You can also specify failovers for the situation when the main connection cannot connect for some reason.
-These failovers can be specified by setting the failover for a connection like this:</p>
+<p>Você também pode especificar failovers para situações quando a principal conexão não consegue se conectar por alguma razão. Estes failovers podem ser especificados configurando o failover para uma conexão como esta:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;failover&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
                 <span class="k">array</span><span class="p">(</span>
                         <span class="s1">&#39;hostname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost1&#39;</span><span class="p">,</span>
@@ -519,13 +510,9 @@ These failovers can be specified by setting the failover for a connection like t
         <span class="p">);</span>
 </pre></div>
 </div>
-<p>You can specify as many failovers as you like.</p>
-<p>The reason we use a multi-dimensional array rather than a more simple
-one is to permit you to optionally store multiple sets of connection
-values. If, for example, you run multiple environments (development,
-production, test, etc.) under a single installation, you can set up a
-connection group for each, then switch between groups as needed. For
-example, to set up a &#8220;test&#8221; environment you would do this:</p>
+<p>Você pode especificar a quantidade de failovers que preferir.</p>
+<p>A razão pelo qual usamos array multidimensionais ao invés de apenas um simples, é permitir que você possa definir múltiplos valores de conexões. Se, por exemplo, você rodar ambientes (desenvolvimento, produção, teste, etc.) dentro de uma única instação, você pode configurar uma conexão para cada grupo, alternando-os como necessário. Por exemplo, para configurar um ambiente de &#8220;teste&#8221; você faria assim: </p>
+
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;dsn&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
         <span class="s1">&#39;hostname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
@@ -548,114 +535,110 @@ example, to set up a &#8220;test&#8221; environment you would do this:</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Then, to globally tell the system to use that group you would set this
-variable located in the config file:</p>
+<p>Então, para dizer globalmente ao sistema para usar esse grupo você deve definir esta variável localizada no arquivo de configuração:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$active_group</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The name &#8216;test&#8217; is arbitrary. It can be anything you want. By
-default we&#8217;ve used the word &#8220;default&#8221; for the primary connection,
-but it too can be renamed to something more relevant to your project.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">O nome &#8216;test&#8217; é arbitrário e pode ser o nome que você preferir. Por padrão estamos usando a palavra &#8220;default&#8221; para a conexão primária, mas 
+que também pode ser renomeado para algum nome que possa ser mais relevante para o seu projeto.</p>
 </div>
 <div class="section" id="query-builder">
-<h2>Query Builder<a class="headerlink" href="#query-builder" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="query_builder.html"><em>Classe de Contrução de Consulta</em></a> is globally enabled or
-disabled by setting the $query_builder variable in the database
-configuration file to TRUE/FALSE (boolean). The default setting is TRUE.
-If you are not using the
-query builder class, setting it to FALSE will utilize fewer resources
-when the database classes are initialized.</p>
+<h2>Construção de Consultas<a class="headerlink" href="#query-builder" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference internal" href="query_builder.html"><em>Classe de Contrução de Consulta</em></a> é globalmente habilitada ou desabilitada definindo a variável $query_builder no arquivo de configuração do banco de dados para TRUE/FALSE (boolean). A configuração padrão é TRUE.
+ Se você não estiver utilizando a classe de construção de consultas, defina $query_builder como FALSE, desta forma irá utilizar menos recursos quando a classe de banco de dados for inicializada.</p>
+
+
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query_builder</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">that some CodeIgniter classes such as Sessions require Query
-Builder to be enabled to access certain functionality.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">algumas classes do CodeIgniter como por exemplo as classes de Sessões requerem 
+quer a Construção de Consultas esteja abilitada para acessar determinadas funcionalidades.</p>
 </div>
 </div>
 <div class="section" id="explanation-of-values">
-<h2>Explanation of Values:<a class="headerlink" href="#explanation-of-values" title="Permalink to this headline">¶</a></h2>
+<h2>Definição de Valoes:<a class="headerlink" href="#explanation-of-values" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="17%" />
 <col width="83%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Name Config</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">Nome da Configuração</th>
+<th class="head">Descrição</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>dsn</strong></td>
-<td>The DSN connect string (an all-in-one configuration sequence).</td>
+<td>Configuração de acesso ao banco de dados em apenas uma linha.</td>
 </tr>
 <tr class="row-odd"><td><strong>hostname</strong></td>
-<td>The hostname of your database server. Often this is &#8216;localhost&#8217;.</td>
+<td>O nome do host do seu servidor de banco de dados. Geralmente é &#8216;localhost&#8217;.</td>
 </tr>
 <tr class="row-even"><td><strong>username</strong></td>
-<td>The username used to connect to the database.</td>
+<td>O nome de usuário usada para conectar ao banco de dados.</td>
 </tr>
 <tr class="row-odd"><td><strong>password</strong></td>
-<td>The password used to connect to the database.</td>
+<td>Senha usada para conectar ao banco de dados.</td>
 </tr>
 <tr class="row-even"><td><strong>database</strong></td>
-<td>The name of the database you want to connect to.</td>
+<td>O nome do banco de dados que você deseja se conectar.</td>
 </tr>
 <tr class="row-odd"><td><strong>dbdriver</strong></td>
-<td>The database type. ie: mysqli, postgre, odbc, etc. Must be specified in lower case.</td>
+<td>O tipo de banco de dados. Por exemplo: mysqli, postgre, odbc, etc. Deve ser especificado em letra minúscula.</td>
 </tr>
 <tr class="row-even"><td><strong>dbprefix</strong></td>
-<td>An optional table prefix which will added to the table name when running
-<a class="reference internal" href="query_builder.html"><em>Query Builder</em></a> queries. This permits multiple CodeIgniter
-installations to share one database.</td>
+<td>Um prefixo de tabela opcional que será adicionado ao nome da tabela quando houver a execução de consultas no
+<a class="reference internal" href="query_builder.html"><em>Construtor de Consultas</em></a>. Isso permite que múltiplas instalações Codeigniter compartilhem um banco de dados</td>
+
 </tr>
 <tr class="row-odd"><td><strong>pconnect</strong></td>
-<td>TRUE/FALSE (boolean) - Whether to use a persistent connection.</td>
+<td>TRUE/FALSE (boolean) - Se for utilizar uma conexão persistente.</td>
 </tr>
 <tr class="row-even"><td><strong>db_debug</strong></td>
-<td>TRUE/FALSE (boolean) - Whether database errors should be displayed.</td>
+<td>TRUE/FALSE (boolean) - Ativar ou desativar a exibição dos erros de banco de dados na tela.</td>
 </tr>
 <tr class="row-odd"><td><strong>cache_on</strong></td>
-<td>TRUE/FALSE (boolean) - Whether database query caching is enabled,
-see also <a class="reference internal" href="caching.html"><em>Database Caching Class</em></a>.</td>
+<td>TRUE/FALSE (boolean) - Se o cache de consulta do banco de dados está habilitado,
+veja também <a class="reference internal" href="caching.html"><em>Classe de Cacheamento de Banco de Dados</em></a>.</td>
 </tr>
 <tr class="row-even"><td><strong>cachedir</strong></td>
-<td>The absolute server path to your database query cache directory.</td>
+<td>Caminho absoluto do servidor para o diretório de cache de consultas do seu banco de dados.</td>
 </tr>
 <tr class="row-odd"><td><strong>char_set</strong></td>
-<td>The character set used in communicating with the database.</td>
+<td>O conjunto de caracteres usado na comunicação com o banco de dados.</td>
 </tr>
 <tr class="row-even"><td><strong>dbcollat</strong></td>
-<td><p class="first">The character collation used in communicating with the database</p>
+<td><p class="first">A coleção de caracteres usados na comunicação com o banco de dados</p>
 <div class="last admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Only used in the &#8216;mysql&#8217; and &#8216;mysqli&#8217; drivers.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Somente usado nos drivers &#8216;mysql&#8217; e &#8216;mysqli&#8217;.</p>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><strong>swap_pre</strong></td>
-<td>A default table prefix that should be swapped with dbprefix. This is useful for distributed
-applications where you might run manually written queries, and need the prefix to still be
-customizable by the end user.</td>
+
+<td>O prefixo de tabela padrão que deve ser trocado com dbprefix. É muito útil para aplicações distribuídas onde você deve rodar consultas escritas manualmente, e precisa que o prefixo ainda esteja customizável pelo usuário final.</td>
 </tr>
 <tr class="row-even"><td><strong>schema</strong></td>
-<td>The database schema, defaults to &#8216;public&#8217;. Used by PostgreSQL and ODBC drivers.</td>
+<td>É o esquema de banco de dados, que por padrão é &#8216;public&#8217;. Usado pelos drivers de banco de dados PostgreSQL e ODBC.</td>
 </tr>
 <tr class="row-odd"><td><strong>encrypt</strong></td>
-<td><p class="first">Whether or not to use an encrypted connection.</p>
+<td><p class="first">Se ou não usar uma conexão criptografada.</p>
 <blockquote class="last">
 <div><ul class="simple">
-<li>&#8216;mysql&#8217; (deprecated), &#8216;sqlsrv&#8217; and &#8216;pdo/sqlsrv&#8217; drivers accept TRUE/FALSE</li>
-<li>&#8216;mysqli&#8217; and &#8216;pdo/mysql&#8217; drivers accept an array with the following options:<ul>
-<li>&#8216;ssl_key&#8217;    - Path to the private key file</li>
-<li>&#8216;ssl_cert&#8217;   - Path to the public key certificate file</li>
-<li>&#8216;ssl_ca&#8217;     - Path to the certificate authority file</li>
-<li>&#8216;ssl_capath&#8217; - Path to a directory containing trusted CA certificats in PEM format</li>
-<li>&#8216;ssl_cipher&#8217; - List of <em>allowed</em> ciphers to be used for the encryption, separated by colons (&#8216;:&#8217;)</li>
-<li>&#8216;ssl_verify&#8217; - TRUE/FALSE; Whether to verify the server certificate or not (&#8216;mysqli&#8217; only)</li>
+<li>Drivers &#8216;mysql&#8217; (obsoleto), &#8216;sqlsrv&#8217; e &#8216;pdo/sqlsrv&#8217; aceitam TRUE/FALSE</li>
+<li>Drivers &#8216;mysqli&#8217; e &#8216;pdo/mysql&#8217; aceitam um array com as seguintes opções:<ul>
+<li>&#8216;ssl_key&#8217;    - Caminho para o arquivo com a chave privada</li>
+<li>&#8216;ssl_cert&#8217;   - Caminho para o arquivo com a chave pública certificada</li>
+<li>&#8216;ssl_ca&#8217;     - Caminho para o arquivo com o certificado autorizado</li>
+<li>&#8216;ssl_capath&#8217; - Caminho para o diretório contendo certificados CA confiáveis no formato PEM</li>
+<li>&#8216;ssl_cipher&#8217; - Lista de cifras <em>permitidas</em> para serem usadas para a criptografia, separadas por dois pontos (&#8216;:&#8217;)</li>
+<li>&#8216;ssl_verify&#8217; - TRUE/FALSE; Se verificar  (&#8216;mysqli&#8217; only)</li>
+<li>&#8216;ssl_verify&#8217; - TRUE/FALSE; Para verificar o certificado do servidor ou não (somente &#8216;mysqli&#8217;)</li>
 </ul>
 </li>
 </ul>
@@ -663,14 +646,16 @@ customizable by the end user.</td>
 </td>
 </tr>
 <tr class="row-even"><td><strong>compress</strong></td>
-<td>Whether or not to use client compression (MySQL only).</td>
+<td>Se deve ou não utilizar a compressão de cliente (somente MySQL).</td>
 </tr>
 <tr class="row-odd"><td><strong>stricton</strong></td>
-<td>TRUE/FALSE (boolean) - Whether to force &#8220;Strict Mode&#8221; connections, good for ensuring strict SQL
-while developing an application.</td>
+<td>TRUE/FALSE (boolean) - Forçar conexões &#8220; no modo estrito&#8221;, 
+bom para garantir SQL estrito
+durante o desenvolvimento de uma aplicação.</td>
 </tr>
 <tr class="row-even"><td><strong>port</strong></td>
-<td><p class="first">The database port number. To use this value you have to add a line to the database config array.</p>
+<td><p class="first">O número da porta do banco de dados. Para usar este valor você tem que adicionar uma linha no array de configuração do banco de dados.</p>
+
 <div class="last highlight-ci"><div class="highlight"><pre><span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5432</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -679,12 +664,11 @@ while developing an application.</td>
 </tbody>
 </table>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Depending on what database platform you are using (MySQL, PostgreSQL,
-etc.) not all values will be needed. For example, when using SQLite you
-will not need to supply a username or password, and the database name
-will be the path to your database file. The information above assumes
-you are using MySQL.</p>
+<p class="first admonition-title">Nota</p>
+<p>Dependendo de qual plataforma de banco de dados você está usando (MySQL, PostgreSQL,
+etc.) não será necessário todos os valores. Por exemplo, quando se utiliza o SQLite você
+não precisará fornecer um nome de usuário ou senha, bem como o nome do banco de dados
+será o caminho para o arquivo de banco de dados. As informações acima assume que você esteja usando o MySQL.</p>
 </div>
 </div>
 </div>
