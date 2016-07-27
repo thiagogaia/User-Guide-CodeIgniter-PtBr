@@ -425,29 +425,28 @@
 <p>CodeIgniter é instalado em 4 passos:</p>
 <ol class="arabic simple">
 <li>Descompacte o arquivo ZIP.</li>
-<li>Fala o Upload das pastas e arquivos do Codeigniter para o seu servidor. Normalmente o arquivo
+<li>Faça o Upload das pastas e arquivos do CodeIgniter para o seu servidor. Normalmente o arquivo
 <em>index.php</em> estará no seu diretório raiz.</li>
 <li>Abra o arquivo <em>application/config/config.php</em> com um editor de texto e
 defina a sua URL base. Se você pretende usar criptografia ou sessões, defina
 a sua chave de criptografia.</li>
-<li>Se você pretende usar banco de dados, abra o 
+<li>Se você pretende usar banco de dados, abra o
 arquivo <em>application/config/database.php</em> com um editor de texto e defina as suas configurações
 de banco de dados.</li>
 </ol>
-<p>Se você deseja aumentar a segurança escondendo a localização dos seus arquivos Codeigniter, você pode renomear as pastas "system" e "application" para algum nome mais privado. Se você renomeá-las, você deve abrir o seu principal arquivo <em>index.php</em> e alterar as variáveis <tt class="docutils literal"><span class="pre">$system_path</span></tt> e <tt class="docutils literal"><span class="pre">$application_folder</span></tt>
+<p>Se você deseja aumentar a segurança escondendo a localização dos seus arquivos do CodeIgniter, você pode renomear as pastas "system" e "application" para algum nome mais privado. Se você renomeá-las, você deve abrir o seu principal arquivo <em>index.php</em> e alterar as variáveis <tt class="docutils literal"><span class="pre">$system_path</span></tt> e <tt class="docutils literal"><span class="pre">$application_folder</span></tt>
 no topo do arquivo para o nome que você tiver escolhido.</p>
-<p> Para maior segurança, ambas as pastas "system" e "application" devem ser colocadas acima do diretório web raiz para não serem acessíveis diretamente via navegador. Por padrão, o arquivo <em>.htaccess</em> está incluso em cada pasta para ajudar a prevenir o acesso direto, mas é melhor removê-los completamente do acesso público no caso de as alterações de configuração de servidor web não
+<p>Para maior segurança, ambas as pastas "system" e "application" devem ser colocadas acima do diretório web raiz para não serem acessíveis diretamente via navegador. Por padrão, o arquivo <em>.htaccess</em> está incluso em cada pasta para ajudar a prevenir o acesso direto, mas é melhor removê-los completamente do acesso público no caso de as alterações de configuração de servidor web não
 respeitar o<em>.htaccess</em>.</p>
 
 
-<p>Se você desejar manter suas "views" publicas, é também possível mover as pastas views para fora da pasta application.</p>
-<p>Depois de movê - las, abra o seu principal arquivo index.php e modifique as variáveis
+<p>Se você desejar manter suas "views" públicas, é também possível mover as pastas views para fora da pasta application.</p>
+<p>Depois de movê-las, abra o seu principal arquivo index.php e modifique as variáveis
 <tt class="docutils literal"><span class="pre">$system_path</span></tt>, <tt class="docutils literal"><span class="pre">$application_folder</span></tt> e <tt class="docutils literal"><span class="pre">$view_folder</span></tt>,
 preferencialmente com o caminho completo, e.g. &#8216;<em>/www/MyUser/system</em>&#8216;.</p>
-<p>Uma medida adicional a se considerar em ambientes de produção é desabilitar o relatório de erro do PHP ou qualquer outra funcionalidade de desenvolvimento. No Codeigniter, isso pode ser feito configurando a constante <tt class="docutils literal"><span class="pre">ENVIRONMENT</span></tt>, que é melhor descrita na <a class="reference internal" href="../general/security.html"><em>página de segurança</em></a>.</p>
+<p>Uma medida adicional a se considerar em ambientes de produção é desabilitar o relatório de erro do PHP ou qualquer outra funcionalidade de desenvolvimento. No CodeIgniter, isso pode ser feito configurando a constante <tt class="docutils literal"><span class="pre">ENVIRONMENT</span></tt>, que é melhor descrita na <a class="reference internal" href="../general/security.html"><em>página de segurança</em></a>.</p>
 <p>E é isso!</p>
-<p>Se você é novo no Codeigniter, por favor, leia a seção <a class="reference internal" href="../overview/getting_started.html"><em>Getting
-Started</em></a> do Guia de Usuário para começar aprendendo como construir aplicações dinâmicas em PHP. Aproveite!</p>
+<p>Se você é novo no CodeIgniter, por favor, leia a seção <a class="reference internal" href="../overview/getting_started.html"><em>Primeiros Passos</em></a> do Guia de Usuário para começar aprendendo como construir aplicações dinâmicas em PHP. Aproveite!</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
