@@ -425,22 +425,15 @@
 
   <div class="section" id="application-flow-chart">
 <h1>Fluxograma da Aplicação<a class="headerlink" href="#application-flow-chart" title="Permalink to this headline">¶</a></h1>
-<p>The following graphic illustrates how data flows throughout the system:</p>
+<p>O gráfico a seguir ilustra como é o fluxo de dados através do sistema:</p>
 <p><img alt="CodeIgniter application flow" src="../_images/appflowchart.gif" /></p>
 <ol class="arabic simple">
-<li>The index.php serves as the front controller, initializing the base
-resources needed to run CodeIgniter.</li>
-<li>The Router examines the HTTP request to determine what should be done
-with it.</li>
-<li>If a cache file exists, it is sent directly to the browser, bypassing
-the normal system execution.</li>
-<li>Security. Before the application controller is loaded, the HTTP
-request and any user submitted data is filtered for security.</li>
-<li>The Controller loads the model, core libraries, helpers, and any
-other resources needed to process the specific request.</li>
-<li>The finalized View is rendered then sent to the web browser to be
-seen. If caching is enabled, the view is cached first so that on
-subsequent requests it can be served.</li>
+<li>O index.php serve como um controlador principal, inicializando os recursos básicos necessários para rodar o CodeIgniter </li>
+<li>O roteador examina a requisição HTTP para determinar o que irá ser feito com ela.</li>
+<li>Se já existir um arquivo em cache, ele é enviado diretamento para o navegador, ignorando a execução normal do sistema.</li>
+<li>Segurança. Antes do controlador da aplicação ser carregado, a requisição HTTP e qualquer dados submetido pelo usuário é filtrado por segurança.</li>
+<li>O Controlador carrega o modelo, as bibliotecas principais, ajudantes, e quaisquer outros recursos necessários para processar a solicitação específica.</li>
+<li>A Visão finalizada é renderizada e então enviado para o navegador para ser vista. Se o cache estiver habilitado, a visão é cacheada primeiro para que seja servida em requisições subsequentes.</li>
 </ol>
 </div>
 
