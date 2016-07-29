@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Modelo-Visão-Controlador &mdash; Documentação do CodeIgniter 3.0.6</title>
+  <title>Model-View-Controller &mdash; Documentação do CodeIgniter 3.0.6</title>
 
 
 
@@ -68,7 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="at_a_glance.html">Resumo do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="features.html">Recursos Suportados</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appflow.html">Fluxograma da Aplicação</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Modelo-Visão-Controlador</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Model-View-Controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="goals.html">Objetivos Arquitetônicos</a></li>
 </ul>
 </li>
@@ -92,10 +92,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">Tópicos Gerais</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URLs no CodeIgniter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Nomes Reservados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Visões</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Ajudantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Usando Bibliotecas do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Criando Bibliotecas</a></li>
@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Executando através da CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Gerenciando suas Aplicações</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Trabalhando em Vários Ambientes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Visões</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/security.html">Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">Guia de Estilo PHP</a></li>
 </ul>
@@ -254,7 +254,7 @@
 <li class="toctree-l2"><a class="reference internal" href="at_a_glance.html">Resumo do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="features.html">Recursos Suportados</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appflow.html">Fluxograma da Aplicação</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Modelo-Visão-Controlador</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Model-View-Controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="goals.html">Objetivos Arquitetônicos</a></li>
 </ul>
 </li>
@@ -278,10 +278,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">Tópicos Gerais</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URLs no CodeIgniter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Nomes Reservados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Visões</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Ajudantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Usando Bibliotecas do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Criando Bibliotecas</a></li>
@@ -300,7 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Executando através da CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Gerenciando suas Aplicações</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Trabalhando em Vários Ambientes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Visões</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/security.html">Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">Guia de Estilo PHP</a></li>
 </ul>
@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Visão Geral do CodeIgniter</a> &raquo;</li>
 
-    <li>Modelo-Visão-Controlador</li>
+    <li>Model-View-Controller</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,30 +424,24 @@
           <div role="main" class="document">
 
   <div class="section" id="model-view-controller">
-<h1>Modelo-Visão-Controlador<a class="headerlink" href="#model-view-controller" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter is based on the Modelo-Visão-Controlador development pattern.
-MVC is a software approach that separates application logic from
-presentation. In practice, it permits your web pages to contain minimal
-scripting since the presentation is separate from the PHP scripting.</p>
+<h1>Model-View-Controller<a class="headerlink" href="#model-view-controller" title="Permalink to this headline">¶</a></h1>
+<p>O CodeIgniter é baseado no padrão de desenvolvimento Modelo-Visão-Controlador (Model-View-Controller).
+O MVC é uma abordagem de software que separa a lógica da aplicação de sua apresentação.
+Na prática, ela permite que suas páginas web contenham o mínimo de scripts ja que a apresentação é separada do código PHP.</p>
 <ul class="simple">
-<li>The <strong>Model</strong> represents your data structures. Typically your model
-classes will contain functions that help you retrieve, insert, and
-update information in your database.</li>
-<li>The <strong>View</strong> is the information that is being presented to a user. A
-View will normally be a web page, but in CodeIgniter, a view can also
-be a page fragment like a header or footer. It can also be an RSS
-page, or any other type of &#8220;page&#8221;.</li>
-<li>The <strong>Controller</strong> serves as an <em>intermediary</em> between the Model, the
-View, and any other resources needed to process the HTTP request and
-generate a web page.</li>
+<li>O <strong>Model</strong> representa sua estrutura de dados. Tipicamente, suas classes model irão conter funções que ajudarão a buscar, inserir, e atualizar as informações em seu banco de dados.</li>
+<li>A <strong>View</strong> é a informação que será apresentada ao usuário.
+Uma view normalmente será uma página web, mas no CodeIgniter, uma view pode ser
+também um fragmento de página como um cabeçalho ou rodapé.
+Pode ser também uma página RSS, ou qualquer outro tipo de &#8220;página&#8221;.</li>
+<li>O <strong>Controller</strong> serve como um <em>intermediário</em> entre, o Model, a View
+e qualquer outro recurso necessário para processar a requisição HTTP e gerar uma página web.</li>
 </ul>
-<p>CodeIgniter has a fairly loose approach to MVC since Modelos are not
-required. If you don&#8217;t need the added separation, or find that
-maintaining models requires more complexity than you want, you can
-ignore them and build your application minimally using Controladores and
-Visões. CodeIgniter also enables you to incorporate your own existing
-scripts, or even develop core libraries for the system, enabling you to
-work in a way that makes the most sense to you.</p>
+<p>O CodeIgniter tem uma abordagem mais solta em relação ao MVC, já que Models não são obrigatórios.
+Se você não precisa desta facilidade, ou acha que manter models requer mais complexidade que você quer,
+pode ignorá-las e construir sua aplicação apenas usando Controllers e Views.
+CodeIgniter também permite que você incorpore seus próprios scripts, ou mesmo desenvolva bibliotecas para o sistema,
+lhe possibilitando trabalhar de um jeito que faça mais sentido para você.</p>
 </div>
 
 
