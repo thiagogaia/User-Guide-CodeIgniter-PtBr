@@ -425,43 +425,31 @@
 
   <div class="section" id="transactions">
 <h1>Transações<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter&#8217;s database abstraction allows you to use transactions with
-databases that support transaction-safe table types. In MySQL, you&#8217;ll
-need to be running InnoDB or BDB table types rather than the more common
-MyISAM. Most other database platforms support transactions natively.</p>
-<p>If you are not familiar with transactions we recommend you find a good
-online resource to learn about them for your particular database. The
-information below assumes you have a basic understanding of
-transactions.</p>
+<p></p>
+
+<p>A abstração de banco de dados do Codeigniter permite que você use transações com o banco de dados, que suporta tipos de tabela transaction-safe. No MySQL, você precisa estar rodando os tipos de tabelas InnoDB ou BDB ao invés do tipo mais comum MyISAM. A maioria das outras plataformas de banco de dados suporta transações nativamente.</p>
+
+<p>Se você não está familiarizado com transações, recomendamos que você pesquise na internet alguma maneira de aprender sobre este assunto para implementar no seu banco de dados particular. A informação abaixo assume que você tenha o conhecimento básico de trnasações.</p>
 <div class="section" id="codeigniter-s-approach-to-transactions">
-<h2>CodeIgniter&#8217;s Approach to Transações<a class="headerlink" href="#codeigniter-s-approach-to-transactions" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter utilizes an approach to transactions that is very similar to
-the process used by the popular database class ADODB. We&#8217;ve chosen that
-approach because it greatly simplifies the process of running
-transactions. In most cases all that is required are two lines of code.</p>
-<p>Traditionally, transactions have required a fair amount of work to
-implement since they demand that you keep track of your queries and
-determine whether to commit or rollback based on the success or failure
-of your queries. This is particularly cumbersome with nested queries. In
-contrast, we&#8217;ve implemented a smart transaction system that does all
-this for you automatically (you can also manage your transactions
-manually if you choose to, but there&#8217;s really no benefit).</p>
+<h2>A abordagem do Codeigniter para Transações<a class="headerlink" href="#codeigniter-s-approach-to-transactions" title="Permalink to this headline">¶</a></h2>
+<p>O Codeigniter utiliza uma abordagem para transações que semelhante ao processo utilizado por classes populares de banco de dados ADODB. Nós escolhemos essa abordagem pois o processo de execução de transações é muito simplificado. Na maioria dos casos somente é necessário duas linhas de código.</p>
+
+<p>Tradicionalmente, transações tem exigido uma quantidade razoável de trabalho para
+implementar, uma vez que exigem que você mantenha o controle de suas consultas e
+determine a confirmação ou anulação com base no sucesso ou fracasso
+de suas consultas. Isto é particularmente complicado com consultas aninhadas. Em contraste, nós implementamos uma sistema de transação inteligente que faz tudo automaticamente para você (se você desejar você pode gerenciar suas transações manualmente, mas realmente não há benefícios)</p>
 </div>
 <div class="section" id="running-transactions">
-<h2>Running Transações<a class="headerlink" href="#running-transactions" title="Permalink to this headline">¶</a></h2>
-<p>To run your queries using transactions you will use the
-$this-&gt;db-&gt;trans_start() and $this-&gt;db-&gt;trans_complete() functions as
-follows:</p>
+<h2>Executando Transações<a class="headerlink" href="#running-transactions" title="Permalink to this headline">¶</a></h2>
+<p>Para executar suas consultas usando transações você usará as funções $this->db->trans_start() e $this->db->trans_complete(), como mostrado a seguir:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_start</span><span class="p">();</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;ANOTHER QUERY...&#39;</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AND YET ANOTHER QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UMA CONSULTA SQL...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;OUTRA CONSULTA...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;OUTRA CONSULTA AINDA...&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_complete</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>You can run as many queries as you want between the start/complete
-functions and they will all be committed or rolled back based on success
-or failure of any given query.</p>
+<p>Você pode executar a quantidade de consultar que você quiser entre as funções start/complete e todas elas serão confirmada ou revertida com base no sucesso ou o fracasso de uma determinada consulta.</p>
 </div>
 <div class="section" id="strict-mode">
 <h2>Strict Mode<a class="headerlink" href="#strict-mode" title="Permalink to this headline">¶</a></h2>
