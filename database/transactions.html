@@ -464,26 +464,25 @@ de suas consultas. Isto é particularmente complicado com consultas aninhadas. E
 <h2>Gerenciamento de Erros<a class="headerlink" href="#managing-errors" title="Permalink to this headline">¶</a></h2>
 <p>Se você estiver com o relatório de error habilitado no seu arquivo config/database.php, você verá mensagem de erros padronizadas se o commit não tiver sucesso.</p>
 
-<p>If you have error reporting enabled in your config/database.php file
-you&#8217;ll see a standard error message if the commit was unsuccessful. If
-debugging is turned off, you can manage your own errors like this:</p>
+<p>Se você estiver com o relatório de erros habilitado no seu arquivo config/database.php você verá mensagens de erro padronizadas se o commit não obteve sucesso. Se a depuração está desabilitada, você pode gerenciar os seus próprios erros como neste exemplo: </p>
+
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_start</span><span class="p">();</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;ANOTHER QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UMA CONSULTA SQL...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;OUTRA CONSULTA...&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_complete</span><span class="p">();</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_status</span><span class="p">()</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="c1">// generate an error... or use the log_message() function to log your error</span>
+        <span class="c1">// gera um erro... ou usa a função log_message() para registrar seu erro</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="enabling-transactions">
-<h2>Enabling Transações<a class="headerlink" href="#enabling-transactions" title="Permalink to this headline">¶</a></h2>
-<p>Transações are enabled automatically the moment you use
-$this-&gt;db-&gt;trans_start(). If you would like to disable transactions you
-can do so using $this-&gt;db-&gt;trans_off():</p>
+<h2>Habilitando Transações<a class="headerlink" href="#enabling-transactions" title="Permalink to this headline">¶</a></h2>
+<p>Transações sõ habilitadas automaticamente no momento que você usa
+$this-&gt;db-&gt;trans_start(). Se você desejar desabilitar as transações, você poderá fazer isso usando $this-&gt;db-&gt;trans_off():</p>
+
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_off</span><span class="p">();</span>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_start</span><span class="p">();</span>
@@ -491,29 +490,26 @@ can do so using $this-&gt;db-&gt;trans_off():</p>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_complete</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>When transactions are disabled, your queries will be auto-commited, just
-as they are when running queries without transactions.</p>
+<p>Quando as transações estão desabilitadas, suas consultas serão automaticamente cometidas, somente como elas são quando estão executando consultas sem transações. </p>
 </div>
 <div class="section" id="test-mode">
-<h2>Test Mode<a class="headerlink" href="#test-mode" title="Permalink to this headline">¶</a></h2>
-<p>You can optionally put the transaction system into &#8220;test mode&#8221;, which
-will cause your queries to be rolled back &#8211; even if the queries produce
-a valid result. To use test mode simply set the first parameter in the
-$this-&gt;db-&gt;trans_start() function to TRUE:</p>
+<h2>Modo de Teste<a class="headerlink" href="#test-mode" title="Permalink to this headline">¶</a></h2>
+<p>Opcionalmente você pode coloar o sistema de transações dentro do &#8220;Modo Teste&#8221;, que
+fará com que suas consultas possam ser revertidas &#8211; até se as consultas produzirem um resultado válido. Para usar o modo teste simplesmente defina o primeiro parâmetro na function $this-&gt;db-&gt;trans_start() para TRUE:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_start</span><span class="p">(</span><span class="k">TRUE</span><span class="p">);</span> <span class="c1">// Query will be rolled back</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UMA CONSULTA SQL...&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_complete</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="running-transactions-manually">
-<h2>Running Transações Manually<a class="headerlink" href="#running-transactions-manually" title="Permalink to this headline">¶</a></h2>
-<p>If you would like to run transactions manually you can do so as follows:</p>
+<h2>Executando Transações Manualmente<a class="headerlink" href="#running-transactions-manually" title="Permalink to this headline">¶</a></h2>
+<p>Se você desejar executar transações manualmente você fazer como a seguir:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_begin</span><span class="p">();</span>
 
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;ANOTHER QUERY...&#39;</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AND YET ANOTHER QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UMA CONSULTA SQL...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;OUTRA CONSULTA...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;E AINDA OUTRA CONSULTA...&#39;</span><span class="p">);</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_status</span><span class="p">()</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
 <span class="p">{</span>
@@ -526,9 +522,8 @@ $this-&gt;db-&gt;trans_start() function to TRUE:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Make sure to use $this-&gt;db-&gt;trans_begin() when running manual
-transactions, <strong>NOT</strong> $this-&gt;db-&gt;trans_start().</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Certifique-se de usar $this-&gt;db-&gt;trans_begin() quando executando transações manualmente, <strong>E NÃO</strong> $this-&gt;db-&gt;trans_start().</p>
 </div>
 </div>
 </div>
