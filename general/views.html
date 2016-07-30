@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Visões &mdash; Documentação do CodeIgniter 3.0.6</title>
+  <title>Views &mdash; Documentação do CodeIgniter 3.0.6</title>
 
 
 
@@ -32,7 +32,7 @@
 
     <link rel="top" title="Documentação do CodeIgniter 3.0.6" href="../index.html"/>
         <link rel="up" title="Tópicos Gerais" href="index.html"/>
-        <link rel="next" title="Modelos" href="models.html"/>
+        <link rel="next" title="Models" href="models.html"/>
         <link rel="prev" title="Nomes Reservados" href="reserved_names.html"/>
 
 
@@ -68,8 +68,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">Resumo do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Recursos Suportados</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Fluxograma da Aplicação</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Modelo-Visão-Controlador</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Objetivos Arquitetônicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Objetivos da Arquitetura</a></li>
 </ul>
 </li>
 </ul>
@@ -92,10 +92,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tópicos Gerais</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="urls.html">URLs no CodeIgniter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reserved_names.html">Nomes Reservados</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Visões</a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Ajudantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="libraries.html">Usando Bibliotecas do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_libraries.html">Criando Bibliotecas</a></li>
@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">Executando através da CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing_apps.html">Gerenciando suas Aplicações</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environments.html">Trabalhando em Vários Ambientes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Visões</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="styleguide.html">Guia de Estilo PHP</a></li>
 </ul>
@@ -254,8 +254,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">Resumo do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Recursos Suportados</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Fluxograma da Aplicação</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Modelo-Visão-Controlador</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Objetivos Arquitetônicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Objetivos da Arquitetura</a></li>
 </ul>
 </li>
 </ul>
@@ -278,10 +278,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tópicos Gerais</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="urls.html">URLs no CodeIgniter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reserved_names.html">Nomes Reservados</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Visões</a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Ajudantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="libraries.html">Usando Bibliotecas do CodeIgniter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_libraries.html">Criando Bibliotecas</a></li>
@@ -300,7 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">Executando através da CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing_apps.html">Gerenciando suas Aplicações</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environments.html">Trabalhando em Vários Ambientes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Visões</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaxe Alteranativa do PHP para Arquivos de Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="styleguide.html">Guia de Estilo PHP</a></li>
 </ul>
@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Tópicos Gerais</a> &raquo;</li>
 
-    <li>Visões</li>
+    <li>Views</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,15 +424,15 @@
           <div role="main" class="document">
 
   <div class="section" id="views">
-<h1>Visões<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
+<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
 <p>A view is simply a web page, or a page fragment, like a header, footer,
 sidebar, etc. In fact, views can flexibly be embedded within other views
 (within other views, etc., etc.) if you need this type of hierarchy.</p>
-<p>Visões are never called directly, they must be loaded by a
+<p>Views are never called directly, they must be loaded by a
 <a class="reference internal" href="controllers.html"><em>controller</em></a>. Remember that in an MVC framework, the
 Controller acts as the traffic cop, so it is responsible for fetching a
 particular view. If you have not read the
-<a class="reference internal" href="controllers.html"><em>Controladores</em></a> page you should do so before
+<a class="reference internal" href="controllers.html"><em>Controllers</em></a> page you should do so before
 continuing.</p>
 <p>Using the example controller you created in the
 <a class="reference internal" href="controllers.html"><em>controller</em></a> page, let&#8217;s add a view to it.</p>
@@ -509,7 +509,7 @@ might look something like this:</p>
 will see below.</p>
 </div>
 <div class="section" id="storing-views-within-sub-directories">
-<h2>Storing Visões within Sub-directories<a class="headerlink" href="#storing-views-within-sub-directories" title="Permalink to this headline">¶</a></h2>
+<h2>Storing Views within Sub-directories<a class="headerlink" href="#storing-views-within-sub-directories" title="Permalink to this headline">¶</a></h2>
 <p>Your view files can also be stored within sub-directories if you prefer
 that type of organization. When doing so you will need to include the
 directory name loading the view. Example:</p>
@@ -641,7 +641,7 @@ Remember to assign it to a variable if you want the data returned:</p>
 
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
 
-        <a href="models.html" class="btn btn-neutral float-right" title="Modelos">Próximo <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="models.html" class="btn btn-neutral float-right" title="Models">Próximo <span class="fa fa-arrow-circle-right"></span></a>
 
 
         <a href="reserved_names.html" class="btn btn-neutral" title="Nomes Reservados"><span class="fa fa-arrow-circle-left"></span> Anterior</a>
