@@ -453,27 +453,23 @@ efetivamente ser reduzido a zero para todas as páginas que foram armazenadas em
 
 <p>Somente consultas do tipo leitura (SELECT) podem ser armazenadas em cache, uma vez que estes são os únicos tipos de consultas que produzem resultado. As consultas do tipo escrita (INSERT, UPDATE, eta.), uma vez que não produzem resultados, não serão armazenadas em cache pelo sistema. </p>
 
-<p>Cache files DO NOT expire. Any queries that have been cached will remain
-cached until you delete them. The caching system permits you clear
-caches associated with individual pages, or you can delete the entire
-collection of cache files. Typically you&#8217;ll want to use the housekeeping
-functions described below to delete cache files after certain events
-take place, like when you&#8217;ve added new information to your database.</p>
+
+<p>Arquivos de cache NÃO expiram. Qualquer consulta que foi armazenada em cache irá permacer desta forma até que o arquivo de cache seja deletado. O sistema de caching permite você limpar caches associados com páginas individuais, ou você pode deletar um coleção inteira de arquivos de cache. Geralmente você desejará usar as funções de limpeza descritas abaixo para deletar arquivos de cache depois de certos eventos serem alterados, como quando você adicionou novas informações para o seu banco de dados.</p>
+
 </div>
 <div class="section" id="will-caching-improve-your-site-s-performance">
-<h2>Will Caching Improve Your Site&#8217;s Performance?<a class="headerlink" href="#will-caching-improve-your-site-s-performance" title="Permalink to this headline">¶</a></h2>
-<p>Getting a performance gain as a result of caching depends on many
-factors. If you have a highly optimized database under very little load,
-you probably won&#8217;t see a performance boost. If your database is under
-heavy use you probably will see an improved response, assuming your
-file-system is not overly taxed. Remember that caching simply changes
-how your information is retrieved, shifting it from being a database
-operation to a file-system one.</p>
-<p>In some clustered server environments, for example, caching may be
-detrimental since file-system operations are so intense. On single
-servers in shared environments, caching will probably be beneficial.
-Unfortunately there is no single answer to the question of whether you
-should cache your database. It really depends on your situation.</p>
+<h2>O Cache vai melhorar a performance do seu site?<a class="headerlink" href="#will-caching-improve-your-site-s-performance" title="Permalink to this headline">¶</a></h2>
+<p>
+Conseguir um ganho de desempenho como resultado de cache depende de muitos fatores. Se você tem um banco de dados altamente otimizado sob muito pouca carga, você provavelmente não verá um aumento de desempenho. Se o seu banco de dados está em uso pesado, você provavelmente vai ver uma melhor resposta, assumindo que o seu sistema de arquivos não é excessivamente sobrecarregado. Lembre-se que o cache simplesmente muda a forma como a sua informação é recuperada, divergindo-o de ser uma operação de banco de dados para um sistema de arquivos.
+</p>
+
+<p>
+Em alguns ambientes de servidores em cluster, por exemplo, o armazenamento em cache pode ser
+prejudicial, uma vez as operações do sistema de arquivos são são muito intensos. Em
+servidores em ambientes compartilhados únicos, caching provavelmente será benéfico.
+Infelizmente não há uma resposta única para a questão de saber se você
+deve armazenar em cache o seu banco de dados. Isto realmente depende de sua situação.
+</p>
 </div>
 <div class="section" id="how-are-cache-files-stored">
 <h2>How are Cache Files Stored?<a class="headerlink" href="#how-are-cache-files-stored" title="Permalink to this headline">¶</a></h2>
