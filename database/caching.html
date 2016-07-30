@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Database Caching Class &mdash; Documentação do CodeIgniter 3.0.6</title>
+  <title>Classe de Caching de Banco de dados &mdash; Documentação do CodeIgniter 3.0.6</title>
 
 
 
@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Referência de Banco de Dados</a> &raquo;</li>
 
-    <li>Database Caching Class</li>
+    <li>Classe de Caching do Banco de Dados</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,46 +424,35 @@
           <div role="main" class="document">
 
   <div class="section" id="database-caching-class">
-<h1>Database Caching Class<a class="headerlink" href="#database-caching-class" title="Permalink to this headline">¶</a></h1>
-<p>The Database Caching Class permits you to cache your queries as text
-files for reduced database load.</p>
+<h1>Classe de Caching de Banco de dados<a class="headerlink" href="#database-caching-class" title="Permalink to this headline">¶</a></h1>
+<p>A Classe de Caching de Banco de Dados permite que você faça cache das suas consultas em arquivos de textos para reduzir a carga do banco de dados. </p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">This class is initialized automatically by the database
-driver when caching is enabled. Do NOT load this class manually.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Esta classe é inicializada automaticamente pelo driver de banco de dados quando o caching está ativado. NÃO carregue esta classe manualmente.</p>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Not all query result functions are available when you
-use caching. Please read this page carefully.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Nem todos as funcões de resultados de consultas estão disponíveis quando vocÇe usa caching. Por favor, leia esta página cuidadosamente.</p>
 </div>
 <div class="section" id="enabling-caching">
-<h2>Enabling Caching<a class="headerlink" href="#enabling-caching" title="Permalink to this headline">¶</a></h2>
-<p>Caching is enabled in three steps:</p>
+<h2>Habilitando Caching<a class="headerlink" href="#enabling-caching" title="Permalink to this headline">¶</a></h2>
+<p>O Cache é ativado em 3 etapas:</p>
 <ul class="simple">
-<li>Create a writable directory on your server where the cache files can
-be stored.</li>
-<li>Set the path to your cache folder in your
-application/config/database.php file.</li>
-<li>Enable the caching feature, either globally by setting the preference
-in your application/config/database.php file, or manually as
-described below.</li>
+<li>Crie um diretório gravável no seu servidor onde os arquivos de cache possam ser armazenados.</li>
+<li>Defina o caminho da sua pasta de cache no arquivo application/config/database.php</li>
+<li>Habilite o recurso de caching, de forma global definindo esta preferência no arquivo application/config/database.php, ou manualmente como descrito abaixo: </li>
 </ul>
-<p>Once enabled, caching will happen automatically whenever a page is
-loaded that contains database queries.</p>
+<p>Uma vez ativada, o caching acontecerá automaticamente sempre que uma página carregada possua consultas de banco de dados. </p>
 </div>
 <div class="section" id="how-does-caching-work">
-<h2>How Does Caching Work?<a class="headerlink" href="#how-does-caching-work" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter&#8217;s query caching system happens dynamically when your pages
-are viewed. When caching is enabled, the first time a web page is
-loaded, the query result object will be serialized and stored in a text
-file on your server. The next time the page is loaded the cache file
-will be used instead of accessing your database. Your database usage can
-effectively be reduced to zero for any pages that have been cached.</p>
-<p>Only read-type (SELECT) queries can be cached, since these are the only
-type of queries that produce a result. Write-type (INSERT, UPDATE, etc.)
-queries, since they don&#8217;t generate a result, will not be cached by the
-system.</p>
+<h2>Como o Caching funciona?<a class="headerlink" href="#how-does-caching-work" title="Permalink to this headline">¶</a></h2>
+<p>O sistema de caching de consultas do Codeigniter acontece dinamicamente quando suas páginas são visualizadas. Quando o caching está habilitado, a primeria vez que a página web é carregada, 
+o objeto resultado da consulta será serializado e armazenado em um arquivo de texto em seu servidor. A próxima vez em que a página é carregada o arquivo de cache
+será usado em vez de acessar seu banco de dados. O uso de banco de dados pode
+efetivamente ser reduzido a zero para todas as páginas que foram armazenadas em cache.</p>
+
+<p>Somente consultas do tipo leitura (SELECT) podem ser armazenadas em cache, uma vez que estes são os únicos tipos de consultas que produzem resultado. As consultas do tipo escrita (INSERT, UPDATE, eta.), uma vez que não produzem resultados, não serão armazenadas em cache pelo sistema. </p>
+
 <p>Cache files DO NOT expire. Any queries that have been cached will remain
 cached until you delete them. The caching system permits you clear
 caches associated with individual pages, or you can delete the entire
