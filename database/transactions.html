@@ -452,19 +452,18 @@ de suas consultas. Isto é particularmente complicado com consultas aninhadas. E
 <p>Você pode executar a quantidade de consultar que você quiser entre as funções start/complete e todas elas serão confirmada ou revertida com base no sucesso ou o fracasso de uma determinada consulta.</p>
 </div>
 <div class="section" id="strict-mode">
-<h2>Strict Mode<a class="headerlink" href="#strict-mode" title="Permalink to this headline">¶</a></h2>
-<p>By default CodeIgniter runs all transactions in Strict Mode. When strict
-mode is enabled, if you are running multiple groups of transactions, if
-one group fails all groups will be rolled back. If strict mode is
-disabled, each group is treated independently, meaning a failure of one
-group will not affect any others.</p>
-<p>Strict Mode can be disabled as follows:</p>
+<h2>Modo Estrito<a class="headerlink" href="#strict-mode" title="Permalink to this headline">¶</a></h2>
+<p>Por padrão o Codeigniter executa todas as transações no Modo Estrito. Quando o modo estrito é ativado, se você estiver executando múltiplos grupos de transações, se um desses grupos falhar, todos os grupos serão revertidos. Se o modo estrito estiver desabilitado, cada grupo é tratado de forma independente, significa que uma falha de um grupo não afetará o outro. </p>
+
+<p>O Modo Estrito pode ser desabilitado como é mostrado a seguir:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">trans_strict</span><span class="p">(</span><span class="k">FALSE</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="managing-errors">
-<h2>Managing Errors<a class="headerlink" href="#managing-errors" title="Permalink to this headline">¶</a></h2>
+<h2>Gerenciamento de Erros<a class="headerlink" href="#managing-errors" title="Permalink to this headline">¶</a></h2>
+<p>Se você estiver com o relatório de error habilitado no seu arquivo config/database.php, você verá mensagem de erros padronizadas se o commit não tiver sucesso.</p>
+
 <p>If you have error reporting enabled in your config/database.php file
 you&#8217;ll see a standard error message if the commit was unsuccessful. If
 debugging is turned off, you can manage your own errors like this:</p>
