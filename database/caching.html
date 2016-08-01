@@ -472,37 +472,24 @@ deve armazenar em cache o seu banco de dados. Isto realmente depende de sua situ
 </p>
 </div>
 <div class="section" id="how-are-cache-files-stored">
-<h2>How are Cache Files Stored?<a class="headerlink" href="#how-are-cache-files-stored" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter places the result of EACH query into its own cache file.
-Sets of cache files are further organized into sub-folders corresponding
-to your controller functions. To be precise, the sub-folders are named
-identically to the first two segments of your URI (the controller class
-name and function name).</p>
-<p>For example, let&#8217;s say you have a controller called blog with a function
-called comments that contains three queries. The caching system will
-create a cache folder called blog+comments, into which it will write
-three cache files.</p>
-<p>If you use dynamic queries that change based on information in your URI
-(when using pagination, for example), each instance of the query will
-produce its own cache file. It&#8217;s possible, therefore, to end up with
-many times more cache files than you have queries.</p>
+<h2>Como os arquivos de Cache são armazenados?<a class="headerlink" href="#how-are-cache-files-stored" title="Permalink to this headline">¶</a></h2>
+
+<p>O Codeigniter coloca o resultado de casa consulta dentro de um arquivo de cache próprio. 
+Conjuntos de arquivos de cache são ainda organizados em sub-pastas correspondentes
+às suas funções de controlador. Para ser mais preciso, as sub-pastas são nomeadas
+de forma idêntica para os dois primeiros segmentos de sua URI (nome da classe controladora e nome da função)</p>
+<p>Vamos dizer por exemplo que você tenha um controlador chamado <i>blog</i> com a função chamada <i>comentarios</i> que contenha 3 consultas. O sistema de cache irá criar uma pasta de cache chamada blog+comentarios e dentro irá criar 3 arquivos de cache. </p>
+<p>Se você usa consultas dinâmicas que se alteram baseada nas informações em sua URI (quando usamos paginação, por exemplo), cada instância da consulta irá produzir seu próprio arquivo de cache. É possível, portanto, acabar muitas vezes com mais arquivos de cache do que você tem consultas.</p>
 </div>
 <div class="section" id="managing-your-cache-files">
-<h2>Managing your Cache Files<a class="headerlink" href="#managing-your-cache-files" title="Permalink to this headline">¶</a></h2>
-<p>Since cache files do not expire, you&#8217;ll need to build deletion routines
-into your application. For example, let&#8217;s say you have a blog that
-allows user commenting. Whenever a new comment is submitted you&#8217;ll want
-to delete the cache files associated with the controller function that
-serves up your comments. You&#8217;ll find two delete functions described
-below that help you clear data.</p>
+<h2>Gerenciando seus arquivos de cache<a class="headerlink" href="#managing-your-cache-files" title="Permalink to this headline">¶</a></h2>
+<p>Desde que os arquivos de cache não expirem, você vai precisar construir rotinas de exclusão na sua aplicação. Por exemplo, vamos dizer que você tem um blog que permite que os usuários comentem. Sempre que um novo comentário é submetido você vai querer excluir os arquivos de cache associados com a função controle que serve seus comentários. Você irá encontrar duas funções de deleção descritas abaixo que lhe ajudará a esclarecer estas informações. </p>
 </div>
 <div class="section" id="not-all-database-functions-work-with-caching">
-<h2>Not All Database Functions Work with Caching<a class="headerlink" href="#not-all-database-functions-work-with-caching" title="Permalink to this headline">¶</a></h2>
-<p>Lastly, we need to point out that the result object that is cached is a
-simplified version of the full result object. For that reason, some of
-the query result functions are not available for use.</p>
-<p>The following functions ARE NOT available when using a cached result
-object:</p>
+<h2>Nem todas as funções de Banco de Dados funcionam com Caching<a class="headerlink" href="#not-all-database-functions-work-with-caching" title="Permalink to this headline">¶</a></h2>
+<p>Por fim, precisamos salientar que o objeto resultado que é inserido em cache é uma versão simplicada do resultado do objeto inteiro. Por esta razão, algumas das funções de resultados de consultas não estão disponíveis para uso.</p>
+
+<p>A seguinte função NÃO ESTÁ disponível ao usar um resultado em cache do objeto: </p>
 <ul class="simple">
 <li>num_fields()</li>
 <li>field_names()</li>
