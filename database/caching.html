@@ -432,7 +432,7 @@
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Importante</p>
-<p class="last">Nem todos as funcões de resultados de consultas estão disponíveis quando vocÇe usa caching. Por favor, leia esta página cuidadosamente.</p>
+<p class="last">Nem todos as funções de resultados de consultas estão disponíveis quando você usa caching. Por favor, leia esta página cuidadosamente.</p>
 </div>
 <div class="section" id="enabling-caching">
 <h2>Habilitando Caching<a class="headerlink" href="#enabling-caching" title="Permalink to this headline">¶</a></h2>
@@ -446,7 +446,7 @@
 </div>
 <div class="section" id="how-does-caching-work">
 <h2>Como o Caching funciona?<a class="headerlink" href="#how-does-caching-work" title="Permalink to this headline">¶</a></h2>
-<p>O sistema de caching de consultas do Codeigniter acontece dinamicamente quando suas páginas são visualizadas. Quando o caching está habilitado, a primeria vez que a página web é carregada, 
+<p>O sistema de caching de consultas do Codeigniter acontece dinamicamente quando suas páginas são visualizadas. Quando o caching está habilitado, a primeira vez que a página web é carregada,
 o objeto resultado da consulta será serializado e armazenado em um arquivo de texto em seu servidor. A próxima vez em que a página é carregada o arquivo de cache
 será usado em vez de acessar seu banco de dados. O uso de banco de dados pode
 efetivamente ser reduzido a zero para todas as páginas que foram armazenadas em cache.</p>
@@ -454,7 +454,7 @@ efetivamente ser reduzido a zero para todas as páginas que foram armazenadas em
 <p>Somente consultas do tipo leitura (SELECT) podem ser armazenadas em cache, uma vez que estes são os únicos tipos de consultas que produzem resultado. As consultas do tipo escrita (INSERT, UPDATE, eta.), uma vez que não produzem resultados, não serão armazenadas em cache pelo sistema. </p>
 
 
-<p>Arquivos de cache NÃO expiram. Qualquer consulta que foi armazenada em cache irá permacer desta forma até que o arquivo de cache seja deletado. O sistema de caching permite você limpar caches associados com páginas individuais, ou você pode deletar um coleção inteira de arquivos de cache. Geralmente você desejará usar as funções de limpeza descritas abaixo para deletar arquivos de cache depois de certos eventos serem alterados, como quando você adicionou novas informações para o seu banco de dados.</p>
+<p>Arquivos de cache NÃO expiram. Qualquer consulta que foi armazenada em cache irá permanecer desta forma até que o arquivo de cache seja deletado. O sistema de caching permite você limpar caches associados com páginas individuais, ou você pode deletar um coleção inteira de arquivos de cache. Geralmente você desejará usar as funções de limpeza descritas abaixo para deletar arquivos de cache depois de certos eventos serem alterados, como quando você adicionou novas informações para o seu banco de dados.</p>
 
 </div>
 <div class="section" id="will-caching-improve-your-site-s-performance">
@@ -474,7 +474,7 @@ deve armazenar em cache o seu banco de dados. Isto realmente depende de sua situ
 <div class="section" id="how-are-cache-files-stored">
 <h2>Como os arquivos de Cache são armazenados?<a class="headerlink" href="#how-are-cache-files-stored" title="Permalink to this headline">¶</a></h2>
 
-<p>O Codeigniter coloca o resultado de casa consulta dentro de um arquivo de cache próprio. 
+<p>O Codeigniter coloca o resultado de casa consulta dentro de um arquivo de cache próprio.
 Conjuntos de arquivos de cache são ainda organizados em sub-pastas correspondentes
 às suas funções de controlador. Para ser mais preciso, as sub-pastas são nomeadas
 de forma idêntica para os dois primeiros segmentos de sua URI (nome da classe controladora e nome da função)</p>
@@ -487,7 +487,7 @@ de forma idêntica para os dois primeiros segmentos de sua URI (nome da classe c
 </div>
 <div class="section" id="not-all-database-functions-work-with-caching">
 <h2>Nem todas as funções de Banco de Dados funcionam com Caching<a class="headerlink" href="#not-all-database-functions-work-with-caching" title="Permalink to this headline">¶</a></h2>
-<p>Por fim, precisamos salientar que o objeto resultado que é inserido em cache é uma versão simplicada do resultado do objeto inteiro. Por esta razão, algumas das funções de resultados de consultas não estão disponíveis para uso.</p>
+<p>Por fim, precisamos salientar que o objeto resultado que é inserido em cache é uma versão simplificada do resultado do objeto inteiro. Por esta razão, algumas das funções de resultados de consultas não estão disponíveis para uso.</p>
 
 <p>A seguinte função NÃO ESTÁ disponível ao usar um resultado em cache do objeto: </p>
 <ul class="simple">
