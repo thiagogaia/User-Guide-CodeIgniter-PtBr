@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Métodos Ajudantes de Consultas &mdash; Documentação do CodeIgniter 3.0.6</title>
+  <title>Funções Auxiliares para Consultas &mdash; Documentação do CodeIgniter 3.0.6</title>
 
 
 
@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Referência de Banco de Dados</a> &raquo;</li>
 
-    <li>Métodos Ajudantes de Consultas</li>
+    <li>Funções Auxiliares para Consultas</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,7 +424,7 @@
           <div role="main" class="document">
 
   <div class="section" id="query-helper-methods">
-<h1>Métodos Ajudantes de Consultas<a class="headerlink" href="#query-helper-methods" title="Permalink to this headline">¶</a></h1>
+<h1>Funções Auxiliares para Consultas<a class="headerlink" href="#query-helper-methods" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="information-from-executing-a-query">
 <h2>Informações de Execução de Consulta<a class="headerlink" href="#information-from-executing-a-query" title="Permalink to this headline">¶</a></h2>
 <p><strong>$this-&gt;db-&gt;insert_id()</strong></p>
@@ -437,9 +437,9 @@
 <p>Exibe o número de linhas afetadas, quando é feita consultas do tipo &#8220;escrita&#8221; (insert, update, etc.).</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">No MySQL &#8220;DELETE FROM TABLE&#8221; retorna 0 linhas afetadas.A classe de banco de dados possui um pequeno hack que permite que ele retorne o número correto de
+<p class="last">No MySQL &#8220;DELETE FROM TABLE&#8221; retorna 0 linhas afetadas. A classe de banco de dados possui um pequeno hack que permite que ele retorne o número correto de
 linhas afetadas. Por padrão este hack é habilitado, mas pode ser desabilitado
-no arquivo de driver de banco de dados </p>
+no arquivo de driver de banco de dados.</p>
 </div>
 <p><strong>$this-&gt;db-&gt;last_query()</strong></p>
 <p>Retorna a última consulta que foi executada (a consulta em string, não o resultado).
@@ -483,7 +483,7 @@ Exemplo:</p>
 <span class="nv">$str</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert_string</span><span class="p">(</span><span class="s1">&#39;nome_tabela&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>O primeiro parâmetro é o nome da tabela, o segundo é um array associativa com os dados a serem inseridos. O exemplo abaixo produz:</p>
+<p>O primeiro parâmetro é o nome da tabela, o segundo é um array associativo com os dados a serem inseridos. O exemplo abaixo produz:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">INSERT</span> <span class="nx">INTO</span> <span class="nx">nome_tabela</span> <span class="p">(</span><span class="nx">nome</span><span class="p">,</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="nx">VALUES</span> <span class="p">(</span><span class="s1">&#39;Rick&#39;</span><span class="p">,</span> <span class="s1">&#39;rick@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;example.com&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
