@@ -425,25 +425,23 @@
 
   <div class="section" id="static-pages">
 <h1>Páginas estáticas<a class="headerlink" href="#static-pages" title="Permalink to this headline">¶</a></h1>
-<p><strong>Note:</strong> This tutorial assumes you&#8217;ve downloaded CodeIgniter and
-<a class="reference internal" href="../installation/index.html"><em>installed the framework</em></a> in your
-development environment.</p>
-<p>The first thing you&#8217;re going to do is set up a <strong>controller</strong> to handle
-static pages. A controller is simply a class that helps delegate work.
-It is the glue of your web application.</p>
-<p>For example, when a call is made to:</p>
+<p><strong>Nota:</strong> Este tutorial assume que você tenha baixado o CodeIgniter e
+<a class="reference internal" href="../installation/index.html"><em>instalado o framework</em></a> em seu
+ambiente de desenvolvimento.</p>
+<p>A primeira coisa que você vai fazer é criar um <strong>controller</strong> para lidar
+com páginas estáticas. Um controller é simplesmente uma classe que ajuda o trabalho delegado.
+É a cola da sua aplicação web.</p>
+<p>Por exemplo, quando uma chamada é feita a:</p>
 <blockquote>
-<div><a class="reference external" href="http://example.com/news/latest/10">http://example.com/news/latest/10</a></div></blockquote>
-<p>We might imagine that there is a controller named &#8220;news&#8221;. The method
-being called on news would be &#8220;latest&#8221;. The news method&#8217;s job could be to
-grab 10 news items, and render them on the page. Very often in MVC,
-you&#8217;ll see URL patterns that match:</p>
+<div><a class="reference external" href="http://example.com/noticias/recentes/10">http://example.com/noticias/recentes/10</a></div></blockquote>
+<p>Podemos imaginar que existe um controller chamado "noticias". O método
+que está sendo chamado em noticias é "recentes". O trabalho desse método em noticia é de
+pegar 10 itens de notícias e renderiza-los na página. Muitas vezes, no MVC,
+você irá ver padrões de URL que correnpondam com:
 <blockquote>
-<div><a class="reference external" href="http://example.com/[controller-class]/[controller-method]/[arguments">http://example.com/[controller-class]/[controller-method]/[arguments</a>]</div></blockquote>
-<p>As URL schemes become more complex, this may change. But for now, this
-is all we will need to know.</p>
-<p>Create a file at <em>application/controllers/Pages.php</em> with the following
-code.</p>
+<div><a class="reference external" href="http://example.com/[controller-class]/[controller-method]/[argumentos]">http://example.com/[controller-class]/[controller-method]/[argumentos]</a></div></blockquote>
+<p>Como esquemas de URL se tornam mais complexas, isso pode mudar. Mas, por agora, isso é tudo que precisamos saber.</p>
+<p>Crie um arquivo em <em>application/controllers/Pages.php</em> com o seguinte código.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">Pages</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
@@ -453,10 +451,11 @@ code.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You have created a class named <tt class="docutils literal"><span class="pre">Pages</span></tt>, with a view method that accepts
-one argument named <tt class="docutils literal"><span class="pre">$page</span></tt>. The <tt class="docutils literal"><span class="pre">Pages</span></tt> class is extending the
-<tt class="docutils literal"><span class="pre">CI_Controller</span></tt> class. This means that the new pages class can access the
-methods and variables defined in the <tt class="docutils literal"><span class="pre">CI_Controller</span></tt> class
+<p>Você criou uma classe chamada <tt class="docutils literal"><span class="pre">Pages</span></tt>, com o método view que aceita
+
+um argumento chamado <tt class="docutils literal"><span class="pre">$page</span></tt>. A classe <tt class="docutils literal"><span class="pre">Pages</span></tt> class extende da classe
+<tt class="docutils literal"><span class="pre">CI_Controller</span></tt>. Isso significa que a nova classe Pages pode acessar os
+métodos e variáveis definidas na classe <tt class="docutils literal"><span class="pre">CI_Controller</span></tt>
 (<em>system/core/Controller.php</em>).</p>
 <p>The <strong>controller is what will become the center of every request</strong> to
 your web application. In very technical CodeIgniter discussions, it may
