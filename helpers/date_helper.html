@@ -428,20 +428,20 @@
 <p>The Auxiliar de Data file contains functions that help you work with dates.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#loading-this-helper" id="id1">Loading this Helper</a></li>
-<li><a class="reference internal" href="#available-functions" id="id2">Available Functions</a></li>
+<li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
+<li><a class="reference internal" href="#available-functions" id="id2">Funções disponíveis</a></li>
 <li><a class="reference internal" href="#timezone-reference" id="id3">Timezone Reference</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="loading-this-helper">
-<h2><a class="toc-backref" href="#id1">Loading this Helper</a><a class="headerlink" href="#loading-this-helper" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Carregando este Auxiliar</a><a class="headerlink" href="#loading-this-helper" title="Permalink to this headline">¶</a></h2>
 <p>This helper is loaded using the following code:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="available-functions">
-<h2><a class="toc-backref" href="#id2">Available Functions</a><a class="headerlink" href="#available-functions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Funções disponíveis</a><a class="headerlink" href="#available-functions" title="Permalink to this headline">¶</a></h2>
 <p>The following functions are available:</p>
 <dl class="function">
 <dt id="now">
@@ -450,15 +450,15 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$timezone</strong> (<em>string</em>) &#8211; Timezone</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">UNIX timestamp</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">UNIX timestamp</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
 </td>
 </tr>
 </tbody>
@@ -483,16 +483,16 @@ this function over PHP&#8217;s <tt class="docutils literal"><span class="pre">ti
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$datestr</strong> (<em>string</em>) &#8211; Date string</li>
 <li><strong>$time</strong> (<em>int</em>) &#8211; UNIX timestamp</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">MySQL-formatted date</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">MySQL-formatted date</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
 </td>
 </tr>
 </tbody>
@@ -520,16 +520,16 @@ will be used.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$fmt</strong> (<em>string</em>) &#8211; Date format</li>
 <li><strong>$time</strong> (<em>int</em>) &#8211; UNIX timestamp</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Formatted date or FALSE on invalid format</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted date or FALSE on invalid format</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
 </td>
 </tr>
 </tbody>
@@ -615,15 +615,15 @@ instead:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$time</strong> (<em>int</em>) &#8211; UNIX timestamp</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">UNIX timestamp</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">UNIX timestamp</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
 </td>
 </tr>
 </tbody>
@@ -642,17 +642,17 @@ instead:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$time</strong> (<em>int</em>) &#8211; UNIX timestamp</li>
 <li><strong>$timezone</strong> (<em>string</em>) &#8211; Timezone</li>
 <li><strong>$dst</strong> (<em>bool</em>) &#8211; Whether DST is active</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">UNIX timestamp</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">UNIX timestamp</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
 </td>
 </tr>
 </tbody>
@@ -680,15 +680,15 @@ submitted.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$time</strong> (<em>string</em>) &#8211; MySQL timestamp</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">UNIX timestamp</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">UNIX timestamp</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
 </td>
 </tr>
 </tbody>
@@ -707,17 +707,17 @@ submitted.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$time</strong> (<em>int</em>) &#8211; UNIX timestamp</li>
 <li><strong>$seconds</strong> (<em>bool</em>) &#8211; Whether to show seconds</li>
 <li><strong>$fmt</strong> (<em>string</em>) &#8211; format (us or euro)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Formatted date</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted date</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
 </td>
 </tr>
 </tbody>
@@ -748,15 +748,15 @@ the time without seconds formatted for the U.S.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$datestr</strong> (<em>int</em>) &#8211; Date string</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">UNIX timestamp or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">UNIX timestamp or FALSE on failure</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
 </td>
 </tr>
 </tbody>
@@ -780,16 +780,16 @@ date string passed to it is not formatted as indicated above.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$bad_date</strong> (<em>int</em>) &#8211; The terribly formatted date-like string</li>
 <li><strong>$format</strong> (<em>string</em>) &#8211; Date format to return (same as PHP&#8217;s <tt class="docutils literal"><span class="pre">date()</span></tt> function)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Formatted date</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted date</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
 </td>
 </tr>
 </tbody>
@@ -818,17 +818,17 @@ as the second parameter.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$seconds</strong> (<em>int</em>) &#8211; Number of seconds</li>
 <li><strong>$time</strong> (<em>string</em>) &#8211; UNIX timestamp</li>
 <li><strong>$units</strong> (<em>int</em>) &#8211; Number of time units to display</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Formatted time difference</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted time difference</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
 </td>
 </tr>
 </tbody>
@@ -865,16 +865,16 @@ file: <cite>language/&lt;your_lang&gt;/date_lang.php</cite></p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$month</strong> (<em>int</em>) &#8211; a numeric month</li>
 <li><strong>$year</strong> (<em>int</em>) &#8211; a numeric year</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Count of days in the specified month</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Count of days in the specified month</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
 </td>
 </tr>
 </tbody>
@@ -900,7 +900,7 @@ it is available.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$unix_start</strong> (<em>int</em>) &#8211; UNIX timestamp of the range start date</li>
 <li><strong>$mixed</strong> (<em>int</em>) &#8211; UNIX timestamp of the range end date or interval in days</li>
 <li><strong>$is_unix</strong> (<em>bool</em>) &#8211; set to FALSE if $mixed is not a timestamp</li>
@@ -908,10 +908,10 @@ it is available.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An array of dates</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An array of dates</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -935,15 +935,15 @@ it is available.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$tz</strong> (<em>string</em>) &#8211; A numeric timezone</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Hour difference from UTC</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Hour difference from UTC</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
 </td>
 </tr>
 </tbody>
@@ -965,7 +965,7 @@ UTC.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$default</strong> (<em>string</em>) &#8211; Timezone</li>
 <li><strong>$class</strong> (<em>string</em>) &#8211; Class name</li>
 <li><strong>$name</strong> (<em>string</em>) &#8211; Menu name</li>
@@ -973,10 +973,10 @@ UTC.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HTML drop down menu with time zones</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML drop down menu with time zones</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
 </td>
 </tr>
 </tbody>
