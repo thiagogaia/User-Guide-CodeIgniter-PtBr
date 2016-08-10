@@ -452,21 +452,20 @@ você irá ver padrões de URL que correnpondam com:
 </pre></div>
 </div>
 <p>Você criou uma classe chamada <tt class="docutils literal"><span class="pre">Pages</span></tt>, com o método view que aceita
-
-um argumento chamado <tt class="docutils literal"><span class="pre">$page</span></tt>. A classe <tt class="docutils literal"><span class="pre">Pages</span></tt> class extende da classe
+um argumento chamado <tt class="docutils literal"><span class="pre">$page</span></tt>. A classe <tt class="docutils literal"><span class="pre">Pages</span></tt> extende da classe
 <tt class="docutils literal"><span class="pre">CI_Controller</span></tt>. Isso significa que a nova classe Pages pode acessar os
 métodos e variáveis definidas na classe <tt class="docutils literal"><span class="pre">CI_Controller</span></tt>
 (<em>system/core/Controller.php</em>).</p>
-<p>The <strong>controller is what will become the center of every request</strong> to
-your web application. In very technical CodeIgniter discussions, it may
-be referred to as the <em>super object</em>. Like any php class, you refer to
-it within your controllers as <tt class="docutils literal"><span class="pre">$this</span></tt>. Referring to <tt class="docutils literal"><span class="pre">$this</span></tt> is how
-you will load libraries, views, and generally command the framework.</p>
-<p>Now you&#8217;ve created your first method, it&#8217;s time to make some basic page
-templates. We will be creating two &#8220;views&#8221; (page templates) that act as
-our page footer and header.</p>
-<p>Create the header at <em>application/views/templates/header.php</em> and add
-the following code:</p>
+<p>O <strong>controller é o que vai ser o centro de toda requisição</strong>
+da sua aplicação web. Em debates mais técnicos do CodeIgniter, pode ser
+referido como o <em>super objeto</em>. Como qualquer classe php, você se refere a
+ele dentro dos seus controllers como <tt class="docutils literal"><span class="pre">$this</span></tt>.
+Referindo-se a <tt class="docutils literal"><span class="pre">$this</span></tt> é como
+você vai carregar bibliotecas, views, e geralmente comandar o framework.</p>
+<p>Agora que você criou seu primeiro método, é hora de fazer um template básico da página.
+Nós iremos criar duas "views" (template de página) que irão atuar como
+sua página de rodapé e cabeçalho.</p>
+<p>Crie o cabeçalho em <em>application/views/templates/header.php</em> e adicione o seguinte código:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
                 <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">CodeIgniter</span> <span class="nx">Tutorial</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
@@ -476,36 +475,33 @@ the following code:</p>
                 <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$title</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h1&gt;</span>
 </pre></div>
 </div>
-<p>The header contains the basic HTML code that you&#8217;ll want to display
-before loading the main view, together with a heading. It will also
-output the <tt class="docutils literal"><span class="pre">$title</span></tt> variable, which we&#8217;ll define later in the controller.
-Now, create a footer at <em>application/views/templates/footer.php</em> that
-includes the following code:</p>
+<p>O cabeçalho contém o código HTML básico que você deseja mostrar
+antes de de carregar a view principal, junto com um título. A saída irá ser
+também a variável <tt class="docutils literal"><span class="pre">$title</span></tt>, que iremos definir depois no controller.
+Agora, crie um rodapé em <em>application/views/templates/footer.php</em> incluindo o seguinte código:</p>
 <div class="highlight-ci"><div class="highlight"><pre>                <span class="o">&lt;</span><span class="nx">em</span><span class="o">&gt;&amp;</span><span class="nb">copy</span><span class="p">;</span> <span class="mi">2015</span><span class="o">&lt;/</span><span class="nx">em</span><span class="o">&gt;</span>
         <span class="o">&lt;/</span><span class="nx">body</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="adding-logic-to-the-controller">
-<h2>Adding logic to the controller<a class="headerlink" href="#adding-logic-to-the-controller" title="Permalink to this headline">¶</a></h2>
-<p>Earlier you set up a controller with a <tt class="docutils literal"><span class="pre">view()</span></tt> method. The method
-accepts one parameter, which is the name of the page to be loaded. The
-static page templates will be located in the <em>application/views/pages/</em>
-directory.</p>
-<p>In that directory, create two files named <em>home.php</em> and <em>about.php</em>.
-Within those files, type some text − anything you&#8217;d like − and save them.
-If you like to be particularly un-original, try &#8220;Hello World!&#8221;.</p>
-<p>In order to load those pages, you&#8217;ll have to check whether the requested
-page actually exists:</p>
+<h2>Adicionando lógica ao controller<a class="headerlink" href="#adding-logic-to-the-controller" title="Permalink to this headline">¶</a></h2>
+<p>No início, você criou um controller com um método <tt class="docutils literal"><span class="pre">view()</span></tt>.
+O método aceita um parâmetro, que é o nome da página a ser carregada.
+A página estática de template estará disponível no diretório <em>application/views/pages/</em>.</p>
+<p>Neste diretório, crie dois arquivos denominados <em>home.php</em> e <em>about.php</em>.
+Dentro desses arquivos, digite algum texto - qualquer coisa que queira - e salve ele.
+Se quiser ser particularmente não original, tente &#8220;Olá Mundo!&#8221;.</p>
+<p>Para carregar as páginas, você tem que verificar se a página solicitada realmente existe:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">view</span><span class="p">(</span><span class="nv">$page</span> <span class="o">=</span> <span class="s1">&#39;home&#39;</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nb">file_exists</span><span class="p">(</span><span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;views/pages/&#39;</span><span class="o">.</span><span class="nv">$page</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">))</span>
         <span class="p">{</span>
-                <span class="c1">// Whoops, we don&#39;t have a page for that!</span>
+                <span class="c1">// Ops, não temos uma página para isso!</span>
                 <span class="nx">show_404</span><span class="p">();</span>
         <span class="p">}</span>
 
-        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$page</span><span class="p">);</span> <span class="c1">// Capitalize the first letter</span>
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$page</span><span class="p">);</span> <span class="c1">// Coloca a primeira letra em maiúscula</span>
 
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;templates/header&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;pages/&#39;</span><span class="o">.</span><span class="nv">$page</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
@@ -513,9 +509,9 @@ page actually exists:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Now, when the page does exist, it is loaded, including the header and
-footer, and displayed to the user. If the page doesn&#8217;t exist, a &#8220;404
-Page not found&#8221; error is shown.</p>
+<p>Agora, quando a página não existir, ele é carregado, incluindo o cabeçalho e
+o rodapé, e exibido ao usuário. Se a página não existir, o erro é exibido
+"404 Página não encontrada".</p>
 <p>The first line in this method checks whether the page actually exists.
 PHP&#8217;s native <tt class="docutils literal"><span class="pre">file_exists()</span></tt> function is used to check whether the file
 is where it&#8217;s expected to be. <tt class="docutils literal"><span class="pre">show_404()</span></tt> is a built-in CodeIgniter
@@ -553,8 +549,8 @@ request to the first matching rule. Each rule is a regular expression
 (right-side). When a request comes in, CodeIgniter looks for the first
 match, and calls the appropriate controller and method, possibly with
 arguments.</p>
-<p>More information about routing can be found in the Roteamento URI
-<a class="reference internal" href="../general/routing.html"><em>documentation</em></a>.</p>
+<p>Mais informações sobre roteamento pode ser encontrador na
+<a class="reference internal" href="../general/routing.html"><em>documentação</em></a> Roteamento URI.</p>
 <p>Here, the second rule in the <tt class="docutils literal"><span class="pre">$routes</span></tt> array matches <strong>any</strong> request
 using the wildcard string <tt class="docutils literal"><span class="pre">(:any)</span></tt>. and passes the parameter to the
 <tt class="docutils literal"><span class="pre">view()</span></tt> method of the <tt class="docutils literal"><span class="pre">Pages</span></tt> class.</p>
