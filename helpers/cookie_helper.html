@@ -429,19 +429,19 @@
 cookies.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#loading-this-helper" id="id1">Loading this Helper</a></li>
-<li><a class="reference internal" href="#available-functions" id="id2">Available Functions</a></li>
+<li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
+<li><a class="reference internal" href="#available-functions" id="id2">Funções disponíveis</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="loading-this-helper">
-<h2><a class="toc-backref" href="#id1">Loading this Helper</a><a class="headerlink" href="#loading-this-helper" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Carregando este Auxiliar</a><a class="headerlink" href="#loading-this-helper" title="Permalink to this headline">¶</a></h2>
 <p>This helper is loaded using the following code:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">(</span><span class="s1">&#39;cookie&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="available-functions">
-<h2><a class="toc-backref" href="#id2">Available Functions</a><a class="headerlink" href="#available-functions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Funções disponíveis</a><a class="headerlink" href="#available-functions" title="Permalink to this headline">¶</a></h2>
 <p>The following functions are available:</p>
 <dl class="function">
 <dt id="set_cookie">
@@ -450,7 +450,7 @@ cookies.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$name</strong> (<em>mixed</em>) &#8211; Cookie name <em>or</em> associative array of all of the parameters available to this function</li>
 <li><strong>$value</strong> (<em>string</em>) &#8211; Cookie value</li>
 <li><strong>$expire</strong> (<em>int</em>) &#8211; Number of seconds until expiration</li>
@@ -462,7 +462,7 @@ cookies.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">void</p>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">void</p>
 </td>
 </tr>
 </tbody>
@@ -480,16 +480,16 @@ a description of its use, as this function is an alias for
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$index</strong> (<em>string</em>) &#8211; Cookie name</li>
 <li><strong>$xss_clean</strong> (<em>bool</em>) &#8211; Whether to apply XSS filtering to the returned value</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The cookie value or NULL if not found</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">The cookie value or NULL if not found</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
 </td>
 </tr>
 </tbody>
@@ -509,7 +509,7 @@ the <tt class="docutils literal"><span class="pre">$config['cookie_prefix']</spa
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$name</strong> (<em>string</em>) &#8211; Cookie name</li>
 <li><strong>$domain</strong> (<em>string</em>) &#8211; Cookie domain (usually: .yourdomain.com)</li>
 <li><strong>$path</strong> (<em>string</em>) &#8211; Cookie path</li>
@@ -517,7 +517,7 @@ the <tt class="docutils literal"><span class="pre">$config['cookie_prefix']</spa
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">void</p>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">void</p>
 </td>
 </tr>
 </tbody>
