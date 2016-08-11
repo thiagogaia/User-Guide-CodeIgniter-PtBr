@@ -425,30 +425,28 @@
 
   <div class="section" id="using-codeigniter-libraries">
 <h1>Usando Bibliotecas do CodeIgniter<a class="headerlink" href="#using-codeigniter-libraries" title="Permalink to this headline">¶</a></h1>
-<p>All of the available libraries are located in your <em>system/libraries/</em>
-directory. In most cases, to use one of these classes involves initializing
-it within a <a class="reference internal" href="controllers.html"><em>controller</em></a> using the following
-initialization method:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;class_name&#39;</span><span class="p">);</span>
+<p>Todas as bibliotecas disponíveis estão localizadas em seu diretório <em>system/libraries/</em>.
+Na maioria dos casos, para usar uma dessas classes deve inicializá-la dentro do
+<a class="reference internal" href="controllers.html"><em>controller</em></a> usando a seguinte função:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;nome_da_classe&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Where &#8216;class_name&#8217; is the name of the class you want to invoke. For
-example, to load the <a class="reference internal" href="../libraries/form_validation.html"><em>Formulário de Validação Library</em></a> you would do this:</p>
+<p>Onde &#8216;nome_da_classe&#8217; é o nome da biblioteca que você deseja chamar. Por exemplo,
+para carregar a <a class="reference internal" href="../libraries/form_validation.html"><em>Biblioteca de Validação de Formulário</em></a>
+você deverá fazer o seguinte:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;form_validation&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Once initialized you can use it as indicated in the user guide page
-corresponding to that class.</p>
-<p>Additionally, multiple libraries can be loaded at the same time by
-passing an array of libraries to the load method.</p>
-<p>Example:</p>
+<p>Uma vez inicializada, você pode usar como indicado na página desse guia correspondente a classe.</p>
+<p>Além disso, várias bibliotecas podem ser carregadas ao mesmo tempo passando as bibliotecas por um array para o carregamento da função.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;table&#39;</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="section" id="creating-your-own-libraries">
-<h2>Creating Your Own Bibliotecas<a class="headerlink" href="#creating-your-own-libraries" title="Permalink to this headline">¶</a></h2>
-<p>Please read the section of the user guide that discusses how to
-<a class="reference internal" href="creating_libraries.html"><em>create your own libraries</em></a>.</p>
+<h2>Criando suas próprias Bibliotecas<a class="headerlink" href="#creating-your-own-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Por favor, leia a seção desse guia do usuário que discute como
+<a class="reference internal" href="creating_libraries.html"><em>criar suas próprias bibliotecas.</em></a>.</p>
 </div>
 </div>
 
