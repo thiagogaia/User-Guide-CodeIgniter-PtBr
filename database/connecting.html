@@ -523,30 +523,23 @@ retornará o objeto de banco de dados.</p>
 </div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You don&#8217;t need to create separate database configurations if you
-only need to use a different database on the same connection. You
-can switch to a different database when you need to, like this:</p>
+<p class="first admonition-title">Nota</p>
+<p>Você não precisa criar configurações de banco de dados separadas se você precisa usar somente um banco de dados diferente na mesma conexão. Você pode mudar de um banco de dados para o outro quando você precisar, como neste exemplo: </p>
 <div class="last line-block">
-<div class="line">$this-&gt;db-&gt;db_select($database2_name);</div>
+<div class="line">$this-&gt;db-&gt;db_select($nome_banco2);</div>
 </div>
 </div>
 </div>
 <div class="section" id="reconnecting-keeping-the-connection-alive">
-<h2>Reconnecting / Keeping the Connection Alive<a class="headerlink" href="#reconnecting-keeping-the-connection-alive" title="Permalink to this headline">¶</a></h2>
-<p>If the database server&#8217;s idle timeout is exceeded while you&#8217;re doing
-some heavy PHP lifting (processing an image, for instance), you should
-consider pinging the server by using the reconnect() method before
-sending further queries, which can gracefully keep the connection alive
-or re-establish it.</p>
+<h2>Reconectando / Mantendo a conexão ativa<a class="headerlink" href="#reconnecting-keeping-the-connection-alive" title="Permalink to this headline">¶</a></h2>
+<p>Se o tempo limite ocioso do servidor de banco de dados for excedido enquanto um script PHP pesado é processado (processamento de uma imagem, por exemplo), você deve considerar um ping ao servidor usando o método reconnect() antes de enviar mais perguntas, que pode graciosamente manter a conexão ativa ou restabelecê-la.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">reconnect</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="manually-closing-the-connection">
-<h2>Manually closing the Connection<a class="headerlink" href="#manually-closing-the-connection" title="Permalink to this headline">¶</a></h2>
-<p>While CodeIgniter intelligently takes care of closing your database
-connections, you can explicitly close the connection.</p>
+<h2>Fechando a conexão manualmente.<a class="headerlink" href="#manually-closing-the-connection" title="Permalink to this headline">¶</a></h2>
+<p>Enquanto o CodeIgniter inteligentemente cuida de fechar as conexões do seu banco de dados, você pode explicitamente fechar a conexão</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
 </pre></div>
 </div>
