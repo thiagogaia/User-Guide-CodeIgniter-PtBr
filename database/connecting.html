@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Connecting to your Database &mdash; Documentação do CodeIgniter 3.0.6</title>
+  <title>Conectando ao seu banco de dados &mdash; Documentação do CodeIgniter 3.0.6</title>
 
 
 
@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Referência de Banco de Dados</a> &raquo;</li>
 
-    <li>Connecting to your Database</li>
+    <li>Conectando ao seu bancode dados</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,56 +424,43 @@
           <div role="main" class="document">
 
   <div class="section" id="connecting-to-your-database">
-<h1>Connecting to your Database<a class="headerlink" href="#connecting-to-your-database" title="Permalink to this headline">¶</a></h1>
-<p>There are two ways to connect to a database:</p>
+<h1>Conectando ao seu banco de dados<a class="headerlink" href="#connecting-to-your-database" title="Permalink to this headline">¶</a></h1>
+<p>Existe duas maneiras de se conectar a um banco de dados:</p>
 <div class="section" id="automatically-connecting">
-<h2>Automatically Connecting<a class="headerlink" href="#automatically-connecting" title="Permalink to this headline">¶</a></h2>
-<p>The &#8220;auto connect&#8221; feature will load and instantiate the database class
-with every page load. To enable &#8220;auto connecting&#8221;, add the word database
-to the library array, as indicated in the following file:</p>
+<h2>Conectando Automaticamente<a class="headerlink" href="#automatically-connecting" title="Permalink to this headline">¶</a></h2>
+<p>O recurso &#8220;auto conectar&#8221; irá carregar e instanciar a classe de banco de dados com todas as páginas carregas. Para habilitar &#8220;conexão automática&#8221;, adiciona a palavra database no array da biblioteca, como indicado no seguinte arquivo: </p>
 <p>application/config/autoload.php</p>
 </div>
 <div class="section" id="manually-connecting">
-<h2>Manually Connecting<a class="headerlink" href="#manually-connecting" title="Permalink to this headline">¶</a></h2>
-<p>If only some of your pages require database connectivity you can
-manually connect to your database by adding this line of code in any
-function where it is needed, or in your class constructor to make the
-database available globally in that class.</p>
+<h2>Conectando Manualmente<a class="headerlink" href="#manually-connecting" title="Permalink to this headline">¶</a></h2>
+<p>Se somente algumas das suas páginas exigirem conexão com o banco de dados você pode conectar manualmente no seu banco de dados adicionando esta linha de código em qualquer função onde for necessário, ou na sua classe construtora para fazer o banco de dados disponível globalmente naquela classe: </p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>If the above function does <strong>not</strong> contain any information in the first
-parameter it will connect to the group specified in your database config
-file. For most people, this is the preferred method of use.</p>
+<p>Se a função acima <strong>não</strong> conter qualquer informação no primeiro parâmetro ele irá se conectar ao grupo especificado no seu arquivo de configuração de banco de dados. Para a maioria das pessoas, este é o método preferido de utilização.</p>
 <div class="section" id="available-parameters">
-<h3>Available Parameters<a class="headerlink" href="#available-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Parâmetros Disponíveis<a class="headerlink" href="#available-parameters" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>The database connection values, passed either as an array or a DSN
-string.</li>
-<li>TRUE/FALSE (boolean). Whether to return the connection ID (see
-Connecting to Multiple Databases below).</li>
-<li>TRUE/FALSE (boolean). Whether to enable the Query Builder class. Set
-to TRUE by default.</li>
+<li>Os valores de conexão de banco de dados, passado tanto como um array ou uma string DSN.</li>
+<li>TRUE/FALSE (boolean). Se retornar o id da conexão (veja abaixo conectando a múltiplos bancos de dados).</li>
+<li>TRUE/FALSE (boolean). Se deseja ativar a classe Construtora de Consultas. Definida por padrão como TRUE por padrão.</li>
 </ol>
 </div>
 <div class="section" id="manually-connecting-to-a-database">
-<h3>Manually Conectando a um Banco de Dados<a class="headerlink" href="#manually-connecting-to-a-database" title="Permalink to this headline">¶</a></h3>
-<p>The first parameter of this function can <strong>optionally</strong> be used to
-specify a particular database group from your config file, or you can
-even submit connection values for a database that is not specified in
-your config file. Examples:</p>
-<p>To choose a specific group from your config file you can do this:</p>
+<h3>Conectando-se Manualmente a um Banco de Dados<a class="headerlink" href="#manually-connecting-to-a-database" title="Permalink to this headline">¶</a></h3>
+<p>O primeiro parâmetro desta função pode ser usado <strong>opcionalmente</strong> para especificar um grupo de banco de dados específico do seu arquivo de configuração, ou você mesmo pode apresentar valores de conexão para um banco de dados que não está especificado no seu arquivo de configuração. Exemplos:</p>
+<p>Para escolher um grupo específico para o seu arquivo de configuração você pode fazer isso: </p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="s1">&#39;group_name&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Where group_name is the name of the connection group from your config
-file.</p>
-<p>To connect manually to a desired database you can pass an array of
-values:</p>
+<p>Onde group_name é o nome do grupo de conexão do seu arquivo de configuração. </p>
+<p>
+Para ligar manualmente a um banco de dados desejado você pode passar uma matriz de
+valores:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;hostname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;myusername&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mydatabase&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;meunomedeusuario&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;minhasenha&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;meubancodedados&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dbdriver&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mysqli&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dbprefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;pconnect&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
@@ -485,56 +472,50 @@ values:</p>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>For information on each of these values please see the <a class="reference internal" href="configuration.html"><em>configuration
-page</em></a>.</p>
+<p>Para informações sobre cada um dos valores acima, por favor veja a <a class="reference internal" href="configuration.html"><em>página de configuração</em></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>For the PDO driver, you should use the $config[&#8216;dsn&#8217;] setting
-instead of &#8216;hostname&#8217; and &#8216;database&#8217;:</p>
+<p class="first admonition-title">Nota</p>
+<p>Para o driver PDO, você deve usar a configuração $config[&#8216;dsn&#8217;]
+ao invés de &#8216;hostname&#8217; e &#8216;database&#8217;:</p>
 <div class="last line-block">
 <div class="line"><br /></div>
 <div class="line">$config[&#8216;dsn&#8217;] = &#8216;mysql:host=localhost;dbname=mydatabase&#8217;;</div>
 </div>
 </div>
-<p>Or you can submit your database values as a Data Source Name. DSNs must
-have this prototype:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$dsn</span> <span class="o">=</span> <span class="s1">&#39;dbdriver://username:password@hostname/database&#39;</span><span class="p">;</span>
+<p>Ou você pode enviar seus valores de banco de dados como um nome de fonte de dados. DSN deve
+ter este protótipo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$dsn</span> <span class="o">=</span> <span class="s1">&#39;dbdriver://nomeusuario:senha@hostname/database&#39;</span><span class="p">;</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="nv">$dsn</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>To override default config values when connecting with a DSN string, add
-the config variables as a query string.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$dsn</span> <span class="o">=</span> <span class="s1">&#39;dbdriver://username:password@hostname/database?char_set=utf8&amp;dbcollat=utf8_general_ci&amp;cache_on=true&amp;cachedir=/path/to/cache&#39;</span><span class="p">;</span>
+<p>Para sobrepor os valures de configurações padrões quando conectando com a string DNS, adiciona a variável de configuração como uma string de consulta.</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$dsn</span> <span class="o">=</span> <span class="s1">&#39;dbdriver://nomeusuario:senha@hostname/database?char_set=utf8&amp;dbcollat=utf8_general_ci&amp;cache_on=true&amp;cachedir=/path/to/cache&#39;</span><span class="p">;</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="nv">$dsn</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="connecting-to-multiple-databases">
-<h2>Connecting to Multiple Databases<a class="headerlink" href="#connecting-to-multiple-databases" title="Permalink to this headline">¶</a></h2>
-<p>If you need to connect to more than one database simultaneously you can
-do so as follows:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$DB1</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="s1">&#39;group_one&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
-<span class="nv">$DB2</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="s1">&#39;group_two&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<h2>Conectando a Múltiplos Bancos de Dados<a class="headerlink" href="#connecting-to-multiple-databases" title="Permalink to this headline">¶</a></h2>
+<p>Se você precisar conectar a mais de um banco de dados simultaneamente você pode fazer da seguinte maneira:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$DB1</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="s1">&#39;grupo_um&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nv">$DB2</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">database</span><span class="p">(</span><span class="s1">&#39;grupo_dois&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Note: Change the words &#8220;group_one&#8221; and &#8220;group_two&#8221; to the specific
-group names you are connecting to (or you can pass the connection values
-as indicated above).</p>
-<p>By setting the second parameter to TRUE (boolean) the function will
-return the database object.</p>
+<p>Nota: Muda as palavras &#8220;grupo_um&#8221; e &#8220;grupo_dois&#8221; para os nomes específicos dos grupos que você deseja se conectar (ou você pode passar os valores de conexão como indicado abaixo).</p>
+<p>
+Ao definir o segundo parâmetro para TRUE (booleano) a função
+retornará o objeto de banco de dados.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>When you connect this way, you will use your object name to issue
-commands rather than the syntax used throughout this guide. In other
-words, rather than issuing commands with:</p>
+<p class="first admonition-title">Nota</p>
+<p>Quando você se conectar desta forma, você vai usar o seu nome de objeto para emitir comandos em vez de a sintaxe utilizada em todo este guia. Em outras palavras, ao invés de emitir comandos com:</p>
 <div class="last line-block">
 <div class="line"><br /></div>
 <div class="line">$this-&gt;db-&gt;query();</div>
 <div class="line">$this-&gt;db-&gt;result();</div>
 <div class="line">etc...</div>
 <div class="line"><br /></div>
-<div class="line">You will instead use:</div>
+<div class="line">Você vai usar isso:</div>
 <div class="line"><br /></div>
 <div class="line">$DB1-&gt;query();</div>
 <div class="line">$DB1-&gt;result();</div>
