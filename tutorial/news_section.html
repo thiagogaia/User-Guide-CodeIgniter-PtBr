@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Tutorial</a> &raquo;</li>
 
-    <li>News section</li>
+    <li>Seção de notícias</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,13 +424,13 @@
           <div role="main" class="document">
 
   <div class="section" id="news-section">
-<h1>News section<a class="headerlink" href="#news-section" title="Permalink to this headline">¶</a></h1>
-<p>In the last section, we went over some basic concepts of the framework
-by writing a class that includes static pages. We cleaned up the URI by
-adding custom routing rules. Now it&#8217;s time to introduce dynamic content
-and start using a database.</p>
+<h1>Seção de notícias<a class="headerlink" href="#news-section" title="Permalink to this headline">¶</a></h1>
+<p>Na última parte, nós passamos por um conceito básico do framework,
+escrevendo uma classe que incui páginas estáticas. Nós limpamos o URI
+adicionando regras de roteamento personalizado. Agora é hora de introduzir um conteúdo dinâmico
+e começar a usar um banco de dados.</p>
 <div class="section" id="setting-up-your-model">
-<h2>Setting up your model<a class="headerlink" href="#setting-up-your-model" title="Permalink to this headline">¶</a></h2>
+<h2>Congigurando seu model<a class="headerlink" href="#setting-up-your-model" title="Permalink to this headline">¶</a></h2>
 <p>Instead of writing database operations right in the controller, queries
 should be placed in a model, so they can easily be reused later. Models
 are the place where you retrieve, insert, and update information in your
@@ -491,7 +491,7 @@ noticed that the <tt class="docutils literal"><span class="pre">$slug</span></tt
 query; <a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> does this for you.</p>
 </div>
 <div class="section" id="display-the-news">
-<h2>Display the news<a class="headerlink" href="#display-the-news" title="Permalink to this headline">¶</a></h2>
+<h2>Exibir as notícias<a class="headerlink" href="#display-the-news" title="Permalink to this headline">¶</a></h2>
 <p>Now that the queries are written, the model should be tied to the views
 that are going to display the news items to the user. This could be done
 in our <tt class="docutils literal"><span class="pre">Pages</span></tt> controller created earlier, but for the sake of clarity,
@@ -611,8 +611,7 @@ with a slug to the <tt class="docutils literal"><span class="pre">view()</span><
 <span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;default_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pages/view&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Point your browser to your document root, followed by index.php/news and
-watch your news page.</p>
+<p>Aponte seu navegador para o documento root, seguido por index.php/news e veja sua página de notícias.</p>
 </div>
 </div>
 
