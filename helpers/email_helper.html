@@ -425,13 +425,12 @@
 
   <div class="section" id="email-helper">
 <h1>Auxiliar de Email<a class="headerlink" href="#email-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Email provides some assistive functions for working with
-Email. For a more robust email solution, see CodeIgniter&#8217;s <a class="reference internal" href="../libraries/email.html"><em>Email
-Class</em></a>.</p>
+<p>O Auxiliar de Email fornece funções auxiliares para trabalhar com e-mail.
+Para uma solução de e-mail mais robusta, consulte a <a class="reference internal" href="../libraries/email.html"><em>Classe de E-mail
+</em></a> do CodeIgniter.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">The Email helper is DEPRECATED and is currently
-only kept for backwards compatibility.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">O Ajudante de E-mail está OBSOLETO e é mantido só por compatibilidade com versões mais antigas.</p>
 </div>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -448,7 +447,7 @@ only kept for backwards compatibility.</p>
 </div>
 <div class="section" id="available-functions">
 <h2><a class="toc-backref" href="#id2">Funções disponíveis</a><a class="headerlink" href="#available-functions" title="Permalink to this headline">¶</a></h2>
-<p>As seguinte funções estão disponíveis:</p>
+<p>As seguintes funções estão disponíveis:</p>
 <dl class="function">
 <dt id="valid_email">
 <tt class="descname">valid_email</tt><big>(</big><em>$email</em><big>)</big><a class="headerlink" href="#valid_email" title="Permalink to this definition">¶</a></dt>
@@ -457,11 +456,11 @@ only kept for backwards compatibility.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$email</strong> (<em>string</em>) &#8211; E-mail address</li>
+<li><strong>$email</strong> (<em>string</em>) &#8211; Endereço de e-mail</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if a valid email is supplied, FALSE otherwise</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE se o e-mail fornecido é válido, FALSE caso contrário</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
@@ -469,23 +468,23 @@ only kept for backwards compatibility.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks if the input is a correctly formatted e-mail address. Note that is
-doesn&#8217;t actually prove that the address will be able recieve mail, but
-simply that it is a validly formed address.</p>
-<p>Example:</p>
+<p>Verifica se a entrada for um endereço de e-mail formatado corretamente. Note que
+na realidade não comprava que o endereço de e-mail será capaz de receber o e-mail, mas
+simplesmente que é um formato válido para endereço de e-mail.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">valid_email</span><span class="p">(</span><span class="s1">&#39;email@somesite.com&#39;</span><span class="p">))</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;email is valid&#39;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;e-mail é válido&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;email is not valid&#39;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;e-mail não é válido&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>All that this function does is to use PHP&#8217;s native <tt class="docutils literal"><span class="pre">filter_var()</span></tt>:</p>
+<p class="first admonition-title">Nota</p>
+<p>Tudo o que esta função faz é usar <tt class="docutils literal"><span class="pre">filter_var()</span></tt> nativo do PHP:</p>
 <div class="last highlight-ci"><div class="highlight"><pre><span class="p">(</span><span class="nx">bool</span><span class="p">)</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -500,13 +499,13 @@ simply that it is a validly formed address.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$recipient</strong> (<em>string</em>) &#8211; E-mail address</li>
-<li><strong>$subject</strong> (<em>string</em>) &#8211; Mail subject</li>
-<li><strong>$message</strong> (<em>string</em>) &#8211; Message body</li>
+<li><strong>$recipient</strong> (<em>string</em>) &#8211; Endereço de e-mail</li>
+<li><strong>$subject</strong> (<em>string</em>) &#8211; Assunto do e-mail</li>
+<li><strong>$message</strong> (<em>string</em>) &#8211; Corpo da mensagem</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the mail was successfully sent, FALSE in case of an error</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE se o e-mail foi enviado com sucesso, FALSE no caso de algum erro</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
@@ -514,16 +513,15 @@ simply that it is a validly formed address.</p>
 </tr>
 </tbody>
 </table>
-<p>Sends an email using PHP&#8217;s native <a class="reference external" href="http://php.net/function.mail">mail()</a>
-function.</p>
+<p>Envia um e-mail usando uma função nativa do PHP <a class="reference external" href="http://php.net/function.mail">mail()</a>.
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>All that this function does is to use PHP&#8217;s native <tt class="docutils literal"><span class="pre">mail</span></tt></p>
+<p class="first admonition-title">Nota</p>
+<p>Tudo o que esta função faz é usar <tt class="docutils literal"><span class="pre">mail</span></tt> nativo do PHP:</p>
 <div class="last highlight-ci"><div class="highlight"><pre><span class="nb">mail</span><span class="p">(</span><span class="nv">$recipient</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<p>For a more robust email solution, see CodeIgniter&#8217;s <a class="reference internal" href="../libraries/email.html"><em>Email Library</em></a>.</p>
+<p>Para uma solução de e-mail mais robusta, consulte a <a class="reference internal" href="../libraries/email.html"><em>Classe de Email</em></a> do CodeIgniter.</p>
 </dd></dl>
 
 </div>
