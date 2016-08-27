@@ -425,8 +425,7 @@
 
   <div class="section" id="language-helper">
 <h1>Auxiliar de Idioma<a class="headerlink" href="#language-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Idioma file contains functions that assist in working with
-language files.</p>
+<p>O arquivo Auxiliar de Idioma contém funções que auxiliam no trabalho com arquivos de idioma.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -451,13 +450,13 @@ language files.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$line</strong> (<em>string</em>) &#8211; Language line key</li>
-<li><strong>$for</strong> (<em>string</em>) &#8211; HTML &#8220;for&#8221; attribute (ID of the element we&#8217;re creating a label for)</li>
-<li><strong>$attributes</strong> (<em>array</em>) &#8211; Any additional HTML attributes</li>
+<li><strong>$line</strong> (<em>string</em>) &#8211; Chave da linha do idioma</li>
+<li><strong>$for</strong> (<em>string</em>) &#8211; HTML &#8220;para&#8221; atribudo (ID do elemento nós estamos criando um rótulo para)</li>
+<li><strong>$attributes</strong> (<em>array</em>) &#8211; Todos atributos HTML adicionais</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML-formatted language line label</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML-rótulo da linha de idioma formatado</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -465,12 +464,12 @@ language files.</p>
 </tr>
 </tbody>
 </table>
-<p>This function returns a line of text from a loaded language file with
-simplified syntax that may be more desirable for view files than
+<p>Esta função retorna uma linha de texto de um arquivo de idioma carregado com
+uma simples sintaxe que pode ser mais desejável para os arquivos view do que a
 <tt class="docutils literal"><span class="pre">CI_Lang::line()</span></tt>.</p>
-<p>Example:</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;language_key&#39;</span><span class="p">,</span> <span class="s1">&#39;form_item_id&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myClass&#39;</span><span class="p">));</span>
-<span class="c1">// Outputs: &lt;label for=&quot;form_item_id&quot; class=&quot;myClass&quot;&gt;Language line&lt;/label&gt;</span>
+<span class="c1">// Saídas: &lt;label for=&quot;form_item_id&quot; class=&quot;myClass&quot;&gt;Language line&lt;/label&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
