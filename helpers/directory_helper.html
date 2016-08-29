@@ -425,8 +425,7 @@
 
   <div class="section" id="directory-helper">
 <h1>Auxiliar de Diretório<a class="headerlink" href="#directory-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Diretório file contains functions that assist in working with
-directories.</p>
+<p>O arquivo Auxiliar de Diretório contém funções que auxiliam no trabalho com diretórios.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -451,13 +450,13 @@ directories.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$source_dir</strong> (<em>string</em>) &#8211; Path to the source directory</li>
-<li><strong>$directory_depth</strong> (<em>int</em>) &#8211; Depth of directories to traverse (0 = fully recursive, 1 = current dir, etc)</li>
-<li><strong>$hidden</strong> (<em>bool</em>) &#8211; Whether to include hidden directories</li>
+<li><strong>$source_dir</strong> (<em>string</em>) &#8211; Caminho para o diretório de origem</li>
+<li><strong>$directory_depth</strong> (<em>int</em>) &#8211; Profundidade de diretórios para percorrer (0 = completamente recursivo, 1 = diretório atual, etc)</li>
+<li><strong>$hidden</strong> (<em>bool</em>) &#8211; Se deseja incluir diretórios ocultos</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An array of files</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Uma lista dos arquivos</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
@@ -466,26 +465,23 @@ directories.</p>
 </tbody>
 </table>
 <p>Examples:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$map</span> <span class="o">=</span> <span class="nx">directory_map</span><span class="p">(</span><span class="s1">&#39;./mydirectory/&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$map</span> <span class="o">=</span> <span class="nx">directory_map</span><span class="p">(</span><span class="s1">&#39;./meudiretorio/&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Paths are almost always relative to your main index.php file.</p>
+<p class="last">Os carminhs são quase sempre em relação ao seu arquivo principal index.php</p>
 </div>
-<p>Sub-folders contained within the directory will be mapped as well. If
-you wish to control the recursion depth, you can do so using the second
-parameter (integer). A depth of 1 will only map the top level directory:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$map</span> <span class="o">=</span> <span class="nx">directory_map</span><span class="p">(</span><span class="s1">&#39;./mydirectory/&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<p>Sub-pastas contidas dentro diretório serão mapeadas assim. Se você deseja controlar a profundidade de recursão, você pode fazer isso usando o segundo parâmetro (inteiro). A profundidade de 1 só irá mapear o diretório do nível superior:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$map</span> <span class="o">=</span> <span class="nx">directory_map</span><span class="p">(</span><span class="s1">&#39;./meudiretorio/&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>By default, hidden files will not be included in the returned array. To
-override this behavior, you may set a third parameter to true (boolean):</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$map</span> <span class="o">=</span> <span class="nx">directory_map</span><span class="p">(</span><span class="s1">&#39;./mydirectory/&#39;</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<p>Por padrão, arquivos ocultos não são incluídos na lista retornada. Para alterar esse comportamento, você pode definir um terceiro parâmetro para true (boleano):</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$map</span> <span class="o">=</span> <span class="nx">directory_map</span><span class="p">(</span><span class="s1">&#39;./meudiretorio/&#39;</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Each folder name will be an array index, while its contained files will
-be numerically indexed. Here is an example of a typical array:</p>
+<p>Cada nome de pasta será um index  do array, enquanto os arquivos contidos serão indexados numericamente.
+Aqui está um exemplo de um array típico:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">Array</span> <span class="p">(</span>
         <span class="p">[</span><span class="nx">libraries</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
                 <span class="p">(</span>
