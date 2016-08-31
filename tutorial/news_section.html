@@ -430,14 +430,12 @@ escrevendo uma classe que incui páginas estáticas. Nós limpamos o URI
 adicionando regras de roteamento personalizado. Agora é hora de introduzir um conteúdo dinâmico
 e começar a usar um banco de dados.</p>
 <div class="section" id="setting-up-your-model">
-<h2>Congigurando seu model<a class="headerlink" href="#setting-up-your-model" title="Permalink to this headline">¶</a></h2>
-<p>Instead of writing database operations right in the controller, queries
-should be placed in a model, so they can easily be reused later. Models
-are the place where you retrieve, insert, and update information in your
-database or other data stores. They represent your data.</p>
-<p>Open up the <em>application/models/</em> directory and create a new file called
-<em>News_model.php</em> and add the following code. Make sure you&#8217;ve configured
-your database properly as described <a class="reference internal" href="../database/configuration.html"><em>here</em></a>.</p>
+<h2>Configurando seu model<a class="headerlink" href="#setting-up-your-model" title="Permalink to this headline">¶</a></h2>
+<p>Ao invés de escrever operações de banco de dados diretamente no controlador, queries deverão ser colocadas em um model, para que eles possam ser facilmente reutilizados mais tarde.
+Os model são o lugar onde você recuperar, insere e atualizar as informações em seu banco de dados ou outros armazenamentos de dados. Eles representam seus dados.</p>
+<p>Abra o diretório <em>application/models/</em> e dentro dele crie um novo arquivo chamado
+<em>News_model.php</em> e adicione o seguinte código. Certifique-se de que tenha configurado seu banco de dados corretamente,
+conforme descrito <a class="reference internal" href="../database/configuration.html"><em>aqui</em></a>.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">News_model</span> <span class="k">extends</span> <span class="nx">CI_Model</span> <span class="p">{</span>
 
@@ -448,13 +446,14 @@ your database properly as described <a class="reference internal" href="../datab
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This code looks similar to the controller code that was used earlier. It
-creates a new model by extending <tt class="docutils literal"><span class="pre">CI_Model</span></tt> and loads the database
-library. This will make the database class available through the
-<tt class="docutils literal"><span class="pre">$this-&gt;db</span></tt> object.</p>
-<p>Before querying the database, a database schema has to be created.
-Connect to your database and run the SQL command below (MySQL).
-Also add some seed records.</p>
+<p>Este código é semelhante ao código do controller que foi usado anteriormente.
+Ele cria um novo model extendendo de <tt class="docutils literal"><span class="pre">CI_Model</span></tt> e carrega a biblioteca
+de banco de dados.
+Isto irá fazer com que a classe de banco de dados fique disponível através do objeto
+<tt class="docutils literal"><span class="pre">$this-&gt;db</span></tt>.</p>
+<p>Antes de consultar o banco de dados, um esquema do banco de dados tem que ser criado.
+Conecte seu banco de dados e execute o comando SQL abaixo (MySQL).
+Também adicione alguns registros na base.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">CREATE</span> <span class="nx">TABLE</span> <span class="nx">news</span> <span class="p">(</span>
         <span class="nx">id</span> <span class="nx">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="nx">AUTO_INCREMENT</span><span class="p">,</span>
         <span class="nx">title</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
@@ -465,13 +464,10 @@ Also add some seed records.</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Now that the database and a model have been set up, you&#8217;ll need a method
-to get all of our posts from our database. To do this, the database
-abstraction layer that is included with CodeIgniter —
-<a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> — is used. This makes it
-possible to write your &#8216;queries&#8217; once and make them work on <a class="reference internal" href="../general/requirements.html"><em>all
-supported database systems</em></a>. Add the
-following code to your model.</p>
+<p>Agora que o banco de dados e um model foram criados, você irá precisar de um método para obetr todos os nossos posts em nosso banco de dados.
+Para fazer isso, é usado a
+<a class="reference internal" href="../database/query_builder.html"><em>Classe de construção de consulta (Query Builder)</em></a> — que é a camada de abstração do banco de dados que já vem incluído com o CodeIgniter. Isso permite que escreva suas &#8216;consultas&#8217; uma vez e fazer com que funcione em <a class="reference internal" href="../general/requirements.html"><em>todos os sistemas de bancos de dados suportados</em></a>.
+Adicione o seguinte código em seu model.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">get_news</span><span class="p">(</span><span class="nv">$slug</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$slug</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
@@ -485,10 +481,10 @@ following code to your model.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>With this code you can perform two different queries. You can get all
-news records, or get a news item by its <a class="reference external" href="#">slug</a>. You might have
-noticed that the <tt class="docutils literal"><span class="pre">$slug</span></tt> variable wasn&#8217;t sanitized before running the
-query; <a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> does this for you.</p>
+<p>Com esse código você pode executar duas consultas diferentes. Você pode obter todos os registros de notícias,
+ou obter uma notícia por por seu <a class="reference external" href="#">slug</a>. Você deve ter notado que a variável
+<tt class="docutils literal"><span class="pre">$slug</span></tt> não foi limpa antes de executar a consulta;
+<a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> faz isso para você.</p>
 </div>
 <div class="section" id="display-the-news">
 <h2>Exibir as notícias<a class="headerlink" href="#display-the-news" title="Permalink to this headline">¶</a></h2>
