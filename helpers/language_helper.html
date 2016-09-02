@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Auxiliar de Idioma &mdash; Documentação do CodeIgniter 3.0.6</title>
+  <title>Auxiliar de Idioma &mdash; Documentação do CodeIgniter 3.1.0</title>
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-    <link rel="top" title="Documentação do CodeIgniter 3.0.6" href="../index.html"/>
+    <link rel="top" title="Documentação do CodeIgniter 3.1.0" href="../index.html"/>
         <link rel="up" title="Helpers" href="index.html"/>
         <link rel="next" title="Auxiliar de Número" href="number_helper.html"/>
         <link rel="prev" title="Auxiliar de Flexão Gramatical" href="inflector_helper.html"/>
@@ -456,7 +456,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML-rótulo da linha de idioma formatado</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">A linha do Idioma; em uma tag label HTML, se o parâmetro <tt class="docutils literal"><span class="pre">$for</span></tt> não estiver vazio</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -467,8 +467,12 @@
 <p>Esta função retorna uma linha de texto de um arquivo de idioma carregado com
 uma simples sintaxe que pode ser mais desejável para os arquivos view do que a
 <tt class="docutils literal"><span class="pre">CI_Lang::line()</span></tt>.</p>
-<p>Exemplo:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;language_key&#39;</span><span class="p">,</span> <span class="s1">&#39;form_item_id&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myClass&#39;</span><span class="p">));</span>
+<p>Exemplos:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;language_key&#39;</span><span class="p">);</span>
+<span class="c1">// Saídas: Linha do idioma</span>
+
+<span class="k">echo</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;language_key&#39;</span><span class="p">,</span> <span class="s1">&#39;form_item_id&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myClass&#39;</span><span class="p">));</span>
+
 <span class="c1">// Saídas: &lt;label for=&quot;form_item_id&quot; class=&quot;myClass&quot;&gt;Language line&lt;/label&gt;</span>
 </pre></div>
 </div>
@@ -496,7 +500,7 @@ uma simples sintaxe que pode ser mais desejável para os arquivos view do que a
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2016, British Columbia Institute of Technology.
-      Última atualização em 21 de março de 2016.
+      Última atualização em 26 de julho de 2016.
     </p>
   </div>
 
@@ -517,7 +521,7 @@ uma simples sintaxe que pode ser mais desejável para os arquivos view do que a
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.6',
+            VERSION:'3.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false
