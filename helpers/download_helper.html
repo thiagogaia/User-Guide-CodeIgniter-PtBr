@@ -425,7 +425,7 @@
 
   <div class="section" id="download-helper">
 <h1>Auxiliar de Download<a class="headerlink" href="#download-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Download lets you download data to your desktop.</p>
+<p>O Auxiliar de Download permite que você baixe dados para o seu desktop.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -450,9 +450,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$filename</strong> (<em>string</em>) &#8211; Filename</li>
-<li><strong>$data</strong> (<em>mixed</em>) &#8211; File contents</li>
-<li><strong>$set_mime</strong> (<em>bool</em>) &#8211; Whether to try to send the actual MIME type</li>
+<li><strong>$filename</strong> (<em>string</em>) &#8211; Nome do arquivo</li>
+<li><strong>$data</strong> (<em>mixed</em>) &#8211; Conteúdo do arquivo</li>
+<li><strong>$set_mime</strong> (<em>bool</em>) &#8211; Saber se tenta enviar o tipo MIME atual</li>
 </ul>
 </td>
 </tr>
@@ -461,25 +461,19 @@
 </tr>
 </tbody>
 </table>
-<p>Generates server headers which force data to be downloaded to your
-desktop. Useful with file downloads. The first parameter is the <strong>name
-you want the downloaded file to be named</strong>, the second parameter is the
-file data.</p>
-<p>If you set the second parameter to NULL and <tt class="docutils literal"><span class="pre">$filename</span></tt> is an existing, readable
-file path, then its content will be read instead.</p>
-<p>If you set the third parameter to boolean TRUE, then the actual file MIME type
-(based on the filename extension) will be sent, so that if your browser has a
-handler for that type - it can use it.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Here is some text!&#39;</span><span class="p">;</span>
-<span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;mytext.txt&#39;</span><span class="p">;</span>
+<p>Gera cabeçalhos de servidor que forçam os dados a serem baixados para seu desktop. Útil com downloads de arquivo de dados.
+O primeiro parâmentro é o <strong>nome que deseja que o arquivo baixado seja nomeado</strong>, o segundo parâmetro é o arquivo.</p>
+<p>Se você definir o segundo parâmetro como NULL e <tt class="docutils literal"><span class="pre">$filename</span></tt> existe em um diretório de leitura, então, seu conteúdo será lido em seu lugar.</p>
+<p>Se você definir o terceiro parâmetro para TRUE (boleano), então o tipo MIME do arquivo atual (baseado na extensão do arquivo) será enviado, de modo que se o navegador tiver um manipulador para esse tipo - que possa usá-lo.</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Aqui está algum texto!&#39;</span><span class="p">;</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;meutexto.txt&#39;</span><span class="p">;</span>
 <span class="nx">force_download</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If you want to download an existing file from your server you&#8217;ll need to
-do the following:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Contents of photo.jpg will be automatically read</span>
-<span class="nx">force_download</span><span class="p">(</span><span class="s1">&#39;/path/to/photo.jpg&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">);</span>
+<p>Se você deseja baixar o arquivo existente do seu servidor você precisará fazer o seguinte:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Conteúdo de foto.jpg será lido automaticamente</span>
+<span class="nx">force_download</span><span class="p">(</span><span class="s1">&#39;/caminho/de/foto.jpg&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">);</span>
 </pre></div>
 </div>
 </dd></dl>
