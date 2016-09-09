@@ -425,29 +425,26 @@
 
   <div class="section" id="auto-loading-resources">
 <h1>Carregando Recursos Automaticamente<a class="headerlink" href="#auto-loading-resources" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter comes with an &#8220;Auto-load&#8221; feature that permits libraries,
-helpers, and models to be initialized automatically every time the
-system runs. If you need certain resources globally throughout your
-application you should consider auto-loading them for convenience.</p>
-<p>The following items can be loaded automatically:</p>
+<p>O CodeIgniter vem com um recurso de &#8220;Carregamento automático (Auto-load)&#8221; que permite que bibliotecas,
+auxiliares e models sejam inicializados automaticamente toda vez que o sistema rodar.
+Se você precisa de certos recursos globais em sua aplicação, deve considerar carregá-los automaticamente para sua conveniência.</p>
+<p>Os seguintes items podem ser carregados automaticamente:</p>
 <ul class="simple">
-<li>Classes found in the <em>libraries/</em> directory</li>
-<li>Helper files found in the <em>helpers/</em> directory</li>
-<li>Custom config files found in the <em>config/</em> directory</li>
-<li>Language files found in the <em>system/language/</em> directory</li>
-<li>Models found in the <em>models/</em> folder</li>
+<li>Classes localizadas no diretório <em>libraries/</em></li>
+<li>Arquivos auxiliares localizados no diretório <em>helpers/</em></li>
+<li>Arquivos de configuração personalizados localizados no diretório <em>config/</em></li>
+<li>Arquivos de idiomas localizados no diretório <em>system/language/</em></li>
+<li>Models localizados no diretório <em>models/</em></li>
 </ul>
-<p>To autoload resources, open the <strong>application/config/autoload.php</strong>
-file and add the item you want loaded to the autoload array. You&#8217;ll
-find instructions in that file corresponding to each type of item.</p>
+<p>Para carregar recursos automaticamente, abra o arquivo <strong>application/config/autoload.php</strong>
+e adicione o item que deseja carregar automaticamente para o array.Você irá
+encontrar instruções no arquivo correspondente a cada tipo de item.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Do not include the file extension (.php) when adding items to
-the autoload array.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Não inclua a extensão do arquivo (.php) quando adicionar itens no array para serem carregados automaticamente.</p>
 </div>
-<p>Additionally, if you want CodeIgniter to use a <a class="reference external" href="https://getcomposer.org/">Composer</a>
-auto-loader, just set <tt class="docutils literal"><span class="pre">$config['composer_autoload']</span></tt> to <tt class="docutils literal"><span class="pre">TRUE</span></tt> or
-a custom path in <strong>application/config/config.php</strong>.</p>
+<p>Além disso, se você quiser carregar automaticamente o <a class="reference external" href="https://getcomposer.org/">Composer</a> para ser usado no CodeIgniter,
+basta definir <tt class="docutils literal"><span class="pre">$config['composer_autoload']</span></tt> para <tt class="docutils literal"><span class="pre">TRUE</span></tt> ou um caminho personalizado em <strong>application/config/config.php</strong>.</p>
 </div>
 
 
