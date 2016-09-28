@@ -425,7 +425,7 @@
 
   <div class="section" id="file-helper">
 <h1>Auxiliar de Arquivo<a class="headerlink" href="#file-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Arquivo file contains functions that assist in working with files.</p>
+<p>O arquivo Auxiliar de Arquivo contem funções que auxiliam no trabalho com arquivos.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -450,11 +450,11 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$file</strong> (<em>string</em>) &#8211; File path</li>
+<li><strong>$file</strong> (<em>string</em>) &#8211; Caminho do arquivo</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">File contents or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">O conteúdo do arquivo ou FALSE em caso de falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -462,28 +462,25 @@
 </tr>
 </tbody>
 </table>
-<p>Returns the data contained in the file specified in the path.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">read_file</span><span class="p">(</span><span class="s1">&#39;./path/to/file.php&#39;</span><span class="p">);</span>
+<p>Retorna os dados contidos no arquivo especificado no caminho.</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">read_file</span><span class="p">(</span><span class="s1">&#39;./caminho/para/arquivo.php&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The path can be a relative or full server path. Returns FALSE (boolean) on failure.</p>
+<p>O caminho pode ser um caminho de servidor relativo ou absoluto. Retorna FALSE (boleano) em caso de falha.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The path is relative to your main site index.php file, NOT your
-controller or view files. CodeIgniter uses a front controller so paths
-are always relative to the main site index.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">O caminho é relativo ao arquivo index.php principal no site, NÃO aos seus arquivos controller ou view.
+O CodeIgniter usa um front controller de modo que sempre será relativo ao index.php principal do site.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function is DEPRECATED. Use the native <tt class="docutils literal"><span class="pre">file_get_contents()</span></tt>
-instead.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta função esta OBSOLETA. Use a função nativa <tt class="docutils literal"><span class="pre">file_get_contents()</span></tt>
+em seu lugar.</p>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">If your server is running an <strong>open_basedir</strong> restriction this
-function might not work if you are trying to access a file above the
-calling script.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Se o seu servidor estiver executando uma restrição <strong>open_basedir</strong> esta função talvez não funcione se tentar acessar um arquivo que esteja um nível acima ao script chamado.</p>
 </div>
 </dd></dl>
 
@@ -495,13 +492,13 @@ calling script.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$path</strong> (<em>string</em>) &#8211; File path</li>
-<li><strong>$data</strong> (<em>string</em>) &#8211; Data to write to file</li>
-<li><strong>$mode</strong> (<em>string</em>) &#8211; <tt class="docutils literal"><span class="pre">fopen()</span></tt> mode</li>
+<li><strong>$path</strong> (<em>string</em>) &#8211; Caminho do arquivo</li>
+<li><strong>$data</strong> (<em>string</em>) &#8211; Dados para gravar no arquivo</li>
+<li><strong>$mode</strong> (<em>string</em>) &#8211; modo <tt class="docutils literal"><span class="pre">fopen()</span></tt></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the write was successful, FALSE in case of an error</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE se a gravação foi bem sucedida, FALSE em caso de erro</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
@@ -509,35 +506,32 @@ calling script.</p>
 </tr>
 </tbody>
 </table>
-<p>Writes data to the file specified in the path. If the file does not exist then the
-function will create it.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Some file data&#39;</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nx">write_file</span><span class="p">(</span><span class="s1">&#39;./path/to/file.php&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">))</span>
+<p>Escreve os dados no arquivo especificado no caminho. Se o arquivo não existir, ele será criado.</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Alguns dados para o arquivo&#39;</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nx">write_file</span><span class="p">(</span><span class="s1">&#39;./caminho/para/arquivo.php&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">))</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;Unable to write the file&#39;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;Não foi possível escrever no arquivo&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;File written!&#39;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;Dados escritos!&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You can optionally set the write mode via the third parameter:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">write_file</span><span class="p">(</span><span class="s1">&#39;./path/to/file.php&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">);</span>
+<p>Você pode configurar opcionalmente o modo de escrita através do terceiro parâmetro:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">write_file</span><span class="p">(</span><span class="s1">&#39;./caminho/para/arquivo.php&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The default mode is &#8216;wb&#8217;. Please see the <a class="reference external" href="http://php.net/manual/en/function.fopen.php">PHP user guide</a>
-for mode options.</p>
+<p>O modo padrão é &#8216;wb&#8217;. Por favor, veja o <a class="reference external" href="http://php.net/manual/pt_BR/function.fopen.php">Guia do Usuário do PHP</a> para mais opções.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The path is relative to your main site index.php file, NOT your
-controller or view files. CodeIgniter uses a front controller so paths
-are always relative to the main site index.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">O caminho é relativo ao arquivo index.php principal no site, NÃO aos seus arquivos controller ou view.
+O CodeIgniter usa um front controller de modo que sempre será relativo ao index.php principal do site.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function acquires an exclusive lock on the file while writing to it.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta função requer um bloqueio exclusivo no arquivo ao escrever nele.</p>
 </div>
 </dd></dl>
 
@@ -549,13 +543,13 @@ are always relative to the main site index.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$path</strong> (<em>string</em>) &#8211; Directory path</li>
-<li><strong>$del_dir</strong> (<em>bool</em>) &#8211; Whether to also delete directories</li>
-<li><strong>$htdocs</strong> (<em>bool</em>) &#8211; Whether to skip deleting .htaccess and index page files</li>
+<li><strong>$path</strong> (<em>string</em>) &#8211; Caminho do diretório</li>
+<li><strong>$del_dir</strong> (<em>bool</em>) &#8211; Se deseja também excluir diretórios</li>
+<li><strong>$htdocs</strong> (<em>bool</em>) &#8211; Se deseja ignorar a exclusão de arquivos da página .htaccess e index</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE on success, FALSE in case of an error</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE no sucesso, FALSE em caso de um erro</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
@@ -563,20 +557,19 @@ are always relative to the main site index.</p>
 </tr>
 </tbody>
 </table>
-<p>Deletes ALL files contained in the supplied path.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">delete_files</span><span class="p">(</span><span class="s1">&#39;./path/to/directory/&#39;</span><span class="p">);</span>
+<p>Apaga TODOS os arquivos dentro do caminho fornecido.</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">delete_files</span><span class="p">(</span><span class="s1">&#39;./caminho/para/diretório/&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If the second parameter is set to TRUE, any directories contained within the supplied
-root path will be deleted as well.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">delete_files</span><span class="p">(</span><span class="s1">&#39;./path/to/directory/&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<p>Se o segundo parâmetro estiver configurado como TRUE, qualquer diretório dentro do caminho fornecido também será apagado.</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">delete_files</span><span class="p">(</span><span class="s1">&#39;./caminho/para/diretório/&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The files must be writable or owned by the system in order to be deleted.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Os arquivos devem ter permissão de escrita ou  pertencerem ao sistema de modo que possam ser apagados.</p>
 </div>
 </dd></dl>
 
@@ -588,12 +581,12 @@ root path will be deleted as well.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$source_dir</strong> (<em>string</em>) &#8211; Directory path</li>
-<li><strong>$include_path</strong> (<em>bool</em>) &#8211; Whether to include the path as part of the filenames</li>
+<li><strong>$source_dir</strong> (<em>string</em>) &#8211; Caminho do diretório</li>
+<li><strong>$include_path</strong> (<em>bool</em>) &#8211; Se deseja incluir o caminho como parte dos nomes dos arquivos</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An array of file names</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Um array dos nomes dos arquivos</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
@@ -601,10 +594,9 @@ root path will be deleted as well.</p>
 </tr>
 </tbody>
 </table>
-<p>Takes a server path as input and returns an array containing the names of all files
-contained within it. The file path can optionally be added to the file names by setting
-the second parameter to TRUE.</p>
-<p>Example:</p>
+<p>Toma um caminho do servidor como entrada e retorna um array contendo os nomes de todos arquivos contidos nele.
+O caminho do arquivo pode opcionalmente ser adicionado aos nomes dos arquivos, definindo o segundo parâmetro como TRUE.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$controllers</span> <span class="o">=</span> <span class="nx">get_filenames</span><span class="p">(</span><span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;controllers/&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -618,12 +610,12 @@ the second parameter to TRUE.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$source_dir</strong> (<em>string</em>) &#8211; Directory path</li>
-<li><strong>$top_level_only</strong> (<em>bool</em>) &#8211; Whether to look only at the specified directory (excluding sub-directories)</li>
+<li><strong>$source_dir</strong> (<em>string</em>) &#8211; Caminho do diretório</li>
+<li><strong>$top_level_only</strong> (<em>bool</em>) &#8211; Se deseja observar apenas o diretório especificado (excluindo subdirectórios)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An array containing info on the supplied directory&#8217;s contents</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Um array contendo informações sobre o conteúdo do diretório fornecido</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
@@ -631,11 +623,9 @@ the second parameter to TRUE.</p>
 </tr>
 </tbody>
 </table>
-<p>Reads the specified directory and builds an array containing the filenames, filesize,
-dates, and permissions. Sub-folders contained within the specified path are only read
-if forced by sending the second parameter to FALSE, as this can be an intensive
-operation.</p>
-<p>Example:</p>
+<p>Lê um diretório especificado e constrói um array contendo os nomes dos arquivos, tamanho dos arquivos, datas e permissões.
+Os subdiretórios dentro do caminho especificado é lido somente se forçado passando o segundo parâmetro como FALSE, pois isso pode ser uma operação intensiva.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$models_info</span> <span class="o">=</span> <span class="nx">get_dir_file_info</span><span class="p">(</span><span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;models/&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -649,12 +639,12 @@ operation.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$file</strong> (<em>string</em>) &#8211; File path</li>
-<li><strong>$returned_values</strong> (<em>array</em>) &#8211; What type of info to return</li>
+<li><strong>$file</strong> (<em>string</em>) &#8211; Caminho do arquivo</li>
+<li><strong>$returned_values</strong> (<em>array</em>) &#8211; Qual o tipo da informação a retornar</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An array containing info on the specified file or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Um array contendo informações sobre o arquivo especificado ou FALSE em caso de falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
@@ -662,11 +652,9 @@ operation.</p>
 </tr>
 </tbody>
 </table>
-<p>Given a file and path, returns (optionally) the <em>name</em>, <em>path</em>, <em>size</em> and <em>date modified</em>
-information attributes for a file. Second parameter allows you to explicitly declare what
-information you want returned.</p>
-<p>Valid <tt class="docutils literal"><span class="pre">$returned_values</span></tt> options are: <cite>name</cite>, <cite>size</cite>, <cite>date</cite>, <cite>readable</cite>, <cite>writeable</cite>,
-<cite>executable</cite> and <cite>fileperms</cite>.</p>
+<p>Com base em um arquivo e um caminho, retorna (opcionalmente) informações de atributos como <em>nome</em>, <em>caminho</em>, <em>tamanho</em> e <em>data de modificação</em> para um arquivo. O segundo parâmetro permite que você declare explicitamente qual informação deseja que retorne.</p>
+<p>As opções válidas em <tt class="docutils literal"><span class="pre">$returned_values</span></tt> são: <cite>name</cite>, <cite>size</cite>, <cite>date</cite>, <cite>readable</cite>, <cite>writeable</cite>,
+<cite>executable</cite> e <cite>fileperms</cite>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -677,11 +665,11 @@ information you want returned.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$filename</strong> (<em>string</em>) &#8211; File name</li>
+<li><strong>$filename</strong> (<em>string</em>) &#8211; Nome do arquivo</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">MIME type string or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">MIME tipo string ou FALSE em caso de falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -689,17 +677,16 @@ information you want returned.</p>
 </tr>
 </tbody>
 </table>
-<p>Translates a filename extension into a MIME type based on <em>config/mimes.php</em>.
-Returns FALSE if it can&#8217;t determine the type, or read the MIME config file.</p>
+<p>Traduz uma extensão de um nome de arquivo em um tipo MIME baseado em <em>config/mimes.php</em>.
+Retorna FALSE se não pode determinar o tipo ou ler o arquivo de configuração MIME.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$file</span> <span class="o">=</span> <span class="s1">&#39;somefile.png&#39;</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nv">$file</span><span class="o">.</span><span class="s1">&#39; is has a mime type of &#39;</span><span class="o">.</span><span class="nx">get_mime_by_extension</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This is not an accurate way of determining file MIME types, and
-is here strictly for convenience. It should not be used for security
-purposes.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta não é uma maneira exata de determinar os tipos MIME de arquivos, e está aqui estritamente por conveniência.
+Não deve ser usada para fins de segurança.</p>
 </div>
 </dd></dl>
 
@@ -711,11 +698,11 @@ purposes.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$perms</strong> (<em>int</em>) &#8211; Permissions</li>
+<li><strong>$perms</strong> (<em>int</em>) &#8211; Permissões</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Symbolic permissions string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String de permissões simbólicas</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -723,8 +710,7 @@ purposes.</p>
 </tr>
 </tbody>
 </table>
-<p>Takes numeric permissions (such as is returned by <tt class="docutils literal"><span class="pre">fileperms()</span></tt>) and returns
-standard symbolic notation of file permissions.</p>
+<p>Assume permissões numéricas (como é retornado pelo <tt class="docutils literal"><span class="pre">fileperms()</span></tt>) e retorna notação simbólica padrão de permissões de arquivo.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">symbolic_permissions</span><span class="p">(</span><span class="nb">fileperms</span><span class="p">(</span><span class="s1">&#39;./index.php&#39;</span><span class="p">));</span>  <span class="c1">// -rw-r--r--</span>
 </pre></div>
 </div>
@@ -738,11 +724,11 @@ standard symbolic notation of file permissions.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$perms</strong> (<em>int</em>) &#8211; Permissions</li>
+<li><strong>$perms</strong> (<em>int</em>) &#8211; Permissões</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Octal permissions string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String de permissões Octal</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -750,8 +736,7 @@ standard symbolic notation of file permissions.</p>
 </tr>
 </tbody>
 </table>
-<p>Takes numeric permissions (such as is returned by <tt class="docutils literal"><span class="pre">fileperms()</span></tt>) and returns
-a three character octal notation of file permissions.</p>
+<p>Assume permissões numéricas (como é retornado pelo <tt class="docutils literal"><span class="pre">fileperms()</span></tt>) e retorna uma notação octal de três caracteres de permissões de arquivo.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">octal_permissions</span><span class="p">(</span><span class="nb">fileperms</span><span class="p">(</span><span class="s1">&#39;./index.php&#39;</span><span class="p">));</span> <span class="c1">// 644</span>
 </pre></div>
 </div>
