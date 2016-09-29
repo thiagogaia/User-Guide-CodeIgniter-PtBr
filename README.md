@@ -6,7 +6,7 @@
 
 Primeiramente, você deve dar um [fork](http://help.github.com/fork-a-repo/) no [projeto](https://github.com/CIBr/User-Guide-CodeIgniter-PtBr) para a sua conta. Com isso, você estará livre para fazer as traduções para o português.
 
-Quando finalizar algo, você deve dar um [pull request](http://help.github.com/pull-requests/) neste repositório para o seu conteúdo ser revisado e aprovado. Com isso, a sua tradução estará no repositório principal e com os seus devidos créditos.
+Quando finalizar algo, você deve dar um [pull request](https://help.github.com/articles/about-pull-requests/) neste repositório para o seu conteúdo ser revisado e aprovado. Com isso, a sua tradução estará no repositório principal e com os seus devidos créditos.
 
 Depois de aprovado, poderá ser visto em https://cibr.github.io/User-Guide-CodeIgniter-PtBr. Todos os colaboradores serão citados e terão seus créditos mantidos.
 
