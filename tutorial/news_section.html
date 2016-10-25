@@ -488,11 +488,9 @@ ou obter uma notícia por por seu <a class="reference external" href="#">slug</a
 </div>
 <div class="section" id="display-the-news">
 <h2>Exibir as notícias<a class="headerlink" href="#display-the-news" title="Permalink to this headline">¶</a></h2>
-<p>Now that the queries are written, the model should be tied to the views
-that are going to display the news items to the user. This could be done
-in our <tt class="docutils literal"><span class="pre">Pages</span></tt> controller created earlier, but for the sake of clarity,
-a new <tt class="docutils literal"><span class="pre">News</span></tt> controller is defined. Create the new controller at
-<em>application/controllers/News.php</em>.</p>
+<p>Agora que as consultas foram escritas, o model deve ser ligado para as views que irão exibir os items das notícias para o usuário.
+
+Isso poderia ser feito no nosso controller <tt class="docutils literal"><span class="pre">Pages</span></tt> criadas anteriormente, mas por uma questão de clareza, um novo controller <tt class="docutils literal"><span class="pre">News</span></tt> está definido. Crie o novo controller em <em>application/controllers/News.php</em>.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">News</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
