@@ -513,19 +513,15 @@ Isso poderia ser feito no nosso controller <tt class="docutils literal"><span cl
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Looking at the code, you may see some similarity with the files we
-created earlier. First, the <tt class="docutils literal"><span class="pre">__construct()</span></tt> method: it calls the
-constructor of its parent class (<tt class="docutils literal"><span class="pre">CI_Controller</span></tt>) and loads the model,
-so it can be used in all other methods in this controller.
-It also loads a collection of <a class="reference internal" href="../helpers/url_helper.html"><em>Auxiliar de URL</em></a>
-functions, because we&#8217;ll use one of them in a view later.</p>
-<p>Next, there are two methods to view all news items and one for a specific
-news item. You can see that the <tt class="docutils literal"><span class="pre">$slug</span></tt> variable is passed to the model&#8217;s
-method in the second method. The model is using this slug to identify the
-news item to be returned.</p>
-<p>Now the data is retrieved by the controller through our model, but
-nothing is displayed yet. The next thing to do is passing this data to
-the views.</p>
+<p>Olhando para o código, você pode ver alguma semelhança com os arquivos que criamos anteriormente.
+Primeiro o método <tt class="docutils literal"><span class="pre">__construct()</span></tt>: este chama o construtor de sua classe pai
+(<tt class="docutils literal"><span class="pre">CI_Controller</span></tt>) e carrega o model, para que ele possa ser usado em todos os outros métodos neste controller.
+Também carrega uma coleção de funções <a class="reference internal" href="../helpers/url_helper.html"><em>Auxiliar de URL</em></a>,
+porque usaremos uma delas em uma view mias tarde.</p>
+<p>Em seguida, existem dois métodos para exibir todas as notícias e um para um item de notícia específico.
+Você pode ver que a variável <tt class="docutils literal"><span class="pre">$slug</span></tt> é passada para o método do model no segundo método.
+O model esta usando este slug para identificar o item de notícia a ser retornado.</p>
+<p>Agora os dados são recuperados pelo controller através de nosso model, mas nada é exibido ainda. A próxima coisa a fazer é passar esses dados para as views.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
 <span class="p">{</span>
         <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">news_model</span><span class="o">-&gt;</span><span class="na">get_news</span><span class="p">();</span>
@@ -537,11 +533,10 @@ the views.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The code above gets all news records from the model and assigns it to a
-variable. The value for the title is also assigned to the <tt class="docutils literal"><span class="pre">$data['title']</span></tt>
-element and all data is passed to the views. You now need to create a
-view to render the news items. Create <em>application/views/news/index.php</em>
-and add the next piece of code.</p>
+<p>O código acima recebe todos os registros de notícias do model e atribui a uma variável.
+O valor para o título também é atribuído ao elemento <tt class="docutils literal"><span class="pre">$data['title']</span></tt> e todos os dados são passados para a view.
+Você agora precisa criar uma view para renderizar os itens das notícias.
+Crie <em>application/views/news/index.php</em> e adicione o próximo trecho ao código.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$title</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
 
 <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$news</span> <span class="k">as</span> <span class="nv">$news_item</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
@@ -555,15 +550,15 @@ and add the next piece of code.</p>
 <span class="cp">&lt;?php</span> <span class="k">endforeach</span><span class="p">;</span> <span class="cp">?&gt;</span>
 </pre></div>
 </div>
-<p>Here, each news item is looped and displayed to the user. You can see we
-wrote our template in PHP mixed with HTML. If you prefer to use a template
-language, you can use CodeIgniter&#8217;s <a class="reference internal" href="../libraries/parser.html"><em>Template
-Parser</em></a> class or a third party parser.</p>
-<p>The news overview page is now done, but a page to display individual
-news items is still absent. The model created earlier is made in such
-way that it can easily be used for this functionality. You only need to
-add some code to the controller and create a new view. Go back to the
-<tt class="docutils literal"><span class="pre">News</span></tt> controller and update <tt class="docutils literal"><span class="pre">view()</span></tt> with the following:</p>
+<p>Aqui, é realizado um laço de repetição para exibir cada item de notícia para o usuário.
+Você pode ver que nós escrevemos nosso template em PHP misturado com HTML.
+Se você preferir usar uma linguagem de template, você pode usar a classe <a class="reference internal" href="../libraries/parser.html"><em>Template
+Parser</em></a> do CodeIgniter ou um parser de terceiro.</p>
+<p>Uma visão geral da página de notícias está completo agora, mas a página para exibir um item de notícia individualmente ainda está ausente.
+O model criado anteriormente é feito de tal forma que pode ser facilmente utilizado para esta funcionalidade.
+Você só precisa adicionar um código no controller e criar uma nova view.
+Vamos voltar para o controller
+<tt class="docutils literal"><span class="pre">News</span></tt> e atualizar o método <tt class="docutils literal"><span class="pre">view()</span></tt> com o seguinte:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">view</span><span class="p">(</span><span class="nv">$slug</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;news_item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">news_model</span><span class="o">-&gt;</span><span class="na">get_news</span><span class="p">(</span><span class="nv">$slug</span><span class="p">);</span>
@@ -581,10 +576,10 @@ add some code to the controller and create a new view. Go back to the
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Instead of calling the <tt class="docutils literal"><span class="pre">get_news()</span></tt> method without a parameter, the
-<tt class="docutils literal"><span class="pre">$slug</span></tt> variable is passed, so it will return the specific news item.
-The only things left to do is create the corresponding view at
-<em>application/views/news/view.php</em>. Put the following code in this file.</p>
+<p>Em vez de chamar o método <tt class="docutils literal"><span class="pre">get_news()</span></tt> sem um parâmetro, a variável
+<tt class="docutils literal"><span class="pre">$slug</span></tt> é passada, então irá retornar um item de notícia específico.
+As únicas coisas que restam a faer é criar uma view correspondente em
+<em>application/views/news/view.php</em>. Coloque o seguinte código neste arquivo.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">echo</span> <span class="s1">&#39;&lt;h2&gt;&#39;</span><span class="o">.</span><span class="nv">$news_item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;&lt;/h2&gt;&#39;</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nv">$news_item</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
@@ -592,13 +587,13 @@ The only things left to do is create the corresponding view at
 </div>
 </div>
 <div class="section" id="routing">
-<h2>Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
-<p>Because of the wildcard routing rule created earlier, you need an extra
-route to view the controller that you just made. Modify your routing file
-(<em>application/config/routes.php</em>) so it looks as follows.
-This makes sure the requests reaches the <tt class="docutils literal"><span class="pre">News</span></tt> controller instead of
-going directly to the <tt class="docutils literal"><span class="pre">Pages</span></tt> controller. The first line routes URI&#8217;s
-with a slug to the <tt class="docutils literal"><span class="pre">view()</span></tt> method in the <tt class="docutils literal"><span class="pre">News</span></tt> controller.</p>
+<h2>Roteamento<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
+<p>Devido a regra de roteamento criado anteriomento, você precisa de uma rota extra para exibir o controller que acabou de fazer.
+Modifique seu arquivo de rota (<em>application/config/routes.php</em>) para que fique como segue.
+Isso garante que as requisições cheguem ao controller <tt class="docutils literal"><span class="pre">News</span></tt> em vez de ir diretamente
+para o controller <tt class="docutils literal"><span class="pre">Pages</span></tt>.
+A primeira linha roteia URI&#8217;s com um slug para o
+método <tt class="docutils literal"><span class="pre">view()</span></tt> no controller <tt class="docutils literal"><span class="pre">News</span></tt>.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;news/(:any)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;news/view/$1&#39;</span><span class="p">;</span>
 <span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;news&#39;</span><span class="p">;</span>
 <span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;(:any)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pages/view/$1&#39;</span><span class="p">;</span>
