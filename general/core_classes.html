@@ -425,22 +425,16 @@
 
   <div class="section" id="creating-core-system-classes">
 <h1>Criando Classes para o Núcleo do Sistema<a class="headerlink" href="#creating-core-system-classes" title="Permalink to this headline">¶</a></h1>
-<p>Every time CodeIgniter runs there are several base classes that are
-initialized automatically as part of the core framework. It is possible,
-however, to swap any of the core system classes with your own versions
-or even extend the core versions.</p>
-<p><strong>Most users will never have any need to do this, but the option to
-replace or extend them does exist for those who would like to
-significantly alter the CodeIgniter core.</strong></p>
+<p>Toda vez que o CodeIgniter é executado, existem várias classes de base que são inicializadas automaticamente como parte da estrutura principal do framework.
+É possível, no entanto, trocar qualquer uma das classes do sistema com suas próprias versões ou até mesmo estender as versões principais.</p>
+<p><strong>A maioria dos usuários nunca irá precisar fazer isso, mas a opção de substituí-los ou estendê-los existe para aqueles que gostariam de alterar significamente o núcleo do CodeIgniter.</strong></p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Messing with a core system class has a lot of implications, so
-make sure you know what you are doing before attempting it.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Brincando com uma das classes do núcleo do sistema tem um monte de implicações, por isso certifique-se de saber o que está fazendo antes de fazer.</p>
 </div>
 <div class="section" id="system-class-list">
-<h2>System Class List<a class="headerlink" href="#system-class-list" title="Permalink to this headline">¶</a></h2>
-<p>The following is a list of the core system files that are invoked every
-time CodeIgniter runs:</p>
+<h2>Lista de classes do sistema<a class="headerlink" href="#system-class-list" title="Permalink to this headline">¶</a></h2>
+<p>A seguir está uma lista dos principais arquivos de sistema que são invocados cada vez que CodeIgniter é executado:</p>
 <ul class="simple">
 <li>Benchmark</li>
 <li>Config</li>
@@ -459,17 +453,14 @@ time CodeIgniter runs:</p>
 </ul>
 </div>
 <div class="section" id="replacing-core-classes">
-<h2>Replacing Core Classes<a class="headerlink" href="#replacing-core-classes" title="Permalink to this headline">¶</a></h2>
-<p>To use one of your own system classes instead of a default one simply
-place your version inside your local <em>application/core/</em> directory:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">application</span><span class="o">/</span><span class="nx">core</span><span class="o">/</span><span class="nx">some_class</span><span class="o">.</span><span class="nx">php</span>
+<h2>Substituindo classes principais<a class="headerlink" href="#replacing-core-classes" title="Permalink to this headline">¶</a></h2>
+<p>Para usar uma de suas próprias classes de sistema em vez de uma padrão, basta colocar a sua versão dentro do diretório local <em>application/core/</em>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">application</span><span class="o">/</span><span class="nx">core</span><span class="o">/</span><span class="nx">alguma_classe</span><span class="o">.</span><span class="nx">php</span>
 </pre></div>
 </div>
-<p>If this directory does not exist you can create it.</p>
-<p>Any file named identically to one from the list above will be used
-instead of the one normally used.</p>
-<p>Please note that your class must use CI as a prefix. For example, if
-your file is named Input.php the class will be named:</p>
+<p>Se este diretório não existir, você pode criá-lo.</p>
+<p>Qualquer arquivo nomeado identicamente a um da lista acima será usado em vez do normalmente usado.</p>
+<p>Observe que sua classe deve usar CI como um prefixo. Por exemplo, se seu arquivo é nomeado Input.php a classe será nomeada:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CI_Input</span> <span class="p">{</span>
 
 <span class="p">}</span>
@@ -477,28 +468,22 @@ your file is named Input.php the class will be named:</p>
 </div>
 </div>
 <div class="section" id="extending-core-class">
-<h2>Extending Core Class<a class="headerlink" href="#extending-core-class" title="Permalink to this headline">¶</a></h2>
-<p>If all you need to do is add some functionality to an existing library -
-perhaps add a method or two - then it&#8217;s overkill to replace the entire
-library with your version. In this case it&#8217;s better to simply extend the
-class. Extending a class is nearly identical to replacing a class with a
-couple exceptions:</p>
+<h2>Estendendo a classe principal<a class="headerlink" href="#extending-core-class" title="Permalink to this headline">¶</a></h2>
+<p>Se tudo que você precisa fazer é adicionar alguma funcionalidade a uma biblioteca existente - talvez adicionar um método ou dois - então é exagero substituir a biblioteca inteira com a sua versão.
+Neste caso, é melhor simplesmente estender a classe. Estender uma classe é quase idêntico à substituição de uma classe por algumas exceções:</p>
 <ul class="simple">
-<li>The class declaration must extend the parent class.</li>
-<li>Your new class name and filename must be prefixed with MY_ (this
-item is configurable. See below.).</li>
+<li>A declaração de classe deve estender a classe pai.</li>
+<li>Seu novo nome de classe e nome de arquivo devem ser prefixados com MY_ (este item é configurável, veja abaixo.).</li>
 </ul>
-<p>For example, to extend the native Input class you&#8217;ll create a file named
-application/core/MY_Input.php, and declare your class with:</p>
+<p>Por exemplo, para estender a classe Input nativa, você criará um arquivo chamado <em>application/core/MY_Input.php</em> e declarará sua classe com:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MY_Input</span> <span class="k">extends</span> <span class="nx">CI_Input</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>If you need to use a constructor in your class make sure you
-extend the parent constructor:</p>
+<p class="first admonition-title">Nota</p>
+<p>Se você precisar usar um construtor em sua classe, certifique-se de estender o construtor pai:</p>
 <div class="last highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MY_Input</span> <span class="k">extends</span> <span class="nx">CI_Input</span> <span class="p">{</span>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
@@ -509,12 +494,8 @@ extend the parent constructor:</p>
 </pre></div>
 </div>
 </div>
-<p><strong>Tip:</strong> Any functions in your class that are named identically to the
-methods in the parent class will be used instead of the native ones
-(this is known as &#8220;method overriding&#8221;). This allows you to substantially
-alter the CodeIgniter core.</p>
-<p>If you are extending the Controller core class, then be sure to extend
-your new class in your application controller&#8217;s constructors.</p>
+<p><strong>Dica:</strong> Todas as funções na sua classe que são nomeadas de forma idêntica aos métodos na classe pai serão usadas em vez dos métodos nativos (isso é conhecido como "sobreposição de método"). Isso permite alterar substancialmente o núcleo do CodeIgniter.
+<p>Se estiver estendendo a classe principal do Controller, certifique-se de estender sua nova classe nos construtores do controller da aplicação.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Welcome</span> <span class="k">extends</span> <span class="nx">MY_Controller</span> <span class="p">{</span>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
@@ -530,14 +511,12 @@ your new class in your application controller&#8217;s constructors.</p>
 </pre></div>
 </div>
 <div class="section" id="setting-your-own-prefix">
-<h3>Setting Your Own Prefix<a class="headerlink" href="#setting-your-own-prefix" title="Permalink to this headline">¶</a></h3>
-<p>To set your own sub-class prefix, open your
-<em>application/config/config.php</em> file and look for this item:</p>
+<h3>Configurando seu próprio prefixo<a class="headerlink" href="#setting-your-own-prefix" title="Permalink to this headline">¶</a></h3>
+<p>Para definir seu próprio prefixo de subclasse, abra o arquivo <em>application/config/config.php</em> e procure por este item:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;subclass_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MY_&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Please note that all native CodeIgniter libraries are prefixed
-with CI_ so DO NOT use that as your prefix.</p>
+<p>Observe que todas as bibliotecas nativas do CodeIgniter são prefixadas com CI_, assim NÃO use isso como seu prefixo.</p>
 </div>
 </div>
 </div>
