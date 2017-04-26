@@ -425,43 +425,43 @@
 
   <div class="section" id="typography-class">
 <h1>Classe Tipografia<a class="headerlink" href="#typography-class" title="Permalink to this headline">¶</a></h1>
-<p>The Classe Tipografia provides methods that help you format text.</p>
+<p>A Classe de Tipografia fornece métodos que ajudam a formatar o texto.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#using-the-typography-class" id="id1">Using the Classe Tipografia</a><ul>
-<li><a class="reference internal" href="#initializing-the-class" id="id2">Initializing the Class</a></li>
+<li><a class="reference internal" href="#using-the-typography-class" id="id1">Usando a Classe de Tipografia</a><ul>
+<li><a class="reference internal" href="#initializing-the-class" id="id2">Inicializando a Classe</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#class-reference" id="id3">Class Reference</a></li>
+<li><a class="reference internal" href="#class-reference" id="id3">Referência de Classe</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="using-the-typography-class">
-<h2><a class="toc-backref" href="#id1">Using the Classe Tipografia</a><a class="headerlink" href="#using-the-typography-class" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Usando a Classe de Tipografia</a><a class="headerlink" href="#using-the-typography-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="initializing-the-class">
-<h3><a class="toc-backref" href="#id2">Initializing the Class</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h3>
-<p>Like most other classes in CodeIgniter, the Typography class is
-initialized in your controller using the <tt class="docutils literal"><span class="pre">$this-&gt;load-&gt;library()</span></tt> method:</p>
+<h3><a class="toc-backref" href="#id2">Inicializando a Classe</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h3>
+<p>Como a maioria das outras classes no CodeIgniter, a classe de Tipografia é inicializada em seu controller usando
+o método <tt class="docutils literal"><span class="pre">$this-&gt;load-&gt;library()</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;typography&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Once loaded, the Typography library object will be available using:</p>
+<p>Uma vez carregada, o objeto da biblioteca Tipografia estará disponível usando:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">typography</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id3">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Referência de Classe</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CI_Typography">
 <em class="property">class </em><tt class="descname">CI_Typography</tt><a class="headerlink" href="#CI_Typography" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
 <dt>
 <tt class="descname">$protect_braced_quotes = FALSE</tt></dt>
-<dd><p>When using the Typography library in conjunction with the <a class="reference internal" href="parser.html"><em>Template Parser library</em></a>
-it can often be desirable to protect single and double quotes within curly braces.
-To enable this, set the <tt class="docutils literal"><span class="pre">protect_braced_quotes</span></tt> class property to TRUE.</p>
-<p>Usage example:</p>
+<dd><p>Ao usar a biblioteca Tipografia em conjunto com a <a class="reference internal" href="parser.html"><em>biblioteca Template Parser</em></a>,
+pode ser desejável protejer aspas simples e duplas dentro de chaves.
+Para habilitar isso, defina a propriedade de classe <tt class="docutils literal"><span class="pre">protect_braced_quotes</span></tt> para TRUE.</p>
+<p>Exemplo de uso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;typography&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">typography</span><span class="o">-&gt;</span><span class="na">protect_braced_quotes</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
 </pre></div>
@@ -480,7 +480,7 @@ To enable this, set the <tt class="docutils literal"><span class="pre">protect_b
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String formatada</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -488,17 +488,17 @@ To enable this, set the <tt class="docutils literal"><span class="pre">protect_b
 </tr>
 </tbody>
 </table>
-<p>This method is similar to <tt class="docutils literal"><span class="pre">auto_typography()</span></tt> above, except that it only does character conversion:</p>
+<p>Este método é semelhante a <tt class="docutils literal"><span class="pre">auto_typography()</span></tt> acima, exceto que ele só faz conversão de caracteres:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Quotes are converted to correctly facing curly quote entities, except those that appear within tags.</li>
-<li>Apostrophes are converted to curly apostrophe entities.</li>
-<li>Double dashes (either like &#8211; this or like&#8211;this) are converted to em—dashes.</li>
-<li>Three consecutive periods either preceding or following a word are converted to ellipsis (…).</li>
-<li>Double spaces following sentences are converted to non-breaking spaces to mimic double spacing.</li>
+<li>As aspas são convertidas para uma correta entidades de aspas, exceto aquelas que aparecem dentro das tags.</li>
+<li>Apóstrofos são convertidos para entidades de apóstrofe curly.</li>
+<li>Os traços duplos (como este &#8211; ou similar&#8211;este) são convertidos em—traços.</li>
+<li>Três períodos consecutivos que precedem ou seguem uma palavra são convertidos em reticências (…).</li>
+<li>Espaços duplos seguindo frases são convertidos em espaços não-quebrando para imitar o espaçamento duplo.</li>
 </ul>
 </div></blockquote>
-<p>Usage example:</p>
+<p>Exemplo de uso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">typography</span><span class="o">-&gt;</span><span class="na">format_characters</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -516,7 +516,7 @@ To enable this, set the <tt class="docutils literal"><span class="pre">protect_b
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String formatada</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -524,9 +524,9 @@ To enable this, set the <tt class="docutils literal"><span class="pre">protect_b
 </tr>
 </tbody>
 </table>
-<p>Converts newlines to &lt;br /&gt; tags unless they appear within &lt;pre&gt; tags.
-This method is identical to the native PHP <tt class="xref php php-func docutils literal"><span class="pre">nl2br()</span></tt> function, except that it ignores &lt;pre&gt; tags.</p>
-<p>Usage example:</p>
+<p>Converte novas linhas para tags &lt;br /&gt; sem que elas apareçam dentro das tags &lt;pre&gt;.
+Este método é idêntico a função nativa do PHP <tt class="xref php php-func docutils literal"><span class="pre">nl2br()</span></tt>, exceto que ela ignora tags &lt;pre&gt;.</p>
+<p>Exemplo de uso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">typography</span><span class="o">-&gt;</span><span class="na">nl2br_except_pre</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
