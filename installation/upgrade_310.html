@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Upgrading from 3.0.6 to 3.1.0 &mdash; Documentação do CodeIgniter 3.1.0</title>
+  <title>Atualizando da versão 3.0.6 para 3.1.0 &mdash; Documentação do CodeIgniter 3.1.0</title>
 
 
 
@@ -413,7 +413,7 @@
 
         <li><a href="upgrading.html">Atualizando de uma versão anterior</a> &raquo;</li>
 
-    <li>Upgrading from 3.0.6 to 3.1.0</li>
+    <li>Atualizando da versão 3.0.6 para 3.1.0</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -426,35 +426,27 @@
           <div role="main" class="document">
 
   <div class="section" id="upgrading-from-3-0-6-to-3-1-0">
-<h1>Upgrading from 3.0.6 to 3.1.0<a class="headerlink" href="#upgrading-from-3-0-6-to-3-1-0" title="Permalink to this headline">¶</a></h1>
-<p>Before performing an update you should take your site offline by
-replacing the index.php file with a static one.</p>
+<h1>Atualizando da versão 3.0.6 para 3.1.0<a class="headerlink" href="#upgrading-from-3-0-6-to-3-1-0" title="Permalink to this headline">¶</a></h1>
+<p>Antes de atualizar o Codeigniter, coloque o site em manutenção e substitua o arquivo index.php por um arquivo estático.</p>
 <div class="section" id="step-1-update-your-codeigniter-files">
-<h2>Step 1: Update your CodeIgniter files<a class="headerlink" href="#step-1-update-your-codeigniter-files" title="Permalink to this headline">¶</a></h2>
-<p>Replace all files and directories in your <em>system/</em> directory.</p>
+<h2>Passo 1: Atualizar os arquivos do Codeigniter<a class="headerlink" href="#step-1-update-your-codeigniter-files" title="Permalink to this headline">¶</a></h2>
+<p>Substitua todos os arquivos e diretórios no diretório <em>system/</em>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you have any custom developed files in these directories,
-please make copies of them first.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você possui arquivos personalizados nesse diretório, guarde cópias destes antes de atualizar.</p>
 </div>
 </div>
 <div class="section" id="step-2-check-your-php-version">
-<h2>Step 2: Check your PHP version<a class="headerlink" href="#step-2-check-your-php-version" title="Permalink to this headline">¶</a></h2>
-<p>We recommend always running versions that are <a class="reference external" href="https://secure.php.net/supported-versions.php">currently supported</a>, which right now is at least PHP 5.6.</p>
-<p>PHP 5.2.x versions are now officially not supported by CodeIgniter, and while 5.3.7+
-may be at least runnable, we strongly discourage you from using any PHP versions below
-the ones listed on the <a class="reference external" href="https://secure.php.net/supported-versions.php">PHP.net Supported Versions</a>
-page.</p>
+<h2>Passo 2: Verifique a versão PHP do seu servidor<a class="headerlink" href="#step-2-check-your-php-version" title="Permalink to this headline">¶</a></h2>
+<p>Recomendamos sempre a versão <a class="reference external" href="https://secure.php.net/supported-versions.php">mais atualizada</a>, que agora é no mínimo a versão PHP 5.6.</p>
+<p>As versões PHP 5.2.x são oficialmente não suportadas pelo Codeigniter, enquanto as versões 5.3.7+
+são ainda aceitáveis, também desencorajamos fortemente o uso das versões do PHP mais antigas que as versões listadas na página <a class="reference external" href="https://secure.php.net/supported-versions.php">PHP.net Supported Versions</a>.</p>
 </div>
 <div class="section" id="step-3-if-you-re-using-the-odbc-database-driver-check-for-usage-of-query-builder">
-<h2>Step 3: If you&#8217;re using the &#8216;odbc&#8217; database driver, check for usage of Query Builder<a class="headerlink" href="#step-3-if-you-re-using-the-odbc-database-driver-check-for-usage-of-query-builder" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> functionality and <tt class="docutils literal"><span class="pre">escape()</span></tt> can
-no longer be used with the &#8216;odbc&#8217; database driver.</p>
-<p>This is because, due to its nature, the <a class="reference external" href="https://secure.php.net/odbc">ODBC extension for PHP</a>
-does not provide a function that allows to safely escape user-supplied strings for usage
-inside an SQL query (which our <a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> relies on).</p>
-<p>Thus, user inputs MUST be bound, as shown in <a class="reference internal" href="../database/queries.html"><em>Running Queries</em></a>,
-under the &#8220;Query Bindings&#8221; section.</p>
+<h2>Passo 3: Se você usa o driver 'ODBC' para acessar o SGBD do servidor, verifique o uso das Query Builder<a class="headerlink" href="#step-3-if-you-re-using-the-odbc-database-driver-check-for-usage-of-query-builder" title="Permalink to this headline">¶</a></h2>
+<p>As funcionalidades da<a class="reference internal" href="../database/query_builder.html"><em> Query Builder</em></a> e o <tt class="docutils literal"><span class="pre">escape()</span></tt> podem não ser suportadas pelo SGBD do servidor.</p>
+<p>Isso ocorre porque, devido à sua natureza, a <a class="reference external" href="https://secure.php.net/odbc">a extensão ODBC para PHP</a> não fornece uma função que permita escapar com segurança as strings para uso dentro das queries SQL (baseado na <a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> do Codeigniter).</p>
+<p>As entradas dos usuários DEVEM ser vinculadas, conforme mostra em <a class="reference internal" href="../database/queries.html"><em>Running Queries</em></a>, na seção &#8221;Query Bindings&#8221;.</p>
 </div>
 </div>
 
