@@ -424,44 +424,30 @@
           <div role="main" class="document">
 
   <div class="section" id="alternate-php-syntax-for-view-files">
-<h1>Sintaxe Alteranativa do PHP para Arquivos de Views<a class="headerlink" href="#alternate-php-syntax-for-view-files" title="Permalink to this headline">¶</a></h1>
-<p>If you do not utilize CodeIgniter&#8217;s <a class="reference internal" href="../libraries/parser.html"><em>template
-engine</em></a>, you&#8217;ll be using pure PHP in your
-View files. To minimize the PHP code in these files, and to make it
-easier to identify the code blocks it is recommended that you use PHPs
-alternative syntax for control structures and short tag echo statements.
-If you are not familiar with this syntax, it allows you to eliminate the
-braces from your code, and eliminate &#8220;echo&#8221; statements.</p>
+<h1>Sintaxe Alteranativa do PHP para Arquivos de exibição<a class="headerlink" href="#alternate-php-syntax-for-view-files" title="Permalink to this headline">¶</a></h1>
+<p>Se você não utiliza um <a class="reference internal" href="../libraries/parser.html"><em>mecanismo de template</em></a> no CodeIgniter, você irá usar PHP puro nas suas Views. Para minimizar o código PHP nesses arquivos, e para facilitar o identificação dos blocos de código, é recomendado que você use sintaxe alternativa do PHP para estruturas de controle e instruções de tag echo curta. Se você não esta familiarizado com esta sintaxe, ela permite você eliminar as chaves do seu código e elimine as instruções &#8220;echo&#8221;.</p>
 <div class="section" id="automatic-short-tag-support">
-<h2>Automatic Short Tag Support<a class="headerlink" href="#automatic-short-tag-support" title="Permalink to this headline">¶</a></h2>
+<h2>Suporte automático para tags curtas<a class="headerlink" href="#automatic-short-tag-support" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you find that the syntax described in this page does not
-work on your server it might be that &#8220;short tags&#8221; are disabled in your
-PHP ini file. CodeIgniter will optionally rewrite short tags on-the-fly,
-allowing you to use that syntax even if your server doesn&#8217;t support it.
-This feature can be enabled in your <em>config/config.php</em> file.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você verificar que a sintaxe descrita nesta página não funciona em seu servidor, pode ser que as "tags curtas" estejam desabilitadas em seu arquivo PHP ini. O CodeIgniter irá, opcionalmente, reescrever as tags curtas ao rodar, permitindo que você use essa sintaxe, mesmo que seu servidor não a suporte. Esse recurso pode ser ativado em seu arquivo <em>config/config.php</em>.</p>
 </div>
-<p>Please note that if you do use this feature, if PHP errors are
-encountered in your <strong>view files</strong>, the error message and line number
-will not be accurately shown. Instead, all errors will be shown as
-<tt class="docutils literal"><span class="pre">eval()</span></tt> errors.</p>
+<p>Observe que, se você usar esse recurso, se os erros do PHP forem encontrados em seus <strong>arquivos de exibição</strong>, a mensagem de erro e o número da linha não serão mostrados com precisão. Em vez disso, todos os erros serão exibidos como erros <tt class="docutils literal"><span class="pre">eval()</span></tt>.</p>
 </div>
 <div class="section" id="alternative-echos">
-<h2>Alternative Echos<a class="headerlink" href="#alternative-echos" title="Permalink to this headline">¶</a></h2>
-<p>Normally to echo, or print out a variable you would do this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$variable</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<h2>Alternativa de Echos<a class="headerlink" href="#alternative-echos" title="Permalink to this headline">¶</a></h2>
+<p>Normalmente, para echo, ou imprimir uma variável, você faria isso:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$variavel</span><span class="p">;</span> <span class="cp">?&gt;</span>
 </pre></div>
 </div>
-<p>With the alternative syntax you can instead do it this way:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?=</span><span class="nv">$variable</span><span class="cp">?&gt;</span>
+<p>Com a sintaxe alternativa, você pode fazê-lo dessa maneira:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?=</span><span class="nv">$variavel</span><span class="cp">?&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="alternative-control-structures">
-<h2>Alternative Control Structures<a class="headerlink" href="#alternative-control-structures" title="Permalink to this headline">¶</a></h2>
-<p>Controls structures, like if, for, foreach, and while can be written in
-a simplified format as well. Here is an example using <tt class="docutils literal"><span class="pre">foreach</span></tt>:</p>
+<h2>Alternativa de Estruturas de Controles<a class="headerlink" href="#alternative-control-structures" title="Permalink to this headline">¶</a></h2>
+<p>Estruturas de controles, como, if, for, foreach, e while, podem ser escritos em um formato simplificado também. Aqui está um exemplo usando <tt class="docutils literal"><span class="pre">foreach</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
 
 <span class="o">&lt;?</span><span class="nx">php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$todo</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
@@ -473,23 +459,21 @@ a simplified format as well. Here is an example using <tt class="docutils litera
 <span class="nt">&lt;/ul&gt;</span>
 </pre></div>
 </div>
-<p>Notice that there are no braces. Instead, the end brace is replaced with
-<tt class="docutils literal"><span class="pre">endforeach</span></tt>. Each of the control structures listed above has a similar
-closing syntax: <tt class="docutils literal"><span class="pre">endif</span></tt>, <tt class="docutils literal"><span class="pre">endfor</span></tt>, <tt class="docutils literal"><span class="pre">endforeach</span></tt>, and <tt class="docutils literal"><span class="pre">endwhile</span></tt></p>
-<p>Also notice that instead of using a semicolon after each structure
-(except the last one), there is a colon. This is important!</p>
-<p>Here is another example, using <tt class="docutils literal"><span class="pre">if</span></tt>/<tt class="docutils literal"><span class="pre">elseif</span></tt>/<tt class="docutils literal"><span class="pre">else</span></tt>. Notice the colons:</p>
+
+<p>Observe que não há chaves. Em vez disso, o suporte final é substituído por <tt class="docutils literal"><span class="pre">endforeach</span></tt>. Cada uma das estruturas de controle listadas acima tem uma sintaxe de fechamento semelhante: <tt class="docutils literal"><span class="pre">endif</span></tt>, <tt class="docutils literal"><span class="pre">endfor</span></tt>, <tt class="docutils literal"><span class="pre">endforeach</span></tt>, e <tt class="docutils literal"><span class="pre">endwhile</span></tt></p>
+<p>Observe também que, ao invés de usar um ponto-e-vírgula após cada estrutura (exceto o último), há dois pontos. Isso é importante!</p>
+<p>Aqui está outro exemplo, usando <tt class="docutils literal"><span class="pre">if</span></tt>/<tt class="docutils literal"><span class="pre">elseif</span></tt>/<tt class="docutils literal"><span class="pre">else</span></tt>. Observe os dois pontos:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$username</span> <span class="o">===</span> <span class="s1">&#39;sally&#39;</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
 
-        <span class="nt">&lt;h3&gt;</span>Hi Sally<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Oi Sally<span class="nt">&lt;/h3&gt;</span>
 
 <span class="cp">&lt;?php</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$username</span> <span class="o">===</span> <span class="s1">&#39;joe&#39;</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
 
-        <span class="nt">&lt;h3&gt;</span>Hi Joe<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Oi Joe<span class="nt">&lt;/h3&gt;</span>
 
 <span class="cp">&lt;?php</span> <span class="k">else</span><span class="o">:</span> <span class="cp">?&gt;</span>
 
-        <span class="nt">&lt;h3&gt;</span>Hi unknown user<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Oi usuário desconhecido<span class="nt">&lt;/h3&gt;</span>
 
 <span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
 </pre></div>
