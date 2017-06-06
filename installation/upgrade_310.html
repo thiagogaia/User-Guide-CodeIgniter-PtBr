@@ -445,7 +445,7 @@ são ainda aceitáveis, também desencorajamos fortemente o uso das versões do 
 <div class="section" id="step-3-if-you-re-using-the-odbc-database-driver-check-for-usage-of-query-builder">
 <h2>Passo 3: Se você usa o driver 'ODBC' para acessar o SGBD do servidor, verifique o uso das Query Builder<a class="headerlink" href="#step-3-if-you-re-using-the-odbc-database-driver-check-for-usage-of-query-builder" title="Permalink to this headline">¶</a></h2>
 <p>As funcionalidades da<a class="reference internal" href="../database/query_builder.html"><em> Query Builder</em></a> e o <tt class="docutils literal"><span class="pre">escape()</span></tt> podem não ser suportadas pelo SGBD do servidor.</p>
-<p>Isso ocorre porque, devido à sua natureza, a <a class="reference external" href="https://secure.php.net/odbc">a extensão ODBC para PHP</a> não fornece uma função que permita escapar com segurança as strings para uso dentro das queries SQL (baseado na <a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> do Codeigniter).</p>
+<p>Isso ocorre porque, devido à sua natureza, a <a class="reference external" href="https://secure.php.net/odbc">extensão ODBC para PHP</a> não fornece uma função que permita escapar com segurança as strings para uso dentro das queries SQL (baseado na <a class="reference internal" href="../database/query_builder.html"><em>Query Builder</em></a> do Codeigniter).</p>
 <p>As entradas dos usuários DEVEM ser vinculadas, conforme mostra em <a class="reference internal" href="../database/queries.html"><em>Running Queries</em></a>, na seção &#8221;Query Bindings&#8221;.</p>
 </div>
 </div>
