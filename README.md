@@ -20,7 +20,7 @@ Uma lista pode ser acompanhada no trello em: https://trello.com/b/s2JpLhqc
 * Marcelo Diniz / [@marcelod](https://twitter.com/marcelo_leo27) / [github](http://github.com/marcelod)
 * Alisson Zampietro / [github](https://github.com/alissonzampietro)
 * Vitors Silva Lima / [github](https://github.com/vitorsilvalima)
-* Wilquey / [github](https://github.com/Wilquey)
+* Marcos Pereira / [github](https://github.com/mvnp)
 
 https://github.com/CIBr/User-Guide-CodeIgniter-PtBr/graphs/contributors
 
