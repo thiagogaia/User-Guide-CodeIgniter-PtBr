@@ -425,136 +425,109 @@
 
   <div class="section" id="uri-routing">
 <h1>Roteamento URI<a class="headerlink" href="#uri-routing" title="Permalink to this headline">¶</a></h1>
-<p>Typically there is a one-to-one relationship between a URL string and
-its corresponding controller class/method. The segments in a URI
-normally follow this pattern:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">class</span><span class="o">/</span><span class="nx">function</span><span class="o">/</span><span class="nx">id</span><span class="o">/</span>
+<p>Normalmente, existe uma relação de um para um entre uma cadeia de URL e sua classe / método do controlador correspondente. Os segmentos em um URI normalmente seguem esse padrão:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">classe</span><span class="o">/</span><span class="nx">funcao</span><span class="o">/</span><span class="nx">id</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>In some instances, however, you may want to remap this relationship so
-that a different class/method can be called instead of the one
-corresponding to the URL.</p>
-<p>For example, let&#8217;s say you want your URLs to have this prototype:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">product</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span>
-<span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">product</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span>
-<span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">product</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span>
-<span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">product</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span>
+<p>Em alguns casos, no entanto, você pode querer remapear esse relacionamento para que uma classe / método diferente possa ser chamado em vez da correspondente ao URL.</p>
+<p>Por exemplo, digamos que deseja que seus URLs tenham esse protótipo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">produto</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span>
+<span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">produto</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span>
+<span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">produto</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span>
+<span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">produto</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>Normally the second segment of the URL is reserved for the method
-name, but in the example above it instead has a product ID. To
-overcome this, CodeIgniter allows you to remap the URI handler.</p>
+<p>Normalmente, o segundo segmento do URL é reservado para o nome do método, mas no exemplo acima, ele possui uma ID de produto. Para superar isso, CodeIgniter permite que você remapeie o manipulador URI.</p>
 <div class="section" id="setting-your-own-routing-rules">
-<h2>Setting your own routing rules<a class="headerlink" href="#setting-your-own-routing-rules" title="Permalink to this headline">¶</a></h2>
-<p>Routing rules are defined in your <em>application/config/routes.php</em> file.
-In it you&#8217;ll see an array called <tt class="docutils literal"><span class="pre">$route</span></tt> that permits you to specify
-your own routing criteria. Routes can either be specified using wildcards
-or Regular Expressions.</p>
+<h2>Configurando suas próprias regras de roteamento<a class="headerlink" href="#setting-your-own-routing-rules" title="Permalink to this headline">¶</a></h2>
+<p>As regras de roteamento são definidas no arquivo <em>application/config/routes.php</em>.
+Nela você verá uma matriz chamada <tt class="docutils literal"><span class="pre">$route</span></tt> Isso permite que você especifique seus próprios critérios de roteamento. As rotas podem ser especificadas usando curingas ou Expressões regulares</p>
 </div>
 <div class="section" id="wildcards">
-<h2>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h2>
-<p>A typical wildcard route might look something like this:</p>
+<h2>Curingas<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h2>
+<p>Uma rota curinga típica pode parecer algo assim:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;product/:num&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;catalog/product_lookup&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>In a route, the array key contains the URI to be matched, while the
-array value contains the destination it should be re-routed to. In the
-above example, if the literal word &#8220;product&#8221; is found in the first
-segment of the URL, and a number is found in the second segment, the
-&#8220;catalog&#8221; class and the &#8220;product_lookup&#8221; method are instead used.</p>
-<p>You can match literal values or you can use two wildcard types:</p>
-<p><strong>(:num)</strong> will match a segment containing only numbers.
-<strong>(:any)</strong> will match a segment containing any character (except for &#8216;/&#8217;, which is the segment delimiter).</p>
+<p>Em uma rota, a chave da matriz contém o URI a ser combinado, enquanto o valor da matriz contém o destino para o qual ele deve ser encaminhado. No exemplo acima, se a palavra literal
+    &#8220;product&#8221; É encontrado no primeiro segmento do URL, e um número é encontrado no segundo segmento, a classe
+&#8220;catalog&#8221; e o método &#8220;product_lookup&#8221; são uados em vez disso.</p>
+<p>Você pode combinar valores literais ou pode usar dois tipos curinga:</p>
+<p><strong>(:num)</strong> Combinará um segmento contendo apenas números.
+<strong>(:any)</strong> Irá combinar um segmento contendo qualquer caractere (exceto para &#8216;/&#8217;, qual é o delimitador de segmento).</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Wildcards are actually aliases for regular expressions, with
-<strong>:any</strong> being translated to <strong>[^/]+</strong> and <strong>:num</strong> to <strong>[0-9]+</strong>,
-respectively.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Os curingas são realmente alias para expressões regulares, com
+<strong>:any</strong> sendo traduzido para <strong>[^/]+</strong> e <strong>:num</strong> para <strong>[0-9]+</strong>,
+respectivamente.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">As rotas serão executadas na ordem em que são definidas. As rotas mais elevadas prevalecerão sempre sobre os mais baixos.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Routes will run in the order they are defined. Higher routes
-will always take precedence over lower ones.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Route rules are not filters! Setting a rule of e.g.
-&#8216;foo/bar/(:num)&#8217; will not prevent controller <em>Foo</em> and method
-<em>bar</em> to be called with a non-numeric value if that is a valid
-route.</p>
+<p class="last">As regras da rota não são filtros! Definir uma regra de e.g.
+&#8216;foo/bar/(:num)&#8217; Não impedirá o controlador <em>Foo</em> e o método
+<em>bar</em> Para ser chamado com um valor não numérico se essa for uma rota válida.</p>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p>Here are a few routing examples:</p>
+<h2>Exemplos<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Aqui estão alguns exemplos de roteamento:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;journals&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;blogs&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A URL containing the word &#8220;journals&#8221; in the first segment will be
-remapped to the &#8220;blogs&#8221; class.</p>
+<p>Uma URL contendo a palavra &#8220;journals&#8221; no primeiro segmento será remapeado para a classe &#8220;blogs&#8221;.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;blog/joe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;blogs/users/34&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A URL containing the segments blog/joe will be remapped to the &#8220;blogs&#8221;
-class and the &#8220;users&#8221; method. The ID will be set to &#8220;34&#8221;.</p>
+<p>Um URL contendo os segmentos blog/joe será remapeado para a classe &#8220;blogs&#8221;
+e o método &#8220;users&#8221;. O ID será configurado para &#8220;34&#8221;.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;product/(:any)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;catalog/product_lookup&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A URL with &#8220;product&#8221; as the first segment, and anything in the second
-will be remapped to the &#8220;catalog&#8221; class and the &#8220;product_lookup&#8221;
-method.</p>
+<p>A URL com &#8220;product&#8221; como o primeiro segmento, e qualquer coisa no segundo será remapeada para a classe &#8220;catalog&#8221; e o método &#8220;product_lookup&#8221;.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;product/(:num)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;catalog/product_lookup_by_id/$1&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A URL with &#8220;product&#8221; as the first segment, and a number in the second
-will be remapped to the &#8220;catalog&#8221; class and the
-&#8220;product_lookup_by_id&#8221; method passing in the match as a variable to
-the method.</p>
+<p>A URL com &#8220;product&#8221; como o primeiro segmento, e um número no segundo será remapeado para a clase &#8220;catalog&#8221; e o método &#8220;product_lookup_by_id&#8221; Passando a combinação como uma variável para o método.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Do not use leading/trailing slashes.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Não use barras diagonais.</p>
 </div>
 </div>
 <div class="section" id="regular-expressions">
-<h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
-<p>If you prefer you can use regular expressions to define your routing
-rules. Any valid regular expression is allowed, as are back-references.</p>
+<h2>Expressão Regular<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
+<p>Se você preferir, você pode usar expressões regulares para definir suas regras de roteamento. Qualquer expressão regular válida é permitida, assim como as referências de volta.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you use back-references you must use the dollar syntax
-rather than the double backslash syntax.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você usa referências de retorno, você deve usar a sintaxe do dólar em vez da sintaxe da barra invertida dupla.</p>
 </div>
-<p>A typical RegEx route might look something like this:</p>
+<p>Uma rota RegEx típica pode parecer algo assim:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;products/([a-z]+)/(\d+)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;$1/id_$2&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>In the above example, a URI similar to products/shirts/123 would instead
-call the &#8220;shirts&#8221; controller class and the &#8220;id_123&#8221; method.</p>
-<p>With regular expressions, you can also catch multiple segments at once.
-For example, if a user accesses a password protected area of your web
-application and you wish to be able to redirect them back to the same
-page after they log in, you may find this example useful:</p>
+<p>No exemplo acima, um URI asemelha-se com products/shirts/123 Em vez disso, chamaria a
+    classe do controlador &#8220;shirts&#8221; e o método &#8220;id_123&#8221;.</p>
+<p>Com expressões regulares, você também pode pegar vários segmentos ao mesmo tempo. Por exemplo, se um usuário acessa uma área protegida por senha de seu aplicativo da web e você deseja redirecioná-los de volta para a mesma página depois de fazer logon, você pode achar esse exemplo útil:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;login/(.+)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;auth/login/$1&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In the above example, if the <tt class="docutils literal"><span class="pre">$1</span></tt> placeholder contains a
-slash, it will still be split into multiple parameters when
-passed to <tt class="docutils literal"><span class="pre">Auth::login()</span></tt>.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">No exemplo acima, se <tt class="docutils literal"><span class="pre">$1</span></tt> contém uma barra, ele ainda será dividido em vários parâmetros quando passado para <tt class="docutils literal"><span class="pre">Auth::login()</span></tt>.</p>
 </div>
-<p>For those of you who don&#8217;t know regular expressions and want to learn
-more about them, <a class="reference external" href="http://www.regular-expressions.info/">regular-expressions.info</a>
-might be a good starting point.</p>
+<p>Para aqueles que não conhecem expressões regulares e desejam aprender mais sobre elas, <a class="reference external" href="http://www.regular-expressions.info/">regular-expressions.info</a>
+pode ser um bom começo.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can also mix and match wildcards with regular expressions.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Você também pode misturar e combinar curingas com expressões regulares.</p>
 </div>
 </div>
 <div class="section" id="callbacks">
 <h2>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h2>
-<p>If you are using PHP &gt;= 5.3 you can use callbacks in place of the normal
-routing rules to process the back-references. Example:</p>
+<p>Se você estiver utilizando PHP &gt;= 5.3 você pode usar callbacks no lugar das regras normais de roteamento para processar as referências de retorno. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;products/([a-zA-Z]+)/edit/(\d+)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$product_type</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">return</span> <span class="s1">&#39;catalog/product_edit/&#39;</span> <span class="o">.</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$product_type</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/&#39;</span> <span class="o">.</span> <span class="nv">$id</span><span class="p">;</span>
@@ -563,64 +536,51 @@ routing rules to process the back-references. Example:</p>
 </div>
 </div>
 <div class="section" id="using-http-verbs-in-routes">
-<h2>Using HTTP verbs in routes<a class="headerlink" href="#using-http-verbs-in-routes" title="Permalink to this headline">¶</a></h2>
-<p>It is possible to use HTTP verbs (request method) to define your routing rules.
-This is particularly useful when building RESTful applications. You can use standard HTTP
-verbs (GET, PUT, POST, DELETE, PATCH) or a custom one such (e.g. PURGE). HTTP verb rules
-are case-insensitive. All you need to do is to add the verb as an array key to your route.
-Example:</p>
+<h2>Usando verbos em rotas HTTP<a class="headerlink" href="#using-http-verbs-in-routes" title="Permalink to this headline">¶</a></h2>
+<p>É possível usar verbos HTTP (método de solicitação) para definir suas regras de roteamento. Isso é particularmente útil ao criar aplicativos RESTful. Você pode usar verbos HTTP padrão (GET, PUT, POST, DELETE, PATCH)
+ou um personalizado tal (por exemplo, PURGE).
+As regras do verbo HTTP não são sensíveis a maiúsculas e minúsculas. Tudo o que você precisa fazer é adicionar o verbo como uma chave de matriz para sua rota. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;products&#39;</span><span class="p">][</span><span class="s1">&#39;put&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;product/insert&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>In the above example, a PUT request to URI &#8220;products&#8221; would call the <tt class="docutils literal"><span class="pre">Product::insert()</span></tt>
-controller method.</p>
+<p>No exemplo acima, uma solicitação PUT para URI &#8220;products&#8221; que chamaria a classe com o método <tt class="docutils literal"><span class="pre">Product::insert()</span></tt>.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;products/(:num)&#39;</span><span class="p">][</span><span class="s1">&#39;DELETE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;product/delete/$1&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A DELETE request to URL with &#8220;products&#8221; as first the segment and a number in the second will be
-mapped to the <tt class="docutils literal"><span class="pre">Product::delete()</span></tt> method, passing the numeric value as the first parameter.</p>
-<p>Using HTTP verbs is of course, optional.</p>
+<p>Um pedido DELETE para URL com &#8220;products&#8221; Como primeiro o segmento e um número no segundo serão mapeados para a classe e o método
+<tt class="docutils literal"><span class="pre">Product::delete()</span></tt>, passando um valor numérico para o primeiro parâmetro.</p>
+<p>Usar verbos HTTP é claro, opcional.</p>
 </div>
 <div class="section" id="reserved-routes">
-<h2>Reserved Routes<a class="headerlink" href="#reserved-routes" title="Permalink to this headline">¶</a></h2>
-<p>There are three reserved routes:</p>
+<h2>Rotas Reservadas<a class="headerlink" href="#reserved-routes" title="Permalink to this headline">¶</a></h2>
+<p>Existem três rotas reservadas::</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;default_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;welcome&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>This route points to the action that should be executed if the URI contains
-no data, which will be the case when people load your root URL.
-The setting accepts a <strong>controller/method</strong> value and <tt class="docutils literal"><span class="pre">index()</span></tt> would be
-the default method if you don&#8217;t specify one. In the above example, it is
-<tt class="docutils literal"><span class="pre">Welcome::index()</span></tt> that would be called.</p>
+<p>Esta rota aponta para a ação que deve ser executada se o URI não contém dados, o que será o caso quando as pessoas carregarem seu URL de raiz. A configuração aceita um valor para o <strong>controller/method</strong> e <tt class="docutils literal"><span class="pre">index()</span></tt>
+Seria o método padrão se você não especificar um. No exemplo acima, é
+<tt class="docutils literal"><span class="pre">Welcome::index()</span></tt> que seria chamado.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can NOT use a directory as a part of this setting!</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Você NÃO pode usar um diretório como parte desta configuração!</p>
 </div>
-<p>You are encouraged to always have a default route as otherwise a 404 page
-will appear by default.</p>
+<p>Você é encorajado a ter sempre uma rota padrão, caso contrário, uma página 404 aparecerá por padrão.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;404_override&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>This route indicates which controller class should be loaded if the
-requested controller is not found. It will override the default 404
-error page. Same per-directory rules as with &#8216;default_controller&#8217;
-apply here as well.</p>
-<p>It won&#8217;t affect to the <tt class="docutils literal"><span class="pre">show_404()</span></tt> function, which will
-continue loading the default <em>error_404.php</em> file at
+<p>Esta rota indica qual classe de controlador deve ser carregada se o controlador solicitado não for encontrado. Ele substituirá a página de erro 404 padrão. As mesmas regras por diretório que com
+    &#8216;default_controller&#8217;
+aplica-se aqui também.</p>
+<p>Isso não afetará a função <tt class="docutils literal"><span class="pre">show_404()</span></tt>, Que continuará a carregar o arquivo padrão <em>error_404.php</em> em
 <em>application/views/errors/error_404.php</em>.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;translate_uri_dashes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>As evident by the boolean value, this is not exactly a route. This
-option enables you to automatically replace dashes (&#8216;-&#8216;) with
-underscores in the controller and method URI segments, thus saving you
-additional route entries if you need to do that.
-This is required, because the dash isn&#8217;t a valid class or method name
-character and would cause a fatal error if you try to use it.</p>
+<p>Como é evidente pelo valor booleano, esta não é exatamente uma rota. Esta opção permite que você substitua automaticamente os traços (&#8216;-&#8216;)
+com sublinhados nos segmentos URI do controlador e do método, salvando assim as entradas de rota adicionais se você precisar fazer isso. Isso é necessário, porque o traço não é um caractere de nome de classe ou método válido e causaria um erro fatal se você tentar usá-lo.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">The reserved routes must come before any wildcard or
-regular expression routes.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">As rotas reservadas devem vir antes de qualquer curinga ou rotas de expressões regulares.</p>
 </div>
 </div>
 </div>
