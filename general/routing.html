@@ -425,11 +425,11 @@
 
   <div class="section" id="uri-routing">
 <h1>Roteamento URI<a class="headerlink" href="#uri-routing" title="Permalink to this headline">¶</a></h1>
-<p>Normalmente, existe uma relação de um para um entre uma cadeia de URL e sua classe / método do controlador correspondente. Os segmentos em um URI normalmente seguem esse padrão:</p>
+<p>Normalmente, existe uma relação de um para um entre uma string de URL e sua classe/método do controlador correspondente. Os segmentos em um URI normalmente seguem esse padrão:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">classe</span><span class="o">/</span><span class="nx">funcao</span><span class="o">/</span><span class="nx">id</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>Em alguns casos, no entanto, você pode querer remapear esse relacionamento para que uma classe / método diferente possa ser chamado em vez da correspondente ao URL.</p>
+<p>Em alguns casos, no entanto, você pode querer remapear esse relacionamento para que uma classe/método diferente possa ser chamado em vez da correspondente ao URL.</p>
 <p>Por exemplo, digamos que deseja que seus URLs tenham esse protótipo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">produto</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span>
 <span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">produto</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span>
@@ -437,11 +437,11 @@
 <span class="nx">exemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">produto</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>Normalmente, o segundo segmento do URL é reservado para o nome do método, mas no exemplo acima, ele possui uma ID de produto. Para superar isso, CodeIgniter permite que você remapeie o manipulador URI.</p>
+<p>Normalmente, o segundo segmento do URL é reservado para o nome do método, mas no exemplo acima, ele possui uma ID de produto. Para superar isso o CodeIgniter permite que você remapeie o manipulador URI.</p>
 <div class="section" id="setting-your-own-routing-rules">
 <h2>Configurando suas próprias regras de roteamento<a class="headerlink" href="#setting-your-own-routing-rules" title="Permalink to this headline">¶</a></h2>
 <p>As regras de roteamento são definidas no arquivo <em>application/config/routes.php</em>.
-Nela você verá uma matriz chamada <tt class="docutils literal"><span class="pre">$route</span></tt> Isso permite que você especifique seus próprios critérios de roteamento. As rotas podem ser especificadas usando curingas ou Expressões regulares</p>
+Nela você verá uma matriz chamada <tt class="docutils literal"><span class="pre">$route</span></tt> que permite que você especifique seus próprios critérios de roteamento. As rotas podem ser especificadas usando curingas ou Expressões Regulares</p>
 </div>
 <div class="section" id="wildcards">
 <h2>Curingas<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h2>
@@ -468,7 +468,7 @@ respectivamente.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">As regras da rota não são filtros! Definir uma regra de e.g.
-&#8216;foo/bar/(:num)&#8217; Não impedirá o controlador <em>Foo</em> e o método
+&#8216;foo/bar/(:num)&#8217; não impedirá o controlador <em>Foo</em> e o método
 <em>bar</em> Para ser chamado com um valor não numérico se essa for uma rota válida.</p>
 </div>
 </div>
@@ -491,7 +491,7 @@ e o método &#8220;users&#8221;. O ID será configurado para &#8220;34&#8221;.</
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;product/(:num)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;catalog/product_lookup_by_id/$1&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A URL com &#8220;product&#8221; como o primeiro segmento, e um número no segundo será remapeado para a clase &#8220;catalog&#8221; e o método &#8220;product_lookup_by_id&#8221; Passando a combinação como uma variável para o método.</p>
+<p>A URL com &#8220;product&#8221; como o primeiro segmento, e um número no segundo será remapeado para a classe &#8220;catalog&#8221; e o método &#8220;product_lookup_by_id&#8221; Passando a combinação como uma variável para o método.</p>
 <div class="admonition important">
 <p class="first admonition-title">Importante</p>
 <p class="last">Não use barras diagonais.</p>
@@ -557,9 +557,7 @@ As regras do verbo HTTP não são sensíveis a maiúsculas e minúsculas. Tudo o
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;default_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;welcome&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Esta rota aponta para a ação que deve ser executada se o URI não contém dados, o que será o caso quando as pessoas carregarem seu URL de raiz. A configuração aceita um valor para o <strong>controller/method</strong> e <tt class="docutils literal"><span class="pre">index()</span></tt>
-Seria o método padrão se você não especificar um. No exemplo acima, é
-<tt class="docutils literal"><span class="pre">Welcome::index()</span></tt> que seria chamado.</p>
+<p>Esta rota aponta para a ação que deve ser executada se o URI não contém dados, o que será o caso quando as pessoas carregarem seu URL de raiz. A configuração aceita um valor para o <strong>controller/method</strong> e <tt class="docutils literal"><span class="pre">index()</span></tt> seria o método padrão se você não especificar um. No exemplo acima, é <tt class="docutils literal"><span class="pre">Welcome::index()</span></tt> que seria chamado.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">Você NÃO pode usar um diretório como parte desta configuração!</p>
@@ -571,7 +569,7 @@ Seria o método padrão se você não especificar um. No exemplo acima, é
 <p>Esta rota indica qual classe de controlador deve ser carregada se o controlador solicitado não for encontrado. Ele substituirá a página de erro 404 padrão. As mesmas regras por diretório que com
     &#8216;default_controller&#8217;
 aplica-se aqui também.</p>
-<p>Isso não afetará a função <tt class="docutils literal"><span class="pre">show_404()</span></tt>, Que continuará a carregar o arquivo padrão <em>error_404.php</em> em
+<p>Isso não afetará a função <tt class="docutils literal"><span class="pre">show_404()</span></tt>, que continuará a carregar o arquivo padrão <em>error_404.php</em> em
 <em>application/views/errors/error_404.php</em>.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;translate_uri_dashes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 </pre></div>
