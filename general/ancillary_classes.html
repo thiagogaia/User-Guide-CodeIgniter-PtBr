@@ -445,14 +445,14 @@
 
 <p><strong>Qualquer classe que você instancie nos seus métodos de controle pode acessar os recursos nativos do CodeIgniter </strong> simplesmente usando a função
 <tt class="docutils literal"><span class="pre">get_instance()</span></tt>. Esta função retorna o objeto principal do CodeIgniter.</p>
-<p>Normalmente, para chamar qualquer um dos métodos CodeIgniter disponíveis, você precisa usar o construtor <tt class="docutils literal"><span class="pre">$this</span></tt>:</p>
+<p>Normalmente, para chamar qualquer um dos métodos disponíveis no CodeIgniter, você precisa usar o construtor <tt class="docutils literal"><span class="pre">$this</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">item</span><span class="p">(</span><span class="s1">&#39;base_url&#39;</span><span class="p">);</span>
 <span class="c1">// etc.</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">$this</span></tt>, No entanto, só funciona dentro de seus controladores, seus modelos ou suas visualizações. Se você quiser usar as classes do CodeIgniter a partir de suas próprias classes personalizadas, você pode fazer o seguinte:</p>
+<p>No entanto, o <tt class="docutils literal"><span class="pre">$this</span></tt>, só funciona dentro de seus controladores, seus modelos ou suas visualizações. Se você quiser usar as classes do CodeIgniter a partir de suas próprias classes personalizadas, você pode fazer o seguinte:</p>
 <p>Primeiro, atribua o objeto CodeIgniter a uma variável:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$CI</span> <span class="o">=&amp;</span> <span class="nx">get_instance</span><span class="p">();</span>
 </pre></div>
@@ -496,8 +496,8 @@
 </pre></div>
 </div>
 <p>No exemplo acima, ambos os métodos <tt class="docutils literal"><span class="pre">foo()</span></tt> e <tt class="docutils literal"><span class="pre">bar()</span></tt>
-funcionará depois de instanciar a classe Example, sem a necessidade de ligar
-<tt class="docutils literal"><span class="pre">get_instance()</span></tt> em cada um dele.</p>
+funcionará depois de instanciar a classe Example, sem a necessidade de chamar
+<tt class="docutils literal"><span class="pre">get_instance()</span></tt> em cada uma delas.</p>
 </div>
 </div>
 
