@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Tópicos Gerais</a> &raquo;</li>
 
-    <li>Web Page Caching</li>
+    <li>Armazenamento da página em cache</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,70 +424,47 @@
           <div role="main" class="document">
 
   <div class="section" id="web-page-caching">
-<h1>Web Page Caching<a class="headerlink" href="#web-page-caching" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter lets you cache your pages in order to achieve maximum
-performance.</p>
-<p>Although CodeIgniter is quite fast, the amount of dynamic information
-you display in your pages will correlate directly to the server
-resources, memory, and processing cycles utilized, which affect your
-page load speeds. By caching your pages, since they are saved in their
-fully rendered state, you can achieve performance that nears that of
-static web pages.</p>
+<h1>Armazenamento da página em cache<a class="headerlink" href="#web-page-caching" title="Permalink to this headline">¶</a></h1>
+<p>CodeIgniter permite armazenar em cache suas páginas para obter o máximo desempenho</p>
+<p>Embora o CodeIgniter seja bastante rápido, a quantidade de informações dinâmicas que você exibirá em suas páginas será correlacionada diretamente com os recursos do servidor, a memória e os ciclos de processamento utilizados, o que afetará a velocidade de carregamento da página. Ao armazenar em cache suas páginas, uma vez que elas são salvas em seu estado totalmente renderizado, você pode alcançar um desempenho que se aproxima das páginas estáticas da web..</p>
 <div class="section" id="how-does-caching-work">
-<h2>How Does Caching Work?<a class="headerlink" href="#how-does-caching-work" title="Permalink to this headline">¶</a></h2>
-<p>Caching can be enabled on a per-page basis, and you can set the length
-of time that a page should remain cached before being refreshed. When a
-page is loaded for the first time, the cache file will be written to
-your application/cache folder. On subsequent page loads the cache file
-will be retrieved and sent to the requesting user&#8217;s browser. If it has
-expired, it will be deleted and refreshed before being sent to the
-browser.</p>
+<h2>Como o cache funciona?<a class="headerlink" href="#how-does-caching-work" title="Permalink to this headline">¶</a></h2>
+<p>O armazenamento em cache pode ser ativado por página, e você pode definir o período de tempo que uma página deve permanecer em cache antes de ser atualizada. Quando uma página é carregada pela primeira vez, o arquivo de cache será gravado na pasta application/cache.
+Na página subsequente, o arquivo de cache será recuperado e enviado ao navegador do usuário solicitante. Se ele expirou, ele será excluído e atualizado antes de ser enviado para o navegador.</p>
 </div>
 <div class="section" id="enabling-caching">
-<h2>Enabling Caching<a class="headerlink" href="#enabling-caching" title="Permalink to this headline">¶</a></h2>
-<p>To enable caching, put the following tag in any of your controller
-methods:</p>
+<h2>Habilitando o cache<a class="headerlink" href="#enabling-caching" title="Permalink to this headline">¶</a></h2>
+<p>Para habilitar o armazenamento em cache, coloque a seguinte etiqueta em qualquer um dos métodos do controlador:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">cache</span><span class="p">(</span><span class="nv">$n</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Where <tt class="docutils literal"><span class="pre">$n</span></tt> is the number of <strong>minutes</strong> you wish the page to remain
-cached between refreshes.</p>
-<p>The above tag can go anywhere within a method. It is not affected by
-the order that it appears, so place it wherever it seems most logical to
-you. Once the tag is in place, your pages will begin being cached.</p>
+<p>Onde <tt class="docutils literal"><span class="pre">$n</span></tt> é o número de <strong>minutos</strong> que deseja que a página permaneça em cache entre atualizações.</p>
+<p>A etiqueta acima pode ir em qualquer lugar dentro de um método. Não é afetado pela ordem em que ele aparece, então coloque-o em qualquer lugar que lhe pareça mais lógico. Uma vez que a etiqueta está no lugar, suas páginas começarão a ser armazenadas em cache.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Because of the way CodeIgniter stores content for output,
-caching will only work if you are generating display for your
-controller with a <a class="reference internal" href="views.html"><em>view</em></a>.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Devido à forma como CodeIgniter armazena conteúdo para saída, o cache só funcionará se você estiver gerando a exibição do seu controlador com uma <a class="reference internal" href="views.html"><em>view</em></a>.</p>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">If you change configuration options that might affect
-your output, you have to manually delete your cache files.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Se você alterar as opções de configuração que possam afetar sua saída, você deve excluir manualmente seus arquivos de cache.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Before the cache files can be written you must set the file
-permissions on your <em>application/cache/</em> directory such that
-it is writable.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Antes que os arquivos de cache possam ser escritos, você deve definir as permissões do arquivo em seu diretório <em>application/cache/</em>, de modo que seja gravável.</p>
 </div>
 </div>
 <div class="section" id="deleting-caches">
-<h2>Deleting Caches<a class="headerlink" href="#deleting-caches" title="Permalink to this headline">¶</a></h2>
-<p>If you no longer wish to cache a file you can remove the caching tag and
-it will no longer be refreshed when it expires.</p>
+<h2>Removendo Caches<a class="headerlink" href="#deleting-caches" title="Permalink to this headline">¶</a></h2>
+<p>Se você não quiser mais armazenar em cache um arquivo, você pode remover a tag de cache e não será mais atualizado quando expirar.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Removing the tag will not delete the cache immediately. It will
-have to expire normally.</p>
+<p class="last">A remoção da etiqueta não eliminará o cache imediatamente. Terá que expirar normalmente</p>
 </div>
-<p>If you need to manually delete the cache, you can use the <tt class="docutils literal"><span class="pre">delete_cache()</span></tt>
-method:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Deletes cache for the currently requested URI</span>
+<p>Se você precisar excluir manualmente o cache, você pode usar o método: <tt class="docutils literal"><span class="pre">delete_cache()</span></tt></p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Remove o cache para a URI atualmente solicitada</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">delete_cache</span><span class="p">();</span>
 
-<span class="c1">// Deletes cache for /foo/bar</span>
+<span class="c1">// Remove o cache para /foo/bar</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">delete_cache</span><span class="p">(</span><span class="s1">&#39;/foo/bar&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
