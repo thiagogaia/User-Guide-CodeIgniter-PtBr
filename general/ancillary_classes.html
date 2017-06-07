@@ -425,9 +425,7 @@
 
   <div class="section" id="creating-ancillary-classes">
 <h1>Criando Classes Auxiliares<a class="headerlink" href="#creating-ancillary-classes" title="Permalink to this headline">¶</a></h1>
-<p>In some cases you may want to develop classes that exist apart from your
-controllers but have the ability to utilize all of CodeIgniter&#8217;s
-resources. This is easily possible as you&#8217;ll see.</p>
+<p>Em alguns casos, você pode querer desenvolver classes que existem além de seus controladores, mas têm a capacidade de utilizar todos os recursos do CodeIgniter. Isso é facilmente possível, como você verá..</p>
 <div class="section" id="get-instance">
 <h2>get_instance()<a class="headerlink" href="#get-instance" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -437,7 +435,7 @@ resources. This is easily possible as you&#8217;ll see.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Reference to your controller&#8217;s instance</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Referência à instância do seu controlador</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">CI_Controller</td>
 </tr>
@@ -445,27 +443,22 @@ resources. This is easily possible as you&#8217;ll see.</p>
 </table>
 </dd></dl>
 
-<p><strong>Any class that you instantiate within your controller methods can
-access CodeIgniter&#8217;s native resources</strong> simply by using the
-<tt class="docutils literal"><span class="pre">get_instance()</span></tt> function. This function returns the main
-CodeIgniter object.</p>
-<p>Normally, to call any of the available CodeIgniter methods requires
-you to use the <tt class="docutils literal"><span class="pre">$this</span></tt> construct:</p>
+<p><strong>Qualquer classe que você instancie nos seus métodos de controle pode acessar os recursos nativos do CodeIgniter </strong> simplesmente usando a função
+<tt class="docutils literal"><span class="pre">get_instance()</span></tt>. Esta função retorna o objeto principal do CodeIgniter.</p>
+<p>Normalmente, para chamar qualquer um dos métodos CodeIgniter disponíveis, você precisa usar o construtor <tt class="docutils literal"><span class="pre">$this</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">item</span><span class="p">(</span><span class="s1">&#39;base_url&#39;</span><span class="p">);</span>
 <span class="c1">// etc.</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">$this</span></tt>, however, only works within your controllers, your models,
-or your views. If you would like to use CodeIgniter&#8217;s classes from
-within your own custom classes you can do so as follows:</p>
-<p>First, assign the CodeIgniter object to a variable:</p>
+<p><tt class="docutils literal"><span class="pre">$this</span></tt>, No entanto, só funciona dentro de seus controladores, seus modelos ou suas visualizações. Se você quiser usar as classes do CodeIgniter a partir de suas próprias classes personalizadas, você pode fazer o seguinte:</p>
+<p>Primeiro, atribua o objeto CodeIgniter a uma variável:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$CI</span> <span class="o">=&amp;</span> <span class="nx">get_instance</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Once you&#8217;ve assigned the object to a variable, you&#8217;ll use that variable
-<em>instead</em> of <tt class="docutils literal"><span class="pre">$this</span></tt>:</p>
+<p>Depois de atribuir o objeto a uma variável, você usará essa variável
+<em>ao invés</em> de <tt class="docutils literal"><span class="pre">$this</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$CI</span> <span class="o">=&amp;</span> <span class="nx">get_instance</span><span class="p">();</span>
 
 <span class="nv">$CI</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
@@ -474,10 +467,9 @@ within your own custom classes you can do so as follows:</p>
 <span class="c1">// etc.</span>
 </pre></div>
 </div>
-<p>If you&#8217;ll be using <tt class="docutils literal"><span class="pre">get_instance()</span></tt> inside another class, then it would
-be better if you assign it to a property. This way, you won&#8217;t need to call
-<tt class="docutils literal"><span class="pre">get_instance()</span></tt> in every single method.</p>
-<p>Example:</p>
+<p>Se você estiver usando <tt class="docutils literal"><span class="pre">get_instance()</span></tt> dentro de outra classe, então seria melhor se você atribuir a uma propriedade. Desta forma, você não precisará chamar
+<tt class="docutils literal"><span class="pre">get_instance()</span></tt> em cada método.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Example</span> <span class="p">{</span>
 
         <span class="k">protected</span> <span class="nv">$CI</span><span class="p">;</span>
@@ -503,9 +495,9 @@ be better if you assign it to a property. This way, you won&#8217;t need to call
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In the above example, both methods <tt class="docutils literal"><span class="pre">foo()</span></tt> and <tt class="docutils literal"><span class="pre">bar()</span></tt> will work
-after you instantiate the Example class, without the need to call
-<tt class="docutils literal"><span class="pre">get_instance()</span></tt> in each of them.</p>
+<p>No exemplo acima, ambos os métodos <tt class="docutils literal"><span class="pre">foo()</span></tt> e <tt class="docutils literal"><span class="pre">bar()</span></tt>
+funcionará depois de instanciar a classe Example, sem a necessidade de ligar
+<tt class="docutils literal"><span class="pre">get_instance()</span></tt> em cada um dele.</p>
 </div>
 </div>
 
