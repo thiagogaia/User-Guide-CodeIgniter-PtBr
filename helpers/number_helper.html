@@ -425,8 +425,7 @@
 
   <div class="section" id="number-helper">
 <h1>Auxiliar de Número<a class="headerlink" href="#number-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Número file contains functions that help you work with
-numeric data.</p>
+<p>O arquivo auxiliar de número contém funções que ajudam a trabalhar com dados numéricos.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -451,12 +450,12 @@ numeric data.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$num</strong> (<em>mixed</em>) &#8211; Number of bytes</li>
-<li><strong>$precision</strong> (<em>int</em>) &#8211; Floating point precision</li>
+<li><strong>$num</strong> (<em>mixed</em>) &#8211; Número de bytes</li>
+<li><strong>$precision</strong> (<em>int</em>) &#8211; Precisão do ponto flutuante</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted data size string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Tamanho da string do dado formatado</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -464,26 +463,23 @@ numeric data.</p>
 </tr>
 </tbody>
 </table>
-<p>Formats numbers as bytes, based on size, and adds the appropriate
-suffix. Examples:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">456</span><span class="p">);</span> <span class="c1">// Returns 456 Bytes</span>
-<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">4567</span><span class="p">);</span> <span class="c1">// Returns 4.5 KB</span>
-<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">45678</span><span class="p">);</span> <span class="c1">// Returns 44.6 KB</span>
-<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">456789</span><span class="p">);</span> <span class="c1">// Returns 447.8 KB</span>
-<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">3456789</span><span class="p">);</span> <span class="c1">// Returns 3.3 MB</span>
-<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">12345678912345</span><span class="p">);</span> <span class="c1">// Returns 1.8 GB</span>
-<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">123456789123456789</span><span class="p">);</span> <span class="c1">// Returns 11,228.3 TB</span>
+<p>Formata números como bytes, com base no tamanho e adiciona o sufixo apropriado. Exemplos:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">456</span><span class="p">);</span> <span class="c1">// Retorna 456 Bytes</span>
+<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">4567</span><span class="p">);</span> <span class="c1">// Retorna 4.5 KB</span>
+<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">45678</span><span class="p">);</span> <span class="c1">// Retorna 44.6 KB</span>
+<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">456789</span><span class="p">);</span> <span class="c1">// Retorna 447.8 KB</span>
+<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">3456789</span><span class="p">);</span> <span class="c1">// Retorna 3.3 MB</span>
+<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">12345678912345</span><span class="p">);</span> <span class="c1">// Retorna 1.8 GB</span>
+<span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">123456789123456789</span><span class="p">);</span> <span class="c1">// Retorna 11,228.3 TB</span>
 </pre></div>
 </div>
-<p>An optional second parameter allows you to set the precision of the
-result:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">45678</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// Returns 44.61 KB</span>
+<p>Um segundo parâmetro opcional permite definir a precisão do resultado:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nx">byte_format</span><span class="p">(</span><span class="mi">45678</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// Retorna 44.61 KB</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The text generated by this function is found in the following
-language file: <em>language/&lt;your_lang&gt;/number_lang.php</em></p>
+<p class="first admonition-title">Nota</p>
+<p class="last">O texto gerado por esta função é encontrado no seguinte arquivo de idioma: <em>language/&lt;your_lang&gt;/number_lang.php</em></p>
 </div>
 </dd></dl>
 
