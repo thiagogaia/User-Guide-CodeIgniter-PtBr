@@ -425,31 +425,17 @@
 
   <div class="section" id="error-handling">
 <h1>Tratamento de Erros<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter lets you build error reporting into your applications using
-the functions described below. In addition, it has an error logging
-class that permits error and debugging messages to be saved as text
-files.</p>
+<p>O CodeIgniter permite que você crie relatórios de erros em seus aplicativos usando as funções descritas abaixo. Além disso, ele possui uma classe de registro de erros que permite que mensagens de erro e depuração sejam salvas como arquivos de texto.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">By default, CodeIgniter displays all PHP errors. You might
-wish to change this behavior once your development is complete. You&#8217;ll
-find the error_reporting() function located at the top of your main
-index.php file. Disabling error reporting will NOT prevent log files
-from being written if there are errors.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Por padrão, o CodeIgniter exibe todos os erros do PHP. Você pode querer mudar esse comportamento assim que seu desenvolvimento for concluído. Você encontrará a função error_reporting() localizada na parte superior do arquivo index.php principal. Desativar o relatório de erros NÃO impedirá que os arquivos de log sejam escritos se houver erros..</p>
 </div>
-<p>Unlike most systems in CodeIgniter, the error functions are simple
-procedural interfaces that are available globally throughout the
-application. This approach permits error messages to get triggered
-without having to worry about class/function scoping.</p>
-<p>CodeIgniter also returns a status code whenever a portion of the core
-calls <tt class="docutils literal"><span class="pre">exit()</span></tt>. This exit status code is separate from the HTTP status
-code, and serves as a notice to other processes that may be watching of
-whether the script completed successfully, or if not, what kind of
-problem it encountered that caused it to abort. These values are
-defined in <em>application/config/constants.php</em>. While exit status codes
-are most useful in CLI settings, returning the proper code helps server
-software keep track of your scripts and the health of your application.</p>
-<p>The following functions let you generate errors:</p>
+<p>Ao contrário da maioria dos sistemas, no CodeIgniter, as funções de erro são simples interfaces processuais que estão disponíveis globalmente ao longo do aplicativo. Essa abordagem permite que as mensagens de erro sejam ativadas sem ter que se preocupar com o escopo da classe/função.</p>
+<p>CodeIgniter também retorna um código de status sempre que uma parte do núcleo chama <tt class="docutils literal"><span class="pre">exit()</span></tt>.
+Este código de status de saída é separado do código de status HTTP e serve como um aviso para outros processos que podem estar observando se o script foi concluído com sucesso ou, caso contrário, qual o tipo de problema que ele encontrou que causou o aborto
+Esses valores são definidos em <em>application/config/constants.php</em>.
+Enquanto os códigos de status de saída são mais úteis nas configurações de CLI, retornar o código apropriado ajuda o software do servidor a acompanhar seus scripts e a saúde de sua aplicação.</p>
+  <p>As seguintes funções permitem gerar erros:</p>
 <dl class="function">
 <dt id="show_error">
 <tt class="descname">show_error</tt><big>(</big><em>$message</em>, <em>$status_code</em>, <em>$heading = 'An Error Was Encountered'</em><big>)</big><a class="headerlink" href="#show_error" title="Permalink to this definition">¶</a></dt>
@@ -458,33 +444,30 @@ software keep track of your scripts and the health of your application.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$message</strong> (<em>mixed</em>) &#8211; Error message</li>
-<li><strong>$status_code</strong> (<em>int</em>) &#8211; HTTP Response status code</li>
-<li><strong>$heading</strong> (<em>string</em>) &#8211; Error page heading</li>
+<li><strong>$message</strong> (<em>mixed</em>) &#8211; Mensagem de erro</li>
+<li><strong>$status_code</strong> (<em>int</em>) &#8211; Código de status HTTP de resposta</li>
+<li><strong>$heading</strong> (<em>string</em>) &#8211; Cabeçalho da página de erro</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">void</p>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">nada</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This function will display the error message supplied to it using
-the error template appropriate to your execution:</p>
+<p>Esta função exibirá a mensagem de erro fornecida com o modelo de erro apropriado para sua execução:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">application</span><span class="o">/</span><span class="nx">views</span><span class="o">/</span><span class="nx">errors</span><span class="o">/</span><span class="nx">html</span><span class="o">/</span><span class="nx">error_general</span><span class="o">.</span><span class="nx">php</span>
 </pre></div>
 </div>
-<p>or:</p>
+<p>ou:</p>
 <blockquote>
 <div>application/views/errors/cli/error_general.php</div></blockquote>
-<p>The optional parameter <tt class="docutils literal"><span class="pre">$status_code</span></tt> determines what HTTP status
-code should be sent with the error. If <tt class="docutils literal"><span class="pre">$status_code</span></tt> is less
-than 100, the HTTP status code will be set to 500, and the exit
-status code will be set to <tt class="docutils literal"><span class="pre">$status_code</span> <span class="pre">+</span> <span class="pre">EXIT__AUTO_MIN</span></tt>.
-If that value is larger than <tt class="docutils literal"><span class="pre">EXIT__AUTO_MAX</span></tt>, or if
-<tt class="docutils literal"><span class="pre">$status_code</span></tt> is 100 or higher, the exit status code will be set
-to <tt class="docutils literal"><span class="pre">EXIT_ERROR</span></tt>.
-You can check in <em>application/config/constants.php</em> for more detail.</p>
+<p>O parâmetro opcional <tt class="docutils literal"><span class="pre">$status_code</span></tt> determina qual código de status HTTP deve ser enviado com o erro.
+Se <tt class="docutils literal"><span class="pre">$status_code</span></tt> for inferior a 100, o código de status HTTP será definido como 500 e o código de status de saída será definido como <tt class="docutils literal"><span class="pre">$status_code</span> <span class="pre">+</span> <span class="pre">EXIT__AUTO_MIN</span></tt>.
+e esse valor for maior do que <tt class="docutils literal"><span class="pre">EXIT__AUTO_MAX</span></tt>, ou se
+<tt class="docutils literal"><span class="pre">$status_code</span></tt> 
+for 100 ou superior, o código de status de saída será configurado para <tt class="docutils literal"><span class="pre">EXIT_ERROR</span></tt>.
+Você pode verificar em <em>application/config/constants.php</em> para mais detalhes.</p>
 </dd></dl>
 
 <dl class="function">
@@ -495,31 +478,28 @@ You can check in <em>application/config/constants.php</em> for more detail.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$page</strong> (<em>string</em>) &#8211; URI string</li>
-<li><strong>$log_error</strong> (<em>bool</em>) &#8211; Whether to log the error</li>
+<li><strong>$page</strong> (<em>string</em>) &#8211; Conjunto de caracteres da URI</li>
+<li><strong>$log_error</strong> (<em>bool</em>) &#8211; Se deseja registrar o erro</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">void</p>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">nada</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This function will display the 404 error message supplied to it
-using the error template appropriate to your execution:</p>
+<p>Esta função exibirá a mensagem de erro 404 fornecida com o modelo de erro apropriado para sua execução:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">application</span><span class="o">/</span><span class="nx">views</span><span class="o">/</span><span class="nx">errors</span><span class="o">/</span><span class="nx">html</span><span class="o">/</span><span class="nx">error_404</span><span class="o">.</span><span class="nx">php</span>
 </pre></div>
 </div>
-<p>or:</p>
+<p>ou:</p>
 <blockquote>
 <div>application/views/errors/cli/error_404.php</div></blockquote>
-<p>The function expects the string passed to it to be the file path to
-the page that isn&#8217;t found. The exit status code will be set to
+<p>A função espera que o conjunto de caracteres passado para ele, seja o caminho do arquivo para a página que não foi encontrada. O código de status de saída será configurado para
 <tt class="docutils literal"><span class="pre">EXIT_UNKNOWN_FILE</span></tt>.
-Note that CodeIgniter automatically shows 404 messages if
-controllers are not found.</p>
-<p>CodeIgniter automatically logs any <tt class="docutils literal"><span class="pre">show_404()</span></tt> calls. Setting the
-optional second parameter to FALSE will skip logging.</p>
+Observe que CodeIgniter mostra automaticamente as mensagens de 404 se os controladores não forem encontrados.</p>
+<p>O CodeIgniter registra automaticamente todas as chamadas <tt class="docutils literal"><span class="pre">show_404()</span></tt>.
+A configuração do segundo parâmetro opcional para FALSE irá ignorar o registro.</p>
 </dd></dl>
 
 <dl class="function">
@@ -530,51 +510,43 @@ optional second parameter to FALSE will skip logging.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$level</strong> (<em>string</em>) &#8211; Log level: &#8216;error&#8217;, &#8216;debug&#8217; or &#8216;info&#8217;</li>
-<li><strong>$message</strong> (<em>string</em>) &#8211; Message to log</li>
+<li><strong>$level</strong> (<em>string</em>) &#8211; Nível de registro: &#8216;error&#8217;, &#8216;debug&#8217; or &#8216;info&#8217;</li>
+<li><strong>$message</strong> (<em>string</em>) &#8211; Menssagem para o registro</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">void</p>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">nada</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This function lets you write messages to your log files. You must
-supply one of three &#8220;levels&#8221; in the first parameter, indicating what
-type of message it is (debug, error, info), with the message itself
-in the second parameter.</p>
-<p>Example:</p>
+<p>Esta função permite que você escreva mensagens para seus arquivos de log. Você deve fornecer um dos três "níveis" no primeiro parâmetro, indicando o tipo de mensagem que é (erro,depurar, informações), com a própria mensagem no segundo parâmetro.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$some_var</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="nx">log_message</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;Some variable did not contain a value.&#39;</span><span class="p">);</span>
+        <span class="nx">log_message</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;Alguma variável não contém um valor.&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
-        <span class="nx">log_message</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="s1">&#39;Some variable was correctly set&#39;</span><span class="p">);</span>
+        <span class="nx">log_message</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="s1">&#39;Alguma variável foi configurada corretamente&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nx">log_message</span><span class="p">(</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;The purpose of some variable is to provide some value.&#39;</span><span class="p">);</span>
+<span class="nx">log_message</span><span class="p">(</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;O objetivo de alguma variável é fornecer algum valor.&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>There are three message types:</p>
+<p>Existem três tipos de mensagens:</p>
 <ol class="arabic simple">
-<li>Error Messages. These are actual errors, such as PHP errors or
-user errors.</li>
-<li>Debug Messages. These are messages that assist in debugging. For
-example, if a class has been initialized, you could log this as
-debugging info.</li>
-<li>Informational Messages. These are the lowest priority messages,
-simply giving information regarding some process.</li>
+<li>Mensagens de erro. Estes são erros reais, como erros de PHP ou erros do usuário.</li>
+<li>Mensagens de depuração. Estas são mensagens que ajudam na depuração. Por exemplo, se uma classe foi inicializada, você pode registrar isso como informações de depuração.</li>
+<li>Mensagens Informativas. Estas são as mensagens de menor prioridade, simplesmente fornecendo informações sobre algum processo.</li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In order for the log file to actually be written, the
-<em>logs/</em> directory must be writable. In addition, you must
-set the &#8220;threshold&#8221; for logging in
-<em>application/config/config.php</em>. You might, for example,
-only want error messages to be logged, and not the other
-two types. If you set it to zero logging will be disabled.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Para que o arquivo de log seja realmente escrito o diretório 
+<em>logs/</em> deve ser gravável.
+Além disso, você deve definir o &#8220;limite&#8221; para iniciar sessão em
+<em>application/config/config.php</em>.
+Você pode, por exemplo, apenas querer que as mensagens de erro sejam registradas e não os outros dois tipos. Se você configurá-lo para zero, o registro será desativado</p>
 </div>
 </dd></dl>
 

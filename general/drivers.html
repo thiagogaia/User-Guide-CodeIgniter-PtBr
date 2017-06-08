@@ -425,39 +425,29 @@
 
   <div class="section" id="using-codeigniter-drivers">
 <h1>Usando Drivers do CodeIgniter<a class="headerlink" href="#using-codeigniter-drivers" title="Permalink to this headline">¶</a></h1>
-<p>Drivers are a special type of Library that has a parent class and any
-number of potential child classes. Child classes have access to the
-parent class, but not their siblings. Drivers provide an elegant syntax
-in your <a class="reference internal" href="controllers.html"><em>controllers</em></a> for libraries that benefit
-from or require being broken down into discrete classes.</p>
-<p>Drivers are found in the <em>system/libraries/</em> directory, in their own
-sub-directory which is identically named to the parent library class.
-Also inside that directory is a subdirectory named drivers, which
-contains all of the possible child class files.</p>
-<p>To use a driver you will initialize it within a controller using the
-following initialization method:</p>
+<p>Os drivers são um tipo especial de biblioteca que possui uma classe Pai e qualquer número de classes filhas. As classes filhas têm acesso à classe pai, mas não aos seus irmãos. Os drivers oferecem uma sintaxe elegante em seus <a class="reference internal" href="controllers.html"><em>controladores</em></a>
+para bibliotecas que se beneficiam ou queiram ser divididas em classes discretas.</p>
+<p>Os Drivers são encontrados no diretório <em>system/libraries/</em> e em seu próprio subdiretório que é idêntico ao da classe da biblioteca pai. Também dentro desse diretório existe um subdiretório denominado drivers, que contém todos os possíveis arquivos de classe filhas.</p>
+<p>Para usar um driver você irá inicializá-lo dentro de um controlador usando o seguinte método de inicialização:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;class_name&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Where class name is the name of the driver class you want to invoke. For
-example, to load a driver named &#8220;Some_parent&#8221; you would do this:</p>
+<p>Onde nome da classe é o nome da classe de driver que deseja invocar. Por exemplo, para carregar um driver chamado  &#8220;Some_parent&#8221; você faria isso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;some_parent&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Methods of that class can then be invoked with:</p>
+<p>Os métodos dessa classe podem então ser invocados com:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">some_parent</span><span class="o">-&gt;</span><span class="na">some_method</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The child classes, the drivers themselves, can then be called directly
-through the parent class, without initializing them:</p>
+<p>As classes filhas ou, os próprios drivers, podem ser chamadas diretamente através da classe pai, sem inicializá-las</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">some_parent</span><span class="o">-&gt;</span><span class="na">child_one</span><span class="o">-&gt;</span><span class="na">some_method</span><span class="p">();</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">some_parent</span><span class="o">-&gt;</span><span class="na">child_two</span><span class="o">-&gt;</span><span class="na">another_method</span><span class="p">();</span>
 </pre></div>
 </div>
 <div class="section" id="creating-your-own-drivers">
-<h2>Creating Your Own Drivers<a class="headerlink" href="#creating-your-own-drivers" title="Permalink to this headline">¶</a></h2>
-<p>Please read the section of the user guide that discusses how to <a class="reference internal" href="creating_drivers.html"><em>create
-your own drivers</em></a>.</p>
+<h2>Criando seus Próprios Drivers<a class="headerlink" href="#creating-your-own-drivers" title="Permalink to this headline">¶</a></h2>
+<p>Leia a seção deste guia do usuário em <a class="reference internal" href="creating_drivers.html"><em>criando seus próprios drivers</em></a>.</p>
 </div>
 </div>
 

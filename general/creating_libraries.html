@@ -425,45 +425,36 @@
 
   <div class="section" id="creating-libraries">
 <h1>Criando Bibliotecas<a class="headerlink" href="#creating-libraries" title="Permalink to this headline">¶</a></h1>
-<p>When we use the term &#8220;Libraries&#8221; we are normally referring to the
-classes that are located in the libraries directory and described in the
-Class Reference of this user guide. In this case, however, we will
-instead describe how you can create your own libraries within your
-application/libraries directory in order to maintain separation between
-your local resources and the global framework resources.</p>
-<p>As an added bonus, CodeIgniter permits your libraries to extend native
-classes if you simply need to add some functionality to an existing
-library. Or you can even replace native libraries just by placing
-identically named versions in your <em>application/libraries</em> directory.</p>
-<p>In summary:</p>
+<p>Quando usamos o termo &#8220;Biblioteca&#8221; Normalmente estamos nos referindo às classes que estão localizadas no diretório das bibliotecas e descritas na Referência de Classe deste guia do usuário. Neste caso, no entanto, descreveremos como você pode criar suas próprias bibliotecas dentro do seu diretório
+application/libraries para manter a separação entre seus recursos locais e os recursos da estrutura global.</p>
+<p>Como um bônus adicional, o CodeIgniter permite que suas bibliotecas ampliem as classes nativas se você simplesmente precisar adicionar algumas funcionalidades a uma biblioteca existente. Ou você pode até mesmo substituir bibliotecas nativas apenas colocando versões de nome idêntico em seu diretório <em>application/libraries</em>.</p>
+<p>Em resumo:</p>
 <ul class="simple">
-<li>You can create entirely new libraries.</li>
-<li>You can extend native libraries.</li>
-<li>You can replace native libraries.</li>
+<li>Você pode criar bibliotecas inteiramente novas.</li>
+<li>Você pode ampliar as bibliotecas nativas.</li>
+<li>Você pode substituir bibliotecas nativas.</li>
 </ul>
-<p>The page below explains these three concepts in detail.</p>
+<p>A página abaixo explica esses três conceitos em detalhes..</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The Database classes can not be extended or replaced with your
-own classes. All other classes are able to be replaced/extended.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">As classes de banco de dados não podem ser estendidas ou substituídas por suas próprias classes. Todas as outras classes podem ser substituídas/estendidas.</p>
 </div>
 <div class="section" id="storage">
-<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
-<p>Your library classes should be placed within your <em>application/libraries</em>
-directory, as this is where CodeIgniter will look for them when they are
-initialized.</p>
+<h2>Armazenamento<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<p>Suas classes de biblioteca devem ser inseridas dentro do diretório <em>application/libraries</em>
+, pois é aqui que o CodeIgniter irá procurá-las quando forem inicializadas.</p>
 </div>
 <div class="section" id="naming-conventions">
-<h2>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">¶</a></h2>
+<h2>Convenções de nomenclatura<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>File names must be capitalized. For example: Myclass.php</li>
-<li>Class declarations must be capitalized. For example: class Myclass</li>
-<li>Class names and file names must match.</li>
+<li>Os nomes dos arquivos devem começar com letras maiúsculas. Por exemplo: Myclass.php</li>
+<li>As declarações de classe devem ser capitalizadas. Por exemplo: classe Myclass</li>
+<li>Nomes de classe e nomes de arquivos devem ser iguais</li>
 </ul>
 </div>
 <div class="section" id="the-class-file">
-<h2>The Class File<a class="headerlink" href="#the-class-file" title="Permalink to this headline">¶</a></h2>
-<p>Classes should have this basic prototype:</p>
+<h2>O Arquivo de Classe<a class="headerlink" href="#the-class-file" title="Permalink to this headline">¶</a></h2>
+<p>Classes devem seguir esse padrão:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;BASEPATH&#39;</span><span class="p">)</span> <span class="k">OR</span> <span class="k">exit</span><span class="p">(</span><span class="s1">&#39;No direct script access allowed&#39;</span><span class="p">);</span>
 
@@ -476,37 +467,33 @@ initialized.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">We are using the name Someclass purely as an example.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Estamos usando o nome Someclass como um exemplo</p>
 </div>
 </div>
 <div class="section" id="using-your-class">
-<h2>Using Your Class<a class="headerlink" href="#using-your-class" title="Permalink to this headline">¶</a></h2>
-<p>From within any of your <a class="reference internal" href="controllers.html"><em>Controller</em></a> methods you
-can initialize your class using the standard:</p>
+<h2>Usando sua Classe<a class="headerlink" href="#using-your-class" title="Permalink to this headline">¶</a></h2>
+<p>De dentro de qualquer um dos seus métodos <a class="reference internal" href="controllers.html"><em>Controladores</em></a>
+você pode inicializar sua classe usando o padrão:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;someclass&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Where <em>someclass</em> is the file name, without the &#8221;.php&#8221; file extension.
-You can submit the file name capitalized or lower case. CodeIgniter
-doesn&#8217;t care.</p>
-<p>Once loaded you can access your class using the lower case version:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">someclass</span><span class="o">-&gt;</span><span class="na">some_method</span><span class="p">();</span><span class="nx"> </span> <span class="c1">// Object instances will always be lower case</span>
+<p>Onde <em>someclass</em> é o nome do arquivo, sem a extensão &#8221;.php&#8221;.
+Você pode enviar o nome do arquivo em maiúsculas ou minúsculas. O CodeIgniter não se importa.</p>
+<p>Uma vez carregado, você pode acessar sua classe usando a versão em minúsculas:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">someclass</span><span class="o">-&gt;</span><span class="na">some_method</span><span class="p">();</span><span class="nx"> </span> <span class="c1">// As instâncias de objeto sempre serão minúsculas</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="passing-parameters-when-initializing-your-class">
-<h2>Passing Parameters When Initializing Your Class<a class="headerlink" href="#passing-parameters-when-initializing-your-class" title="Permalink to this headline">¶</a></h2>
-<p>In the library loading method you can dynamically pass data as an
-array via the second parameter and it will be passed to your class
-constructor:</p>
+<h2>Passando Parâmetros ao Inicializar sua Classe<a class="headerlink" href="#passing-parameters-when-initializing-your-class" title="Permalink to this headline">¶</a></h2>
+<p>No método de carregamento da biblioteca, você pode passar dinamicamente dados como uma matriz através do segundo parâmetro e será passado para seu construtor de classe:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;someclass&#39;</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If you use this feature you must set up your class constructor to expect
-data:</p>
+<p>Se você usar esse recurso, você deve configurar o construtor da sua classe para esperar dados:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;BASEPATH&#39;</span><span class="p">)</span> <span class="k">OR</span> <span class="k">exit</span><span class="p">(</span><span class="s1">&#39;No direct script access allowed&#39;</span><span class="p">);</span>
 
 <span class="k">class</span> <span class="nc">Someclass</span> <span class="p">{</span>
@@ -518,34 +505,27 @@ data:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You can also pass parameters stored in a config file. Simply create a
-config file named identically to the class file name and store it in
-your <em>application/config/</em> directory. Note that if you dynamically pass
-parameters as described above, the config file option will not be
-available.</p>
+<p>Você também pode passar parâmetros armazenados em um arquivo de configuração. Basta criar um arquivo de configuração denominado de forma idêntica ao nome do arquivo de classe e armazená-lo no diretório <em>application/config/</em>.
+Observe que, se você passar dinamicamente parâmetros conforme descrito acima, a opção do arquivo de configuração não estará disponível.</p>
 </div>
 <div class="section" id="utilizing-codeigniter-resources-within-your-library">
-<h2>Utilizing CodeIgniter Resources within Your Library<a class="headerlink" href="#utilizing-codeigniter-resources-within-your-library" title="Permalink to this headline">¶</a></h2>
-<p>To access CodeIgniter&#8217;s native resources within your library use the
-<tt class="docutils literal"><span class="pre">get_instance()</span></tt> method. This method returns the CodeIgniter super
-object.</p>
-<p>Normally from within your controller methods you will call any of the
-available CodeIgniter methods using the <tt class="docutils literal"><span class="pre">$this</span></tt> construct:</p>
+<h2>Utilizando Recursos do Codeigniter com sua Biblioteca<a class="headerlink" href="#utilizing-codeigniter-resources-within-your-library" title="Permalink to this headline">¶</a></h2>
+<p>Para acessar os recursos nativos do CodeIgniter dentro de sua biblioteca use o método 
+<tt class="docutils literal"><span class="pre">get_instance()</span></tt> Esse método retorna o super objeto do CodeIgniter.</p>
+<p>Normalmente, dentro dos seus métodos de controle, você chamará qualquer um dos métodos CodeIgniter disponíveis usando o construtor <tt class="docutils literal"><span class="pre">$this</span></tt> :</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">item</span><span class="p">(</span><span class="s1">&#39;base_url&#39;</span><span class="p">);</span>
 <span class="c1">// etc.</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">$this</span></tt>, however, only works directly within your controllers, your
-models, or your views. If you would like to use CodeIgniter&#8217;s classes
-from within your own custom classes you can do so as follows:</p>
-<p>First, assign the CodeIgniter object to a variable:</p>
+<p><tt class="docutils literal"><span class="pre">$this</span></tt>, no entanto, só funciona diretamente em seus controladores, seus modelos ou suas visualizações. Se você quiser usar as classes do CodeIgniter a partir de suas próprias classes personalizadas, você pode fazê-lo da seguinte maneira::</p>
+<p>Primeiro, instancie o objeto CodeIgniter a uma variável:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$CI</span> <span class="o">=&amp;</span> <span class="nx">get_instance</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Once you&#8217;ve assigned the object to a variable, you&#8217;ll use that variable
-<em>instead</em> of <tt class="docutils literal"><span class="pre">$this</span></tt>:</p>
+<p>Depois de atribuir o objeto a uma variável, você usará essa variável 
+<em>ao invés</em> de <tt class="docutils literal"><span class="pre">$this</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$CI</span> <span class="o">=&amp;</span> <span class="nx">get_instance</span><span class="p">();</span>
 
 <span class="nv">$CI</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
@@ -555,28 +535,23 @@ from within your own custom classes you can do so as follows:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You&#8217;ll notice that the above <tt class="docutils literal"><span class="pre">get_instance()</span></tt> function is being
-passed by reference:</p>
+<p class="first admonition-title">Nota</p>
+<p>Você notará que na função acima <tt class="docutils literal"><span class="pre">get_instance()</span></tt> está sendo passada pela referência:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$CI</span> <span class="o">=&amp;</span> <span class="nx">get_instance</span><span class="p">();</span>
 </pre></div>
 </div>
-<p class="last">This is very important. Assigning by reference allows you to use the
-original CodeIgniter object rather than creating a copy of it.</p>
+<p class="last">Isto é muito importante. Atribuir por referência permite que você use o objeto CodeIgniter original em vez de criar uma cópia dele.</p>
 </div>
-<p>However, since a library is a class, it would be better if you
-take full advantage of the OOP principles. So, in order to
-be able to use the CodeIgniter super-object in all of the class
-methods, you&#8217;re encouraged to assign it to a property instead:</p>
+<p>No entanto, uma vez que uma biblioteca é uma classe, seria melhor se você aproveitar ao máximo os princípios OOP. Então, para poder usar o super-objeto CodeIgniter em todos os métodos de classe, você é encorajado a atribuí-lo a uma propriedade em vez disso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Example_library</span> <span class="p">{</span>
 
         <span class="k">protected</span> <span class="nv">$CI</span><span class="p">;</span>
 
-        <span class="c1">// We&#39;ll use a constructor, as you can&#39;t directly call a function</span>
-        <span class="c1">// from a property definition.</span>
+        <span class="c1">// Usaremos um construtor, pois você não pode chamar diretamente uma função</span>
+        <span class="c1">// de uma definição de propriedade.</span>
         <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
         <span class="p">{</span>
-                <span class="c1">// Assign the CodeIgniter super-object</span>
+                <span class="c1">// Atribuir o Super objeto CodeIgniter</span>
                 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">CI</span> <span class="o">=&amp;</span> <span class="nx">get_instance</span><span class="p">();</span>
         <span class="p">}</span>
 
@@ -596,50 +571,39 @@ methods, you&#8217;re encouraged to assign it to a property instead:</p>
 </div>
 </div>
 <div class="section" id="replacing-native-libraries-with-your-versions">
-<h2>Replacing Native Libraries with Your Versions<a class="headerlink" href="#replacing-native-libraries-with-your-versions" title="Permalink to this headline">¶</a></h2>
-<p>Simply by naming your class files identically to a native library will
-cause CodeIgniter to use it instead of the native one. To use this
-feature you must name the file and the class declaration exactly the
-same as the native library. For example, to replace the native Email
-library you&#8217;ll create a file named <em>application/libraries/Email.php</em>,
-and declare your class with:</p>
+<h2>Substituindo Bibliotecas Nativas por suas Versões<a class="headerlink" href="#replacing-native-libraries-with-your-versions" title="Permalink to this headline">¶</a></h2>
+<p>Basta nomear os arquivos da sua classe de forma idêntica a uma biblioteca nativa fará com que CodeIgniter o use em vez do nativo. Para usar esse recurso, você deve nomear o arquivo e a declaração de classe exatamente o mesmo que a biblioteca nativa. Por exemplo, para substituir a biblioteca nativa de e-mail, você criará um arquivo chamado <em>application/libraries/Email.php</em>,
+e declarará sua classe com:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CI_Email</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note that most native classes are prefixed with CI_.</p>
-<p>To load your library you&#8217;ll see the standard loading method:</p>
+<p>Observe que a maioria das classes nativas são prefixadas com CI_.</p>
+<p>Para carregar sua biblioteca, você verá o método de carregamento padrão:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">At this time the Database classes can not be replaced with
-your own versions.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Neste momento, as classes de banco de dados não podem ser substituídas por suas próprias versões.</p>
 </div>
 </div>
 <div class="section" id="extending-native-libraries">
-<h2>Extending Native Bibliotecas<a class="headerlink" href="#extending-native-libraries" title="Permalink to this headline">¶</a></h2>
-<p>If all you need to do is add some functionality to an existing library -
-perhaps add a method or two - then it&#8217;s overkill to replace the entire
-library with your version. In this case it&#8217;s better to simply extend the
-class. Extending a class is nearly identical to replacing a class with a
-couple exceptions:</p>
+<h2>Estendendo Bibliotecas Nativas<a class="headerlink" href="#extending-native-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Se tudo o que você precisa fazer é adicionar algumas funcionalidades a uma biblioteca existente - talvez adicione um método ou dois - então é um excesso para substituir toda a biblioteca pela sua versão. Neste caso, é melhor simplesmente estender a classe. A extensão de uma classe é quase idêntica à substituição de uma classe por algumas exceções:</p>
 <ul class="simple">
-<li>The class declaration must extend the parent class.</li>
-<li>Your new class name and filename must be prefixed with MY_ (this
-item is configurable. See below.).</li>
+<li>A declaração de classe deve estender a classe pai.</li>
+<li>Seu novo nome de classe e seu nome de arquivo devem ser prefixados com MY_ (este item é configurável. Veja abaixo).</li>
 </ul>
-<p>For example, to extend the native Email class you&#8217;ll create a file named
-<em>application/libraries/MY_Email.php</em>, and declare your class with:</p>
+<p>Por exemplo, para estender a classe nativa de e-mail, você criará um arquivo chamado
+<em>application/libraries/MY_Email.php</em>, e declare sua classe com:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MY_Email</span> <span class="k">extends</span> <span class="nx">CI_Email</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If you need to use a constructor in your class make sure you
-extend the parent constructor:</p>
+<p>Se você precisar usar um construtor em sua classe, certifique-se de estender o construtor pai:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MY_Email</span> <span class="k">extends</span> <span class="nx">CI_Email</span> <span class="p">{</span>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$config</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
@@ -652,34 +616,27 @@ extend the parent constructor:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Not all of the libraries have the same (or any) parameters
-in their constructor. Take a look at the library that you&#8217;re
-extending first to see how it should be implemented.</p>
+<p class="last">Nem todas as bibliotecas têm os mesmos (ou quaisquer) parâmetros em seu construtor. Dê uma olhada na biblioteca que você está expandindo primeiro para ver como ela deve ser implementada.</p>
 </div>
 <div class="section" id="loading-your-sub-class">
-<h3>Loading Your Sub-class<a class="headerlink" href="#loading-your-sub-class" title="Permalink to this headline">¶</a></h3>
-<p>To load your sub-class you&#8217;ll use the standard syntax normally used. DO
-NOT include your prefix. For example, to load the example above, which
-extends the Email class, you will use:</p>
+<h3>Carregando sua Sub-classe<a class="headerlink" href="#loading-your-sub-class" title="Permalink to this headline">¶</a></h3>
+<p>Para carregar sua subclasse, você usará a sintaxe padrão normalmente usada. NÃO inclua seu prefixo. Por exemplo, para carregar o exemplo acima, que estende a classe Email, você usará:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Once loaded you will use the class variable as you normally would for
-the class you are extending. In the case of the email class all calls
-will use:</p>
+<p>Uma vez carregado, você usará a variável de classe como você normalmente faria para a classe que você está estendendo. No caso da classe de e-mail, todas as chamadas usarão:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="o">-&gt;</span><span class="na">some_method</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="setting-your-own-prefix">
-<h3>Setting Your Own Prefix<a class="headerlink" href="#setting-your-own-prefix" title="Permalink to this headline">¶</a></h3>
-<p>To set your own sub-class prefix, open your
-<em>application/config/config.php</em> file and look for this item:</p>
+<h3>Configurando seu Próprio Prefixo<a class="headerlink" href="#setting-your-own-prefix" title="Permalink to this headline">¶</a></h3>
+<p>Para definir seu próprio prefixo de sub-classe, abra o arquivo
+<em>application/config/config.php</em> e olhe este item:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;subclass_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MY_&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Please note that all native CodeIgniter libraries are prefixed with CI_
-so DO NOT use that as your prefix.</p>
+<p>Observe que todas as bibliotecas do CodeIgniter nativas são prefixadas com CI_ então NÃO use isso como seu prefixo.</p>
 </div>
 </div>
 </div>
