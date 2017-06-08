@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Tópicos Gerais</a> &raquo;</li>
 
-    <li>Controllers</li>
+    <li>Controladores</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,131 +424,120 @@
           <div role="main" class="document">
 
   <div class="section" id="controllers">
-<h1><a class="toc-backref" href="#id1">Controllers</a><a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h1>
-<p>Controllers are the heart of your application, as they determine how
-HTTP requests should be handled.</p>
+<h1><a class="toc-backref" href="#id1">Controladores</a><a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h1>
+<p>Os controladores são o coração do seu aplicativo, pois determinam como os pedidos HTTP devem ser tratados.</p>
 <div class="contents topic" id="page-contents">
-<p class="topic-title first">Page Contents</p>
+<p class="topic-title first">Conteúdo da página</p>
 <ul class="simple">
-<li><a class="reference internal" href="#controllers" id="id1">Controllers</a><ul>
-<li><a class="reference internal" href="#what-is-a-controller" id="id2">What is a Controller?</a></li>
-<li><a class="reference internal" href="#let-s-try-it-hello-world" id="id3">Let&#8217;s try it: Hello World!</a></li>
-<li><a class="reference internal" href="#methods" id="id4">Methods</a></li>
-<li><a class="reference internal" href="#passing-uri-segments-to-your-methods" id="id5">Passing URI Segments to your methods</a></li>
-<li><a class="reference internal" href="#defining-a-default-controller" id="id6">Defining a Default Controller</a></li>
-<li><a class="reference internal" href="#remapping-method-calls" id="id7">Remapping Method Calls</a></li>
-<li><a class="reference internal" href="#processing-output" id="id8">Processing Output</a></li>
-<li><a class="reference internal" href="#private-methods" id="id9">Private methods</a></li>
-<li><a class="reference internal" href="#organizing-your-controllers-into-sub-directories" id="id10">Organizing Your Controllers into Sub-directories</a></li>
-<li><a class="reference internal" href="#class-constructors" id="id11">Class Constructors</a></li>
-<li><a class="reference internal" href="#reserved-method-names" id="id12">Reserved method names</a></li>
-<li><a class="reference internal" href="#that-s-it" id="id13">That&#8217;s it!</a></li>
+<li><a class="reference internal" href="#controllers" id="id1">Controlador</a><ul>
+<li><a class="reference internal" href="#what-is-a-controller" id="id2">O que é um controlador?</a></li>
+<li><a class="reference internal" href="#let-s-try-it-hello-world" id="id3">Vamos tentar: Olá Mundo!</a></li>
+<li><a class="reference internal" href="#methods" id="id4">Métodos</a></li>
+<li><a class="reference internal" href="#passing-uri-segments-to-your-methods" id="id5">Passando segmentos de URI para seus métodos</a></li>
+<li><a class="reference internal" href="#defining-a-default-controller" id="id6">Definindo o contolador padrão</a></li>
+<li><a class="reference internal" href="#remapping-method-calls" id="id7">Remapeando chamada de métodos</a></li>
+<li><a class="reference internal" href="#processing-output" id="id8">Processamento de saída</a></li>
+<li><a class="reference internal" href="#private-methods" id="id9">Métodos privados</a></li>
+<li><a class="reference internal" href="#organizing-your-controllers-into-sub-directories" id="id10">Organizando seus controladores dentro de sub-diretórios</a></li>
+<li><a class="reference internal" href="#class-constructors" id="id11">Construtores de classe</a></li>
+<li><a class="reference internal" href="#reserved-method-names" id="id12">Nomes de métodos reservados</a></li>
+<li><a class="reference internal" href="#that-s-it" id="id13">É isso!</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="what-is-a-controller">
-<h2><a class="toc-backref" href="#id2">What is a Controller?</a><a class="headerlink" href="#what-is-a-controller" title="Permalink to this headline">¶</a></h2>
-<p><strong>A Controller is simply a class file that is named in a way that can be
-associated with a URI.</strong></p>
-<p>Consider this URI:</p>
+<h2><a class="toc-backref" href="#id2">O que é um Controlador?</a><a class="headerlink" href="#what-is-a-controller" title="Permalink to this headline">¶</a></h2>
+<p><strong>Um controlador é simplesmente um arquivo de classe que é nomeado de uma maneira que pode ser associada a um URI.</strong></p>
+<p>Considerando esta URI:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">blog</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>In the above example, CodeIgniter would attempt to find a controller
-named Blog.php and load it.</p>
-<p><strong>When a controller&#8217;s name matches the first segment of a URI, it will
-be loaded.</strong></p>
+<p>No exemplo acima, o CodeIgniter tentaria encontrar um controlador chamado Blog.php e carregá-lo.</p>
+<p><strong>Quando o nome de um controlador corresponder ao primeiro segmento de uma URI, ele será carregado.</strong></p>
 </div>
 <div class="section" id="let-s-try-it-hello-world">
-<h2><a class="toc-backref" href="#id3">Let&#8217;s try it: Hello World!</a><a class="headerlink" href="#let-s-try-it-hello-world" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s create a simple controller so you can see it in action. Using your
-text editor, create a file called Blog.php, and put the following code
-in it:</p>
+<h2><a class="toc-backref" href="#id3">Vamos tentar: Olá Mundo!</a><a class="headerlink" href="#let-s-try-it-hello-world" title="Permalink to this headline">¶</a></h2>
+<p>Vamos criar um controlador simples para que você possa vê-lo em ação. Usando seu editor de texto, crie um arquivo chamado Blog.php e coloque o seguinte código nele:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">Blog</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
         <span class="p">{</span>
-                <span class="k">echo</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+                <span class="k">echo</span> <span class="s1">&#39;Olá Mundo!&#39;</span><span class="p">;</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Then save the file to your <em>application/controllers/</em> directory.</p>
+<p>Em seguida salve o arquivo no diretório <em>application/controllers/</em>.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">The file must be called &#8216;Blog.php&#8217;, with a capital &#8216;B&#8217;.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">O arquivo deve ser chamado &#8216;Blog.php&#8217;, com um &#8216;B&#8217; maíusculo.</p>
 </div>
-<p>Now visit the your site using a URL similar to this:</p>
+<p>Agora visite o seu site usando um URL semelhante a esta:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">blog</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>If you did it right, you should see:</p>
+<p>Se você fez certo, você deverá ver:</p>
 <blockquote>
-<div>Hello World!</div></blockquote>
+<div>Olá Mundo!</div></blockquote>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Class names must start with an uppercase letter.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Os nomes das classes devem começar com uma letra maiúscula.</p>
 </div>
-<p>This is valid:</p>
+<p>Isso é válido:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">Blog</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This is <strong>not</strong> valid:</p>
+<p>Isso <strong>não</strong> é válido:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">blog</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Also, always make sure your controller extends the parent controller
-class so that it can inherit all its methods.</p>
+<p>Além disso, certifique-se sempre de que o seu controlador estende a classe do controlador principal para que ele possa herdar todos os seus métodos.</p>
 </div>
 <div class="section" id="methods">
-<h2><a class="toc-backref" href="#id4">Methods</a><a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
-<p>In the above example the method name is <tt class="docutils literal"><span class="pre">index()</span></tt>. The &#8220;index&#8221; method
-is always loaded by default if the <strong>second segment</strong> of the URI is
-empty. Another way to show your &#8220;Hello World&#8221; message would be this:</p>
+<h2><a class="toc-backref" href="#id4">Métodos</a><a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>No exemplo acima, na criação do controlador, o nome do método é <tt class="docutils literal"><span class="pre">index()</span></tt>. O método &#8220;index&#8221; será carregado sempre por padrão se o <strong>segundo segmento</strong> da URI estiver vazio. Outra maneira de mostrar sua mensagem  &#8220;Olá Mundo&#8221; seria assim:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">blog</span><span class="o">/</span><span class="nx">index</span><span class="o">/</span>
 </pre></div>
 </div>
-<p><strong>The second segment of the URI determines which method in the
-controller gets called.</strong></p>
-<p>Let&#8217;s try it. Add a new method to your controller:</p>
+<p><strong>O segundo segmento do URI determina qual método no controlador é chamado.</strong></p>
+<p>Vamos tentar. Adicione um novo método ao seu controlador:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">Blog</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
         <span class="p">{</span>
-                <span class="k">echo</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+                <span class="k">echo</span> <span class="s1">&#39;Olá Mundo!&#39;</span><span class="p">;</span>
         <span class="p">}</span>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">comments</span><span class="p">()</span>
         <span class="p">{</span>
-                <span class="k">echo</span> <span class="s1">&#39;Look at this!&#39;</span><span class="p">;</span>
+                <span class="k">echo</span> <span class="s1">&#39;Olhe isso!&#39;</span><span class="p">;</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Now load the following URL to see the comment method:</p>
+<p>Agora carregue a seguinte URL para ver o método de comentário:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">blog</span><span class="o">/</span><span class="nx">comments</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>You should see your new message.</p>
+<p>Você deve ver sua nova mensagem.</p>
 </div>
 <div class="section" id="passing-uri-segments-to-your-methods">
-<h2><a class="toc-backref" href="#id5">Passing URI Segments to your methods</a><a class="headerlink" href="#passing-uri-segments-to-your-methods" title="Permalink to this headline">¶</a></h2>
-<p>If your URI contains more than two segments they will be passed to your
-method as parameters.</p>
-<p>For example, let&#8217;s say you have a URI like this:</p>
+<h2><a class="toc-backref" href="#id5">Passando Segmentos da URI para seus Métodos</a><a class="headerlink" href="#passing-uri-segments-to-your-methods" title="Permalink to this headline">¶</a></h2>
+<p>Se a sua URI contiver mais de dois segmentos, eles serão passados ​​para o seu método como parâmetros.</p>
+<p>Por exemplo, digamos que você tenha uma URI como esta:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">sandals</span><span class="o">/</span><span class="mi">123</span>
 </pre></div>
 </div>
-<p>Your method will be passed URI segments 3 and 4 (&#8220;sandals&#8221; and &#8220;123&#8221;):</p>
+<p>Seu método de URI irá passar os segmentos 3 e 4 (&#8220;sandals&#8221; e &#8220;123&#8221;):</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
@@ -561,50 +550,40 @@ method as parameters.</p>
 </pre></div>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">If you are using the <a class="reference internal" href="routing.html"><em>Roteamento URI</em></a>
-feature, the segments passed to your method will be the re-routed
-ones.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Se você está usando características de <a class="reference internal" href="routing.html"><em>Roteamento URI</em></a>
+, Os segmentos passados ​​para o seu método serão os reencaminhados.</p>
 </div>
 </div>
 <div class="section" id="defining-a-default-controller">
-<h2><a class="toc-backref" href="#id6">Defining a Default Controller</a><a class="headerlink" href="#defining-a-default-controller" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter can be told to load a default controller when a URI is not
-present, as will be the case when only your site root URL is requested.
-To specify a default controller, open your <strong>application/config/routes.php</strong>
-file and set this variable:</p>
+<h2><a class="toc-backref" href="#id6">Definindo o Controlador Padrão</a><a class="headerlink" href="#defining-a-default-controller" title="Permalink to this headline">¶</a></h2>
+<p>O CodeIgniter pode ser informado para carregar um controlador padrão quando uma URI não está presente, como será o caso quando apenas o URL de raiz do seu site for solicitado. Para especificar um controlador padrão, abra o arquivo em<strong>application/config/routes.php</strong>
+e defina esta variável:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;default_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;blog&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Where &#8216;blog&#8217; is the name of the controller class you want used. If you now
-load your main index.php file without specifying any URI segments you&#8217;ll
-see your &#8220;Hello World&#8221; message by default.</p>
-<p>For more information, please refer to the &#8220;Reserved Routes&#8221; section of the
-<a class="reference internal" href="routing.html"><em>Roteamento URI</em></a> documentation.</p>
+<p>Onde &#8216;blog&#8217; é o nome da classe de controlador que você deseja usar. Se você carregar seu arquivo index.php principal sem especificar nenhum segmento URI, você verá sua mensagem &#8220;Olá Mundo&#8221; por padrão.</p>
+<p>Para obter mais informações, consulte o manual para &#8220;Rotas Reservadas&#8221; na seção
+<a class="reference internal" href="routing.html"><em>Roteamento URI</em></a>.</p>
 </div>
 <div class="section" id="remapping-method-calls">
-<h2><a class="toc-backref" href="#id7">Remapping Method Calls</a><a class="headerlink" href="#remapping-method-calls" title="Permalink to this headline">¶</a></h2>
-<p>As noted above, the second segment of the URI typically determines which
-method in the controller gets called. CodeIgniter permits you to override
-this behavior through the use of the <tt class="docutils literal"><span class="pre">_remap()</span></tt> method:</p>
+<h2><a class="toc-backref" href="#id7">Remapeando Chamadas de Métodos</a><a class="headerlink" href="#remapping-method-calls" title="Permalink to this headline">¶</a></h2>
+<p>Conforme observado acima, o segundo segmento da URI tipicamente determina qual método no controlador é chamado. O CodeIgniter permite que você substitua esse comportamento através do uso do método<tt class="docutils literal"><span class="pre">_remap()</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">()</span>
 <span class="p">{</span>
-        <span class="c1">// Some code here...</span>
+        <span class="c1">// Alguma coisa aqui...</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">If your controller contains a method named _remap(),
-it will <strong>always</strong> get called regardless of what your URI contains. It
-overrides the normal behavior in which the URI determines which method
-is called, allowing you to define your own method routing rules.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Se o seu controlador contiver um método chamado _remap(),
+este <strong>sempre</strong> será chamado independentemente do que a sua URI contenha. Ele substitui o comportamento normal no qual a URI determina qual método é chamado, permitindo que você defina suas próprias regras de roteamento de métodos.</p>
 </div>
-<p>The overridden method call (typically the second segment of the URI) will
-be passed as a parameter to the <tt class="docutils literal"><span class="pre">_remap()</span></tt> method:</p>
+<p>A chamada do método substituído (normalmente o segundo segmento do URI) será passada como um parâmetro para o método <tt class="docutils literal"><span class="pre">_remap()</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">(</span><span class="nv">$method</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$method</span> <span class="o">===</span> <span class="s1">&#39;some_method&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$method</span> <span class="o">===</span> <span class="s1">&#39;algum_metodo&#39;</span><span class="p">)</span>
         <span class="p">{</span>
                 <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$method</span><span class="p">();</span>
         <span class="p">}</span>
@@ -615,11 +594,11 @@ be passed as a parameter to the <tt class="docutils literal"><span class="pre">_
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Any extra segments after the method name are passed into <tt class="docutils literal"><span class="pre">_remap()</span></tt> as an
-optional second parameter. This array can be used in combination with
-PHP&#8217;s <a class="reference external" href="http://php.net/call_user_func_array">call_user_func_array()</a>
-to emulate CodeIgniter&#8217;s default behavior.</p>
-<p>Example:</p>
+<p>Quaisquer segmentos extras após o nome do método são passados ​​para <tt class="docutils literal"><span class="pre">_remap()</span></tt>
+Como um segundo parâmetro opcional. Esta matriz pode ser usada em combinação com o método PHP
+ <a class="reference external" href="http://php.net/call_user_func_array">call_user_func_array()</a>
+para emular o comportamento padrão do CodeIgniter..</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">(</span><span class="nv">$method</span><span class="p">,</span> <span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
 <span class="p">{</span>
         <span class="nv">$method</span> <span class="o">=</span> <span class="s1">&#39;process_&#39;</span><span class="o">.</span><span class="nv">$method</span><span class="p">;</span>
@@ -633,21 +612,16 @@ to emulate CodeIgniter&#8217;s default behavior.</p>
 </div>
 </div>
 <div class="section" id="processing-output">
-<h2><a class="toc-backref" href="#id8">Processing Output</a><a class="headerlink" href="#processing-output" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter has an output class that takes care of sending your final
-rendered data to the web browser automatically. More information on this
-can be found in the <a class="reference internal" href="views.html"><em>Views</em></a> and <a class="reference internal" href="../libraries/output.html"><em>Classe de Saída</em></a> pages. In some cases, however, you might want to
-post-process the finalized data in some way and send it to the browser
-yourself. CodeIgniter permits you to add a method named <tt class="docutils literal"><span class="pre">_output()</span></tt>
-to your controller that will receive the finalized output data.</p>
+<h2><a class="toc-backref" href="#id8">Processamento de Saída</a><a class="headerlink" href="#processing-output" title="Permalink to this headline">¶</a></h2>
+<p>O CodeIgniter tem uma classe de saída que cuida enviar seus dados renderizados finais para o navegador da Web automaticamente. Mais informações sobre isso podem ser encontradas nas páginas <a class="reference internal" href="views.html"><em>Views</em></a> e <a class="reference internal" href="../libraries/output.html"><em>Classe de Saída</em></a>.
+Em alguns casos, no entanto, você pode querer pós-processar os dados finalizados de alguma forma e enviá-lo para o navegador você mesmo. O CodeIgniter permite que você adicione um método chamado _output () ao seu controlador que receberá os dados de saída finalizados.
+<tt class="docutils literal"><span class="pre">_output()</span></tt></p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">If your controller contains a method named <tt class="docutils literal"><span class="pre">_output()</span></tt>,
-it will <strong>always</strong> be called by the output class instead of
-echoing the finalized data directly. The first parameter of the
-method will contain the finalized output.</p>
+<p class="last">Se o seu controlador contiver um método chamado <tt class="docutils literal"><span class="pre">_output()</span></tt>,
+este <strong>sempre</strong> será chamado pela classe de saída em vez de fazer eco dos dados finalizados diretamente. O primeiro parâmetro do método conterá a saída finalizada.</p>
 </div>
-<p>Here is an example:</p>
+<p>Aqui está um exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">_output</span><span class="p">(</span><span class="nv">$output</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">echo</span> <span class="nv">$output</span><span class="p">;</span>
@@ -655,124 +629,96 @@ method will contain the finalized output.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>Please note that your <tt class="docutils literal"><span class="pre">_output()</span></tt> method will receive the
-data in its finalized state. Benchmark and memory usage data
-will be rendered, cache files written (if you have caching
-enabled), and headers will be sent (if you use that
-<a class="reference internal" href="../libraries/output.html"><em>feature</em></a>) before it is handed off
-to the <tt class="docutils literal"><span class="pre">_output()</span></tt> method.
-To have your controller&#8217;s output cached properly, its
-<tt class="docutils literal"><span class="pre">_output()</span></tt> method can use:</p>
+<p class="first admonition-title">Nota</p>
+<p>Por favor, note que seu método <tt class="docutils literal"><span class="pre">_output()</span></tt>
+receberá os dados em seu estado finalizado. Os dados de referência e de uso de memória serão renderizados, os arquivos de cache escritos (se você tiver habilitado o armazenamento em cache) e os cabeçalhos serão enviados (se você usar esse <a class="reference internal" href="../libraries/output.html"><em>recurso</em></a>) antes de ser transferido para o método
+ <tt class="docutils literal"><span class="pre">_output()</span></tt>.
+Para que a saída do seu controlador seja armazenada em cache corretamente, o método <tt class="docutils literal"><span class="pre">_output()</span></tt> pode usar:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">cache_expiration</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">_write_cache</span><span class="p">(</span><span class="nv">$output</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="last">If you are using this feature the page execution timer and
-memory usage stats might not be perfectly accurate since they
-will not take into account any further processing you do.
-For an alternate way to control output <em>before</em> any of the
-final processing is done, please see the available methods
-in the <a class="reference internal" href="../libraries/output.html"><em>Output Library</em></a>.</p>
+<p class="last">
+    Se você estiver usando este recurso, o tempo de execução da página e as estatísticas de uso da memória podem não ser perfeitamente precisas, pois não levarão em consideração qualquer processamento posterior que você faça. Por uma maneira alternativa de controlar a saída <em>antes</em> de qualquer um dos processos finais, ver os métodos disponíveis em
+<a class="reference internal" href="../libraries/output.html"><em>Biblioteca de Saída</em></a>.</p>
 </div>
 </div>
 <div class="section" id="private-methods">
-<h2><a class="toc-backref" href="#id9">Private methods</a><a class="headerlink" href="#private-methods" title="Permalink to this headline">¶</a></h2>
-<p>In some cases you may want certain methods hidden from public access.
-In order to achieve this, simply declare the method as being private
-or protected and it will not be served via a URL request. For example,
-if you were to have a method like this:</p>
+<h2><a class="toc-backref" href="#id9">Métodos Privados</a><a class="headerlink" href="#private-methods" title="Permalink to this headline">¶</a></h2>
+<p>Em alguns casos, você pode querer certos métodos escondidos do acesso público. Para conseguir isso, simplesmente declare o método como privado ou protegido e não será servido por meio de uma solicitação de URL. Por exemplo, se você tivesse um método como este:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">private</span> <span class="k">function</span> <span class="nf">_utility</span><span class="p">()</span>
 <span class="p">{</span>
-        <span class="c1">// some code</span>
+        <span class="c1">// algum código</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Trying to access it via the URL, like this, will not work:</p>
+<p>Tentando acessá-lo através do URL, assim, não funcionará:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">blog</span><span class="o">/</span><span class="nx">_utility</span><span class="o">/</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Prefixing method names with an underscore will also prevent
-them from being called. This is a legacy feature that is left
-for backwards-compatibility.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Os nomes dos métodos de prefixação com um título de sublinhado também impedirão que sejam chamados. Este é um recurso herdado que é deixado para compatibilidade com versões anteriores.</p>
 </div>
 </div>
 <div class="section" id="organizing-your-controllers-into-sub-directories">
-<h2><a class="toc-backref" href="#id10">Organizing Your Controllers into Sub-directories</a><a class="headerlink" href="#organizing-your-controllers-into-sub-directories" title="Permalink to this headline">¶</a></h2>
-<p>If you are building a large application you might want to hierarchically
-organize or structure your controllers into sub-directories. CodeIgniter
-permits you to do this.</p>
-<p>Simply create sub-directories under the main <em>application/controllers/</em>
-one and place your controller classes within them.</p>
+<h2><a class="toc-backref" href="#id10">Organizando seus Controladores em Sub-diretórios</a><a class="headerlink" href="#organizing-your-controllers-into-sub-directories" title="Permalink to this headline">¶</a></h2>
+<p>Se você estiver construindo um aplicativo grande, você pode querer hierarquicamente organizar ou estruturar seus controladores em subdiretórios. O CodeIgniter permite que você faça isso..</p>
+<p>Simplesmente crie subdiretórios sob o principal <em>application/controllers/</em>
+ e coloque suas classes de controle dentro deles.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>When using this feature the first segment of your URI must
-specify the folder. For example, let&#8217;s say you have a controller located
-here:</p>
+<p class="first admonition-title">Nota</p>
+<p>Ao usar esse recurso, o primeiro segmento do URI deve especificar a pasta. Por exemplo, digamos que você tenha um controlador localizado aqui:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">application</span><span class="o">/</span><span class="nx">controllers</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">Shoes</span><span class="o">.</span><span class="nx">php</span>
 </pre></div>
 </div>
-<p>To call the above controller your URI will look something like this:</p>
+<p>Para chamar o controlador acima, a sua URI será algo como isto:</p>
 <div class="last highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">show</span><span class="o">/</span><span class="mi">123</span>
 </pre></div>
 </div>
 </div>
-<p>Each of your sub-directories may contain a default controller which will be
-called if the URL contains <em>only</em> the sub-directory. Simply put a controller
-in there that matches the name of your &#8216;default_controller&#8217; as specified in
-your <em>application/config/routes.php</em> file.</p>
-<p>CodeIgniter also permits you to remap your URIs using its <a class="reference internal" href="routing.html"><em>URI
-Routing</em></a> feature.</p>
+<p>Cada um dos seus subdiretórios pode conter um controlador padrão que será chamado se o URL contiver <em>apenas</em> o subdiretório. Basta colocar um controlador lá que combine o nome do seu &#8216;controlador_padrao&#8217; 
+especificado em seu arquivo <em>application/config/routes.php</em>.</p>
+<p>CodeIgniter também permite que você remapeie seus URIs usando o recurso <a class="reference internal" href="routing.html"><em> Rotas de URI
+</em></a>.</p>
 </div>
 <div class="section" id="class-constructors">
-<h2><a class="toc-backref" href="#id11">Class Constructors</a><a class="headerlink" href="#class-constructors" title="Permalink to this headline">¶</a></h2>
-<p>If you intend to use a constructor in any of your Controllers, you
-<strong>MUST</strong> place the following line of code in it:</p>
+<h2><a class="toc-backref" href="#id11">Construtores de classe</a><a class="headerlink" href="#class-constructors" title="Permalink to this headline">¶</a></h2>
+<p>Se você pretende usar um construtor em qualquer um de seus Controladores, você
+<strong>DEVE</strong> inserir a seguinte linha de código:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The reason this line is necessary is because your local constructor will
-be overriding the one in the parent controller class so we need to
-manually call it.</p>
-<p>Example:</p>
+<p>A razão pela qual esta linha é necessária é porque seu construtor local irá substituir o da classe do controlador principal, então precisamos chamá-lo manualmente.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">Blog</span> <span class="k">extends</span> <span class="nx">CI_Controller</span> <span class="p">{</span>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
         <span class="p">{</span>
                 <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
-                <span class="c1">// Your own constructor code</span>
+                <span class="c1">// Seu próprio código de construtor</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Constructors are useful if you need to set some default values, or run a
-default process when your class is instantiated. Constructors can&#8217;t
-return a value, but they can do some default work.</p>
+<p>Os Construtores são úteis se você precisar definir alguns valores padrão ou executar um processo padrão quando sua classe for instanciada. Os Construtores não podem retornar um valor, mas eles podem fazer algum trabalho padrão.</p>
 </div>
 <div class="section" id="reserved-method-names">
-<h2><a class="toc-backref" href="#id12">Reserved method names</a><a class="headerlink" href="#reserved-method-names" title="Permalink to this headline">¶</a></h2>
-<p>Since your controller classes will extend the main application
-controller you must be careful not to name your methods identically to
-the ones used by that class, otherwise your local functions will
-override them. See <a class="reference internal" href="reserved_names.html"><em>Nomes Reservados</em></a> for a full
-list.</p>
+<h2><a class="toc-backref" href="#id12">Nomes de Métodos Reservados</a><a class="headerlink" href="#reserved-method-names" title="Permalink to this headline">¶</a></h2>
+<p>Uma vez que suas classes de controle estenderão o controlador de aplicativo principal, você deve ter cuidado para não nomear seus métodos de forma idêntica aos usados ​​por essa classe, caso contrário, suas funções locais os substituirão. Veja a lista completa em <a class="reference internal" href="reserved_names.html"><em>Nomes Reservados</em></a>.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">You should also never have a method named identically
-to its class name. If you do, and there is no <tt class="docutils literal"><span class="pre">__construct()</span></tt>
-method in the same class, then your e.g. <tt class="docutils literal"><span class="pre">Index::index()</span></tt>
-method will be executed as a class constructor! This is a PHP4
-backwards-compatibility feature.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Você também não deve ter um método denominado de forma idêntica ao nome da classe. Se você fizer isso, e não há nenhum método <tt class="docutils literal"><span class="pre">__construct()</span></tt>
+Método na mesma classe, então ex:  O método <tt class="docutils literal"><span class="pre">Index::index()</span></tt>
+será executado como um construtor de classe! Este é um recurso de compatibilidade com o PHP4</p>
 </div>
 </div>
 <div class="section" id="that-s-it">
-<h2><a class="toc-backref" href="#id13">That&#8217;s it!</a><a class="headerlink" href="#that-s-it" title="Permalink to this headline">¶</a></h2>
-<p>That, in a nutshell, is all there is to know about controllers.</p>
+<h2><a class="toc-backref" href="#id13">É isso!</a><a class="headerlink" href="#that-s-it" title="Permalink to this headline">¶</a></h2>
+<p>Isso, em poucas palavras, é tudo o que há para saber sobre os controladores.</p>
 </div>
 </div>
 
