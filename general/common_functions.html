@@ -425,9 +425,7 @@
 
   <div class="section" id="common-functions">
 <h1>Funções Comuns<a class="headerlink" href="#common-functions" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter uses a few functions for its operation that are globally
-defined, and are available to you at any point. These do not require
-loading any libraries or helpers.</p>
+<p>CodeIgniter usa algumas funções para o seu funcionamento definidas globalmente e estão disponíveis para você em qualquer ponto. Estes não exigem o carregamento de bibliotecas ou auxiliares.</p>
 <div class="custom-index container"></div><dl class="function">
 <dt id="is_php">
 <tt class="descname">is_php</tt><big>(</big><em>$version</em><big>)</big><a class="headerlink" href="#is_php" title="Permalink to this definition">¶</a></dt>
@@ -436,30 +434,27 @@ loading any libraries or helpers.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$version</strong> (<em>string</em>) &#8211; Version number</li>
+<li><strong>$version</strong> (<em>string</em>) &#8211; Número da versão</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the running PHP version is at least the one specified or FALSE if not</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO Se a versão PHP em execução for pelo menos a especificada ou FALSO se não for.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the PHP version being used is greater than the
-supplied version number.</p>
-<p>Example:</p>
+<p>Determina se a versão do PHP que está sendo usada é maior do que o número da versão fornecida.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">is_php</span><span class="p">(</span><span class="s1">&#39;5.3&#39;</span><span class="p">))</span>
 <span class="p">{</span>
         <span class="nv">$str</span> <span class="o">=</span> <span class="nb">quoted_printable_encode</span><span class="p">(</span><span class="nv">$str</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Returns boolean TRUE if the installed version of PHP is equal to or
-greater than the supplied version number. Returns FALSE if the installed
-version of PHP is lower than the supplied version number.</p>
+<p>Retorna TRUE se a versão instalada do PHP for igual ou superior ao número de versão fornecido. Retorna FALSO se a versão instalada do PHP for menor do que o número de versão fornecido.</p>
 </dd></dl>
 
 <dl class="function">
@@ -470,38 +465,34 @@ version of PHP is lower than the supplied version number.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$file</strong> (<em>string</em>) &#8211; File path</li>
+<li><strong>$file</strong> (<em>string</em>) &#8211; Caminho do arquivo</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the path is writable, FALSE if not</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO se o caminho for gravável.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p><tt class="docutils literal"><span class="pre">is_writable()</span></tt> returns TRUE on Windows servers when you really can&#8217;t
-write to the file as the OS reports to PHP as FALSE only if the
-read-only attribute is marked.</p>
-<p>This function determines if a file is actually writable by attempting
-to write to it first. Generally only recommended on platforms where
-this information may be unreliable.</p>
-<p>Example:</p>
+<p><tt class="docutils literal"><span class="pre">is_writable()</span></tt> retorna VERDADEIRO nos servidores Windows quando você realmente não pode gravar no arquivo, pois o sistema operacional reporta ao PHP como FALSO somente se o atributo somente leitura estiver marcado.</p>
+<p>Esta função determina se um arquivo realmente pode ser gravado, tentando gravar primeiro. Geralmente, apenas é recomendado em plataformas onde esta informação pode não ser confiável.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">is_really_writable</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">))</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="s2">&quot;I could write to this if I wanted to&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;Eu posso gravar nesse arquivo se eu quiser&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="s2">&quot;File is not writable&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;O arquivo não pode ser gravado&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">See also <a class="reference external" href="https://bugs.php.net/bug.php?id=54709">PHP bug #54709</a> for more info.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Veja também <a class="reference external" href="https://bugs.php.net/bug.php?id=54709">PHP bug #54709</a> para mais informações.</p>
 </div>
 </dd></dl>
 
@@ -513,22 +504,20 @@ this information may be unreliable.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$key</strong> (<em>string</em>) &#8211; Config item key</li>
+<li><strong>$key</strong> (<em>string</em>) &#8211; Chave do item</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Configuration key value or NULL if not found</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">O valor da chave de configuração, ou NULO se não encontrado.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">Vários tipos</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>The <a class="reference internal" href="../libraries/config.html"><em>Config Library</em></a> is the preferred way of
-accessing configuration information, however <tt class="docutils literal"><span class="pre">config_item()</span></tt> can be used
-to retrieve single keys. See <a class="reference internal" href="../libraries/config.html"><em>Config Library</em></a>
-documentation for more information.</p>
+<p>A <a class="reference internal" href="../libraries/config.html"><em>Biblioteca de configuração</em></a> é a maneira preferida de acessar informações de configuração, no entanto <tt class="docutils literal"><span class="pre">config_item()</span></tt>
+pode ser usado para recuperar chaves. Veja a documentação da <a class="reference internal" href="../libraries/config.html"><em>Biblioteca de configuração</em></a> para mais informações.</p>
 </dd></dl>
 
 <dl class="function">
@@ -539,23 +528,22 @@ documentation for more information.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$code</strong> (<em>int</em>) &#8211; HTTP Reponse status code</li>
-<li><strong>$text</strong> (<em>string</em>) &#8211; A custom message to set with the status code</li>
+<li><strong>$code</strong> (<em>int</em>) &#8211; HTTP Código de status de resposta HTTP</li>
+<li><strong>$text</strong> (<em>string</em>) &#8211; Uma mensagem personalizada para definir com o código de status</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">void</p>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">NADA</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Permits you to manually set a server status header. Example:</p>
+<p>Permite que você defina manualmente um cabeçalho de status do servidor. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">set_status_header</span><span class="p">(</span><span class="mi">401</span><span class="p">);</span>
-<span class="c1">// Sets the header as:  Unauthorized</span>
+<span class="c1">// Define o cabeçalho como: Não autorizado</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">See here</a> for
-a full list of headers.</p>
+<p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Veja aqui</a> para consultar a lista completa de cabeçalhos</p>
 </dd></dl>
 
 <dl class="function">
@@ -566,22 +554,21 @@ a full list of headers.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$url_encoded</strong> (<em>bool</em>) &#8211; Whether to remove URL-encoded characters as well</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; Conjunto de caracteres de entrada</li>
+<li><strong>$url_encoded</strong> (<em>bool</em>) &#8211; Seja para remover caracteres codificados em URL também</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Sanitized string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Conjunto de caracteres sanitizados</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">Conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This function prevents inserting NULL characters between ASCII
-characters, like Java\0script.</p>
-<p>Example:</p>
+<p>Esta função impede a inserção de caracteres NULL entre caracteres ASCII, como Java \ 0script.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">remove_invisible_characters</span><span class="p">(</span><span class="s1">&#39;Java\\0script&#39;</span><span class="p">);</span>
 <span class="c1">// Retorna: &#39;Javascript&#39;</span>
 </pre></div>
@@ -596,21 +583,20 @@ characters, like Java\0script.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$var</strong> (<em>mixed</em>) &#8211; Variable to escape (string or array)</li>
+<li><strong>$var</strong> (<em>mixed</em>) &#8211; Variável para escapar (sequência de caracteres ou matriz)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML escaped string(s)</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML com sequência de caractere(s) escapado(s)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">Vários tipos</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This function acts as an alias for PHP&#8217;s native <tt class="docutils literal"><span class="pre">htmlspecialchars()</span></tt>
-function, with the advantage of being able to accept an array of strings.</p>
-<p>It is useful in preventing Cross Site Scripting (XSS).</p>
+<p>Esta função funciona como um alias para a função nativa do PHP <tt class="docutils literal"><span class="pre">htmlspecialchars()</span></tt> com a vantagem de ser capaz de aceitar uma matriz com sequência de caracteres.</p>
+<p>É útil na prevenção do Cross Site Scripting (XSS).</p>
 </dd></dl>
 
 <dl class="function">
@@ -620,13 +606,13 @@ function, with the advantage of being able to accept an array of strings.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">An associative array of file types</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Uma matriz associativa de tipos de arquivos</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">array</td>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">matriz</td>
 </tr>
 </tbody>
 </table>
-<p>This function returns a <em>reference</em> to the MIMEs array from
+<p>Esta função retorna uma  <em>referência</em> à matriz de MIME em
 <em>application/config/mimes.php</em>.</p>
 </dd></dl>
 
@@ -637,14 +623,13 @@ function, with the advantage of being able to accept an array of strings.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE if currently using HTTP-over-SSL, FALSE if not</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">VERDADEIRO se estiver usando HTTP-over-SSL, FALSO se não</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">bool</td>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">booleano</td>
 </tr>
 </tbody>
 </table>
-<p>Returns TRUE if a secure (HTTPS) connection is used and FALSE
-in any other case (including non-HTTP requests).</p>
+<p>Retorna TRUE se uma conexão segura (HTTPS) for usada e FALSO em qualquer outro caso (incluindo solicitações não HTTP).</p>
 </dd></dl>
 
 <dl class="function">
@@ -654,18 +639,17 @@ in any other case (including non-HTTP requests).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE if currently running under CLI, FALSE otherwise</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">VERDADEIRO se estiver executando atualmente em CLI, FALSO caso contrário</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">bool</td>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">booleano</td>
 </tr>
 </tbody>
 </table>
-<p>Returns TRUE if the application is run through the command line
-and FALSE if not.</p>
+<p>Retorna TRUE se o aplicativo for executado através da linha de comando e FALSE se não.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function checks both if the <tt class="docutils literal"><span class="pre">PHP_SAPI</span></tt> value is &#8216;cli&#8217;
-or if the <tt class="docutils literal"><span class="pre">STDIN</span></tt> constant is defined.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta função verifica se o valor de <tt class="docutils literal"><span class="pre">PHP_SAPI</span></tt> é &#8216;cli&#8217;
+ou se a constante <tt class="docutils literal"><span class="pre">STDIN</span></tt> foi definida.</p>
 </div>
 </dd></dl>
 
@@ -677,31 +661,26 @@ or if the <tt class="docutils literal"><span class="pre">STDIN</span></tt> const
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$function_name</strong> (<em>string</em>) &#8211; Function name</li>
+<li><strong>$function_name</strong> (<em>string</em>) &#8211; Nome da função</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the function can be used, FALSE if not</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO se a função puder ser usada, FALSO se não</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Returns TRUE if a function exists and is usable, FALSE otherwise.</p>
-<p>This function runs a <tt class="docutils literal"><span class="pre">function_exists()</span></tt> check and if the
-<cite>Suhosin extension &lt;http://www.hardened-php.net/suhosin/&gt;</cite> is loaded,
-checks if it doesn&#8217;t disable the function being checked.</p>
-<p>It is useful if you want to check for the availability of functions
-such as <tt class="docutils literal"><span class="pre">eval()</span></tt> and <tt class="docutils literal"><span class="pre">exec()</span></tt>, which are dangerous and might be
-disabled on servers with highly restrictive security policies.</p>
+<p>Retorna VERDADEIRO se uma função existe e é utilizável, ou FALSO caso contrário</p>
+<p>Esta função executa uma verificação <tt class="docutils literal"><span class="pre">function_exists()</span></tt>
+<cite>e se a extensão Suhosin &lt;http://www.hardened-php.net/suhosin/&gt;</cite> está carregada, verifica se não desabilita a função que está sendo verificada.</p>
+<p>É útil se você deseja verificar a disponibilidade de funções como <tt class="docutils literal"><span class="pre">eval()</span></tt> e <tt class="docutils literal"><span class="pre">exec()</span></tt>
+, que são perigosas e podem ser desativadas em servidores com políticas de segurança altamente restritivas.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function was introduced because Suhosin terminated
-script execution, but this turned out to be a bug. A fix
-has been available for some time (version 0.9.34), but is
-unfortunately not released yet.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta função foi introduzida porque Suhosin terminou a execução do script, mas isso acabou por ser um bug. Uma correção está disponível há algum tempo (versão 0.9.34), mas infelizmente ainda não foi lançado.</p>
 </div>
 </dd></dl>
 

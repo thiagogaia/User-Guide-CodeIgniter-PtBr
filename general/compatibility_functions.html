@@ -425,64 +425,59 @@
 
   <div class="section" id="compatibility-functions">
 <h1>Funções de Compatibilidade<a class="headerlink" href="#compatibility-functions" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter provides a set of compatibility functions that enable
-you to use functions what are otherwise natively available in PHP,
-but only in higher versions or depending on a certain extension.</p>
-<p>Being custom implementations, these functions will also have some
-set of dependencies on their own, but are still useful if your
-PHP setup doesn&#8217;t offer them natively.</p>
+<p>CodeIgniter fornece um conjunto de funções de compatibilidade que permitem usar funções que de outra forma estão disponíveis de forma nativa em PHP, mas somente em versões superiores ou dependendo de uma determinada extensão.</p>
+<p>Sendo implementações personalizadas, essas funções também terão algum conjunto de dependências por conta própria, mas ainda são úteis se sua configuração do PHP não as oferecer de forma nativa.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Much like the <cite>common functions &lt;common_functions&gt;</cite>, the
-compatibility functions are always available, as long as
-their dependencies are met.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Muito parecido com <cite>funções comuns &lt;common_functions&gt;</cite>
+, ss funções de compatibilidade estão sempre disponíveis, desde que suas dependências sejam atendidas.</p>
 </div>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#password-hashing" id="id7">Password Hashing</a><ul>
-<li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
-<li><a class="reference internal" href="#constants" id="id9">Constants</a></li>
-<li><a class="reference internal" href="#function-reference" id="id10">Function reference</a></li>
+<li><a class="reference internal" href="#password-hashing" id="id7">Hashing de Senha</a><ul>
+<li><a class="reference internal" href="#dependencies" id="id8">Dependências</a></li>
+<li><a class="reference internal" href="#constants" id="id9">Constantes</a></li>
+<li><a class="reference internal" href="#function-reference" id="id10">Referencia de Função</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#hash-message-digest" id="id11">Hash (Message Digest)</a><ul>
-<li><a class="reference internal" href="#id1" id="id12">Dependencies</a></li>
-<li><a class="reference internal" href="#id2" id="id13">Function reference</a></li>
+<li><a class="reference internal" href="#hash-message-digest" id="id11">Hash (Mensagem Digest)</a><ul>
+<li><a class="reference internal" href="#id1" id="id12">Dependências</a></li>
+<li><a class="reference internal" href="#id2" id="id13">Referencia de Função</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#multibyte-string" id="id14">Multibyte String</a><ul>
-<li><a class="reference internal" href="#id3" id="id15">Dependencies</a></li>
-<li><a class="reference internal" href="#id4" id="id16">Function reference</a></li>
+<li><a class="reference internal" href="#multibyte-string" id="id14">Sequência de caracteres Multibyte</a><ul>
+<li><a class="reference internal" href="#id3" id="id15">Dependências</a></li>
+<li><a class="reference internal" href="#id4" id="id16">Referencia de Função</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#standard-functions" id="id17">Standard Functions</a><ul>
-<li><a class="reference internal" href="#id5" id="id18">Dependencies</a></li>
-<li><a class="reference internal" href="#id6" id="id19">Function reference</a></li>
+<li><a class="reference internal" href="#standard-functions" id="id17">Funções Padrão</a><ul>
+<li><a class="reference internal" href="#id5" id="id18">Dependências</a></li>
+<li><a class="reference internal" href="#id6" id="id19">Referencia de Função</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="password-hashing">
-<h2><a class="toc-backref" href="#id7">Password Hashing</a><a class="headerlink" href="#password-hashing" title="Permalink to this headline">¶</a></h2>
-<p>This set of compatibility functions offers a &#8220;backport&#8221; of PHP&#8217;s
-standard <a class="reference external" href="http://php.net/password">Password Hashing extension</a>
-that is otherwise available only since PHP 5.5.</p>
+<h2><a class="toc-backref" href="#id7">Hashing de Senha</a><a class="headerlink" href="#password-hashing" title="Permalink to this headline">¶</a></h2>
+<p>Este conjunto de funções de compatibilidade oferece um &#8220;backport&#8221; of PHP&#8217;s
+padrão <a class="reference external" href="http://php.net/password">Extensão de Hashing de Senha</a>
+que está disponível de outra forma somente desde o PHP 5.5.</p>
 <div class="section" id="dependencies">
-<h3><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Dependências</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>PHP 5.3.7</li>
-<li><tt class="docutils literal"><span class="pre">CRYPT_BLOWFISH</span></tt> support for <tt class="docutils literal"><span class="pre">crypt()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">CRYPT_BLOWFISH</span></tt> suporte para <tt class="docutils literal"><span class="pre">crypt()</span></tt></li>
 </ul>
 </div>
 <div class="section" id="constants">
-<h3><a class="toc-backref" href="#id9">Constants</a><a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Constantes</a><a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">PASSWORD_BCRYPT</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">PASSWORD_DEFAULT</span></tt></li>
 </ul>
 </div>
 <div class="section" id="function-reference">
-<h3><a class="toc-backref" href="#id10">Function reference</a><a class="headerlink" href="#function-reference" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Referência de Função</a><a class="headerlink" href="#function-reference" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="password_get_info">
 <tt class="descname">password_get_info</tt><big>(</big><em>$hash</em><big>)</big><a class="headerlink" href="#password_get_info" title="Permalink to this definition">¶</a></dt>
@@ -491,19 +486,19 @@ that is otherwise available only since PHP 5.5.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$hash</strong> (<em>string</em>) &#8211; Password hash</li>
+<li><strong>$hash</strong> (<em>string</em>) &#8211; Hash de senha</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Information about the hashed password</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Informação sobre o hash da senha</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">matriz</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/password_get_info">PHP manual for
+<p>Para obter mais informações, consulte o manual do  <a class="reference external" href="http://php.net/password_get_info">PHP para
 password_get_info()</a>.</p>
 </dd></dl>
 
@@ -515,28 +510,26 @@ password_get_info()</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$password</strong> (<em>string</em>) &#8211; Plain-text password</li>
-<li><strong>$algo</strong> (<em>int</em>) &#8211; Hashing algorithm</li>
-<li><strong>$options</strong> (<em>array</em>) &#8211; Hashing options</li>
+<li><strong>$password</strong> (<em>string</em>) &#8211; Senha de texto simples</li>
+<li><strong>$algo</strong> (<em>int</em>) &#8211; Algoritmo Hashing</li>
+<li><strong>$options</strong> (<em>array</em>) &#8211; Opções de Hashing</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Hashed password or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Senha Hashed ou FALSE em caso de falha</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/password_hash">PHP manual for
+<p>Para obter mais informações, consulte o manual  <a class="reference external" href="http://php.net/password_hash">PHP para
 password_hash()</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Unless you provide your own (and valid) salt, this function
-has a further dependency on an available CSPRNG source. Each
-of the following would satisfy that:
-- <tt class="docutils literal"><span class="pre">mcrypt_create_iv()</span></tt> with <tt class="docutils literal"><span class="pre">MCRYPT_DEV_URANDOM</span></tt>
+<p class="first admonition-title">Nota</p>
+<p class="last">A menos que você forneça seu próprio sal (e válido), esta função possui uma dependência adicional de uma fonte CSPRNG disponível. Cada um dos seguintes satisfaz isso:
+- <tt class="docutils literal"><span class="pre">mcrypt_create_iv()</span></tt> com <tt class="docutils literal"><span class="pre">MCRYPT_DEV_URANDOM</span></tt>
 - <tt class="docutils literal"><span class="pre">openssl_random_pseudo_bytes()</span></tt>
 - /dev/arandom
 - /dev/urandom</p>
@@ -551,21 +544,21 @@ of the following would satisfy that:
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$hash</strong> (<em>string</em>) &#8211; Password hash</li>
-<li><strong>$algo</strong> (<em>int</em>) &#8211; Hashing algorithm</li>
-<li><strong>$options</strong> (<em>array</em>) &#8211; Hashing options</li>
+<li><strong>$hash</strong> (<em>string</em>) &#8211; Hash de senha</li>
+<li><strong>$algo</strong> (<em>int</em>) &#8211; Algorítimo de Hashing</li>
+<li><strong>$options</strong> (<em>array</em>) &#8211; Opções de Hashing</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the hash should be rehashed to match the given algorithm and options, FALSE otherwise</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO se o hash deve ser devolvido para coincidir com o algoritmo e opções fornecidos, FALSO caso contrário.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/password_needs_rehash">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/password_needs_rehash">PHP para
 password_needs_rehash()</a>.</p>
 </dd></dl>
 
@@ -577,38 +570,37 @@ password_needs_rehash()</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$password</strong> (<em>string</em>) &#8211; Plain-text password</li>
-<li><strong>$hash</strong> (<em>string</em>) &#8211; Password hash</li>
+<li><strong>$password</strong> (<em>string</em>) &#8211; Senha de texto simples</li>
+<li><strong>$hash</strong> (<em>string</em>) &#8211; Hash de senha</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the password matches the hash, FALSE if not</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO se a senha corresponder ao hash, FALSO se não</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/password_verify">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/password_verify">PHP para
 password_verify()</a>.</p>
 </dd></dl>
 
 </div>
 </div>
 <div class="section" id="hash-message-digest">
-<h2><a class="toc-backref" href="#id11">Hash (Message Digest)</a><a class="headerlink" href="#hash-message-digest" title="Permalink to this headline">¶</a></h2>
-<p>This compatibility layer contains backports for the <tt class="docutils literal"><span class="pre">hash_equals()</span></tt>
-and <tt class="docutils literal"><span class="pre">hash_pbkdf2()</span></tt> functions, which otherwise require PHP 5.6 and/or
-PHP 5.5 respectively.</p>
+<h2><a class="toc-backref" href="#id11">Hash (Mensagem Digest)</a><a class="headerlink" href="#hash-message-digest" title="Permalink to this headline">¶</a></h2>
+<p>Esta camada de compatibilidade contém backports para as funções <tt class="docutils literal"><span class="pre">hash_equals()</span></tt>
+e <tt class="docutils literal"><span class="pre">hash_pbkdf2()</span></tt> que de outra forma requerem PHP 5.6 e / ou PHP 5.5 respectivamente</p>
 <div class="section" id="id1">
-<h3><a class="toc-backref" href="#id12">Dependencies</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Dependências</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>None</li>
+<li>Nenhuma</li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id13">Function reference</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Referência de Funções</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="hash_equals">
 <tt class="descname">hash_equals</tt><big>(</big><em>$known_string</em>, <em>$user_string</em><big>)</big><a class="headerlink" href="#hash_equals" title="Permalink to this definition">¶</a></dt>
@@ -617,20 +609,20 @@ PHP 5.5 respectively.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$known_string</strong> (<em>string</em>) &#8211; Known string</li>
-<li><strong>$user_string</strong> (<em>string</em>) &#8211; User-supplied string</li>
+<li><strong>$known_string</strong> (<em>string</em>) &#8211; Conjunto de caracteres conhecidos</li>
+<li><strong>$user_string</strong> (<em>string</em>) &#8211; Conjunto fornecida pelo usuário</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if the strings match, FALSE otherwise</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO se as sequências de caracteres combinarem, FALSO caso contrário</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/hash_equals">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/hash_equals">PHP para
 hash_equals()</a>.</p>
 </dd></dl>
 
@@ -642,63 +634,58 @@ hash_equals()</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$algo</strong> (<em>string</em>) &#8211; Hashing algorithm</li>
-<li><strong>$password</strong> (<em>string</em>) &#8211; Password</li>
+<li><strong>$algo</strong> (<em>string</em>) &#8211; Algorítimo de Hashing</li>
+<li><strong>$password</strong> (<em>string</em>) &#8211; Senha</li>
 <li><strong>$salt</strong> (<em>string</em>) &#8211; Hash salt</li>
-<li><strong>$iterations</strong> (<em>int</em>) &#8211; Number of iterations to perform during derivation</li>
-<li><strong>$length</strong> (<em>int</em>) &#8211; Output string length</li>
-<li><strong>$raw_output</strong> (<em>bool</em>) &#8211; Whether to return raw binary data</li>
+<li><strong>$iterations</strong> (<em>int</em>) &#8211; Número de iterações a serem executadas durante a derivação</li>
+<li><strong>$length</strong> (<em>int</em>) &#8211; Tamanho do conjunto de caracteres de saída</li>
+<li><strong>$raw_output</strong> (<em>bool</em>) &#8211; Quer retornar dados binários</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Password-derived key or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Chave derivada de senha ou FALSE em caso de falha</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/hash_pbkdf2">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/hash_pbkdf2">PHP para
 hash_pbkdf2()</a>.</p>
 </dd></dl>
 
 </div>
 </div>
 <div class="section" id="multibyte-string">
-<h2><a class="toc-backref" href="#id14">Multibyte String</a><a class="headerlink" href="#multibyte-string" title="Permalink to this headline">¶</a></h2>
-<p>This set of compatibility functions offers limited support for PHP&#8217;s
-<a class="reference external" href="http://php.net/mbstring">Multibyte String extension</a>. Because of
-the limited alternative solutions, only a few functions are available.</p>
+<h2><a class="toc-backref" href="#id14">Conjunto de caracteres Multibyte</a><a class="headerlink" href="#multibyte-string" title="Permalink to this headline">¶</a></h2>
+<p>Este conjunto de funções de compatibilidade oferece suporte limitado para a extensão 
+<a class="reference external" href="http://php.net/mbstring">Extensão do conjunto de caracteres Multibyte</a>. Devido às soluções alternativas limitadas, apenas algumas funções estão disponíveis.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">When a character set parameter is ommited,
-<tt class="docutils literal"><span class="pre">$config['charset']</span></tt> will be used.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Quando um parâmetro de conjunto de caracteres é omitido,
+<tt class="docutils literal"><span class="pre">$config['charset']</span></tt> será usado.</p>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id15">Dependencies</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Dependências</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="http://php.net/iconv">iconv</a> extension</li>
+<li><a class="reference external" href="http://php.net/iconv">iconv</a> extensão</li>
 </ul>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">This dependency is optional and these functions will
-always be declared. If iconv is not available, they WILL
-fall-back to their non-mbstring versions.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Essa dependência é opcional e essas funções sempre serão declaradas. Se o iconv não estiver disponível, eles retornarão às versões de não-mbstring.</p>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Where a character set is supplied, it must be
-supported by iconv and in a format that it recognizes.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Quando um conjunto de caracteres é fornecido, ele deve ser suportado por iconv e em um formato que ele reconheça.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">For you own dependency check on the actual mbstring
-extension, use the <tt class="docutils literal"><span class="pre">MB_ENABLED</span></tt> constant.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Para sua própria verificação de dependência na extensão real da mbstring, use a constante <tt class="docutils literal"><span class="pre">MB_ENABLED</span></tt>.</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id16">Function reference</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Referência de Função</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="mb_strlen">
 <tt class="descname">mb_strlen</tt><big>(</big><em>$str</em><span class="optional">[</span>, <em>$encoding = NULL</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#mb_strlen" title="Permalink to this definition">¶</a></dt>
@@ -707,20 +694,20 @@ extension, use the <tt class="docutils literal"><span class="pre">MB_ENABLED</sp
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$encoding</strong> (<em>string</em>) &#8211; Character set</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; Conjunto de caracteres de entrada</li>
+<li><strong>$encoding</strong> (<em>string</em>) &#8211; Conjunto de caracteres configurado</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Number of characters in the input string or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Número de caracteres no conjunto de caracteres de entrada ou FALSO em caso de falha</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/mb_strlen">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/mb_strlen">PHP para
 mb_strlen()</a>.</p>
 </dd></dl>
 
@@ -732,22 +719,22 @@ mb_strlen()</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$haystack</strong> (<em>string</em>) &#8211; String to search in</li>
-<li><strong>$needle</strong> (<em>string</em>) &#8211; Part of string to search for</li>
-<li><strong>$offset</strong> (<em>int</em>) &#8211; Search offset</li>
-<li><strong>$encoding</strong> (<em>string</em>) &#8211; Character set</li>
+<li><strong>$haystack</strong> (<em>string</em>) &#8211; Conjunto de caracteres para pesquisar em</li>
+<li><strong>$needle</strong> (<em>string</em>) &#8211; Parte do conjunto de caracteres para procurar</li>
+<li><strong>$offset</strong> (<em>int</em>) &#8211; Pesquisa deslocada</li>
+<li><strong>$encoding</strong> (<em>string</em>) &#8211; Conjunto de caracteres</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Numeric character position of where $needle was found or FALSE if not found</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Posição do caractere numérico de onde $busca foi encontrada ou FALSO se não encontrada</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários tipos</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/mb_strpos">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/mb_strpos">PHP para
 mb_strpos()</a>.</p>
 </dd></dl>
 
@@ -759,39 +746,38 @@ mb_strpos()</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$start</strong> (<em>int</em>) &#8211; Position of first character</li>
-<li><strong>$length</strong> (<em>int</em>) &#8211; Maximum number of characters</li>
-<li><strong>$encoding</strong> (<em>string</em>) &#8211; Character set</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; Conjunto de caracteres de entrada</li>
+<li><strong>$start</strong> (<em>int</em>) &#8211; Posição do primeiro caracter</li>
+<li><strong>$length</strong> (<em>int</em>) &#8211; Número máximo de caracteres</li>
+<li><strong>$encoding</strong> (<em>string</em>) &#8211; Conjunto de caracteres</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Portion of $str specified by $start and $length or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Porção da $str especificada de $start e $length ou FALSE em caso de falha.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/mb_substr">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/mb_substr">PHP para
 mb_substr()</a>.</p>
 </dd></dl>
 
 </div>
 </div>
 <div class="section" id="standard-functions">
-<h2><a class="toc-backref" href="#id17">Standard Functions</a><a class="headerlink" href="#standard-functions" title="Permalink to this headline">¶</a></h2>
-<p>This set of compatibility functions offers support for a few
-standard functions in PHP that otherwise require a newer PHP version.</p>
+<h2><a class="toc-backref" href="#id17">Funções padrão</a><a class="headerlink" href="#standard-functions" title="Permalink to this headline">¶</a></h2>
+<p>Este conjunto de funções de compatibilidade oferece suporte para algumas funções padrão no PHP que, de outra forma, exigem uma versão mais recente do PHP.</p>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id18">Dependencies</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Dependências</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>None</li>
+<li>Nenhuma</li>
 </ul>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id19">Function reference</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">Referência de Função</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="array_column">
 <tt class="descname">array_column</tt><big>(</big><em>array $array</em>, <em>$column_key</em><span class="optional">[</span>, <em>$index_key = NULL</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#array_column" title="Permalink to this definition">¶</a></dt>
@@ -800,21 +786,21 @@ standard functions in PHP that otherwise require a newer PHP version.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$array</strong> (<em>array</em>) &#8211; Array to fetch results from</li>
-<li><strong>$column_key</strong> (<em>mixed</em>) &#8211; Key of the column to return values from</li>
-<li><strong>$index_key</strong> (<em>mixed</em>) &#8211; Key to use for the returned values</li>
+<li><strong>$array</strong> (<em>array</em>) &#8211; Matriz para buscar caracteres de</li>
+<li><strong>$column_key</strong> (<em>mixed</em>) &#8211; Chave da coluna para retornar valores de</li>
+<li><strong>$index_key</strong> (<em>mixed</em>) &#8211; Chave para usar para os valores retornados</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An array of values representing a single column from the input array</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Uma matriz de valores que representam uma única coluna da matriz de entrada</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">matriz</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/array_column">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/array_column">PHP para
 array_column()</a>.</p>
 </dd></dl>
 
@@ -826,20 +812,20 @@ array_column()</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$array1</strong> (<em>array</em>) &#8211; Array in which to replace elements</li>
-<li><strong>...</strong> (<em>array</em>) &#8211; Array (or multiple ones) from which to extract elements</li>
+<li><strong>$array1</strong> (<em>array</em>) &#8211; Matriz para substituir elementos</li>
+<li><strong>...</strong> (<em>array</em>) &#8211; Matriz (ou múltiplos) para extrair elementos</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Modified array</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Matriz modificada</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">matriz</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/array_replace">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/array_replace">PHP para
 array_replace()</a>.</p>
 </dd></dl>
 
@@ -851,25 +837,24 @@ array_replace()</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$array1</strong> (<em>array</em>) &#8211; Array in which to replace elements</li>
-<li><strong>...</strong> (<em>array</em>) &#8211; Array (or multiple ones) from which to extract elements</li>
+<li><strong>$array1</strong> (<em>array</em>) &#8211; Matriz para substituir elementos</li>
+<li><strong>...</strong> (<em>array</em>) &#8211;Matriz (ou múltiplos) para extrair elementos</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Modified array</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Matriz modificada</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">matriz</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/array_replace_recursive">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/array_replace_recursive">PHP para
 array_replace_recursive()</a>.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Only PHP&#8217;s native function can detect endless recursion.
-Unless you are running PHP 5.3+, be careful with references!</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Somente a função nativa do PHP pode detectar recursões infinitas. A menos que você esteja executando o PHP 5.3, tenha cuidado com as referências!</p>
 </div>
 </dd></dl>
 
@@ -881,19 +866,19 @@ Unless you are running PHP 5.3+, be careful with references!</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$data</strong> (<em>array</em>) &#8211; Hexadecimal representation of data</li>
+<li><strong>$data</strong> (<em>array</em>) &#8211; Representação hexadecimal de dados</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Binary representation of the given data</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Representação binária dos dados fornecidos</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/hex2bin">PHP manual for hex2bin()</a>.</p>
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/hex2bin">PHP para hex2bin()</a>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -904,19 +889,19 @@ Unless you are running PHP 5.3+, be careful with references!</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; Conjunto de caractere de entrada</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">8bit-encoded string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Conjunto de caracteres 8bit-encoded</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">conjunto de caracteres</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>For more information, please refer to the <a class="reference external" href="http://php.net/quoted_printable_encode">PHP manual for
+<p>Para obter mais informações, consulte o manual <a class="reference external" href="http://php.net/quoted_printable_encode">PHP para
 quoted_printable_encode()</a>.</p>
 </dd></dl>
 
