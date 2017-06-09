@@ -425,27 +425,18 @@
 
   <div class="section" id="hooks-extending-the-framework-core">
 <h1>Ganchos - Estendendo o Núcleo do Framework<a class="headerlink" href="#hooks-extending-the-framework-core" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter&#8217;s Hooks feature provides a means to tap into and modify the
-inner workings of the framework without hacking the core files. When
-CodeIgniter runs it follows a specific execution process, diagramed in
-the <a class="reference internal" href="../overview/appflow.html"><em>Application Flow</em></a> page. There may be
-instances, however, where you&#8217;d like to cause some action to take place
-at a particular stage in the execution process. For example, you might
-want to run a script right before your controllers get loaded, or right
-after, or you might want to trigger one of your own scripts in some
-other location.</p>
+<p>O recurso de ganchos do CodeIgniter fornece um meio para explorar e modificar o funcionamento interno da estrutura sem hackear os arquivos principais. Quando CodeIgniter é executado, segue um processo de execução específico, descrito na página de <a class="reference internal" href="../overview/appflow.html"><em>Fluxo de aplicação</em></a>. Pode haver casos, no entanto, onde você gostaria de fazer alguma ação ocorrer em uma etapa específica no processo de execução. Por exemplo, você pode querer executar um script antes de seus controladores serem carregados ou logo depois, ou você pode querer desencadear um de seus próprios scripts em algum outro local.</p>
 <div class="section" id="enabling-hooks">
-<h2>Enabling Hooks<a class="headerlink" href="#enabling-hooks" title="Permalink to this headline">¶</a></h2>
-<p>The hooks feature can be globally enabled/disabled by setting the
-following item in the <strong>application/config/config.php</strong> file:</p>
+<h2>Habilitando Ganchos<a class="headerlink" href="#enabling-hooks" title="Permalink to this headline">¶</a></h2>
+<p>O recurso de ganchos pode ser ativado / desativado globalmente, configurando o seguinte item no arquivo <strong>application/config/config.php</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_hooks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="defining-a-hook">
-<h2>Defining a Hook<a class="headerlink" href="#defining-a-hook" title="Permalink to this headline">¶</a></h2>
-<p>Hooks are defined in the <strong>application/config/hooks.php</strong> file.
-Each hook is specified as an array with this prototype:</p>
+<h2>Definindo um Gancho<a class="headerlink" href="#defining-a-hook" title="Permalink to this headline">¶</a></h2>
+<p>Os ganchos são definidos no arquivo <strong>application/config/hooks.php</strong>.
+Cada gancho é especificado como uma matriz com este protótipo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$hook</span><span class="p">[</span><span class="s1">&#39;pre_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;class&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;MyClass&#39;</span><span class="p">,</span>
         <span class="s1">&#39;function&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Myfunction&#39;</span><span class="p">,</span>
@@ -455,40 +446,28 @@ Each hook is specified as an array with this prototype:</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p><strong>Notes:</strong></p>
-<p>The array index correlates to the name of the particular hook point you
-want to use. In the above example the hook point is pre_controller. A
-list of hook points is found below. The following items should be
-defined in your associative hook array:</p>
+<p><strong>Nota:</strong></p>
+<p>O índice da matriz correlaciona-se ao nome do ponto de gancho particular que deseja usar. No exemplo acima, o ponto de gancho é pré-controlador. Uma lista de pontos de gancho é encontrada abaixo. Os seguintes itens devem ser definidos em sua matriz de gancho associativo:</p>
 <ul class="simple">
-<li><strong>class</strong> The name of the class you wish to invoke. If you prefer to
-use a procedural function instead of a class, leave this item blank.</li>
-<li><strong>function</strong> The function (or method) name you wish to call.</li>
-<li><strong>filename</strong> The file name containing your class/function.</li>
-<li><strong>filepath</strong> The name of the directory containing your script.
-Note:
-Your script must be located in a directory INSIDE your <em>application/</em>
-directory, so the file path is relative to that directory. For example,
-if your script is located in <em>application/hooks/</em>, you will simply use
-&#8216;hooks&#8217; as your filepath. If your script is located in
-<em>application/hooks/utilities/</em> you will use &#8216;hooks/utilities&#8217; as your
-filepath. No trailing slash.</li>
-<li><strong>params</strong> Any parameters you wish to pass to your script. This item
-is optional.</li>
+<li><strong>class</strong> O nome da classe que você deseja invocar. Se você preferir usar uma função processual em vez de uma classe, deixe este item em branco.</li>
+<li><strong>function</strong> O nome da função (ou do método) que você deseja chamar.</li>
+<li><strong>filename</strong> O nome do arquivo que contém sua classe / função.</li>
+<li><strong>filepath</strong> O nome do diretório que contém seu script.
+Nota:
+Seu script deve estar localizado DENTRO de seu diretório <em>application/directory</em>, de modo que o caminho do arquivo seja relativo a esse diretório. Por exemplo, se seu script estiver localizado em <em>application/hooks/</em>, você simplesmente usará 'hooks' como seu caminho de arquivo. Se o seu script estiver localizado em <em>application/hooks/utilities/</em> você usará 'hooks/utilities' como caminho do arquivo. Sem barra diagonal.</li>
+<li><strong>params</strong> Todos os parâmetros que você deseja transmitir ao seu script. Este item é opcional.</li>
 </ul>
-<p>If you&#8217;re running PHP 5.3+, you can also use lambda/anoymous functions
-(or closures) as hooks, with a simpler syntax:</p>
+<p>Se você estiver executando o PHP 5.3, você também pode usar funções lambda / anônimas (ou fechadas) como ganchos, com uma sintaxe mais simples:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$hook</span><span class="p">[</span><span class="s1">&#39;post_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span>
 <span class="p">{</span>
-        <span class="cm">/* do something here */</span>
+        <span class="cm">/* alguma coisa aqui */</span>
 <span class="p">};</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="multiple-calls-to-the-same-hook">
-<h2>Multiple Calls to the Same Hook<a class="headerlink" href="#multiple-calls-to-the-same-hook" title="Permalink to this headline">¶</a></h2>
-<p>If want to use the same hook point with more than one script, simply
-make your array declaration multi-dimensional, like this:</p>
+<h2>Várias Chamadas para o Mesmo Gancho<a class="headerlink" href="#multiple-calls-to-the-same-hook" title="Permalink to this headline">¶</a></h2>
+<p>Se quiser usar o mesmo ponto de gancho com mais de um script, basta fazer a sua declaração de matriz multidimensional, assim:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$hook</span><span class="p">[</span><span class="s1">&#39;pre_controller&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;class&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;MyClass&#39;</span><span class="p">,</span>
         <span class="s1">&#39;function&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;MyMethod&#39;</span><span class="p">,</span>
@@ -506,44 +485,34 @@ make your array declaration multi-dimensional, like this:</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Notice the brackets after each array index:</p>
+<p>Observe os colchetes após cada índice de matriz:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$hook</span><span class="p">[</span><span class="s1">&#39;pre_controller&#39;</span><span class="p">][]</span>
 </pre></div>
 </div>
-<p>This permits you to have the same hook point with multiple scripts. The
-order you define your array will be the execution order.</p>
+<p>Isso permite que você tenha o mesmo ponto de gancho com vários scripts. A ordem que você definiu sua matriz será a ordem de execução.</p>
 </div>
 <div class="section" id="hook-points">
-<h2>Hook Points<a class="headerlink" href="#hook-points" title="Permalink to this headline">¶</a></h2>
-<p>The following is a list of available hook points.</p>
+<h2>Pontos de Gancho<a class="headerlink" href="#hook-points" title="Permalink to this headline">¶</a></h2>
+<p>O seguinte é uma lista de pontos de gancho disponíveis.</p>
 <ul class="simple">
 <li><strong>pre_system</strong>
-Called very early during system execution. Only the benchmark and
-hooks class have been loaded at this point. No routing or other
-processes have happened.</li>
+Chamado muito cedo durante a execução do sistema. Somente a classe benchmark e hooks foi carregada neste momento. Nenhum roteamento ou outros processos aconteceram.</li>
 <li><strong>pre_controller</strong>
-Called immediately prior to any of your controllers being called.
-All base classes, routing, and security checks have been done.</li>
+Chamado imediatamente antes de qualquer um dos seus controladores serem chamados. Todas as classes base, roteamento e verificações de segurança foram feitas.</li>
 <li><strong>post_controller_constructor</strong>
-Called immediately after your controller is instantiated, but prior
-to any method calls happening.</li>
+Chamado imediatamente após o seu controlador ser instanciado, mas antes de qualquer método de chamadas acontecer..</li>
 <li><strong>post_controller</strong>
 Called immediately after your controller is fully executed.</li>
 <li><strong>display_override</strong>
-Overrides the <tt class="docutils literal"><span class="pre">_display()</span></tt> method, used to send the finalized page
-to the web browser at the end of system execution. This permits you
-to use your own display methodology. Note that you will need to
-reference the CI superobject with <tt class="docutils literal"><span class="pre">$this-&gt;CI</span> <span class="pre">=&amp;</span> <span class="pre">get_instance()</span></tt> and
-then the finalized data will be available by calling
+Substitui o método <tt class="docutils literal"><span class="pre">_display()</span></tt> usado para enviar a página finalizada para o navegador da Web no final da execução do sistema. Isso permite que você use sua própria metodologia de exibição.
+Observe que você precisará fazer referência ao super objeto do CI com <tt class="docutils literal"><span class="pre">$this-&gt;CI</span> <span class="pre">=&amp;</span> <span class="pre">get_instance()</span></tt> 
+e então os dados finalizados estarão disponíveis chamando
 <tt class="docutils literal"><span class="pre">$this-&gt;CI-&gt;output-&gt;get_output()</span></tt>.</li>
 <li><strong>cache_override</strong>
-Enables you to call your own method instead of the <tt class="docutils literal"><span class="pre">_display_cache()</span></tt>
-method in the <a class="reference internal" href="../libraries/output.html"><em>Output Library</em></a>. This permits
-you to use your own cache display mechanism.</li>
+Permite-lhe chamar o seu próprio método em vez do método <tt class="docutils literal"><span class="pre">_display_cache()</span></tt>
+da  <a class="reference internal" href="../libraries/output.html"><em>Biblioteca de saída</em></a>. Isso permite que você use seu próprio mecanismo de exibição de cache.</li>
 <li><strong>post_system</strong>
-Called after the final rendered page is sent to the browser, at the
-end of system execution after the finalized data is sent to the
-browser.</li>
+Chamado depois que a página renderizada final é enviada para o navegador, no final da execução do sistema depois que os dados finalizados são enviados para o navegador.</li>
 </ul>
 </div>
 </div>
