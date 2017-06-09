@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Auxiliar de Path &mdash; Documentação do CodeIgniter 3.1.0</title>
+  <title>Auxiliar de Caminho &mdash; Documentação do CodeIgniter 3.1.0</title>
 
 
 
@@ -189,7 +189,7 @@
 <li class="toctree-l2"><a class="reference internal" href="inflector_helper.html">Auxiliar de Flexão Gramatical</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language_helper.html">Auxiliar de Idioma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number_helper.html">Auxiliar de Número</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Auxiliar de Path</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Auxiliar de Caminho</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security_helper.html">Auxiliar de Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smiley_helper.html">Auxiliar de Smiley</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string_helper.html">Auxiliar de String</a></li>
@@ -375,7 +375,7 @@
 <li class="toctree-l2"><a class="reference internal" href="inflector_helper.html">Auxiliar de Flexão Gramatical</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language_helper.html">Auxiliar de Idioma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number_helper.html">Auxiliar de Número</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Auxiliar de Path</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Auxiliar de Caminho</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security_helper.html">Auxiliar de Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smiley_helper.html">Auxiliar de Smiley</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string_helper.html">Auxiliar de String</a></li>
@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Auxiliares</a> &raquo;</li>
 
-    <li>Auxiliar de Path</li>
+    <li>Auxiliar de Caminho</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,9 +424,8 @@
           <div role="main" class="document">
 
   <div class="section" id="path-helper">
-<h1>Auxiliar de Path<a class="headerlink" href="#path-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Path file contains functions that permits you to work with
-file paths on the server.</p>
+<h1>Auxiliar de Caminho<a class="headerlink" href="#path-helper" title="Permalink to this headline">¶</a></h1>
+<p>O arquivo Auxiliar de Caminho contém funções que permitem que você trabalhe com caminhos de arquivos no servidor.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -451,12 +450,12 @@ file paths on the server.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$path</strong> (<em>string</em>) &#8211; Path</li>
-<li><strong>$check_existance</strong> (<em>bool</em>) &#8211; Whether to check if the path actually exists</li>
+<li><strong>$path</strong> (<em>string</em>) &#8211; Caminho</li>
+<li><strong>$check_existance</strong> (<em>bool</em>) &#8211; Quer verificar se o caminho realmente existe</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An absolute path</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Um caminho absoluto</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -464,23 +463,21 @@ file paths on the server.</p>
 </tr>
 </tbody>
 </table>
-<p>This function will return a server path without symbolic links or
-relative directory structures. An optional second argument will
-cause an error to be triggered if the path cannot be resolved.</p>
-<p>Examples:</p>
+<p>Esta função retornará um caminho do servidor sem links simbólicos ou estruturas de diretório relativas. Um segundo argumento opcional provocará um erro se o caminho não puder ser resolvido.</p>
+<p>Exemplos:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$file</span> <span class="o">=</span> <span class="s1">&#39;/etc/php5/apache2/php.ini&#39;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span> <span class="c1">// Prints &#39;/etc/php5/apache2/php.ini&#39;</span>
+<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span> <span class="c1">// Imprime &#39;/etc/php5/apache2/php.ini&#39;</span>
 
 <span class="nv">$non_existent_file</span> <span class="o">=</span> <span class="s1">&#39;/path/to/non-exist-file.txt&#39;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_file</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>    <span class="c1">// Shows an error, as the path cannot be resolved</span>
-<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_file</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>   <span class="c1">// Prints &#39;/path/to/non-exist-file.txt&#39;</span>
+<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_file</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>    <span class="c1">// Mostra um erro, pois o caminho não pode ser resolvido</span>
+<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_file</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>   <span class="c1">// Imprime &#39;/path/to/non-exist-file.txt&#39;</span>
 
 <span class="nv">$directory</span> <span class="o">=</span> <span class="s1">&#39;/etc/php5&#39;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$directory</span><span class="p">);</span>  <span class="c1">// Prints &#39;/etc/php5/&#39;</span>
+<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$directory</span><span class="p">);</span>  <span class="c1">// Imprime &#39;/etc/php5/&#39;</span>
 
 <span class="nv">$non_existent_directory</span> <span class="o">=</span> <span class="s1">&#39;/path/to/nowhere&#39;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_directory</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>       <span class="c1">// Shows an error, as the path cannot be resolved</span>
-<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_directory</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>      <span class="c1">// Prints &#39;/path/to/nowhere&#39;</span>
+<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_directory</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>       <span class="c1">// Mostra um erro, pois o caminho não pode ser resolvido</span>
+<span class="k">echo</span> <span class="nx">set_realpath</span><span class="p">(</span><span class="nv">$non_existent_directory</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>      <span class="c1">// Imprime &#39;/path/to/nowhere&#39;</span>
 </pre></div>
 </div>
 </dd></dl>

@@ -189,7 +189,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Auxiliar de Flexão Gramatical</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/language_helper.html">Auxiliar de Idioma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Auxiliar de Número</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Auxiliar de Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Auxiliar de Caminho</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Auxiliar de Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/smiley_helper.html">Auxiliar de Smiley</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/string_helper.html">Auxiliar de String</a></li>
@@ -375,7 +375,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Auxiliar de Flexão Gramatical</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/language_helper.html">Auxiliar de Idioma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Auxiliar de Número</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Auxiliar de Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Auxiliar de Caminho</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Auxiliar de Segurança</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/smiley_helper.html">Auxiliar de Smiley</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/string_helper.html">Auxiliar de String</a></li>
@@ -429,8 +429,7 @@
 <p>Sendo implementações personalizadas, essas funções também terão algum conjunto de dependências por conta própria, mas ainda são úteis se sua configuração do PHP não as oferecer de forma nativa.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">Muito parecido com <cite>funções comuns &lt;common_functions&gt;</cite>
-, ss funções de compatibilidade estão sempre disponíveis, desde que suas dependências sejam atendidas.</p>
+<p class="last">Muito parecido com <cite>funções comuns &lt;common_functions&gt;</cite>, as funções de compatibilidade estão sempre disponíveis, desde que suas dependências sejam atendidas.</p>
 </div>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -459,9 +458,7 @@
 </div>
 <div class="custom-index container"></div><div class="section" id="password-hashing">
 <h2><a class="toc-backref" href="#id7">Hashing de Senha</a><a class="headerlink" href="#password-hashing" title="Permalink to this headline">¶</a></h2>
-<p>Este conjunto de funções de compatibilidade oferece um &#8220;backport&#8221; of PHP&#8217;s
-padrão <a class="reference external" href="http://php.net/password">Extensão de Hashing de Senha</a>
-que está disponível de outra forma somente desde o PHP 5.5.</p>
+<p>Este conjunto de funções de compatibilidade oferece um &#8220;backport&#8221; padrão da <a class="reference external" href="http://php.net/password">Extensão de Hashing de Senha</a> do PHP que está disponível de outra forma somente desde o PHP 5.5.</p>
 <div class="section" id="dependencies">
 <h3><a class="toc-backref" href="#id8">Dependências</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -528,7 +525,7 @@ password_get_info()</a>.</p>
 password_hash()</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">A menos que você forneça seu próprio sal (e válido), esta função possui uma dependência adicional de uma fonte CSPRNG disponível. Cada um dos seguintes satisfaz isso:
+<p class="last">A menos que você forneça seu próprio salt (e válido), esta função possui uma dependência adicional de uma fonte CSPRNG disponível. Cada um dos seguintes satisfaz isso:
 - <tt class="docutils literal"><span class="pre">mcrypt_create_iv()</span></tt> com <tt class="docutils literal"><span class="pre">MCRYPT_DEV_URANDOM</span></tt>
 - <tt class="docutils literal"><span class="pre">openssl_random_pseudo_bytes()</span></tt>
 - /dev/arandom
@@ -726,7 +723,7 @@ mb_strlen()</a>.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Posição do caractere numérico de onde $busca foi encontrada ou FALSO se não encontrada</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Posição do caractere numérico de onde $needle foi encontrada ou FALSO se não encontrada</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários tipos</p>
