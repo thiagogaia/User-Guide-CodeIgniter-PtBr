@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Tópicos Gerais</a> &raquo;</li>
 
-    <li>Profiling Your Application</li>
+    <li>Perfis de sua Aplicação</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,55 +424,45 @@
           <div role="main" class="document">
 
   <div class="section" id="profiling-your-application">
-<h1>Profiling Your Application<a class="headerlink" href="#profiling-your-application" title="Permalink to this headline">¶</a></h1>
-<p>The Profiler Class will display benchmark results, queries you have run,
-and <tt class="docutils literal"><span class="pre">$_POST</span></tt> data at the bottom of your pages. This information can be
-useful during development in order to help with debugging and
-optimization.</p>
+<h1>Perfis de sua Aplicação<a class="headerlink" href="#profiling-your-application" title="Permalink to this headline">¶</a></h1>
+<p>A classe Perfis de Aplicação exibirá resultados de pontos de referência, consultas que você executou  <tt class="docutils literal"><span class="pre">$_POST</span></tt> na parte inferior das suas páginas. Esta informação pode ser útil durante o desenvolvimento, afim de ajudar na depuração e otimização.</p>
 <div class="section" id="initializing-the-class">
-<h2>Initializing the Class<a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h2>
+<h2>Inicializando a Classe<a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">This class does NOT need to be initialized. It is loaded
-automatically by the <a class="reference internal" href="../libraries/output.html"><em>Output Library</em></a>
-if profiling is enabled as shown below.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Esta classe NÃO precisa ser inicializada. Ele é carregado automaticamente pela <a class="reference internal" href="../libraries/output.html"><em>Biblioteca de Saída</em></a> se o perfil for habilitado como mostrado abaixo.</p>
 </div>
 </div>
 <div class="section" id="enabling-the-profiler">
-<h2>Enabling the Profiler<a class="headerlink" href="#enabling-the-profiler" title="Permalink to this headline">¶</a></h2>
-<p>To enable the profiler place the following line anywhere within your
-<a class="reference internal" href="controllers.html"><em>Controller</em></a> methods:</p>
+<h2>Habilitando os Perfis<a class="headerlink" href="#enabling-the-profiler" title="Permalink to this headline">¶</a></h2>
+<p>Para habilitar o perfil, coloque a seguinte linha em qualquer lugar dentro dos métodos do
+<a class="reference internal" href="controllers.html"><em>Controlador</em></a>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">enable_profiler</span><span class="p">(</span><span class="k">TRUE</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>When enabled a report will be generated and inserted at the bottom of
-your pages.</p>
-<p>To disable the profiler you will use:</p>
+<p>Quando ativado, um relatório será gerado e inserido na parte inferior de suas páginas.</p>
+<p>Para desativar o perfil, você usará:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">enable_profiler</span><span class="p">(</span><span class="k">FALSE</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="setting-benchmark-points">
-<h2>Setting Benchmark Points<a class="headerlink" href="#setting-benchmark-points" title="Permalink to this headline">¶</a></h2>
-<p>In order for the Profiler to compile and display your benchmark data you
-must name your mark points using specific syntax.</p>
-<p>Please read the information on setting Benchmark points in the
-<a class="reference internal" href="../libraries/benchmark.html"><em>Benchmark Library</em></a> page.</p>
+<h2>Definindo Pontos de Referência<a class="headerlink" href="#setting-benchmark-points" title="Permalink to this headline">¶</a></h2>
+<p>Para que o Perfil compile e exiba seus dados de referência, você deve nomear seus pontos de marca usando a sintaxe específica.</p>
+<p>Leia as informações sobre a configuração dos pontos de referência na página da 
+<a class="reference internal" href="../libraries/benchmark.html"><em>Biblioteca de Referência</em></a>.</p>
 </div>
 <div class="section" id="enabling-and-disabling-profiler-sections">
-<h2>Enabling and Disabling Profiler Sections<a class="headerlink" href="#enabling-and-disabling-profiler-sections" title="Permalink to this headline">¶</a></h2>
-<p>Each section of Profiler data can be enabled or disabled by setting a
-corresponding config variable to TRUE or FALSE. This can be done one of
-two ways. First, you can set application wide defaults with the
-<em>application/config/profiler.php</em> config file.</p>
+<h2>Habilitando e Desabilitando Secões dos Perfis<a class="headerlink" href="#enabling-and-disabling-profiler-sections" title="Permalink to this headline">¶</a></h2>
+<p>Cada seção de dados do Profiler pode ser ativada ou desativada definindo uma variável de configuração correspondente como VERDADEIRA ou FALSA. Isso pode ser feito de duas formas diferentes. Primeiro, você pode definir padrões padrão de aplicativos com o arquivo de configuração
+<em>application/config/profiler.php</em>.</p>
 <p>Example:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;queries&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>In your controllers, you can override the defaults and config file
-values by calling the <tt class="docutils literal"><span class="pre">set_profiler_sections()</span></tt> method of the
-<a class="reference internal" href="../libraries/output.html"><em>Output Library</em></a>:</p>
+<p>Em seus controladores, você pode substituir os padrões e os valores dos arquivos de configuração, chamando o método<tt class="docutils literal"><span class="pre">set_profiler_sections()</span></tt> da
+<a class="reference internal" href="../libraries/output.html"><em>Biblioteca de Saída</em></a>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$sections</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;config&#39;</span>  <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
         <span class="s1">&#39;queries&#39;</span> <span class="o">=&gt;</span> <span class="k">TRUE</span>
@@ -481,8 +471,7 @@ values by calling the <tt class="docutils literal"><span class="pre">set_profile
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_profiler_sections</span><span class="p">(</span><span class="nv">$sections</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Available sections and the array key used to access them are described
-in the table below.</p>
+<p>As seções disponíveis e a chave de matriz usada para acessá-las estão descritas na tabela abaixo.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -490,66 +479,65 @@ in the table below.</p>
 <col width="8%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Key</th>
-<th class="head">Description</th>
-<th class="head">Default</th>
+<tr class="row-odd"><th class="head">Chave</th>
+<th class="head">Descrição</th>
+<th class="head">Padrão</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>benchmarks</strong></td>
-<td>Elapsed time of Benchmark points and total execution time</td>
+<td>Tempo decorrido dos pontos de referência e o tempo total de execução</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-odd"><td><strong>config</strong></td>
-<td>CodeIgniter Config variables</td>
+<td>Variáveis de configuração do Codeigniter</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-even"><td><strong>controller_info</strong></td>
-<td>The Controller class and method requested</td>
+<td>A classe e método do controlador solicitado</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-odd"><td><strong>get</strong></td>
-<td>Any GET data passed in the request</td>
+<td>Qualquer dado passado com GET na requisição</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-even"><td><strong>http_headers</strong></td>
-<td>The HTTP headers for the current request</td>
+<td>Os cabeçalhos HTTP para a requisição atual</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-odd"><td><strong>memory_usage</strong></td>
-<td>Amount of memory consumed by the current request, in bytes</td>
+<td>Quantidade de memória consumida pela requisição atual, em bytes</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-even"><td><strong>post</strong></td>
-<td>Any POST data passed in the request</td>
+<td>Qualquer dado passado com POST na requisição</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-odd"><td><strong>queries</strong></td>
-<td>Listing of all database queries executed, including execution time</td>
+<td>Listagem de todas as consultas de banco de dados executadas, incluindo o tempo de execução</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-even"><td><strong>uri_string</strong></td>
-<td>The URI of the current request</td>
+<td>A URI da requisição atual</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-odd"><td><strong>session_data</strong></td>
-<td>Data stored in the current session</td>
+<td>Dados armazenados na sessão atual</td>
 <td>TRUE</td>
 </tr>
 <tr class="row-even"><td><strong>query_toggle_count</strong></td>
-<td>The number of queries after which the query block will default to
-hidden.</td>
+<td>O número de consultas após o qual o bloco de consulta será o padrão para oculto.</td>
 <td>25</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Disabling the <a class="reference internal" href="../database/configuration.html"><em>save_queries</em></a> setting in
-your database configuration will also effectively disable profiling for
-database queries and render the &#8216;queries&#8217; setting above useless. You can
-optionally override this setting with <tt class="docutils literal"><span class="pre">$this-&gt;db-&gt;save_queries</span> <span class="pre">=</span> <span class="pre">TRUE;</span></tt>.
-Without this setting you won&#8217;t be able to view the queries or the
+<p class="last">Desativar a configuração
+<a class="reference internal" href="../database/configuration.html"><em>save_queries</em></a>
+na configuração do banco de dados também irá efetivamente desabilitar o perfil para consultas do banco de dados e tornar a configuração "consultas" acima de inútil. Você pode, opcionalmente, anular esta configuração com
+<tt class="docutils literal"><span class="pre">$this-&gt;db-&gt;save_queries</span> <span class="pre">=</span> <span class="pre">TRUE;</span></tt>.
+Sem essa configuração, você não poderá visualizar as consultas ou a 
 <cite>last_query &lt;database/helpers&gt;</cite>.</p>
 </div>
 </div>

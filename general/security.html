@@ -425,176 +425,113 @@
 
   <div class="section" id="security">
 <h1>Segurança<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
-<p>This page describes some &#8220;best practices&#8221; regarding web security, and
-details CodeIgniter&#8217;s internal security features.</p>
+<p>Esta página descreve algumas "melhores práticas" em relação à segurança da web e detalha os recursos internos de segurança do CodeIgniter.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you came here looking for a security contact, please refer to
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você veio aqui procurando um contato de segurança, consulte o nosso Guia de Contribuição
 our <cite>Contribution Guide &lt;../contributing/index&gt;</cite>.</p>
 </div>
 <div class="section" id="uri-security">
-<h2>URI Segurança<a class="headerlink" href="#uri-security" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter is fairly restrictive regarding which characters it allows
-in your URI strings in order to help minimize the possibility that
-malicious data can be passed to your application. URIs may only contain
-the following:</p>
+<h2>Segurança de URI<a class="headerlink" href="#uri-security" title="Permalink to this headline">¶</a></h2>
+<p>CodeIgniter é bastante restritivo em relação aos caracteres que permite nas suas cadeias URI para ajudar a minimizar a possibilidade de dados mal-intencionados serem passados ​​para sua aplicação. Os URIs só podem conter o seguinte:</p>
 <ul class="simple">
-<li>Alpha-numeric text (latin characters only)</li>
-<li>Tilde: ~</li>
-<li>Percent sign: %</li>
-<li>Period: .</li>
-<li>Colon: :</li>
-<li>Underscore: _</li>
-<li>Dash: -</li>
-<li>Space</li>
+<li>Texto alfanumérico (caracteres em latin somente)</li>
+<li>Til ~</li>
+<li>Sinal de porcentagem: %</li>
+<li>Ponto .</li>
+<li>Dois Pontos :</li>
+<li>Sublinhado _</li>
+<li>Traço: -</li>
+<li>Espaço</li>
 </ul>
 </div>
 <div class="section" id="register-globals">
 <h2>Register_globals<a class="headerlink" href="#register-globals" title="Permalink to this headline">¶</a></h2>
-<p>During system initialization all global variables that are found to exist
-in the <tt class="docutils literal"><span class="pre">$_GET</span></tt>, <tt class="docutils literal"><span class="pre">$_POST</span></tt>, <tt class="docutils literal"><span class="pre">$_REQUEST</span></tt> and <tt class="docutils literal"><span class="pre">$_COOKIE</span></tt> are unset.</p>
-<p>The unsetting routine is effectively the same as <em>register_globals = off</em>.</p>
+<p>Durante a inicialização do sistema, todas as variáveis ​​globais que existem em <tt class="docutils literal"><span class="pre">$_GET</span></tt>, <tt class="docutils literal"><span class="pre">$_POST</span></tt>, <tt class="docutils literal"><span class="pre">$_REQUEST</span></tt> e <tt class="docutils literal"><span class="pre">$_COOKIE</span></tt> são desatualizadas.</p>
+<p>A rotina desatualiza é efetivamente a mesma que <em>register_globals = off</em>.</p>
 </div>
 <div class="section" id="display-errors">
 <h2>display_errors<a class="headerlink" href="#display-errors" title="Permalink to this headline">¶</a></h2>
-<p>In production environments, it is typically desirable to &#8220;disable&#8221; PHP&#8217;s
-error reporting by setting the internal <em>display_errors</em> flag to a value
-of 0. This disables native PHP errors from being rendered as output,
-which may potentially contain sensitive information.</p>
-<p>Setting CodeIgniter&#8217;s <strong>ENVIRONMENT</strong> constant in index.php to a value of
-<strong>&#8216;production&#8217;</strong> will turn off these errors. In development mode, it is
-recommended that a value of &#8216;development&#8217; is used. More information
-about differentiating between environments can be found on the
-<a class="reference internal" href="environments.html"><em>Handling Environments</em></a> page.</p>
+<p>Em ambientes de produção, normalmente é desejável "desativar" o relatório de erros do PHP configurando o sinalizador <em>display_errors</em> interno para um valor de 0. Isso desabilita que os erros nativos do PHP sejam processados ​​como saída, o que potencialmente pode conter informações confidenciais.</p>
+<p>Configurando a constante <strong>ENVIROMENT</strong> do CodeIgniter em index.php para um valor de 'produção' desligará esses erros. No modo de desenvolvimento, recomenda-se que seja utilizado um valor de "desenvolvimento". Mais informações sobre a diferenciação entre ambientes podem ser encontradas na página <a class="reference internal" href="environments.html"><em>Ambientes de Manipulação</em></a>.</p>
 </div>
 <div class="section" id="magic-quotes-runtime">
 <h2>magic_quotes_runtime<a class="headerlink" href="#magic-quotes-runtime" title="Permalink to this headline">¶</a></h2>
-<p>The <em>magic_quotes_runtime</em> directive is turned off during system
-initialization so that you don&#8217;t have to remove slashes when retrieving
-data from your database.</p>
+<p>A diretiva <em>magic_quotes_runtime</em> é desativada durante a inicialização do sistema, de modo que você não precise remover as barras ao recuperar dados do banco de dados.</p>
 <div class="section" id="best-practices">
-<h3>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h3>
-<p>Before accepting any data into your application, whether it be POST data
-from a form submission, COOKIE data, URI data, XML-RPC data, or even
-data from the SERVER array, you are encouraged to practice this three
-step approach:</p>
+<h3>Boas Práticas<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h3>
+<p>Antes de aceitar qualquer dado em seu aplicativo, seja ele dados POST de um envio de formulários, dados COOKIE, dados URI, dados XML-RPC ou mesmo dados da matriz SERVER, você é encorajado a praticar esta abordagem de três passos:</p>
 <ol class="arabic simple">
-<li>Validate the data to ensure it conforms to the correct type, length,
-size, etc.</li>
-<li>Filter the data as if it were tainted.</li>
-<li>Escape the data before submitting it into your database or outputting
-it to a browser.</li>
+<li>Valide os dados para garantir que ele esteja em conformidade com o tipo correto, comprimento, tamanho, etc.</li>
+<li>Filtre os dados como se estivesse contaminado.</li>
+<li>Escape dos dados antes de enviá-lo para o seu banco de dados ou enviá-lo para um navegador.</li>
 </ol>
-<p>CodeIgniter provides the following functions and tips to assist you
-in this process:</p>
+<p>O CodeIgniter fornece as seguintes funções e dicas para ajudá-lo neste processo:</p>
 </div>
 </div>
 <div class="section" id="xss-filtering">
-<h2>XSS Filtering<a class="headerlink" href="#xss-filtering" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter comes with a Cross Site Scripting filter. This filter
-looks for commonly used techniques to embed malicious JavaScript into
-your data, or other types of code that attempt to hijack cookies or
-do other malicious things. The XSS Filter is described
-<a class="reference internal" href="../libraries/security.html"><em>here</em></a>.</p>
+<h2>Filtrando XSS<a class="headerlink" href="#xss-filtering" title="Permalink to this headline">¶</a></h2>
+<p>O CodeIgniter vem com um filtro Cross Site Scripting. Este filtro procura técnicas comumente usadas para incorporar JavaScript malicioso em seus dados ou outros tipos de código que tentam seqüestrar cookies ou fazer outras coisas maliciosas. O Filtro XSS é descrito
+<a class="reference internal" href="../libraries/security.html"><em>aqui</em></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">XSS filtering should <em>only be performed on output</em>. Filtering
-input data may modify the data in undesirable ways, including
-stripping special characters from passwords, which reduces
-security instead of improving it.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">A filtragem XSS só deve ser <em>realizada na saída</em>. Os dados de entrada de filtragem podem modificar os dados de maneiras indesejáveis, incluindo descartar caracteres especiais de senhas, o que reduz a segurança em vez de melhorá-la.</p>
 </div>
 </div>
 <div class="section" id="csrf-protection">
-<h2>CSRF protection<a class="headerlink" href="#csrf-protection" title="Permalink to this headline">¶</a></h2>
-<p>CSRF stands for Cross-Site Request Forgery, which is the process of an
-attacker tricking their victim into unknowingly submitting a request.</p>
-<p>CodeIgniter provides CSRF protection out of the box, which will get
-automatically triggered for every non-GET HTTP request, but also needs
-you to create your submit forms in a certain way. This is explained in
-the <a class="reference internal" href="../libraries/security.html"><em>Security Library</em></a> documentation.</p>
+<h2>Proteção CSRF<a class="headerlink" href="#csrf-protection" title="Permalink to this headline">¶</a></h2>
+<p>CSRF significa Cross-Site Request Forgery, que é o processo de um atacante enganando sua vítima ao enviar um pedido inadvertidamente.</p>
+<p>O CodeIgniter fornece proteção CSRF fora da caixa, que será ativado automaticamente para cada solicitação HTTP não GET, mas também precisa de criar seus formulários de envio de uma determinada maneira. Isso é explicado na documentação da <a class="reference internal" href="../libraries/security.html"><em>Biblioteca de Segurança</em></a>.</p>
 </div>
 <div class="section" id="password-handling">
-<h2>Password handling<a class="headerlink" href="#password-handling" title="Permalink to this headline">¶</a></h2>
-<p>It is <em>critical</em> that you handle passwords in your application properly.</p>
-<p>Unfortunately, many developers don&#8217;t know how to do that, and the web is
-full of outdated or otherwise wrongful advices, which doesn&#8217;t help.</p>
-<p>We would like to give you a list of combined do&#8217;s and don&#8217;ts to help you
-with that. Please read below.</p>
+<h2>Manipulação de senha<a class="headerlink" href="#password-handling" title="Permalink to this headline">¶</a></h2>
+<p>É <em>fundamental</em> que você manipule senhas em seu aplicativo corretamente.</p>
+<p>Infelizmente, muitos desenvolvedores não sabem como fazer isso, e a web está cheia de conselhos desatualizados ou de outra forma incorretos, o que não ajuda.</p>
+<p>Gostaríamos de lhe dar uma lista de "fazer e não fazer" para ajudá-lo com isso. Veja a lista abaixo.</p>
 <ul>
-<li><p class="first">DO NOT store passwords in plain-text format.</p>
-<p>Always <strong>hash</strong> your passwords.</p>
+<li><p class="first">NÃO armazene senhas em formato de texto simples.</p>
+<p>Sempre faça <strong>hash</strong> das suas senhas.</p>
 </li>
-<li><p class="first">DO NOT use Base64 or similar encoding for storing passwords.</p>
-<p>This is as good as storing them in plain-text. Really. Do <strong>hashing</strong>,
-not <em>encoding</em>.</p>
-<p>Encoding, and encryption too, are two-way processes. Passwords are
-secrets that must only be known to their owner, and thus must work
-only in one direction. Hashing does that - there&#8217;s <em>no</em> un-hashing or
-de-hashing, but there is decoding and decryption.</p>
+<li><p class="first">NÃO use Base64 ou codificação similar para armazenar senhas.</p>
+<p>Isso é tão bom quanto armazená-los em texto simples. Mesmo. Faça <strong>hashing</strong>,
+não <em>codifique</em>.</p>
+<p>A codificação e a criptografia também são processos bidirecionais. As senhas são segredos que só devem ser conhecidos do seu proprietário e, portanto, devem funcionar apenas em uma direção. Hashing faz isso - não há nenhum-hashing ou de-hashing, mas há decodificação e descriptografia.</p>
 </li>
-<li><p class="first">DO NOT use weak or broken hashing algorithms like MD5 or SHA1.</p>
-<p>These algorithms are old, proven to be flawed, and not designed for
-password hashing in the first place.</p>
-<p>Also, DON&#8217;T invent your own algorithms.</p>
-<p>Only use strong password hashing algorithms like BCrypt, which is used
-in PHP&#8217;s own <a class="reference external" href="http://php.net/password">Password Hashing</a> functions.</p>
-<p>Please use them, even if you&#8217;re not running PHP 5.5+, CodeIgniter
-provides them for you as long as you&#8217;re running at least PHP version
-5.3.7 (and if you don&#8217;t meet that requirement - please, upgrade).</p>
-<p>If you&#8217;re one of the really unlucky people who can&#8217;t even upgrade to a
-more recent PHP version, use <cite>hash_pbkdf() &lt;http://php.net/hash_pbkdf2&gt;</cite>,
-which we also provide in our compatibility layer.</p>
+<li><p class="first">NÃO USE algoritmos de hash fracos ou quebrados como MD5 ou SHA1.</p>
+<p>Esses algoritmos são antigos, provados ser defeituosos e não projetados para hash de senha em primeiro lugar.</p>
+<p>Além disso, NÃO CRIE seus próprios algoritmos.</p>
+<p>Use apenas algoritmos de hashing de senha forte como o BCrypt, que é usado nas próprias funções de <a class="reference external" href="http://php.net/password">Hashing de Senha</a> do PHP.</p>
+<p>Por favor, use-os, mesmo se você não estiver executando o PHP 5.5, o CodeIgniter os fornece para você, desde que você esteja executando pelo menos a versão PHP 5.3.7 (e se você não atender a esse requisito - por favor, atualize).</p>
+<p>Se você é uma das pessoas realmente desafortunadas que não podem sequer atualizar para uma versão mais recente do PHP, use <cite>hash_pbkdf() &lt;http://php.net/hash_pbkdf2&gt;</cite>,
+que também fornecemos na nossa camada de compatibilidade.</p>
 </li>
-<li><p class="first">DO NOT ever display or send a password in plain-text format!</p>
-<p>Even to the password&#8217;s owner, if you need a &#8220;Forgotten password&#8221;
-feature, just randomly generate a new, one-time (this is also important)
-password and send that instead.</p>
+<li><p class="first">NUNCA exiba ou envie uma senha em formato de texto simples!</p>
+<p>Mesmo para o proprietário da senha, se você precisar de um recurso "Senha esquecida", apenas gere aleatoriamente uma senha nova, única (também é importante) e envie isso.</p>
 </li>
-<li><p class="first">DO NOT put unnecessary limits on your users&#8217; passwords.</p>
-<p>If you&#8217;re using a hashing algorithm other than BCrypt (which has a limit
-of 72 characters), you should set a relatively high limit on password
-lengths in order to mitigate DoS attacks - say, 1024 characters.</p>
-<p>Other than that however, there&#8217;s no point in forcing a rule that a
-password can only be up to a number of characters, or that it can&#8217;t
-contain a certain set of special characters.</p>
-<p>Not only does this <strong>reduce</strong> security instead of improving it, but
-there&#8217;s literally no reason to do it. No technical limitations and
-no (practical) storage constraints apply once you&#8217;ve hashed them, none!</p>
+<li><p class="first">NÃO coloque limites desnecessários nas senhas de seus usuários.</p>
+<p>Se você estiver usando um algoritmo de hash diferente de BCrypt (que tem um limite de 72 caracteres), você deve definir um limite relativamente alto de comprimentos de senha para mitigar ataques DoS - digamos, 1024 caracteres.</p>
+<p>Além disso, não há nenhum ponto em forçar uma regra de que uma senha só pode ser até um número de caracteres ou que não pode conter um determinado conjunto de caracteres especiais.</p>
+<p>Isso não só <strong>reduz</strong> a segurança em vez de melhorar, mas não há literalmente nenhuma razão para fazê-lo. Não há limitações técnicas e não existem restrições de armazenamento (práticas) quando você as hashed, nenhuma!</p>
 </li>
 </ul>
 </div>
 <div class="section" id="validate-input-data">
-<h2>Validate input data<a class="headerlink" href="#validate-input-data" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter has a <a class="reference internal" href="../libraries/form_validation.html"><em>Formulário de Validação Library</em></a> that assists you in
-validating, filtering, and prepping your data.</p>
-<p>Even if that doesn&#8217;t work for your use case however, be sure to always
-validate and sanitize all input data. For example, if you expect a numeric
-string for an input variable, you can check for that with <tt class="docutils literal"><span class="pre">is_numeric()</span></tt>
-or <tt class="docutils literal"><span class="pre">ctype_digit()</span></tt>. Always try to narrow down your checks to a certain
-pattern.</p>
-<p>Have it in mind that this includes not only <tt class="docutils literal"><span class="pre">$_POST</span></tt> and <tt class="docutils literal"><span class="pre">$_GET</span></tt>
-variables, but also cookies, the user-agent string and basically
-<em>all data that is not created directly by your own code</em>.</p>
+<h2>Validando dados de entrada<a class="headerlink" href="#validate-input-data" title="Permalink to this headline">¶</a></h2>
+<p>O CodeIgniter tem uma <a class="reference internal" href="../libraries/form_validation.html"><em>Biblioteca de Validação de Formulário</em></a> que ajuda você a validar, filtrar e preparar seus dados.</p>
+<p>Mesmo que isso não funcione para o seu caso de uso no entanto, certifique-se de sempre validar e desinfetar todos os dados de entrada. Por exemplo, se você espera uma string numérica para uma variável de entrada, pode verificar isso com <tt class="docutils literal"><span class="pre">is_numeric()</span></tt>
+ou <tt class="docutils literal"><span class="pre">ctype_digit()</span></tt>. Sempre tente restringir suas verificações para um determinado padrão.</p>
+<p>Tenha em mente que isso inclui não só as variáveis ​​<tt class="docutils literal"><span class="pre">$_POST</span></tt> e <tt class="docutils literal"><span class="pre">$_GET</span></tt>, mas também os cookies, a seqüência do agente do usuário e, basicamente, <em>todos os dados que não são criados diretamente pelo seu próprio código</em>.</p>
 </div>
 <div class="section" id="escape-all-data-before-database-insertion">
-<h2>Escape all data before database insertion<a class="headerlink" href="#escape-all-data-before-database-insertion" title="Permalink to this headline">¶</a></h2>
-<p>Never insert information into your database without escaping it.
-Please see the section that discusses <a class="reference internal" href="../database/queries.html"><em>database queries</em></a> for more information.</p>
+<h2>Escape de Todos os Dados Antes da Inserção no Banco de Dados<a class="headerlink" href="#escape-all-data-before-database-insertion" title="Permalink to this headline">¶</a></h2>
+<p>Nunca insira informações em sua base de dados sem escapar dela. Consulte a seção que discute <a class="reference internal" href="../database/queries.html"><em>consultas do banco</em></a> de dados para obter mais informações.</p>
 </div>
 <div class="section" id="hide-your-files">
-<h2>Hide your files<a class="headerlink" href="#hide-your-files" title="Permalink to this headline">¶</a></h2>
-<p>Another good security practice is to only leave your <em>index.php</em>
-and &#8220;assets&#8221; (e.g. .js, css and image files) under your server&#8217;s
-<em>webroot</em> directory (most commonly named &#8220;htdocs/&#8221;). These are
-the only files that you would need to be accessible from the web.</p>
-<p>Allowing your visitors to see anything else would potentially
-allow them to access sensitive data, execute scripts, etc.</p>
-<p>If you&#8217;re not allowed to do that, you can try using a .htaccess
-file to restrict access to those resources.</p>
-<p>CodeIgniter will have an index.html file in all of its
-directories in an attempt to hide some of this data, but have
-it in mind that this is not enough to prevent a serious
-attacker.</p>
+<h2>Esconda seus arquivos<a class="headerlink" href="#hide-your-files" title="Permalink to this headline">¶</a></h2>
+<p>Outra boa prática de segurança é deixar seu index.php e "ativos" (por exemplo .js, css e arquivos de imagem) no diretório <em>webroot</em> do seu servidor (mais comumente chamado de "htdocs /"). Estes são os únicos arquivos que você precisa estar acessível a partir da web.</p>
+<p>Permitir que seus visitantes vejam algo mais potencialmente lhes permitirá acessar dados confidenciais, executar scripts, etc.</p>
+<p>Se você não tem permissão para fazer isso, você pode tentar usar um arquivo .htaccess para restringir o acesso a esses recursos.</p>
+<p>O CodeIgniter terá um arquivo index.html em todos os seus diretórios na tentativa de ocultar alguns desses dados, mas tenha em mente que isso não é suficiente para evitar um invasor sério.</p>
 </div>
 </div>
 

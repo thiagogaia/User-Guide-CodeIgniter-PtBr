@@ -425,97 +425,80 @@
 
   <div class="section" id="php-style-guide">
 <h1><a class="toc-backref" href="#id1">Guia de Estilo PHP</a><a class="headerlink" href="#php-style-guide" title="Permalink to this headline">¶</a></h1>
-<p>The following page describes the coding styles adhered to when
-contributing to the development of CodeIgniter. There is no requirement
-to use these styles in your own CodeIgniter application, though they
-are recommended.</p>
+<p>A página a seguir descreve os estilos de codificação adotados ao contribuir para o desenvolvimento do CodeIgniter. Não é necessário usar esses estilos em seu próprio aplicativo CodeIgniter, embora eles sejam recomendados.</p>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#php-style-guide" id="id1">Guia de Estilo PHP</a><ul>
-<li><a class="reference internal" href="#file-format" id="id2">File Format</a><ul>
+<li><a class="reference internal" href="#file-format" id="id2">Formatação de Arquivo</a><ul>
 <li><a class="reference internal" href="#textmate" id="id3">TextMate</a></li>
 <li><a class="reference internal" href="#bbedit" id="id4">BBEdit</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#php-closing-tag" id="id5">PHP Closing Tag</a></li>
-<li><a class="reference internal" href="#file-naming" id="id6">File Naming</a></li>
-<li><a class="reference internal" href="#class-and-method-naming" id="id7">Class and Method Naming</a></li>
-<li><a class="reference internal" href="#variable-names" id="id8">Variable Names</a></li>
-<li><a class="reference internal" href="#commenting" id="id9">Commenting</a></li>
-<li><a class="reference internal" href="#constants" id="id10">Constants</a></li>
-<li><a class="reference internal" href="#true-false-and-null" id="id11">TRUE, FALSE, and NULL</a></li>
-<li><a class="reference internal" href="#logical-operators" id="id12">Logical Operators</a></li>
-<li><a class="reference internal" href="#comparing-return-values-and-typecasting" id="id13">Comparing Return Values and Typecasting</a></li>
-<li><a class="reference internal" href="#debugging-code" id="id14">Debugging Code</a></li>
-<li><a class="reference internal" href="#whitespace-in-files" id="id15">Whitespace in Files</a></li>
-<li><a class="reference internal" href="#compatibility" id="id16">Compatibility</a></li>
-<li><a class="reference internal" href="#one-file-per-class" id="id17">One File per Class</a></li>
-<li><a class="reference internal" href="#whitespace" id="id18">Whitespace</a></li>
-<li><a class="reference internal" href="#line-breaks" id="id19">Line Breaks</a></li>
-<li><a class="reference internal" href="#code-indenting" id="id20">Code Indenting</a></li>
-<li><a class="reference internal" href="#bracket-and-parenthetic-spacing" id="id21">Bracket and Parenthetic Spacing</a></li>
-<li><a class="reference internal" href="#localized-text" id="id22">Localized Text</a></li>
-<li><a class="reference internal" href="#private-methods-and-variables" id="id23">Private Methods and Variables</a></li>
-<li><a class="reference internal" href="#php-errors" id="id24">PHP Errors</a></li>
-<li><a class="reference internal" href="#short-open-tags" id="id25">Short Open Tags</a></li>
-<li><a class="reference internal" href="#one-statement-per-line" id="id26">One Statement Per Line</a></li>
-<li><a class="reference internal" href="#strings" id="id27">Strings</a></li>
-<li><a class="reference internal" href="#sql-queries" id="id28">SQL Queries</a></li>
-<li><a class="reference internal" href="#default-function-arguments" id="id29">Default Function Arguments</a></li>
+<li><a class="reference internal" href="#php-closing-tag" id="id5">Tag de Fechamento do PHP</a></li>
+<li><a class="reference internal" href="#file-naming" id="id6">Nomes de Arquivo</a></li>
+<li><a class="reference internal" href="#class-and-method-naming" id="id7">Nomes de Classes e Métodos</a></li>
+<li><a class="reference internal" href="#variable-names" id="id8">Nomes de Variáveis</a></li>
+<li><a class="reference internal" href="#commenting" id="id9">Comentários</a></li>
+<li><a class="reference internal" href="#constants" id="id10">Constantes</a></li>
+<li><a class="reference internal" href="#true-false-and-null" id="id11">VERDADEIRO, FALSO, e NULO</a></li>
+<li><a class="reference internal" href="#logical-operators" id="id12">Operadores Lógicos</a></li>
+<li><a class="reference internal" href="#comparing-return-values-and-typecasting" id="id13">Comparando Valores de Retorno e Casting</a></li>
+<li><a class="reference internal" href="#debugging-code" id="id14">Depuração de Código</a></li>
+<li><a class="reference internal" href="#whitespace-in-files" id="id15">Espaços em Branco em Arquivos</a></li>
+<li><a class="reference internal" href="#compatibility" id="id16">Compatibilidade</a></li>
+<li><a class="reference internal" href="#one-file-per-class" id="id17">Um Arquivo por Classe</a></li>
+<li><a class="reference internal" href="#whitespace" id="id18">Espaço em Branco</a></li>
+<li><a class="reference internal" href="#line-breaks" id="id19">Quebra de Linha</a></li>
+<li><a class="reference internal" href="#code-indenting" id="id20">Identação de Código</a></li>
+<li><a class="reference internal" href="#bracket-and-parenthetic-spacing" id="id21">Espaço Entre Chaves e Parênteses </a></li>
+<li><a class="reference internal" href="#localized-text" id="id22">Localizando textos</a></li>
+<li><a class="reference internal" href="#private-methods-and-variables" id="id23">Métodos e Variáveis Privadas</a></li>
+<li><a class="reference internal" href="#php-errors" id="id24">Erros do PHP</a></li>
+<li><a class="reference internal" href="#short-open-tags" id="id25">Tags Curtas de Abertura</a></li>
+<li><a class="reference internal" href="#one-statement-per-line" id="id26">Uma Declaração por Linha</a></li>
+<li><a class="reference internal" href="#strings" id="id27">Conjunto de caracteres</a></li>
+<li><a class="reference internal" href="#sql-queries" id="id28">Consultas SQL</a></li>
+<li><a class="reference internal" href="#default-function-arguments" id="id29">Argumentos da Função Padrão</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="file-format">
-<h2><a class="toc-backref" href="#id2">File Format</a><a class="headerlink" href="#file-format" title="Permalink to this headline">¶</a></h2>
-<p>Files should be saved with Unicode (UTF-8) encoding. The BOM should
-<em>not</em> be used. Unlike UTF-16 and UTF-32, there&#8217;s no byte order to
-indicate in a UTF-8 encoded file, and the BOM can have a negative side
-effect in PHP of sending output, preventing the application from being
-able to set its own headers. Unix line endings should be used (LF).</p>
-<p>Here is how to apply these settings in some of the more common text
-editors. Instructions for your text editor may vary; check your text
-editor&#8217;s documentation.</p>
+<h2><a class="toc-backref" href="#id2">Formato do arquivo</a><a class="headerlink" href="#file-format" title="Permalink to this headline">¶</a></h2>
+<p>Os arquivos devem ser salvos com a codificação Unicode (UTF-8).The BOM <em>não</em> deve ser usado.
+UTF-16 e UTF-32, não há ordem de bytes para indicar em um arquivo codificado UTF-8, e a lista de materiais pode ter um efeito colateral negativo no PHP de envio de saída, impedindo o aplicativo de poder definir seus próprios cabeçalhos. As finalizações de linha Unix devem ser usadas (LF).</p>
+<p>Veja como aplicar essas configurações em alguns dos editores de texto mais comuns. As instruções para o editor de texto podem variar; Verifique a documentação do seu editor de texto.</p>
 <div class="section" id="textmate">
 <h3><a class="toc-backref" href="#id3">TextMate</a><a class="headerlink" href="#textmate" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Open the Application Preferences</li>
-<li>Click Advanced, and then the &#8220;Saving&#8221; tab</li>
-<li>In &#8220;File Encoding&#8221;, select &#8220;UTF-8 (recommended)&#8221;</li>
-<li>In &#8220;Line Endings&#8221;, select &#8220;LF (recommended)&#8221;</li>
-<li><em>Optional:</em> Check &#8220;Use for existing files as well&#8221; if you wish to
-modify the line endings of files you open to your new preference.</li>
+<li>Abra as Preferências da Aplicação</li>
+<li>Clique em Avançado e depois na guia "Salvar"</li>
+<li>Em "Codificação de Arquivo", selecione "UTF-8 (recomendado)"</li>
+<li>Em "Line Endings", selecione "LF (recomendado)"</li>
+<li><em>Opcional</em>: Marque "Usar para arquivos existentes também" se desejar modificar as finalizações de linha dos arquivos que você abre para sua nova preferência.</li>
 </ol>
 </div>
 <div class="section" id="bbedit">
 <h3><a class="toc-backref" href="#id4">BBEdit</a><a class="headerlink" href="#bbedit" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Open the Application Preferences</li>
-<li>Select &#8220;Text Encodings&#8221; on the left.</li>
-<li>In &#8220;Default text encoding for new documents&#8221;, select &#8220;Unicode (UTF-8,
-no BOM)&#8221;</li>
-<li><em>Optional:</em> In &#8220;If file&#8217;s encoding can&#8217;t be guessed, use&#8221;, select
-&#8220;Unicode (UTF-8, no BOM)&#8221;</li>
-<li>Select &#8220;Text Files&#8221; on the left.</li>
-<li>In &#8220;Default line breaks&#8221;, select &#8220;Mac OS X and Unix (LF)&#8221;</li>
+<li>Abra as Preferências da Aplicação</li>
+<li>Selecione "Codificações de texto" à esquerda.</li>
+<li>Em "Codificação de texto padrão para novos documentos", selecione "Unicode (UTF-8, sem BOM)"</li>
+<li><em>Opcional</em>: Em "Se a codificação do arquivo não pode ser adivinhada, use", selecione "Unicode (UTF-8, sem BOM)"</li>
+<li>Selecione "Arquivos de texto" à esquerda.</li>
+<li>Em "Quebras de linha padrão", selecione "Mac OS X e Unix (LF)"</li>
 </ol>
 </div>
 </div>
 <div class="section" id="php-closing-tag">
-<h2><a class="toc-backref" href="#id5">PHP Closing Tag</a><a class="headerlink" href="#php-closing-tag" title="Permalink to this headline">¶</a></h2>
-<p>The PHP closing tag on a PHP document <strong>?&gt;</strong> is optional to the PHP
-parser. However, if used, any whitespace following the closing tag,
-whether introduced by the developer, user, or an FTP application, can
-cause unwanted output, PHP errors, or if the latter are suppressed,
-blank pages. For this reason, all PHP files MUST OMIT the PHP closing
-tag and end with a single empty line instead.</p>
+<h2><a class="toc-backref" href="#id5">Tag de Fechamento do PHP</a><a class="headerlink" href="#php-closing-tag" title="Permalink to this headline">¶</a></h2>
+<p>A tag de fechamento do PHP em um documento do PHP <strong>?&gt;</strong> é opcional para o analisador de PHP. No entanto, se usado, qualquer espaço em branco que segue a marca de fechamento, seja introduzido pelo desenvolvedor, usuário ou aplicativo FTP, pode causar saída indesejada, erros de PHP ou, se os últimos forem excluídos, páginas em branco. Por esse motivo, todos os arquivos PHP DEVEM OMITAR a tag de fechamento do PHP e terminar com uma única linha vazia.</p>
 </div>
 <div class="section" id="file-naming">
-<h2><a class="toc-backref" href="#id6">File Naming</a><a class="headerlink" href="#file-naming" title="Permalink to this headline">¶</a></h2>
-<p>Class files must be named in a Ucfirst-like manner, while any other file name
-(configurations, views, generic scripts, etc.) should be in all lowercase.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id6">Nomes de arquivos</a><a class="headerlink" href="#file-naming" title="Permalink to this headline">¶</a></h2>
+<p>Os arquivos de Classe devem ser nomeados de forma semelhante a Ucfirst, enquanto qualquer outro nome de arquivo (configurações, visualizações, scripts genéricos, etc.) deve estar em minúsculas.</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">somelibrary</span><span class="o">.</span><span class="nx">php</span>
 <span class="nx">someLibrary</span><span class="o">.</span><span class="nx">php</span>
 <span class="nx">SOMELIBRARY</span><span class="o">.</span><span class="nx">php</span>
@@ -526,7 +509,7 @@ tag and end with a single empty line instead.</p>
 <span class="nx">applicationConfig</span><span class="o">.</span><span class="nx">php</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">Somelibrary</span><span class="o">.</span><span class="nx">php</span>
 <span class="nx">Some_library</span><span class="o">.</span><span class="nx">php</span>
 
@@ -534,20 +517,18 @@ tag and end with a single empty line instead.</p>
 <span class="nx">application_config</span><span class="o">.</span><span class="nx">php</span>
 </pre></div>
 </div>
-<p>Furthermore, class file names should match the name of the class itself.
-For example, if you have a class named <cite>Myclass</cite>, then its filename must
+<p>Além disso, os nomes dos arquivos de classe devem corresponder ao nome da própria classe. Por exemplo, se você tem uma classe chamada <cite>Myclass</cite>, então seu nome de arquivo deve ser
 be <strong>Myclass.php</strong>.</p>
 </div>
 <div class="section" id="class-and-method-naming">
-<h2><a class="toc-backref" href="#id7">Class and Method Naming</a><a class="headerlink" href="#class-and-method-naming" title="Permalink to this headline">¶</a></h2>
-<p>Class names should always start with an uppercase letter. Multiple words
-should be separated with an underscore, and not CamelCased.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id7">Nomeando Métodos e Classes</a><a class="headerlink" href="#class-and-method-naming" title="Permalink to this headline">¶</a></h2>
+<p>Nomes de classe sempre devem começar com uma letra maiúscula. Múltiplas palavras devem ser separadas com um sublinhado e não CamelCased.</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">superclass</span>
 <span class="k">class</span> <span class="nc">SuperClass</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Super_class</span>
 </pre></div>
 </div>
@@ -560,39 +541,32 @@ should be separated with an underscore, and not CamelCased.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Class methods should be entirely lowercased and named to clearly
-indicate their function, preferably including a verb. Try to avoid
-overly long and verbose names. Multiple words should be separated
-with an underscore.</p>
-<p><strong>INCORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">fileproperties</span><span class="p">()</span>               <span class="c1">// not descriptive and needs underscore separator</span>
-<span class="k">function</span> <span class="nf">fileProperties</span><span class="p">()</span>               <span class="c1">// not descriptive and uses CamelCase</span>
-<span class="k">function</span> <span class="nf">getfileproperties</span><span class="p">()</span>            <span class="c1">// Better!  But still missing underscore separator</span>
-<span class="k">function</span> <span class="nf">getFileProperties</span><span class="p">()</span>            <span class="c1">// uses CamelCase</span>
-<span class="k">function</span> <span class="nf">get_the_file_properties_from_the_file</span><span class="p">()</span>        <span class="c1">// wordy</span>
+<p>Os métodos de classe devem ser inteiramente minúsculos e nomeados para indicar claramente sua função, de preferência incluindo um verbo. Tente evitar nomes excessivamente longos e detalhados. Múltiplas palavras devem ser separadas com um sublinhado.</p>
+<p><strong>INCORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">fileproperties</span><span class="p">()</span><span class="c1">// não descritivo e precisa de sublinhado separador</span>
+<span class="k">function</span> <span class="nf">fileProperties</span><span class="p">()</span>               <span class="c1">// não descritivo e usa CamelCase</span>
+<span class="k">function</span> <span class="nf">getfileproperties</span><span class="p">()</span>            <span class="c1">// Melhor! Mas ainda faltam separador de sublinhado</span>
+<span class="k">function</span> <span class="nf">getFileProperties</span><span class="p">()</span>            <span class="c1">// usando CamelCase</span>
+<span class="k">function</span> <span class="nf">get_the_file_properties_from_the_file</span><span class="p">()</span>        <span class="c1">// muito grande</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">get_file_properties</span><span class="p">()</span>  <span class="c1">// descriptive, underscore separator, and all lowercase letters</span>
+<p><strong>CORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">get_file_properties</span><span class="p">()</span>  <span class="c1">// Separador descritivo, de sublinhado e todas as letras minúsculas</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="variable-names">
-<h2><a class="toc-backref" href="#id8">Variable Names</a><a class="headerlink" href="#variable-names" title="Permalink to this headline">¶</a></h2>
-<p>The guidelines for variable naming are very similar to those used for
-class methods. Variables should contain only lowercase letters,
-use underscore separators, and be reasonably named to indicate their
-purpose and contents. Very short, non-word variables should only be used
-as iterators in for() loops.</p>
-<p><strong>INCORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$j</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>             <span class="c1">// single letter variables should only be used in for() loops</span>
-<span class="nv">$Str</span>                    <span class="c1">// contains uppercase letters</span>
-<span class="nv">$bufferedText</span>           <span class="c1">// uses CamelCasing, and could be shortened without losing semantic meaning</span>
-<span class="nv">$groupid</span>                <span class="c1">// multiple words, needs underscore separator</span>
-<span class="nv">$name_of_last_city_used</span> <span class="c1">// too long</span>
+<h2><a class="toc-backref" href="#id8">Nomes de Variáveis</a><a class="headerlink" href="#variable-names" title="Permalink to this headline">¶</a></h2>
+<p>As diretrizes para nomeação variável são muito semelhantes às usadas para métodos de classe. As variáveis ​​devem conter apenas letras minúsculas, usar separadores de sublinhado e ser razoavelmente nomeados para indicar seu propósito e conteúdo. Variáveis ​​muito pequenas e não-verbais só devem ser usadas como for() em loops.</p>
+<p><strong>INCORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$j</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>             <span class="c1">// variáveis ​​de letra única só devem ser usadas em for() loops</span>
+<span class="nv">$Str</span>                    <span class="c1">// contém letras maiúsculas</span>
+<span class="nv">$bufferedText</span>           <span class="c1">// usa CamelCasing, e pode ser encurtado sem perder o significado semântico</span>
+<span class="nv">$groupid</span>                <span class="c1">// muitas palavras, precisa de separador de sublinhado</span>
+<span class="nv">$name_of_last_city_used</span> <span class="c1">// muito grande</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="nv">$j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$j</span><span class="o">++</span><span class="p">)</span>
 <span class="nv">$str</span>
 <span class="nv">$buffer</span>
@@ -602,22 +576,17 @@ as iterators in for() loops.</p>
 </div>
 </div>
 <div class="section" id="commenting">
-<h2><a class="toc-backref" href="#id9">Commenting</a><a class="headerlink" href="#commenting" title="Permalink to this headline">¶</a></h2>
-<p>In general, code should be commented prolifically. It not only helps
-describe the flow and intent of the code for less experienced
-programmers, but can prove invaluable when returning to your own code
-months down the line. There is not a required format for comments, but
-the following are recommended.</p>
-<p><a class="reference external" href="http://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.howto.pkg.html#basics.docblock">DocBlock</a>
-style comments preceding class, method, and property declarations so they can be
-picked up by IDEs:</p>
+<h2><a class="toc-backref" href="#id9">Comentários</a><a class="headerlink" href="#commenting" title="Permalink to this headline">¶</a></h2>
+<p>Em geral, o código deve ser comentado de forma prolífica. Não só ajuda a descrever o fluxo e a intenção do código para programadores menos experientes, mas pode ser inestimável ao retornar ao seu próprio código meses abaixo da linha. Não há um formato exigido para comentários, mas os seguintes são recomendados.</p>
+<p>
+Comentários de estilo <a class="reference external" href="http://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.howto.pkg.html#basics.docblock">DocBlock</a> que precedem as declarações de classe, método e propriedade para que possam ser apanhados por IDEs:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="sd">/**</span>
 <span class="sd"> * Super Class</span>
 <span class="sd"> *</span>
-<span class="sd"> * @package     Package Name</span>
-<span class="sd"> * @subpackage  Subpackage</span>
-<span class="sd"> * @category    Category</span>
-<span class="sd"> * @author      Author Name</span>
+<span class="sd"> * @package     Nome do pacote</span>
+<span class="sd"> * @subpackage  Sub pacote</span>
+<span class="sd"> * @category    Categoria</span>
+<span class="sd"> * @author      Nome do Autor</span>
 <span class="sd"> * @link        http://example.com</span>
 <span class="sd"> */</span>
 <span class="k">class</span> <span class="nc">Super_class</span> <span class="p">{</span>
@@ -640,16 +609,15 @@ picked up by IDEs:</p>
 <span class="k">public</span> <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Use single line comments within code, leaving a blank line between large
-comment blocks and code.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// break up the string by newlines</span>
+<p>Use comentários de linha única dentro do código, deixando uma linha em branco entre grandes blocos de comentários e código.</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// quebra os caracteres com nova linha</span>
 <span class="nv">$parts</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$str</span><span class="p">);</span>
 
-<span class="c1">// A longer comment that needs to give greater detail on what is</span>
-<span class="c1">// occurring and why can use multiple single-line comments.  Try to</span>
-<span class="c1">// keep the width reasonable, around 70 characters is the easiest to</span>
-<span class="c1">// read.  Don&#39;t hesitate to link to permanent external resources</span>
-<span class="c1">// that may provide greater detail:</span>
+<span class="c1">// Um comentário mais longo que precisa dar maiores detalhes sobre o que é</span>
+<span class="c1">// Ocorrendo e por que pode usar vários comentários de uma única linha. Tente</span>
+<span class="c1">// Mantenha a largura razoável, cerca de 70 caracteres é o mais fácil de</span>
+<span class="c1">// ler. Não hesite em vincular a recursos externos permanentes</span>
+<span class="c1">// Que podem fornecer maiores detalhes:</span>
 <span class="c1">//</span>
 <span class="c1">// http://example.com/information_about_something/in_particular/</span>
 
@@ -658,18 +626,16 @@ comment blocks and code.</p>
 </div>
 </div>
 <div class="section" id="constants">
-<h2><a class="toc-backref" href="#id10">Constants</a><a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
-<p>Constants follow the same guidelines as do variables, except constants
-should always be fully uppercase. <em>Always use CodeIgniter constants when
-appropriate, i.e. SLASH, LD, RD, PATH_CACHE, etc.</em></p>
-<p><strong>INCORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">myConstant</span>      <span class="c1">// missing underscore separator and not fully uppercase</span>
-<span class="nx">N</span>               <span class="c1">// no single-letter constants</span>
-<span class="nx">S_C_VER</span>         <span class="c1">// not descriptive</span>
-<span class="nv">$str</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;{foo}&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="nv">$str</span><span class="p">);</span>       <span class="c1">// should use LD and RD constants</span>
+<h2><a class="toc-backref" href="#id10">Constantes</a><a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<p>As constantes seguem as mesmas diretrizes que as variáveis, exceto que as constantes devem sempre ser totalmente maiúsculas. <em>Use sempre constantes CodeIgniter quando apropriado, ou seja, SLASH, LD, RD, PATH_CACHE, etc.</em></p>
+<p><strong>INCORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">myConstant</span>      <span class="c1">// separador de sublinhado faltante e não totalmente em maiúscula</span>
+<span class="nx">N</span>               <span class="c1">// nenhuma constante de letra única</span>
+<span class="nx">S_C_VER</span>         <span class="c1">// não descritivo</span>
+<span class="nv">$str</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;{foo}&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="nv">$str</span><span class="p">);</span>       <span class="c1">// deve usar constantes LD e RD</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">MY_CONSTANT</span>
 <span class="nx">NEWLINE</span>
 <span class="nx">SUPER_CLASS_VERSION</span>
@@ -678,16 +644,15 @@ appropriate, i.e. SLASH, LD, RD, PATH_CACHE, etc.</em></p>
 </div>
 </div>
 <div class="section" id="true-false-and-null">
-<h2><a class="toc-backref" href="#id11">TRUE, FALSE, and NULL</a><a class="headerlink" href="#true-false-and-null" title="Permalink to this headline">¶</a></h2>
-<p><strong>TRUE</strong>, <strong>FALSE</strong>, and <strong>NULL</strong> keywords should always be fully
-uppercase.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id11">VERDADEIRO, FALSO, and NULO</a><a class="headerlink" href="#true-false-and-null" title="Permalink to this headline">¶</a></h2>
+<p>As palavras <strong>TRUE</strong>, <strong>FALSE</strong>, e <strong>NULL</strong> sempre devem ser totalmente maiúsculas</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span>
 <span class="nv">$bar</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 <span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="k">TRUE</span><span class="p">)</span>
 <span class="nv">$bar</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 <span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">)</span>
@@ -695,57 +660,50 @@ uppercase.</p>
 </div>
 </div>
 <div class="section" id="logical-operators">
-<h2><a class="toc-backref" href="#id12">Logical Operators</a><a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h2>
-<p>Use of the <tt class="docutils literal"><span class="pre">||</span></tt> &#8220;or&#8221; comparison operator is discouraged, as its clarity
-on some output devices is low (looking like the number 11, for instance).
-<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt> is preferred over <tt class="docutils literal"><span class="pre">AND</span></tt> but either are acceptable, and a space should
-always precede and follow <tt class="docutils literal"><span class="pre">!</span></tt>.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id12">Operadores Lógicos</a><a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h2>
+<p>O uso do <tt class="docutils literal"><span class="pre">||</span></tt> &#8220;or&#8221; O operador de comparação é desencorajado, pois a sua clareza em alguns dispositivos de saída é baixa (como o número 11, por exemplo).
+<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>   é preferível sobre <tt class="docutils literal"><span class="pre">AND</span></tt> e também é aceitável, e um espaço deve sempre preceder e seguir <tt class="docutils literal"><span class="pre">!</span></tt>.</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">||</span> <span class="nv">$bar</span><span class="p">)</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="k">AND</span> <span class="nv">$bar</span><span class="p">)</span>  <span class="c1">// okay but not recommended for common syntax highlighting applications</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="k">AND</span> <span class="nv">$bar</span><span class="p">)</span>  <span class="c1">// Tudo bem, mas não recomendado para aplicativos de destaque de sintaxe comuns</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$foo</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$foo</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="k">OR</span> <span class="nv">$bar</span><span class="p">)</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">&amp;&amp;</span> <span class="nv">$bar</span><span class="p">)</span> <span class="c1">// recommended</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">&amp;&amp;</span> <span class="nv">$bar</span><span class="p">)</span> <span class="c1">// recomendado</span>
 <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$foo</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$foo</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="comparing-return-values-and-typecasting">
-<h2><a class="toc-backref" href="#id13">Comparing Return Values and Typecasting</a><a class="headerlink" href="#comparing-return-values-and-typecasting" title="Permalink to this headline">¶</a></h2>
-<p>Some PHP functions return FALSE on failure, but may also have a valid
-return value of &#8220;&#8221; or 0, which would evaluate to FALSE in loose
-comparisons. Be explicit by comparing the variable type when using these
-return values in conditionals to ensure the return value is indeed what
-you expect, and not a value that has an equivalent loose-type
-evaluation.</p>
-<p>Use the same stringency in returning and checking your own variables.
-Use <strong>===</strong> and <strong>!==</strong> as necessary.</p>
-<p><strong>INCORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// If &#39;foo&#39; is at the beginning of the string, strpos will return a 0,</span>
-<span class="c1">// resulting in this conditional evaluating as TRUE</span>
+<h2><a class="toc-backref" href="#id13">Comparando Valores de Retorno e Casting</a><a class="headerlink" href="#comparing-return-values-and-typecasting" title="Permalink to this headline">¶</a></h2>
+<p>Algumas funções PHP retornam FALSE em caso de falha, mas também podem ter um valor de retorno válido de "" ou 0, que avaliaria FALSE em comparações soltas. Seja explícito, comparando o tipo de variável ao usar esses valores de retorno em condições condicionais para garantir que o valor de retorno seja realmente o que você espera, e não um valor que tenha uma avaliação equivalente de tipo solto.</p>
+<p>Use a mesma rigidez ao retornar e verificar suas próprias variáveis
+Use <strong>===</strong> e <strong>!==</strong> se necessário.</p>
+<p><strong>INCORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// If &#39;foo&#39; se 'foo' estiver no início da string, strpos retornará um 0,</span>
+<span class="c1">// resultando nesta avaliação condicional como VERDADEIRA</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="k">FALSE</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>INCORRECT</strong>:</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">build_string</span><span class="p">(</span><span class="nv">$str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$str</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">// uh-oh!  What if FALSE or the integer 0 is passed as an argument?</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$str</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">// Uh-oh! E se FALSE ou o inteiro 0 for passado como um argumento?</span>
         <span class="p">{</span>
 
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">build_string</span><span class="p">(</span><span class="nv">$str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$str</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -755,65 +713,41 @@ Use <strong>===</strong> and <strong>!==</strong> as necessary.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>See also information regarding <a class="reference external" href="http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting">typecasting</a>,
-which can be quite useful. Typecasting has a slightly different effect
-which may be desirable. When casting a variable as a string, for
-instance, NULL and boolean FALSE variables become empty strings, 0 (and
-other numbers) become strings of digits, and boolean TRUE becomes &#8220;1&#8221;:</p>
+<p>Veja também informações sobre <a class="reference external" href="http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting">typecasting</a>, o que pode ser bastante útil. Typecasting tem um efeito ligeiramente diferente que pode ser desejável. Ao lançar uma variável como uma string, por exemplo, as variáveis ​​FULL NULL e booleanas se tornam cadeias vazias, 0 (e outros números) se tornam cadeias de dígitos e o VERDADEIRO booleano se torna "1":</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$str</span> <span class="o">=</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$str</span><span class="p">;</span> <span class="c1">// cast $str as a string</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="debugging-code">
-<h2><a class="toc-backref" href="#id14">Debugging Code</a><a class="headerlink" href="#debugging-code" title="Permalink to this headline">¶</a></h2>
-<p>Do not leave debugging code in your submissions, even when commented out.
-Things such as <tt class="docutils literal"><span class="pre">var_dump()</span></tt>, <tt class="docutils literal"><span class="pre">print_r()</span></tt>, <tt class="docutils literal"><span class="pre">die()</span></tt>/<tt class="docutils literal"><span class="pre">exit()</span></tt> should not be included
-in your code unless it serves a specific purpose other than debugging.</p>
+<h2><a class="toc-backref" href="#id14">Depurando o Código</a><a class="headerlink" href="#debugging-code" title="Permalink to this headline">¶</a></h2>
+<p>Não deixe o código de depuração nas suas submissões, mesmo quando comentado. Coisas como <tt class="docutils literal"><span class="pre">var_dump()</span></tt>, <tt class="docutils literal"><span class="pre">print_r()</span></tt>, <tt class="docutils literal"><span class="pre">die()</span></tt>/<tt class="docutils literal"><span class="pre">exit()</span></tt>
+Não deve ser incluído no seu código, a menos que ele atinja um propósito específico além da depuração.</p>
 </div>
 <div class="section" id="whitespace-in-files">
-<h2><a class="toc-backref" href="#id15">Whitespace in Files</a><a class="headerlink" href="#whitespace-in-files" title="Permalink to this headline">¶</a></h2>
-<p>No whitespace can precede the opening PHP tag or follow the closing PHP
-tag. Output is buffered, so whitespace in your files can cause output to
-begin before CodeIgniter outputs its content, leading to errors and an
-inability for CodeIgniter to send proper headers.</p>
+<h2><a class="toc-backref" href="#id15">Espaço em Branco em Arquivos</a><a class="headerlink" href="#whitespace-in-files" title="Permalink to this headline">¶</a></h2>
+<p>Nenhum espaço em branco pode preceder a tag PHP de abertura ou seguir a tag PHP de fechamento. A saída é armazenada em buffer, então o espaço em branco em seus arquivos pode fazer com que a saída comece antes de CodeIgniter produzir seu conteúdo, levando a erros e uma incapacidade para o CodeIgniter enviar cabeçalhos apropriados.</p>
 </div>
 <div class="section" id="compatibility">
-<h2><a class="toc-backref" href="#id16">Compatibility</a><a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter recommends PHP 5.6 or newer to be used, but it should be
-compatible with PHP 5.3.7. Your code must either be compatible with this
-requirement, provide a suitable fallback, or be an optional feature that
-dies quietly without affecting a user&#8217;s application.</p>
-<p>Additionally, do not use PHP functions that require non-default libraries
-to be installed unless your code contains an alternative method when the
-function is not available.</p>
+<h2><a class="toc-backref" href="#id16">Compatibilidade</a><a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
+<p>O CodeIgniter recomenda PHP 5.6 ou mais recente para ser usado, mas deve ser compatível com o PHP 5.3.7. Seu código deve ser compatível com esse requisito, fornecer um retorno adequado ou ser um recurso opcional que falece silenciosamente sem afetar a aplicação de um usuário.</p>
+<p>Além disso, não use funções PHP que exijam bibliotecas não padrão para serem instaladas, a menos que seu código contenha um método alternativo quando a função não estiver disponível.</p>
 </div>
 <div class="section" id="one-file-per-class">
-<h2><a class="toc-backref" href="#id17">One File per Class</a><a class="headerlink" href="#one-file-per-class" title="Permalink to this headline">¶</a></h2>
-<p>Use separate files for each class, unless the classes are <em>closely related</em>.
-An example of a CodeIgniter file that contains multiple classes is the
-Xmlrpc library file.</p>
+<h2><a class="toc-backref" href="#id17">Um Arquivo por Classe</a><a class="headerlink" href="#one-file-per-class" title="Permalink to this headline">¶</a></h2>
+<p>Use arquivos separados para cada classe, a menos que as classes estejam <em>intimamente relacionadas</em>. Um exemplo de um arquivo CodeIgniter que contém várias classes é o arquivo da biblioteca Xmlrpc.</p>
 </div>
 <div class="section" id="whitespace">
-<h2><a class="toc-backref" href="#id18">Whitespace</a><a class="headerlink" href="#whitespace" title="Permalink to this headline">¶</a></h2>
-<p>Use tabs for whitespace in your code, not spaces. This may seem like a
-small thing, but using tabs instead of whitespace allows the developer
-looking at your code to have indentation at levels that they prefer and
-customize in whatever application they use. And as a side benefit, it
-results in (slightly) more compact files, storing one tab character
-versus, say, four space characters.</p>
+<h2><a class="toc-backref" href="#id18">Espaço em Branco</a><a class="headerlink" href="#whitespace" title="Permalink to this headline">¶</a></h2>
+<p>Use tabs para espaços em branco no seu código, não em espaços. Isso pode parecer uma coisa pequena, mas o uso de guias em vez de espaços em branco permite que o desenvolvedor analise seu código para ter indentação em níveis que eles preferem e personalizam em qualquer aplicativo que eles usem. E como um benefício secundário, resulta em (ligeiramente) arquivos mais compactos, armazenando um caractere de tabulação versus, digamos, quatro caracteres espaciais.</p>
 </div>
 <div class="section" id="line-breaks">
-<h2><a class="toc-backref" href="#id19">Line Breaks</a><a class="headerlink" href="#line-breaks" title="Permalink to this headline">¶</a></h2>
-<p>Files must be saved with Unix line breaks. This is more of an issue for
-developers who work in Windows, but in any case ensure that your text
-editor is setup to save files with Unix line breaks.</p>
+<h2><a class="toc-backref" href="#id19">Quebras de Linha</a><a class="headerlink" href="#line-breaks" title="Permalink to this headline">¶</a></h2>
+<p>Os arquivos devem ser salvos com intervalos de linha Unix. Isso é mais um problema para os desenvolvedores que trabalham no Windows, mas, em qualquer caso, assegure-se de que seu editor de texto esteja configurado para salvar arquivos com quebras de linha Unix.</p>
 </div>
 <div class="section" id="code-indenting">
-<h2><a class="toc-backref" href="#id20">Code Indenting</a><a class="headerlink" href="#code-indenting" title="Permalink to this headline">¶</a></h2>
-<p>Use Allman style indenting. With the exception of Class declarations,
-braces are always placed on a line by themselves, and indented at the
-same level as the control statement that &#8220;owns&#8221; them.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id20">Indentação do Código</a><a class="headerlink" href="#code-indenting" title="Permalink to this headline">¶</a></h2>
+<p>Use a indentação estilo Allman. Com exceção das declarações da Classe, as chaves são sempre colocadas em uma linha por si mesmas, e recuadas no mesmo nível que a declaração de controle que as "possui".</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// ...</span>
 <span class="p">}</span>
@@ -844,7 +778,7 @@ same level as the control statement that &#8220;owns&#8221; them.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="c1">// ...</span>
@@ -884,121 +818,105 @@ same level as the control statement that &#8220;owns&#8221; them.</p>
 </div>
 </div>
 <div class="section" id="bracket-and-parenthetic-spacing">
-<h2><a class="toc-backref" href="#id21">Bracket and Parenthetic Spacing</a><a class="headerlink" href="#bracket-and-parenthetic-spacing" title="Permalink to this headline">¶</a></h2>
-<p>In general, parenthesis and brackets should not use any additional
-spaces. The exception is that a space should always follow PHP control
-structures that accept arguments with parenthesis (declare, do-while,
-elseif, for, foreach, if, switch, while), to help distinguish them from
-functions and increase readability.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id21">Espaço Entre Chaves e Parênteses</a><a class="headerlink" href="#bracket-and-parenthetic-spacing" title="Permalink to this headline">¶</a></h2>
+<p>Em geral, parênteses e suportes não devem usar espaços adicionais. A exceção é que um espaço deve sempre seguir as estruturas de controle do PHP que aceitam argumentos com parênteses (declarar, fazer-se, elseif, for, foreach, if, switch, while), para ajudar a distingui-los das funções e aumentar a legibilidade.</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$arr</span><span class="p">[</span> <span class="nv">$foo</span> <span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$arr</span><span class="p">[</span><span class="nv">$foo</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span> <span class="c1">// no spaces around array keys</span>
+<p><strong>CORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$arr</span><span class="p">[</span><span class="nv">$foo</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span> <span class="c1">// sem espaços em torno de chaves de matriz</span>
 </pre></div>
 </div>
-<p><strong>INCORRECT</strong>:</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">foo</span> <span class="p">(</span> <span class="nv">$bar</span> <span class="p">)</span>
 <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span><span class="p">)</span> <span class="c1">// no spaces around parenthesis in function declarations</span>
+<p><strong>CORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span><span class="p">)</span> <span class="c1">// nenhum espaço em parênteses de declarações de função</span>
 <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>INCORRECT</strong>:</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">foreach</span><span class="p">(</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="c1">// single space following PHP control structures, but not in interior parenthesis</span>
+<p><strong>CORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="c1">// espaço único que segue as estruturas de controle do PHP, mas não no parêntese interior</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="localized-text">
-<h2><a class="toc-backref" href="#id22">Localized Text</a><a class="headerlink" href="#localized-text" title="Permalink to this headline">¶</a></h2>
-<p>CodeIgniter libraries should take advantage of corresponding language files
-whenever possible.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id22">Textos de Localização</a><a class="headerlink" href="#localized-text" title="Permalink to this headline">¶</a></h2>
+<p>As bibliotecas do CodeIgniter devem aproveitar os arquivos de idiomas correspondentes sempre que possível..</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="s2">&quot;Invalid Selection&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lang</span><span class="o">-&gt;</span><span class="na">line</span><span class="p">(</span><span class="s1">&#39;invalid_selection&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="private-methods-and-variables">
-<h2><a class="toc-backref" href="#id23">Private Methods and Variables</a><a class="headerlink" href="#private-methods-and-variables" title="Permalink to this headline">¶</a></h2>
-<p>Methods and variables that are only accessed internally,
-such as utility and helper functions that your public methods use for
-code abstraction, should be prefixed with an underscore.</p>
+<h2><a class="toc-backref" href="#id23">Métodos e Váriaveis Privadas</a><a class="headerlink" href="#private-methods-and-variables" title="Permalink to this headline">¶</a></h2>
+<p>Métodos e variáveis ​​que só são acessados ​​internamente, como funções de utilitário e auxiliares que seus métodos públicos usam para abstração de código, devem ser prefixados com um sublinhado.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">convert_text</span><span class="p">()</span>
 <span class="k">private</span> <span class="k">function</span> <span class="nf">_convert_text</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="php-errors">
-<h2><a class="toc-backref" href="#id24">PHP Errors</a><a class="headerlink" href="#php-errors" title="Permalink to this headline">¶</a></h2>
-<p>Code must run error free and not rely on warnings and notices to be
-hidden to meet this requirement. For instance, never access a variable
-that you did not set yourself (such as <tt class="docutils literal"><span class="pre">$_POST</span></tt> array keys) without first
-checking to see that it <tt class="docutils literal"><span class="pre">isset()</span></tt>.</p>
-<p>Make sure that your dev environment has error reporting enabled
-for ALL users, and that display_errors is enabled in the PHP
-environment. You can check this setting with:</p>
+<h2><a class="toc-backref" href="#id24">Erros do PHP</a><a class="headerlink" href="#php-errors" title="Permalink to this headline">¶</a></h2>
+<p>O código deve ser executado sem erros e não confiar em avisos e avisos a serem ocultos para atender a esse requisito. Por exemplo, nunca acesse uma variável que você não configurou (como <tt class="docutils literal"><span class="pre">$_POST</span></tt> array keys) sem primeiro verificá-la.
+<tt class="docutils literal"><span class="pre">isset()</span></tt>.</p>
+<p>Certifique-se de que o seu ambiente dev tenha um relatório de erros ativado para TODOS os usuários e que display_errors esteja habilitado no ambiente PHP. Você pode verificar esta configuração com:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">ini_get</span><span class="p">(</span><span class="s1">&#39;display_errors&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">exit</span> <span class="s2">&quot;Enabled&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>On some servers where <em>display_errors</em> is disabled, and you do not have
-the ability to change this in the php.ini, you can often enable it with:</p>
+<p>Em alguns servidores onde <em>display_errors</em> está desativado e você não tem a capacidade de alterar isso no php.ini, você pode habilitá-lo com:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;display_errors&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Setting the <a class="reference external" href="http://php.net/manual/en/errorfunc.configuration.php#ini.display-errors">display_errors</a>
-setting with <tt class="docutils literal"><span class="pre">ini_set()</span></tt> at runtime is not identical to having
-it enabled in the PHP environment. Namely, it will not have any
-effect if the script has fatal errors.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Definir a configuração <a class="reference external" href="http://php.net/manual/en/errorfunc.configuration.php#ini.display-errors">display_errors</a> com <tt class="docutils literal"><span class="pre">ini_set()</span></tt> no tempo de execução não é idêntico a habilitado no ambiente PHP. Ou seja, não terá nenhum efeito se o script tiver erros fatais. </p>
 </div>
 </div>
 <div class="section" id="short-open-tags">
-<h2><a class="toc-backref" href="#id25">Short Open Tags</a><a class="headerlink" href="#short-open-tags" title="Permalink to this headline">¶</a></h2>
-<p>Always use full PHP opening tags, in case a server does not have
-<em>short_open_tag</em> enabled.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id25">Tags Curtas de Abertura</a><a class="headerlink" href="#short-open-tags" title="Permalink to this headline">¶</a></h2>
+<p>Use sempre as tags de abertura de PHP completas, caso um servidor não tenha habilitado <em>short_open_tag</em>.</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span> <span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span> <span class="cp">?&gt;</span>
 
 <span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$foo</span><span class="cp">?&gt;</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span> <span class="cp">?&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">PHP 5.4 will always have the <strong>&lt;?=</strong> tag available.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">PHP 5.4 sempre irá ter a tag <strong>&lt;?=</strong> disponível.</p>
 </div>
 </div>
 <div class="section" id="one-statement-per-line">
-<h2><a class="toc-backref" href="#id26">One Statement Per Line</a><a class="headerlink" href="#one-statement-per-line" title="Permalink to this headline">¶</a></h2>
-<p>Never combine statements on one line.</p>
-<p><strong>INCORRECT</strong>:</p>
+<h2><a class="toc-backref" href="#id26">Uma Declaração por Linha</a><a class="headerlink" href="#one-statement-per-line" title="Permalink to this headline">¶</a></h2>
+<p>Nunca combine declarações em uma linha.</p>
+<p><strong>INCORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$foo</span> <span class="o">=</span> <span class="s1">&#39;this&#39;</span><span class="p">;</span> <span class="nv">$bar</span> <span class="o">=</span> <span class="s1">&#39;that&#39;</span><span class="p">;</span> <span class="nv">$bat</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">,</span> <span class="nv">$bag</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$foo</span> <span class="o">=</span> <span class="s1">&#39;this&#39;</span><span class="p">;</span>
 <span class="nv">$bar</span> <span class="o">=</span> <span class="s1">&#39;that&#39;</span><span class="p">;</span>
 <span class="nv">$bat</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">,</span> <span class="nv">$bag</span><span class="p">);</span>
@@ -1006,19 +924,15 @@ effect if the script has fatal errors.</p>
 </div>
 </div>
 <div class="section" id="strings">
-<h2><a class="toc-backref" href="#id27">Strings</a><a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
-<p>Always use single quoted strings unless you need variables parsed, and
-in cases where you do need variables parsed, use braces to prevent
-greedy token parsing. You may also use double-quoted strings if the
-string contains single quotes, so you do not have to use escape
-characters.</p>
-<p><strong>INCORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="s2">&quot;My String&quot;</span>                                     <span class="c1">// no variable parsing, so no use for double quotes</span>
-<span class="s2">&quot;My string </span><span class="si">$foo</span><span class="s2">&quot;</span>                                <span class="c1">// needs braces</span>
-<span class="s1">&#39;SELECT foo FROM bar WHERE baz = \&#39;bag\&#39;&#39;</span>       <span class="c1">// ugly</span>
+<h2><a class="toc-backref" href="#id27">Conjunto de Caracteres</a><a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<p>Sempre use aspas simples, a menos que você precise de variáveis ​​analisadas, e nos casos em que você precisa de variáveis ​​analisadas, use chaves para evitar a detecção de token malicioso. Você também pode usar seqüências de caracteres duplas, se a seqüência contiver aspas simples, então você não precisa usar caracteres de escape.</p>
+<p><strong>INCORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="s2">&quot;My String&quot;</span>                                     <span class="c1">// sem variáveis, então não use para aspas duplas</span>
+<span class="s2">&quot;My string </span><span class="si">$foo</span><span class="s2">&quot;</span>                                <span class="c1">// precisa de chaves</span>
+<span class="s1">&#39;SELECT foo FROM bar WHERE baz = \&#39;bag\&#39;&#39;</span>       <span class="c1">// não recomendado</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="s1">&#39;My String&#39;</span>
 <span class="s2">&quot;My string </span><span class="si">{</span><span class="nv">$foo</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="s2">&quot;SELECT foo FROM bar WHERE baz = &#39;bag&#39;&quot;</span>
@@ -1026,19 +940,18 @@ characters.</p>
 </div>
 </div>
 <div class="section" id="sql-queries">
-<h2><a class="toc-backref" href="#id28">SQL Queries</a><a class="headerlink" href="#sql-queries" title="Permalink to this headline">¶</a></h2>
-<p>SQL keywords are always capitalized: SELECT, INSERT, UPDATE, WHERE,
+<h2><a class="toc-backref" href="#id28">Consultas SQL</a><a class="headerlink" href="#sql-queries" title="Permalink to this headline">¶</a></h2>
+<p>As palavras-chave SQL sempre são maiúsculas: SELECT, INSERT, UPDATE, WHERE,
 AS, JOIN, ON, IN, etc.</p>
-<p>Break up long queries into multiple lines for legibility, preferably
-breaking for each clause.</p>
-<p><strong>INCORRECT</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// keywords are lowercase and query is too long for</span>
-<span class="c1">// a single line (... indicates continuation of line)</span>
+<p>Divida consultas longas em várias linhas para legibilidade, de preferência quebrando para cada cláusula.</p>
+<p><strong>INCORRETO</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// As palavras-chave são minúsculas e a consulta é longa demais para</span>
+<span class="c1">// uma única linha (... indica continuação da linha)</span>
 <span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;select foo, bar, baz, foofoo, foobar as raboof, foobaz from exp_pre_email_addresses</span>
 <span class="s2">...where foo != &#39;oof&#39; and baz != &#39;zab&#39; order by foobaz limit 5, 100&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><strong>CORRECT</strong>:</p>
+<p><strong>CORRETO</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;SELECT foo, bar, baz, foofoo, foobar AS raboof, foobaz</span>
 <span class="s2">                                FROM exp_pre_email_addresses</span>
 <span class="s2">                                WHERE foo != &#39;oof&#39;</span>
@@ -1049,10 +962,8 @@ breaking for each clause.</p>
 </div>
 </div>
 <div class="section" id="default-function-arguments">
-<h2><a class="toc-backref" href="#id29">Default Function Arguments</a><a class="headerlink" href="#default-function-arguments" title="Permalink to this headline">¶</a></h2>
-<p>Whenever appropriate, provide function argument defaults, which helps
-prevent PHP errors with mistaken calls and provides common fallback
-values which can save a few lines of code. Example:</p>
+<h2><a class="toc-backref" href="#id29">Argumentos da Função Padrão</a><a class="headerlink" href="#default-function-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Sempre que apropriado, forneça padrões de argumento de função, o que ajuda a evitar erros de PHP com chamadas equivocadas e fornece valores de retorno comuns que podem salvar algumas linhas de código. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">function</span> <span class="nf">foo</span><span class="p">(</span><span class="nv">$bar</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$baz</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">)</span>
 </pre></div>
 </div>
