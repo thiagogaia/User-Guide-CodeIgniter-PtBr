@@ -430,7 +430,7 @@
 <p class="topic-title first">Page Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#models" id="id1">Modelos</a><ul>
-<li><a class="reference internal" href="#what-is-a-model" id="id2">O que é um Model0?</a></li>
+<li><a class="reference internal" href="#what-is-a-model" id="id2">O que é um Modelo?</a></li>
 <li><a class="reference internal" href="#anatomy-of-a-model" id="id3">Anatomia de um Modelo</a></li>
 <li><a class="reference internal" href="#loading-a-model" id="id4">Carregando um Modelo</a></li>
 <li><a class="reference internal" href="#auto-loading-models" id="id5">Carregar automaticamente os Modelos</a></li>
@@ -440,7 +440,7 @@
 </ul>
 </div>
 <div class="section" id="what-is-a-model">
-<h2><a class="toc-backref" href="#id2">O que é um Modelol?</a><a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">O que é um Modelo?</a><a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">¶</a></h2>
 <p>Os modelos são classes PHP que são projetadas para trabalhar com informações em seu banco de dados. Por exemplo, digamos que você usa o CodeIgniter para gerenciar um blog.
     Você pode ter uma classe de modelo que contenha funções para inserir, atualizar e recuperar os dados do seu blog.
     Aqui está um exemplo do que tal classe de modelo pode parecer:</p>
@@ -543,7 +543,7 @@ Eles podem ser aninhados dentro de subdiretórios se você quiser esse tipo de o
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">model_name</span><span class="o">-&gt;</span><span class="na">method</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Se você quiser que seu modelo atribuído a um nome de objeto diferente, você pode especificá-lo através do segundo parâmetro do método de carregamento:</p>
+<p>Se você quiser atribuir um nome nome de objeto diferente ao seu modelo, você pode especificá-lo através do segundo parâmetro do método de carregamento:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">model</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">);</span>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">foobar</span><span class="o">-&gt;</span><span class="na">method</span><span class="p">();</span>
@@ -573,8 +573,7 @@ Eles podem ser aninhados dentro de subdiretórios se você quiser esse tipo de o
 <h2><a class="toc-backref" href="#id6">Conectando-se ao seu Banco de Dados</a><a class="headerlink" href="#connecting-to-your-database" title="Permalink to this headline">¶</a></h2>
 <p>Quando um modelo é carregado, <strong>NÃO</strong> se liga automaticamente ao seu banco de dados. As seguintes opções de conexão estão disponíveis para você:</p>
 <ul>
-<li><p class="first">Você pode se conectar usando os métodos de banco de dados padrão <a class="reference internal" href="../database/connecting.html"><em>descritos aqui</em></a>, seja dentro da sua classe do Controlador ou sua classe Model.
-, seja dentro da sua classe do Controlador ou da sua classe Modelo</p>
+<li><p class="first">Você pode se conectar usando os métodos de banco de dados padrão <a class="reference internal" href="../database/connecting.html"><em>descritos aqui</em></a>, seja dentro da sua classe do Controlador ou sua classe Modelo.</p>
 </li>
 <li><p class="first">Você pode indicar o método de carregamento do modelo para a conexão automática passando TRUE (booleano) através do terceiro parâmetro, e as configurações de conectividade, conforme definido no arquivo de configuração do banco de dados, serão usadas:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">model</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>

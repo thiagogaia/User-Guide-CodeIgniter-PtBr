@@ -453,15 +453,14 @@
 <a class="reference internal" href="../libraries/benchmark.html"><em>Biblioteca de Referência</em></a>.</p>
 </div>
 <div class="section" id="enabling-and-disabling-profiler-sections">
-<h2>Habilitando e Desabilitando Secões dos Perfis<a class="headerlink" href="#enabling-and-disabling-profiler-sections" title="Permalink to this headline">¶</a></h2>
-<p>Cada seção de dados do Profiler pode ser ativada ou desativada definindo uma variável de configuração correspondente como VERDADEIRA ou FALSA. Isso pode ser feito de duas formas diferentes. Primeiro, você pode definir padrões padrão de aplicativos com o arquivo de configuração
-<em>application/config/profiler.php</em>.</p>
-<p>Example:</p>
+<h2>Habilitando e Desabilitando Seções dos Perfis<a class="headerlink" href="#enabling-and-disabling-profiler-sections" title="Permalink to this headline">¶</a></h2>
+<p>Cada seção de dados do Perfil pode ser ativada ou desativada definindo uma variável de configuração correspondente como VERDADEIRA ou FALSA. Isso pode ser feito de duas formas diferentes. Primeiro, você pode definir padrões de aplicativos com o arquivo de configuração <em>application/config/profiler.php</em>.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;queries&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Em seus controladores, você pode substituir os padrões e os valores dos arquivos de configuração, chamando o método<tt class="docutils literal"><span class="pre">set_profiler_sections()</span></tt> da
+<p>Em seus controladores, você pode substituir os padrões e os valores dos arquivos de configuração, chamando o método <tt class="docutils literal"><span class="pre">set_profiler_sections()</span></tt> da
 <a class="reference internal" href="../libraries/output.html"><em>Biblioteca de Saída</em></a>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$sections</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;config&#39;</span>  <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
@@ -532,10 +531,10 @@
 </tbody>
 </table>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">Nota</p>
 <p class="last">Desativar a configuração
 <a class="reference internal" href="../database/configuration.html"><em>save_queries</em></a>
-na configuração do banco de dados também irá efetivamente desabilitar o perfil para consultas do banco de dados e tornar a configuração "consultas" acima de inútil. Você pode, opcionalmente, anular esta configuração com
+na configuração do banco de dados também irá efetivamente desabilitar o perfil para consultas do banco de dados e tornar a configuração de "consultas" acima inútil. Você pode, opcionalmente, anular esta configuração com
 <tt class="docutils literal"><span class="pre">$this-&gt;db-&gt;save_queries</span> <span class="pre">=</span> <span class="pre">TRUE;</span></tt>.
 Sem essa configuração, você não poderá visualizar as consultas ou a 
 <cite>last_query &lt;database/helpers&gt;</cite>.</p>

@@ -494,12 +494,12 @@ RewriteRule ^(.*)$ index.php/$1 [L]
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;function_trigger&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;m&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Se você alterar "enable_query_strings" para VERDADEIRO, esse recurso ficará ativo. Seus controladores e funções serão acessíveis usando as palavras "gatilho" que você configurou para invocar seus controladores e métodos:</p>
+<p>Se você alterar "enable_query_strings" para TRUE, esse recurso ficará ativo. Seus controladores e funções serão acessíveis usando as palavras "gatilho" que você configurou para invocar seus controladores e métodos:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">?</span><span class="nx">c</span><span class="o">=</span><span class="nx">controller</span><span class="o">&amp;</span><span class="nx">m</span><span class="o">=</span><span class="nx">method</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">Nota</p>
 <p class="last">Se você estiver usando consultas com conjunto de caracteres, você terá que criar seus próprios URLs, em vez de utilizar os auxiliares de URL (e outros auxiliares que geram URLs, como alguns auxiliares de formulário), pois estes são projetados para trabalhar com URLs segmentadas..</p>
 </div>
 </div>

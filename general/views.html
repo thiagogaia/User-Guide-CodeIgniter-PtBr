@@ -452,7 +452,7 @@ Lembre-se de que, em uma estrutura MVC, o Controlador atua como o policial de tr
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Onde nome é o nome do seu arquivo de exibição.</p>
+<p>Onde name é o nome do seu arquivo de exibição.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">A extensão de arquivo .php não precisa ser especificada, a menos que você use algo diferente de .php.</p>
@@ -598,7 +598,7 @@ Lembre-se de que, em uma estrutura MVC, o Controlador atua como o policial de tr
 </div>
 <div class="section" id="returning-views-as-data">
 <h2>Retornando visões como dados<a class="headerlink" href="#returning-views-as-data" title="Permalink to this headline">¶</a></h2>
-<p>Existe um terceiro parâmetro <strong>opcional</strong> que permite alterar o comportamento do método para que ele retorne os dados como uma seqüência de caracteres em vez de enviá-lo ao seu navegador. Isso pode ser útil se você quiser processar os dados de alguma forma. Se você definir o parâmetro como VERDADEIRO (booleano), ele retornará os dados. O comportamento padrão é falso, o qual o envia para o navegador. Lembre-se de atribuí-lo a uma variável se desejar que os dados sejam retornados:</p>
+<p>Existe um terceiro parâmetro <strong>opcional</strong> que permite alterar o comportamento do método para que ele retorne os dados como uma seqüência de caracteres em vez de enviá-lo ao seu navegador. Isso pode ser útil se você quiser processar os dados de alguma forma. Se você definir o parâmetro como TRUE (booleano), ele retornará os dados. O comportamento padrão é false, o qual o envia para o navegador. Lembre-se de atribuí-lo a uma variável se desejar que os dados sejam retornados:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;myfile&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
 </pre></div>
 </div>

@@ -428,7 +428,7 @@
 <p>O recurso de ganchos do CodeIgniter fornece um meio para explorar e modificar o funcionamento interno da estrutura sem hackear os arquivos principais. Quando CodeIgniter é executado, segue um processo de execução específico, descrito na página de <a class="reference internal" href="../overview/appflow.html"><em>Fluxo de aplicação</em></a>. Pode haver casos, no entanto, onde você gostaria de fazer alguma ação ocorrer em uma etapa específica no processo de execução. Por exemplo, você pode querer executar um script antes de seus controladores serem carregados ou logo depois, ou você pode querer desencadear um de seus próprios scripts em algum outro local.</p>
 <div class="section" id="enabling-hooks">
 <h2>Habilitando Ganchos<a class="headerlink" href="#enabling-hooks" title="Permalink to this headline">¶</a></h2>
-<p>O recurso de ganchos pode ser ativado / desativado globalmente, configurando o seguinte item no arquivo <strong>application/config/config.php</strong>:</p>
+<p>O recurso de ganchos pode ser ativado/desativado globalmente, configurando o seguinte item no arquivo <strong>application/config/config.php</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_hooks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -451,13 +451,13 @@ Cada gancho é especificado como uma matriz com este protótipo:</p>
 <ul class="simple">
 <li><strong>class</strong> O nome da classe que você deseja invocar. Se você preferir usar uma função processual em vez de uma classe, deixe este item em branco.</li>
 <li><strong>function</strong> O nome da função (ou do método) que você deseja chamar.</li>
-<li><strong>filename</strong> O nome do arquivo que contém sua classe / função.</li>
+<li><strong>filename</strong> O nome do arquivo que contém sua classe/função.</li>
 <li><strong>filepath</strong> O nome do diretório que contém seu script.
 Nota:
 Seu script deve estar localizado DENTRO de seu diretório <em>application/directory</em>, de modo que o caminho do arquivo seja relativo a esse diretório. Por exemplo, se seu script estiver localizado em <em>application/hooks/</em>, você simplesmente usará 'hooks' como seu caminho de arquivo. Se o seu script estiver localizado em <em>application/hooks/utilities/</em> você usará 'hooks/utilities' como caminho do arquivo. Sem barra diagonal.</li>
 <li><strong>params</strong> Todos os parâmetros que você deseja transmitir ao seu script. Este item é opcional.</li>
 </ul>
-<p>Se você estiver executando o PHP 5.3, você também pode usar funções lambda / anônimas (ou fechadas) como ganchos, com uma sintaxe mais simples:</p>
+<p>Se você estiver executando o PHP 5.3+, você também pode usar funções lambda/anônimas (ou fechadas) como ganchos, com uma sintaxe mais simples:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$hook</span><span class="p">[</span><span class="s1">&#39;post_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span>
 <span class="p">{</span>
         <span class="cm">/* alguma coisa aqui */</span>
