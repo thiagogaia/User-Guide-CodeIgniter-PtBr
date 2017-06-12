@@ -449,7 +449,7 @@
 <span class="k">echo</span> <span class="s1">&#39;Total Results: &#39;</span> <span class="o">.</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">num_rows</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>A function result() acima retorna um array de <strong>objects</strong>. Exemplo: $row->title</p>
+<p>O método result() acima retorna um array de <strong>objects</strong>. Exemplo: $row->title</p>
 </div>
 <div class="section" id="standard-query-with-multiple-results-array-version">
 <h2>Consulta padrão com vários resultados (Versão array)<a class="headerlink" href="#standard-query-with-multiple-results-array-version" title="Permalink to this headline">¶</a></h2>
@@ -463,7 +463,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>A function result_array() acima retorna uma mtriz de índices em um array. Exemplo: $row["title"]</p>
+<p>O método result_array() acima retorna uma matriz de índices em um array. Exemplo: $row["title"]</p>
 </div>
 <div class="section" id="standard-query-with-single-result">
 <h2>Consulta padrão com resultado único<a class="headerlink" href="#standard-query-with-single-result" title="Permalink to this headline">¶</a></h2>
@@ -472,7 +472,7 @@
 <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A function row() acima retorna um <strong>objeto</strong>. Exemplo: $row->name</p>
+<p>O método row() acima retorna um <strong>objeto</strong>. Exemplo: $row->name</p>
 </div>
 <div class="section" id="standard-query-with-single-result-array-version">
 <h2>Consulta padrão com resultado único (Versão array)<a class="headerlink" href="#standard-query-with-single-result-array-version" title="Permalink to this headline">¶</a></h2>
@@ -481,7 +481,7 @@
 <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>A function row_array() acima retorna um <strong>array</strong>. Exemplo: $row["name"]</p>
+<p>O método row_array() acima retorna um <strong>array</strong>. Exemplo: $row["name"]</p>
 </div>
 <div class="section" id="standard-insert">
 <h2>Insert padrão<a class="headerlink" href="#standard-insert" title="Permalink to this headline">¶</a></h2>
@@ -502,17 +502,17 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>A function get() acima recupera todos os resultados da tabela fornecida. A classe <a class="reference internal" href="query_builder.html"><em>Query Builder</em></a> contém um kit completo de functions para trabalhar com banco de dados.</p>
+<p>O método get() acima recupera todos os resultados da tabela fornecida. A classe <a class="reference internal" href="query_builder.html"><em>Query Builder</em></a> contém um kit completo de métodos para trabalhar com banco de dados.</p>
 </div>
 <div class="section" id="query-builder-insert">
-<h2>Query Builder - Function Insert<a class="headerlink" href="#query-builder-insert" title="Permalink to this headline">¶</a></h2>
+<h2>Query Builder - Método Insert<a class="headerlink" href="#query-builder-insert" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$title</span><span class="p">,</span>
         <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
         <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="nv">$date</span>
 <span class="p">);</span>
 
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>  <span class="c1">// Produces: INSERT INTO mytable (title, name, date) VALUES (&#39;{$title}&#39;, &#39;{$name}&#39;, &#39;{$date}&#39;)</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>  <span class="c1">// Produz: INSERT INTO mytable (title, name, date) VALUES (&#39;{$title}&#39;, &#39;{$name}&#39;, &#39;{$date}&#39;)</span>
 </pre></div>
 </div>
 </div>
