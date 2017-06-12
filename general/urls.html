@@ -425,105 +425,82 @@
 
   <div class="section" id="codeigniter-urls">
 <h1>URLs no CodeIgniter<a class="headerlink" href="#codeigniter-urls" title="Permalink to this headline">¶</a></h1>
-<p>By default, URLs in CodeIgniter are designed to be search-engine and
-human friendly. Rather than using the standard &#8220;query string&#8221; approach
-to URLs that is synonymous with dynamic systems, CodeIgniter uses a
-<strong>segment-based</strong> approach:</p>
+<p>Por padrão, os URLs em CodeIgniter são projetados para ser um motor de busca e amigável para humanos. Ao invés de usar a abordagem padrão de "string de consulta" para URLs que é sinônimo de sistemas dinâmicos, CodeIgniter usa uma abordagem <strong>baseada em segmento</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">news</span><span class="o">/</span><span class="nx">article</span><span class="o">/</span><span class="nx">my_article</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Query string URLs can be optionally enabled, as described
-below.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">As URLs de conjunto de caracteres de consulta podem ser ativados opcionalmente, conforme descrito abaixo.</p>
 </div>
 <div class="section" id="uri-segments">
-<h2>URI Segments<a class="headerlink" href="#uri-segments" title="Permalink to this headline">¶</a></h2>
-<p>The segments in the URL, in following with the Model-View-Controller
-approach, usually represent:</p>
+<h2>Segmentos de URI<a class="headerlink" href="#uri-segments" title="Permalink to this headline">¶</a></h2>
+<p>Os segmentos no URL, seguindo com a abordagem Model-View-Controller, geralmente representam:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">class</span><span class="o">/</span><span class="nx">function</span><span class="o">/</span><span class="nx">ID</span>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li>The first segment represents the controller <strong>class</strong> that should be
-invoked.</li>
-<li>The second segment represents the class <strong>function</strong>, or method, that
-should be called.</li>
-<li>The third, and any additional segments, represent the ID and any
-variables that will be passed to the controller.</li>
+    <li>O primeiro segmento representa a <strong>classe</strong> de controlador que deve ser invocada.</li>
+<li>O segundo segmento representa a <strong>função</strong> de classe, ou método, que deve ser chamado.</li>
+<li>O terceiro, e quaisquer segmentos adicionais, representam o ID e quaisquer variáveis ​​que serão passadas para o controlador.</li>
 </ol>
-<p>The <a class="reference internal" href="../libraries/uri.html"><em>URI Library</em></a> and the <a class="reference internal" href="../helpers/url_helper.html"><em>Auxiliar de URL</em></a> contain functions that make it easy to work
-with your URI data. In addition, your URLs can be remapped using the
-<a class="reference internal" href="routing.html"><em>Roteamento URI</em></a> feature for more flexibility.</p>
+<p>A <a class="reference internal" href="../libraries/uri.html"><em>Biblioteca de URI</em></a> e a <a class="reference internal" href="../helpers/url_helper.html"><em>Auxiliar de URL</em></a> 
+Contém funções que facilitam o trabalho com seus dados URI. Além disso, seus URLs podem ser remapeados usando o recurso de
+<a class="reference internal" href="routing.html"><em>Roteamento URI</em></a> para mais flexibilidade.</p>
 </div>
 <div class="section" id="removing-the-index-php-file">
-<h2>Removing the index.php file<a class="headerlink" href="#removing-the-index-php-file" title="Permalink to this headline">¶</a></h2>
-<p>By default, the <strong>index.php</strong> file will be included in your URLs:</p>
+<h2>Removendo o Arquivo index.php<a class="headerlink" href="#removing-the-index-php-file" title="Permalink to this headline">¶</a></h2>
+<p>Por padrão, o arquivo <strong>index.php</strong> será incluído em suas URLs:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">news</span><span class="o">/</span><span class="nx">article</span><span class="o">/</span><span class="nx">my_article</span>
 </pre></div>
 </div>
-<p>If your Apache server has <em>mod_rewrite</em> enabled, you can easily remove this
-file by using a .htaccess file with some simple rules. Here is an example
-of such a file, using the &#8220;negative&#8221; method in which everything is redirected
-except the specified items:</p>
+<p>Se o seu servidor Apache tiver habilitado <em>mod_rewrite</em>, você pode facilmente remover este arquivo usando um arquivo .htaccess com algumas regras simples. Aqui está um exemplo desse arquivo, usando o método "negativo" no qual tudo é redirecionado, exceto os itens especificados:</p>
 <div class="highlight-ci"><div class="highlight"><pre>RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
 </pre></div>
 </div>
-<p>In the above example, any HTTP request other than those for existing
-directories and existing files is treated as a request for your index.php file.</p>
+<p>No exemplo acima, qualquer solicitação HTTP diferente daqueles para diretórios existentes e arquivos existentes é tratada como uma solicitação para o arquivo index.php.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">These specific rules might not work for all server configurations.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Essas regras específicas podem não funcionar para todas as configurações do servidor.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Make sure to also exclude from the above rule any assets that you
-might need to be accessible from the outside world.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Certifique-se também de excluir da regra acima quaisquer recursos que você possa precisar estar acessível do mundo exterior.</p>
 </div>
 </div>
 <div class="section" id="adding-a-url-suffix">
-<h2>Adding a URL Suffix<a class="headerlink" href="#adding-a-url-suffix" title="Permalink to this headline">¶</a></h2>
-<p>In your <strong>config/config.php</strong> file you can specify a suffix that will be
-added to all URLs generated by CodeIgniter. For example, if a URL is
-this:</p>
+<h2>Adicionando um Sufixo de URL<a class="headerlink" href="#adding-a-url-suffix" title="Permalink to this headline">¶</a></h2>
+<p>No seu arquivo <strong>config/config.php</strong> você pode especificar um sufixo que será adicionado a todas as URLs geradas pelo CodeIgniter. Por exemplo, se uma URL for esta:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">view</span><span class="o">/</span><span class="nx">shoes</span>
 </pre></div>
 </div>
-<p>You can optionally add a suffix, like <strong>.html,</strong> making the page appear to
-be of a certain type:</p>
+<p>Você pode opcionalmente adicionar um sufixo, como <strong>.html</strong>, fazendo com que a página pareça ser de certo tipo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">view</span><span class="o">/</span><span class="nx">shoes</span><span class="o">.</span><span class="nx">html</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="enabling-query-strings">
-<h2>Enabling Query Strings<a class="headerlink" href="#enabling-query-strings" title="Permalink to this headline">¶</a></h2>
-<p>In some cases you might prefer to use query strings URLs:</p>
+<h2>Habiltando Consultas Query Strings<a class="headerlink" href="#enabling-query-strings" title="Permalink to this headline">¶</a></h2>
+<p>Em alguns casos, você pode preferir usar URLs com conjunto de caracteres na consulta:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">?</span><span class="nx">c</span><span class="o">=</span><span class="nx">products</span><span class="o">&amp;</span><span class="nx">m</span><span class="o">=</span><span class="nx">view</span><span class="o">&amp;</span><span class="nx">id</span><span class="o">=</span><span class="mi">345</span>
 </pre></div>
 </div>
-<p>CodeIgniter optionally supports this capability, which can be enabled in
-your <strong>application/config.php</strong> file. If you open your config file you&#8217;ll
-see these items:</p>
+<p>O CodeIgniter opcionalmente suporta esse recurso, que pode ser ativado em seu arquivo <strong>application/config.php</strong>. Se você abrir o arquivo de configuração, você verá esses itens:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_query_strings&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;controller_trigger&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;function_trigger&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;m&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>If you change &#8220;enable_query_strings&#8221; to TRUE this feature will become
-active. Your controllers and functions will then be accessible using the
-&#8220;trigger&#8221; words you&#8217;ve set to invoke your controllers and methods:</p>
+<p>Se você alterar "enable_query_strings" para VERDADEIRO, esse recurso ficará ativo. Seus controladores e funções serão acessíveis usando as palavras "gatilho" que você configurou para invocar seus controladores e métodos:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">?</span><span class="nx">c</span><span class="o">=</span><span class="nx">controller</span><span class="o">&amp;</span><span class="nx">m</span><span class="o">=</span><span class="nx">method</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you are using query strings you will have to build your own
-URLs, rather than utilizing the URL helpers (and other helpers
-that generate URLs, like some of the form helpers) as these are
-designed to work with segment based URLs.</p>
+<p class="last">Se você estiver usando consultas com conjunto de caracteres, você terá que criar seus próprios URLs, em vez de utilizar os auxiliares de URL (e outros auxiliares que geram URLs, como alguns auxiliares de formulário), pois estes são projetados para trabalhar com URLs segmentadas..</p>
 </div>
 </div>
 </div>
