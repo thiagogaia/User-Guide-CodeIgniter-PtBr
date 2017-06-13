@@ -451,13 +451,13 @@ text.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$limit</strong> (<em>int</em>) &#8211; Limit</li>
-<li><strong>$end_char</strong> (<em>string</em>) &#8211; End character (usually an ellipsis)</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
+<li><strong>$limit</strong> (<em>int</em>) &#8211; Limite</li>
+<li><strong>$end_char</strong> (<em>string</em>) &#8211; Caractere final (geralmente uma reticência)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Word-limited string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com limite de palavras</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -465,14 +465,13 @@ text.</p>
 </tr>
 </tbody>
 </table>
-<p>Truncates a string to the number of <em>words</em> specified. Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Here is a nice text string consisting of eleven words.&quot;</span><span class="p">;</span>
+<p>Trunca uma string com o número de <em>palavras</em> especificadas. Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui tem um bom texto string composto com onze palavras.&quot;</span><span class="p">;</span>
 <span class="nv">$string</span> <span class="o">=</span> <span class="nx">word_limiter</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-<span class="c1">// Retorna:  Here is a nice</span>
+<span class="c1">// Retorna:  Aqui tem um bom</span>
 </pre></div>
 </div>
-<p>The third parameter is an optional suffix added to the string. By
-default it adds an ellipsis.</p>
+<p> O terceiro parâmetro é um sufixo opcional adicionado à string. Por padrão é adicionado uma reticência.</p>
 </dd></dl>
 
 <dl class="function">
@@ -483,13 +482,13 @@ default it adds an ellipsis.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$n</strong> (<em>int</em>) &#8211; Number of characters</li>
-<li><strong>$end_char</strong> (<em>string</em>) &#8211; End character (usually an ellipsis)</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
+<li><strong>$n</strong> (<em>int</em>) &#8211; Número de caracteres</li>
+<li><strong>$end_char</strong> (<em>string</em>) &#8211; Caractere final (geralmente uma reticência)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Character-limited string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com limite de caracteres</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -497,21 +496,21 @@ default it adds an ellipsis.</p>
 </tr>
 </tbody>
 </table>
-<p>Truncates a string to the number of <em>characters</em> specified. It
-maintains the integrity of words so the character count may be slightly
-more or less than what you specify.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Here is a nice text string consisting of eleven words.&quot;</span><span class="p">;</span>
+<p>Trunca uma string com o número de <em>caracteres</em> especificados. Ele 
+mantém a integridade das palavras, então a quantidade de caracateres pode ser um 
+pouco diferente de sua especificação</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui tem um bom texto string composto de onze palavras.&quot;</span><span class="p">;</span>
 <span class="nv">$string</span> <span class="o">=</span> <span class="nx">character_limiter</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-<span class="c1">// Retorna:  Here is a nice text string</span>
+<span class="c1">// Retorna:  Aqui tem um bom texto string</span>
 </pre></div>
 </div>
-<p>The third parameter is an optional suffix added to the string, if
-undeclared this helper uses an ellipsis.</p>
+<p>O terceiro parâmetro é um sufixo opcional para a string. Se não for declarado
+o ajudante usará uma reticência.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you need to truncate to an exact number of characters please
-see the <a class="reference internal" href="#ellipsize" title="ellipsize"><tt class="xref php php-func docutils literal"><span class="pre">ellipsize()</span></tt></a> function below.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você precisar truncar em um exato número de caracteres por favor
+veja a função <a class="reference internal" href="#ellipsize" title="ellipsize"><tt class="xref php php-func docutils literal"><span class="pre">ellipsize()</span></tt></a> abaixo.</p>
 </div>
 </dd></dl>
 
@@ -523,11 +522,11 @@ see the <a class="reference internal" href="#ellipsize" title="ellipsize"><tt cl
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">A string with ASCII values converted to entities</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Uma string com valores ASCII convertida para entidades</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -535,14 +534,14 @@ see the <a class="reference internal" href="#ellipsize" title="ellipsize"><tt cl
 </tr>
 </tbody>
 </table>
-<p>Converts ASCII values to character entities, including high ASCII and MS
-Word characters that can cause problems when used in a web page, so that
-they can be shown consistently regardless of browser settings or stored
-reliably in a database. There is some dependence on your server&#8217;s
-supported character sets, so it may not be 100% reliable in all cases,
-but for the most part it should correctly identify characters outside
-the normal range (like accented characters).</p>
-<p>Example:</p>
+<p>Converte valores ASCII para entidades de caracter, incluindo o alto ASCII e caracteres
+do MS Word que podem causar problemas quando usados em uma página da web. Dessa forma, eles
+poderão ser mostrados de forma consistente, independente das configurações do navegador ou
+serem armazenados de forma confiável em um banco de dados. Existem algumas dependências dos 
+conjuntos de caracteres suportados pelo seu servidor, portanto pode ser que a função não funcione
+100% em todos os casos, mas na maioria das vezes ela indentificará corretamente os caracteres
+fora do normal (como caracteres com acentos).</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">ascii_to_entities</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -556,11 +555,11 @@ the normal range (like accented characters).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">A string with accented characters converted</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Uma string com os caracteres acentuados convertidos</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -568,18 +567,18 @@ the normal range (like accented characters).</p>
 </tr>
 </tbody>
 </table>
-<p>Transliterates high ASCII characters to low ASCII equivalents. Useful
-when non-English characters need to be used where only standard ASCII
-characters are safely used, for instance, in URLs.</p>
-<p>Example:</p>
+<p>Converte caracteres em alto ASCII para os seus correspondentes em baixo ASCII. Utilizado
+quando caracteres não ingleses precisam ser utilizados onde somente caracteres ASCII padrão
+são permitidos, como por exemplo, em URLs.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">convert_accented_characters</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function uses a companion config file
-<cite>application/config/foreign_chars.php</cite> to define the to and
-from array for transliteration.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Essa função utiliza um arquivo de configuração complementar
+<cite>application/config/foreign_chars.php</cite> para definir o
+array de conversão.</p>
 </div>
 </dd></dl>
 
@@ -591,13 +590,13 @@ from array for transliteration.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$censored</strong> (<em>array</em>) &#8211; List of bad words to censor</li>
-<li><strong>$replacement</strong> (<em>string</em>) &#8211; What to replace bad words with</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
+<li><strong>$censored</strong> (<em>array</em>) &#8211; Lista de palavras ruins para censurar.</li>
+<li><strong>$replacement</strong> (<em>string</em>) &#8211; O que usar para substituir as palavras ruins</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Censored string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String censurada</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -605,12 +604,11 @@ from array for transliteration.</p>
 </tr>
 </tbody>
 </table>
-<p>Enables you to censor words within a text string. The first parameter
-will contain the original string. The second will contain an array of
-words which you disallow. The third (optional) parameter can contain
-a replacement value for the words. If not specified they are replaced
-with pound signs: ####.</p>
-<p>Example:</p>
+<p>Permite que você censure as palavras dentro de uma string de texto. O primeiro parâmetro
+deverá conter a tring original. O segundo parâmetro deverá conter um array de palavras
+que você proíbe. O terceiro parâmetro (opcional) pode conter o valor que substituirá
+as palavras. Se não for especificado serão utilizados caracteres: ###</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$disallowed</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;darn&#39;</span><span class="p">,</span> <span class="s1">&#39;shucks&#39;</span><span class="p">,</span> <span class="s1">&#39;golly&#39;</span><span class="p">,</span> <span class="s1">&#39;phooey&#39;</span><span class="p">);</span>
 <span class="nv">$string</span> <span class="o">=</span> <span class="nx">word_censor</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="nv">$disallowed</span><span class="p">,</span> <span class="s1">&#39;Beep!&#39;</span><span class="p">);</span>
 </pre></div>
@@ -625,11 +623,11 @@ with pound signs: ####.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String with code highlighted via HTML</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com código destacado (highlight) em HTML</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -637,12 +635,12 @@ with pound signs: ####.</p>
 </tr>
 </tbody>
 </table>
-<p>Colorizes a string of code (PHP, HTML, etc.). Example:</p>
+<p>Colore uma string do código (PHP, HTML, etc.). Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">highlight_code</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The function uses PHP&#8217;s <tt class="docutils literal"><span class="pre">highlight_string()</span></tt> function, so the
-colors used are the ones specified in your php.ini file.</p>
+<p>Essa função usa a função <tt class="docutils literal"><span class="pre">highlight_string()</span></tt> do PHP.
+Logo, as cores utilizadas são as mesmas especificadas em seu arquivo php.ini .</p>
 </dd></dl>
 
 <dl class="function">
@@ -653,14 +651,14 @@ colors used are the ones specified in your php.ini file.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$phrase</strong> (<em>string</em>) &#8211; Phrase to highlight</li>
-<li><strong>$tag_open</strong> (<em>string</em>) &#8211; Opening tag used for the highlight</li>
-<li><strong>$tag_close</strong> (<em>string</em>) &#8211; Closing tag for the highlight</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
+<li><strong>$phrase</strong> (<em>string</em>) &#8211; Frase para destacar</li>
+<li><strong>$tag_open</strong> (<em>string</em>) &#8211; Tag de entrada usada no destaque</li>
+<li><strong>$tag_close</strong> (<em>string</em>) &#8211; Tag de fechamento usada no destaque</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String with a phrase highlighted via HTML</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com uma frase destacada em HTML</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -668,25 +666,24 @@ colors used are the ones specified in your php.ini file.</p>
 </tr>
 </tbody>
 </table>
-<p>Will highlight a phrase within a text string. The first parameter will
-contain the original string, the second will contain the phrase you wish
-to highlight. The third and fourth parameters will contain the
-opening/closing HTML tags you would like the phrase wrapped in.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Here is a nice text string about nothing in particular.&quot;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nx">highlight_phrase</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s2">&quot;nice text&quot;</span><span class="p">,</span> <span class="s1">&#39;&lt;span style=&quot;color:#990000;&quot;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">);</span>
+<p>Destacará uma frase dentro de uma string de texto. O primeiro parâmetro deverá
+conter a string original. O segundo deverá conter a frase a ser destacada. Os terceiro e 
+quarto parâmetros deverão conter as tags de abertura e fechamento do HTML que você deseja 
+para envolver a frase.</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui tem um bom texto string sobre nada em particular.&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">highlight_phrase</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s2">&quot;bom texto&quot;</span><span class="p">,</span> <span class="s1">&#39;&lt;span style=&quot;color:#990000;&quot;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The above code prints:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">Here</span> <span class="nx">is</span> <span class="nx">a</span> <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&quot;color:#990000;&quot;</span><span class="o">&gt;</span><span class="nx">nice</span> <span class="nx">text</span><span class="o">&lt;/</span><span class="nx">span</span><span class="o">&gt;</span> <span class="nx">string</span> <span class="nx">about</span> <span class="nx">nothing</span> <span class="nx">in</span> <span class="nx">particular</span><span class="o">.</span>
+<p>O código acima imprime:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">Aqui</span> <span class="nx">tem</span> <span class="nx">um</span> <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&quot;color:#990000;&quot;</span><span class="o">&gt;</span><span class="nx">bom</span> <span class="nx">texto</span><span class="o">&lt;/</span><span class="nx">span</span><span class="o">&gt;</span> <span class="nx">string</span> <span class="nx">sobre</span> <span class="nx">nada</span> <span class="nx">em</span> <span class="nx">particular</span><span class="o">.</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>This function used to use the <tt class="docutils literal"><span class="pre">&lt;strong&gt;</span></tt> tag by default. Older browsers
-might not support the new HTML5 mark tag, so it is recommended that you
-insert the following CSS code into your stylesheet if you need to support
-such browsers:</p>
+<p class="first admonition-title">Nota</p>
+<p>Essa função costumava usar a tag <tt class="docutils literal"><span class="pre">&lt;strong&gt;</span></tt> por padrão. Navegadores antigos
+podem não suportar a nova tag de marcação do HTML5, então é recomendado que você insira 
+o seguinte código CSS em sua folha de estilos se você precisar oferecer suporte a esses navegadores:</p>
 <div class="last highlight-ci"><div class="highlight"><pre><span class="nx">mark</span> <span class="p">{</span>
         <span class="nx">background</span><span class="o">:</span> <span class="c1">#ff0;</span>
         <span class="nx">color</span><span class="o">:</span> <span class="c1">#000;</span>
@@ -704,12 +701,12 @@ such browsers:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$charlim</strong> (<em>int</em>) &#8211; Character limit</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
+<li><strong>$charlim</strong> (<em>int</em>) &#8211; Limite de caracter</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Word-wrapped string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com as palavras embrulhadas</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -717,17 +714,16 @@ such browsers:</p>
 </tr>
 </tbody>
 </table>
-<p>Wraps text at the specified <em>character</em> count while maintaining
-complete words.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Here is a simple string of text that will help us demonstrate this function.&quot;</span><span class="p">;</span>
+<p>Embrulhe texto em um número de caracter específico enquanto mantém as palavras completas.</p>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui é uma simples string de texto que nos ajuda a demonstrar essa função.&quot;</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nx">word_wrap</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
 
-<span class="c1">// Would produce:</span>
-<span class="c1">// Here is a simple string</span>
-<span class="c1">// of text that will help us</span>
-<span class="c1">// demonstrate this</span>
-<span class="c1">// function.</span>
+<span class="c1">// Produziria:</span>
+<span class="c1">// Aqui é uma simples</span>
+<span class="c1">// string de texto que nos</span>
+<span class="c1">// ajuda a demonstrar essa</span>
+<span class="c1">// função.</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -740,14 +736,14 @@ complete words.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$max_length</strong> (<em>int</em>) &#8211; String length limit</li>
-<li><strong>$position</strong> (<em>mixed</em>) &#8211; Position to split at (int or float)</li>
-<li><strong>$ellipsis</strong> (<em>string</em>) &#8211; What to use as the ellipsis character</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
+<li><strong>$max_length</strong> (<em>int</em>) &#8211; Tamanho limite da String</li>
+<li><strong>$position</strong> (<em>mixed</em>) &#8211; Posição para dividir em (int or float)</li>
+<li><strong>$ellipsis</strong> (<em>string</em>) &#8211; O que usar como caracter de reticência</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Ellipsized string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com reticência</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -755,16 +751,14 @@ complete words.</p>
 </tr>
 </tbody>
 </table>
-<p>This function will strip tags from a string, split it at a defined
-maximum length, and insert an ellipsis.</p>
-<p>The first parameter is the string to ellipsize, the second is the number
-of characters in the final string. The third parameter is where in the
-string the ellipsis should appear from 0 - 1, left to right. For
-example. a value of 1 will place the ellipsis at the right of the
-string, .5 in the middle, and 0 at the left.</p>
-<p>An optional forth parameter is the kind of ellipsis. By default,
-&amp;hellip; will be inserted.</p>
-<p>Example:</p>
+<p>Essa função irá tirar as tags de uma string, dividí-la em um tamanho máximo
+definido e inserir uma reticência.</p>
+<p>O primeiro parâmetro é a string que receberá a reticência, o segundo é o número
+de caracteres no final da string. O terceiro parâmetro é onde na string 
+a reticência será inserida, sendo 0 - 1, esquerda para a direita. Por exemplo, o valor
+1 colocará a reticência à direita da string, .5 no meio, e 0 à esquerda.</p>
+<p>Um quarto parâmetro opcional é o tipo da reticência. Por padrão, &amp;hellip; será inserido.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$str</span> <span class="o">=</span> <span class="s1">&#39;this_string_is_entirely_too_long_and_might_break_my_design.jpg&#39;</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nx">ellipsize</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
