@@ -451,7 +451,7 @@ processamento da imagem, entretanto, poderá ser realizado em qualquer outra bib
 <li><a class="reference internal" href="#setting-preferences-in-a-config-file" id="id5">Definindo as preferências em um arquivo de configuração</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#image-watermarking" id="id6">Inserção de Marcas d’Água</a><ul>
+<li><a class="reference internal" href="#image-watermarking" id="id6">Inserção de Marcas d’água</a><ul>
 <li><a class="reference internal" href="#two-types-of-watermarking" id="id7">Dois tipos de marcas d'água</a></li>
 <li><a class="reference internal" href="#watermarking-an-image" id="id8">Inserindo marca d'água em uma imagem</a></li>
 <li><a class="reference internal" href="#watermarking-preferences" id="id9">Preferências de marca d'água</a><ul>
@@ -514,7 +514,7 @@ talvez seja necessário limitar o tamanho máximo das imagens e/ou ajustar os li
 </div>
 <div class="section" id="processing-methods">
 <h3><a class="toc-backref" href="#id3">Métodos de Processamento</a><a class="headerlink" href="#processing-methods" title="Permalink to this headline">¶</a></h3>
-<p>Existem quarto métodos de processamento disponíveis:</p>
+<p>Existem quatro métodos de processamento disponíveis:</p>
 <ul class="simple">
 <li>$this-&gt;image_lib-&gt;resize()</li>
 <li>$this-&gt;image_lib-&gt;crop()</li>
@@ -600,7 +600,7 @@ O caminho deve ser relativo ou absoluto e não uma URL.</td>
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
 <td>Determina se o novo arquivo de imagem deve ser escrito no disco ou gerado dinamicamente. 
-Note: caso escolha a opção “dinâmica”, apenas uma imagem poderá ser gerada por vez e esta 
+Nota: caso escolha a opção “dinâmica”, apenas uma imagem poderá ser gerada por vez e esta
 imagem não poderá ser posicionada na página. A imagem de saída será direcionada 
 automaticamente ao navegador, juntamente com os cabeçalhos apropriados.</td>
 <td>R, C, X, W</td>
@@ -707,7 +707,7 @@ será reconhecido automaticamente. Você não necessitará utilizar o método
 </div>
 </div>
 <div class="section" id="image-watermarking">
-<h2><a class="toc-backref" href="#id6">Inserção de Marcas d’Água</a><a class="headerlink" href="#image-watermarking" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Inserção de Marcas d’água</a><a class="headerlink" href="#image-watermarking" title="Permalink to this headline">¶</a></h2>
 <p>O recurso de marcas d’água requer as bibliotecas GD/GD2.</p>
 <div class="section" id="two-types-of-watermarking">
 <h3><a class="toc-backref" href="#id7">Dois tipos de marcas d’água</a><a class="headerlink" href="#two-types-of-watermarking" title="Permalink to this headline">¶</a></h3>
@@ -786,7 +786,7 @@ O caminho deve ser relativo ou absoluto, não uma URL.</td>
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
 <td>Determina se o novo arquivo de imagem deve ser escrito no disco ou gerado dinamicamente. 
-Note: caso escolha a opção &#8220;dinâmica&#8221;, apenas uma imagem poderá ser gerada por vez e esta 
+Nota: caso escolha a opção &#8220;dinâmica&#8221;, apenas uma imagem poderá ser gerada por vez e esta
 imagem não poderá ser posicionada na página. A imagem de saída será direcionada 
 automaticamente ao navegador, juntamente com os cabeçalhos apropriados.</td>
 </tr>
@@ -866,7 +866,7 @@ Caso você não defina esta preferência, a fonte nativa da biblioteca GD será 
 <tr class="row-even"><td><strong>wm_font_size</strong></td>
 <td>16</td>
 <td>Nenhum</td>
-<td>O tamanho do texto. Note: caso você não esteja usando a opção True Type acima, o número  é definido usando um intervalo entre 1 e 5. Caso contrário, 
+<td>O tamanho do texto. Nota: caso você não esteja usando a opção True Type acima, o número  é definido usando um intervalo entre 1 e 5. Caso contrário,
 você pode usar qualquer tamanho de pixels válido para a fonte que você está utilizando.</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_font_color</strong></td>
@@ -989,7 +989,7 @@ crie uma cópia (com ou sem redimensionamento) ou uma miniatura da imagem.</p>
 <p>Para propósitos práticos, não há diferença entre criar uma cópia e criar uma miniatura, 
 exceto que a miniatura terá uma string indicadora concatenada como parte de seu nome (por exemplo, 
 <em>mypic_thumb.jpg</em>).</p>
-<p>Todas as preferências litadas na tabela de preferências estão disponíveis para este método, exceto 
+<p>Todas as preferências listadas na tabela de preferências estão disponíveis para este método, exceto
 três: <em>rotation_angle</em>, <em>x_axis</em> e <em>y_axis</em>.</p>
 <p><strong>Criando uma miniatura</strong></p>
 <p>O método de redimensionamento criará um arquivo de miniatura (e preservará o original) 
@@ -1085,9 +1085,9 @@ Javascript, que permite a seleção da área a ser cortada.</p>
 </div>
 <p>Existem cinco opções de rotação:</p>
 <ol class="arabic simple">
-<li>90 – Rotação em 90 graus anti-horária;</li>
-<li>180 – Rotação em 180 graus anti-horária;</li>
-<li>270 – Rotação em 270 graus anti-horária;</li>
+<li>90 – Rotação em 90 graus anti-horário;</li>
+<li>180 – Rotação em 180 graus anti-horário;</li>
+<li>270 – Rotação em 270 graus anti-horário;</li>
 <li>hor – Inverte a imagem horizontalmente;</li>
 <li>vrt – Inverte a imagem verticalmente.</li>
 </ol>
