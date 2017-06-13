@@ -425,62 +425,61 @@
 
   <div class="section" id="image-manipulation-class">
 <h1>Classe de Manipulação de Imagem<a class="headerlink" href="#image-manipulation-class" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter&#8217;s Image Manipulation class lets you perform the following
-actions:</p>
+<p>A classe de Manipulação de Imagens do CodeIgniter permite executar as seguintes ações com imagens:</p>
 <ul class="simple">
-<li>Image Resizing</li>
-<li>Thumbnail Creation</li>
-<li>Image Cropping</li>
-<li>Image Rotating</li>
-<li>Image Watermarking</li>
+<li>Redimensionamento</li>
+<li>Criação de miniaturas (thumbnails)</li>
+<li>Corte (cropping)</li>
+<li>Rotação</li>
+<li>Inserção de marca d'água (watermarking)</li>
 </ul>
-<p>All three major image libraries are supported: GD/GD2, NetPBM, and
-ImageMagick</p>
+<p>As três principais bibliotecas de imagens são suportadas: GD/GD2, NetPBM e 
+ImageMagick.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Watermarking is only available using the GD/GD2 library. In
-addition, even though other libraries are supported, GD is required in
-order for the script to calculate the image properties. The image
-processing, however, will be performed with the library you specify.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">A criação de marcas d'água apenas está disponível quando usada a biblioteca GD/GD2. 
+Mesmo que outras bibliotecas sejam suportadas, a GD é necessária para o cálculo de propriedades da imagem. O 
+processamento da imagem, entretanto, poderá ser realizado em qualquer outra biblioteca suportada.
+</p>
 </div>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#initializing-the-class" id="id1">Initializing the Class</a><ul>
-<li><a class="reference internal" href="#processing-an-image" id="id2">Processing an Image</a></li>
-<li><a class="reference internal" href="#processing-methods" id="id3">Processing Methods</a></li>
-<li><a class="reference internal" href="#preferences" id="id4">Preferences</a></li>
-<li><a class="reference internal" href="#setting-preferences-in-a-config-file" id="id5">Setting preferences in a config file</a></li>
+<li><a class="reference internal" href="#initializing-the-class" id="id1">Inicializando a classe</a><ul>
+<li><a class="reference internal" href="#processing-an-image" id="id2">Processando uma imagem</a></li>
+<li><a class="reference internal" href="#processing-methods" id="id3">Métodos de processamento</a></li>
+<li><a class="reference internal" href="#preferences" id="id4">Preferências</a></li>
+<li><a class="reference internal" href="#setting-preferences-in-a-config-file" id="id5">Definindo as preferências em um arquivo de configuração</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#image-watermarking" id="id6">Image Watermarking</a><ul>
-<li><a class="reference internal" href="#two-types-of-watermarking" id="id7">Two Types of Watermarking</a></li>
-<li><a class="reference internal" href="#watermarking-an-image" id="id8">Watermarking an Image</a></li>
-<li><a class="reference internal" href="#watermarking-preferences" id="id9">Watermarking Preferences</a><ul>
-<li><a class="reference internal" href="#text-preferences" id="id10">Text Preferences</a></li>
-<li><a class="reference internal" href="#overlay-preferences" id="id11">Overlay Preferences</a></li>
+<li><a class="reference internal" href="#image-watermarking" id="id6">Inserção de Marcas d’Água</a><ul>
+<li><a class="reference internal" href="#two-types-of-watermarking" id="id7">Dois tipos de marcas d'água</a></li>
+<li><a class="reference internal" href="#watermarking-an-image" id="id8">Inserindo marca d'água em uma imagem</a></li>
+<li><a class="reference internal" href="#watermarking-preferences" id="id9">Preferências de marca d'água</a><ul>
+<li><a class="reference internal" href="#text-preferences" id="id10">Preferências de texto</a></li>
+<li><a class="reference internal" href="#overlay-preferences" id="id11">Preferências de sobreposição</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#class-reference" id="id12">Class Reference</a></li>
+<li><a class="reference internal" href="#class-reference" id="id12">Referência de Classe</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="initializing-the-class">
-<h2><a class="toc-backref" href="#id1">Initializing the Class</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h2>
-<p>Like most other classes in CodeIgniter, the image class is initialized
-in your controller using the $this-&gt;load-&gt;library function:</p>
+<h2><a class="toc-backref" href="#id1">Inicializando a Classe</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h2>
+<p>Assim como a maioria das outras classes no CodeIgniter, a classe Image é inicializada
+em seu controller usando o método <em>$this-&gt;load-&gt;library</em>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;image_lib&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Once the library is loaded it will be ready for use. The image library
-object you will use to call all functions is: <tt class="docutils literal"><span class="pre">$this-&gt;image_lib</span></tt></p>
+<p>Uma vez que a biblioteca esteja carregada, ela estará pronta para o uso. 
+O objeto da biblioteca de imagens que você utilizará para chamar todas as funções é: <tt class="docutils literal"><span class="pre">$this-&gt;image_lib</span></tt></p>
 <div class="section" id="processing-an-image">
-<h3><a class="toc-backref" href="#id2">Processing an Image</a><a class="headerlink" href="#processing-an-image" title="Permalink to this headline">¶</a></h3>
-<p>Regardless of the type of processing you would like to perform
-(resizing, cropping, rotation, or watermarking), the general process is
-identical. You will set some preferences corresponding to the action you
-intend to perform, then call one of four available processing functions.
-For example, to create an image thumbnail you&#8217;ll do this:</p>
+<h3><a class="toc-backref" href="#id2">Processando uma imagem</a><a class="headerlink" href="#processing-an-image" title="Permalink to this headline">¶</a></h3>
+<p>Independentemente do tipo de processamento que você pretenda realizar 
+(redimensionar, cortar, girar ou inserir marca d’água), o processo geral é o mesmo. 
+Você definirá algumas preferências de acordo com a ação que você pretende executar e, então, 
+chamará um dos quatro métodos de processamento disponíveis. 
+Por exemplo, para criar uma miniatura de uma imagem, você deverá fazer assim:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;image_library&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gd2&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;source_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/path/to/image/mypic.jpg&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;create_thumb&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
@@ -493,43 +492,41 @@ For example, to create an image thumbnail you&#8217;ll do this:</p>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">resize</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The above code tells the image_resize function to look for an image
-called <em>mypic.jpg</em> located in the source_image folder, then create a
-thumbnail that is 75 X 50 pixels using the GD2 image_library. Since the
-maintain_ratio option is enabled, the thumb will be as close to the
-target width and height as possible while preserving the original aspect
-ratio. The thumbnail will be called <em>mypic_thumb.jpg</em> and located at
-the same level as <em>source_image</em>.</p>
+<p>
+O código acima informa ao método de redimensionamento de imagem para que procure 
+por uma imagem chamada <em>mypic.jpg</em>, localizada no diretório <em>source_image</em>, e crie uma miniatura de 
+75 x 50 pixels usando a biblioteca GD2. A opção <em>maintain_ratio</em> habilitada garante que a miniatura 
+será criada com a maior proximidade possível às dimensões definidas, no entanto, deverá 
+preservar as proporções da imagem original. A miniatura será chamada <em>mypic_thumb.jpg</em> e 
+será armazenada no mesmo diretório que <em>source_image</em>.
+</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In order for the image class to be allowed to do any
-processing, the folder containing the image files must have write
-permissions.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Para que a classe de manipulação de imagens realize o processamento, 
+o diretório onde serão armazenadas as imagens deve possuir permissão de escrita.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Image processing can require a considerable amount of server
-memory for some operations. If you are experiencing out of memory errors
-while processing images you may need to limit their maximum size, and/or
-adjust PHP memory limits.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">O processamento de imagens pode demandar uma quantidade considerável de memória do 
+servidor para algumas operações. Caso se depare com erros de estouro de memória enquanto realiza o processamento, 
+talvez seja necessário limitar o tamanho máximo das imagens e/ou ajustar os limites de memória do PHP.</p>
 </div>
 </div>
 <div class="section" id="processing-methods">
-<h3><a class="toc-backref" href="#id3">Processing Methods</a><a class="headerlink" href="#processing-methods" title="Permalink to this headline">¶</a></h3>
-<p>There are four available processing methods:</p>
+<h3><a class="toc-backref" href="#id3">Métodos de Processamento</a><a class="headerlink" href="#processing-methods" title="Permalink to this headline">¶</a></h3>
+<p>Existem quarto métodos de processamento disponíveis:</p>
 <ul class="simple">
 <li>$this-&gt;image_lib-&gt;resize()</li>
 <li>$this-&gt;image_lib-&gt;crop()</li>
 <li>$this-&gt;image_lib-&gt;rotate()</li>
 <li>$this-&gt;image_lib-&gt;watermark()</li>
 </ul>
-<p>These methods return boolean TRUE upon success and FALSE for failure.
-If they fail you can retrieve the error message using this function:</p>
+<p>Os métodos retornam o valor booleano TRUE em caso de sucesso e FALSE em caso de falha. 
+Em caso de falha, você pode obter a mensagem de erro usando esta função:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">display_errors</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>A good practice is to use the processing function conditionally, showing an
-error upon failure, like this:</p>
+<p>Uma boa prática é usar o método de processamento dentro de uma estrutura condicional, mostrando um erro em caso de falha:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">resize</span><span class="p">())</span>
 <span class="p">{</span>
         <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">display_errors</span><span class="p">();</span>
@@ -537,30 +534,29 @@ error upon failure, like this:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You can optionally specify the HTML formatting to be applied to
-the errors, by submitting the opening/closing tags in the function,
-like this:</p>
+<p class="first admonition-title">Nota</p>
+<p>Opcionalmente, você pode especificar a formatação HTML para ser aplicada aos erros. 
+Para isso, forneça as tags de abertura e fechamento como parâmetros:</p>
 <div class="last highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">display_errors</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;/p&gt;&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="preferences">
-<span id="processing-preferences"></span><h3><a class="toc-backref" href="#id4">Preferences</a><a class="headerlink" href="#preferences" title="Permalink to this headline">¶</a></h3>
-<p>The preferences described below allow you to tailor the image processing
-to suit your needs.</p>
-<p>Note that not all preferences are available for every function. For
-example, the x/y axis preferences are only available for image cropping.
-Likewise, the width and height preferences have no effect on cropping.
-The &#8220;availability&#8221; column indicates which functions support a given
-preference.</p>
-<p>Availability Legend:</p>
+<span id="processing-preferences"></span><h3><a class="toc-backref" href="#id4">Preferências</a><a class="headerlink" href="#preferences" title="Permalink to this headline">¶</a></h3>
+<p>As preferências abaixo descritas permitem adequar o processamento de imagens às suas necessidades.</p>
+<p>
+Perceba que nem todas as preferências estão disponíveis para cada função. 
+Por exemplo, as preferências de eixo x/y estão disponíveis apenas para o recurso de corte da imagem. 
+Da mesma forma, as preferências de largura e altura não tem qualquer efeito na função de corte. 
+Na tabela a seguir, a coluna &#8220;disponibilidade&#8221; indica quais funções suportam cada definição de preferência.
+</p>
+<p>Legenda da disponibilidade:</p>
 <ul class="simple">
-<li>R - Image Resizing</li>
-<li>C - Image Cropping</li>
-<li>X - Image Rotation</li>
-<li>W - Image Watermarking</li>
+<li>R – Redimensionamento</li>
+<li>C – Corte</li>
+<li>X – Rotação</li>
+<li>W – Marca d’água</li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -571,168 +567,167 @@ preference.</p>
 <col width="8%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Preference</th>
-<th class="head">Default Value</th>
-<th class="head">Options</th>
-<th class="head">Description</th>
-<th class="head">Availability</th>
+<tr class="row-odd"><th class="head">Preferência</th>
+<th class="head">Valor Padrão</th>
+<th class="head">Opções</th>
+<th class="head">Descrição</th>
+<th class="head">Disponibilidade</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>image_library</strong></td>
 <td>GD2</td>
 <td>GD, GD2, ImageMagick, NetPBM</td>
-<td>Sets the image library to be used.</td>
+<td>Define a biblioteca de manipulação de imagens a ser utilizada.</td>
 <td>R, C, X, W</td>
 </tr>
 <tr class="row-odd"><td><strong>library_path</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the server path to your ImageMagick or NetPBM library. If you use
-either of those libraries you must supply the path.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define o caminho para as bibliotecas ImageMagick ou NetPBM. 
+Caso utilize uma destas bibliotecas, você necessitará fornecer o caminho da instalação.</td>
 <td>R, C, X
 R, C, S, W</td>
 </tr>
 <tr class="row-even"><td><strong>source_image</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the source image name/path. The path must be a relative or absolute
-server path, not a URL.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define o nome e caminho para onde o arquivo da imagem de origem está armazenada. 
+O caminho deve ser relativo ou absoluto e não uma URL.</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td><strong>dynamic_output</strong></td>
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
-<td>Determines whether the new image file should be written to disk or
-generated dynamically. Note: If you choose the dynamic setting, only one
-image can be shown at a time, and it can&#8217;t be positioned on the page. It
-simply outputs the raw image dynamically to your browser, along with
-image headers.</td>
+<td>Determina se o novo arquivo de imagem deve ser escrito no disco ou gerado dinamicamente. 
+Note: caso escolha a opção “dinâmica”, apenas uma imagem poderá ser gerada por vez e esta 
+imagem não poderá ser posicionada na página. A imagem de saída será direcionada 
+automaticamente ao navegador, juntamente com os cabeçalhos apropriados.</td>
 <td>R, C, X, W</td>
 </tr>
 <tr class="row-even"><td><strong>file_permissions</strong></td>
 <td>0644</td>
 <td>(integer)</td>
-<td>File system permissions to apply on the resulting image file,
-writing it to the disk. WARNING: Use octal integer notation!</td>
+<td>Nível de permissão a ser aplicada aos arquivos escritos em disco gerados após o processamento da imagem.  
+ATENÇÃO: Utilize a notação octal!</td>
 <td>R, C, X, W</td>
 </tr>
 <tr class="row-odd"><td><strong>quality</strong></td>
 <td>90%</td>
 <td>1 - 100%</td>
-<td>Sets the quality of the image. The higher the quality the larger the
-file size.</td>
+<td>Define a qualidade da imagem. Quanto maior a qualidade, maior também será o tamanho do arquivo.</td>
 <td>R, C, X, W</td>
 </tr>
 <tr class="row-even"><td><strong>new_image</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the destination image name/path. You&#8217;ll use this preference when
-creating an image copy. The path must be a relative or absolute server
-path, not a URL.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define o nome e caminho onde será escrita a imagem resultado do processamento. 
+Você utilizará esta preferência quando criar uma imagem cópia. 
+O caminho deve ser absoluto ou relativo e não uma URL. </td>
 <td>R, C, X, W</td>
 </tr>
 <tr class="row-odd"><td><strong>width</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the width you would like the image set to.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define a largura esperada para a imagem de saída.</td>
 <td>R, C</td>
 </tr>
 <tr class="row-even"><td><strong>height</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the height you would like the image set to.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define a altura esperada para a imagem de saída.</td>
 <td>R, C</td>
 </tr>
 <tr class="row-odd"><td><strong>create_thumb</strong></td>
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
-<td>Tells the image processing function to create a thumb.</td>
+<td>Informa ao método de processamento de imagem para que crie uma miniatura.</td>
 <td>R</td>
 </tr>
 <tr class="row-even"><td><strong>thumb_marker</strong></td>
 <td>_thumb</td>
-<td>None</td>
-<td>Specifies the thumbnail indicator. It will be inserted just before the
-file extension, so mypic.jpg would become mypic_thumb.jpg</td>
+<td>Nenhum</td>
+<td>Especifica a sequência de caracteres indicadora da miniatura. 
+Ela será inserida logo após à extensão do arquivo. Logo, mypic.jpg se tornará mypic_thumb.jpg</td>
 <td>R</td>
 </tr>
 <tr class="row-odd"><td><strong>maintain_ratio</strong></td>
 <td>TRUE</td>
 <td>TRUE/FALSE (boolean)</td>
-<td>Specifies whether to maintain the original aspect ratio when resizing or
-use hard values.</td>
+<td>Especifica se deverá ser mantida a proporção original da imagem quando redimensionada ou se 
+os valores de altura e largura deverão ser seguidos com rigor.</td>
 <td>R, C</td>
 </tr>
 <tr class="row-even"><td><strong>master_dim</strong></td>
 <td>auto</td>
 <td>auto, width, height</td>
-<td>Specifies what to use as the master axis when resizing or creating
-thumbs. For example, let&#8217;s say you want to resize an image to 100 X 75
-pixels. If the source image size does not allow perfect resizing to
-those dimensions, this setting determines which axis should be used as
-the hard value. &#8220;auto&#8221; sets the axis automatically based on whether the
-image is taller than wider, or vice versa.</td>
+<td>
+Especifica qual será o eixo principal quando redimensionando ou criando miniaturas 
+para a imagem. Por exemplo, digamos que você redimensione uma imagem para 100 x 75 pixels. 
+Se as dimensões da imagem original não permitirem um perfeito redimensionamento a estas 
+dimensões, esta preferência determina qual eixo deverá ser usado como o valor absoluto. 
+A opção &#8220;auto&#8221; determina o eixo automaticamente, baseado em qual dimensão é maior 
+(largura ou altura).
+</td>
 <td>R</td>
 </tr>
 <tr class="row-odd"><td><strong>rotation_angle</strong></td>
-<td>None</td>
+<td>Nenhum</td>
 <td>90, 180, 270, vrt, hor</td>
-<td>Specifies the angle of rotation when rotating images. Note that PHP
-rotates counter-clockwise, so a 90 degree rotation to the right must be
-specified as 270.</td>
+<td>Determina o ângulo de rotação. Note que o PHP realiza a rotação no sentido anti-horário, 
+então uma rotação de 90 graus para a direita deve ser especificada como 270 graus.</td>
 <td>X</td>
 </tr>
 <tr class="row-even"><td><strong>x_axis</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the X coordinate in pixels for image cropping. For example, a
-setting of 30 will crop an image 30 pixels from the left.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define a coordenada X, em pixels, para o corte da imagem. Por exemplo, uma definição com o 
+valor &#8220;30&#8221; irá cortar a imagem com uma borda interna de 30 pixels à esquerda.</td>
 <td>C</td>
 </tr>
 <tr class="row-odd"><td><strong>y_axis</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the Y coordinate in pixels for image cropping. For example, a
-setting of 30 will crop an image 30 pixels from the top.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define a coordenada Y, em pixels, para o corte da imagem. Por exemplo, uma definição com o 
+valor &#8220;30&#8221; irá cortar a imagem com uma borda interna de 30 pixels a partir do topo.</td>
 <td>C</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="setting-preferences-in-a-config-file">
-<h3><a class="toc-backref" href="#id5">Setting preferences in a config file</a><a class="headerlink" href="#setting-preferences-in-a-config-file" title="Permalink to this headline">¶</a></h3>
-<p>If you prefer not to set preferences using the above method, you can
-instead put them into a config file. Simply create a new file called
-image_lib.php, add the $config array in that file. Then save the file
-in <em>config/image_lib.php</em> and it will be used automatically. You will
-NOT need to use the <tt class="docutils literal"><span class="pre">$this-&gt;image_lib-&gt;initialize()</span></tt> method if you save
-your preferences in a config file.</p>
+<h3><a class="toc-backref" href="#id5">Definindo preferências em um arquivo de configuração</a><a class="headerlink" href="#setting-preferences-in-a-config-file" title="Permalink to this headline">¶</a></h3>
+<p>
+Caso prefira não definir preferências utilizando o método acima, você poderá colocá-las em 
+um arquivo de configuração. Simplesmente crie um novo arquivo chamado image_lib.php e 
+adicione o array <em>$config</em> neste arquivo. Armazene o arquivo em <em>/config/image_lib.php</em> e ele 
+será reconhecido automaticamente. Você não necessitará utilizar o método 
+<tt class="docutils literal"><span class="pre">$this-&gt;image_lib-&gt;initialize()</span></tt> caso guarde as preferências em um arquivo de configuração.
+</p>
 </div>
 </div>
 <div class="section" id="image-watermarking">
-<h2><a class="toc-backref" href="#id6">Image Watermarking</a><a class="headerlink" href="#image-watermarking" title="Permalink to this headline">¶</a></h2>
-<p>The Watermarking feature requires the GD/GD2 library.</p>
+<h2><a class="toc-backref" href="#id6">Inserção de Marcas d’Água</a><a class="headerlink" href="#image-watermarking" title="Permalink to this headline">¶</a></h2>
+<p>O recurso de marcas d’água requer as bibliotecas GD/GD2.</p>
 <div class="section" id="two-types-of-watermarking">
-<h3><a class="toc-backref" href="#id7">Two Types of Watermarking</a><a class="headerlink" href="#two-types-of-watermarking" title="Permalink to this headline">¶</a></h3>
-<p>There are two types of watermarking that you can use:</p>
+<h3><a class="toc-backref" href="#id7">Dois tipos de marcas d’água</a><a class="headerlink" href="#two-types-of-watermarking" title="Permalink to this headline">¶</a></h3>
+<p>Existem dois tipos de marcas d’água que você poderá utilizar:</p>
 <ul class="simple">
-<li><strong>Text</strong>: The watermark message will be generated using text, either
-with a True Type font that you specify, or using the native text
-output that the GD library supports. If you use the True Type version
-your GD installation must be compiled with True Type support (most
-are, but not all).</li>
-<li><strong>Overlay</strong>: The watermark message will be generated by overlaying an
-image (usually a transparent PNG or GIF) containing your watermark
-over the source image.</li>
+<li><strong>Texto</strong>: a marca d’água será gerada usando texto, com uma fonte True Type 
+definida por você ou utilizando texto nativo de saída suportado pela biblioteca GD. 
+Caso utilize a versão True Type, sua instalação da biblioteca GD deverá ser compilada com a 
+opção de suporte a True Type (geralmente esta opção é habilitada por padrão, porém não sempre).</li>
+<li><strong>Sobreposição</strong>: a marca d’água será gerada pela sobreposição de uma imagem 
+em relação à outra. Geralmente, um PNG ou GIF transparente contém a marca d’água que será 
+impressa sobre a imagem a ser processada.</li>
 </ul>
 </div>
 <div class="section" id="watermarking-an-image">
-<span id="watermarking"></span><h3><a class="toc-backref" href="#id8">Watermarking an Image</a><a class="headerlink" href="#watermarking-an-image" title="Permalink to this headline">¶</a></h3>
-<p>Just as with the other methods (resizing, cropping, and rotating) the
-general process for watermarking involves setting the preferences
-corresponding to the action you intend to perform, then calling the
-watermark function. Here is an example:</p>
+<span id="watermarking"></span><h3><a class="toc-backref" href="#id8">Inserindo uma marca d’água</a><a class="headerlink" href="#watermarking-an-image" title="Permalink to this headline">¶</a></h3>
+<p>Assim como os outros métodos (redimensionamento, corte e rotação), o processo geral 
+para a inserção de marcas d’água envolve a definição de preferências de acordo com a ação 
+que você pretende realizar e, posteriormente, a chamada ao método de criação de marca d’água. 
+Aqui está um exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;source_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/path/to/image/mypic.jpg&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;wm_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Copyright 2006 - John Doe&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;wm_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
@@ -748,20 +743,19 @@ watermark function. Here is an example:</p>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">watermark</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The above example will use a 16 pixel True Type font to create the text
-&#8220;Copyright 2006 - John Doe&#8221;. The watermark will be positioned at the
-bottom/center of the image, 20 pixels from the bottom of the image.</p>
+<p>O exemplo acima utilizará uma fonte True Type de 16 pixels para criar o texto 
+&#8220;Copyright 2006 - John Doe&#8221;. A marca d’água será posicionada à base e ao centro da imagem, 
+20 pixels acima da borda inferior.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In order for the image class to be allowed to do any
-processing, the image file must have &#8220;write&#8221; file permissions
-For example, 777.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Para que a classe de imagem esteja apta a realizar o processamento, o arquivo 
+da imagem deverá possuir permissão de escrita. Por exemplo, 777.</p>
 </div>
 </div>
 <div class="section" id="watermarking-preferences">
-<h3><a class="toc-backref" href="#id9">Watermarking Preferences</a><a class="headerlink" href="#watermarking-preferences" title="Permalink to this headline">¶</a></h3>
-<p>This table shows the preferences that are available for both types of
-watermarking (text or overlay)</p>
+<h3><a class="toc-backref" href="#id9">Preferências de Marca d’Água</a><a class="headerlink" href="#watermarking-preferences" title="Permalink to this headline">¶</a></h3>
+<p>Esta tabela exibe as preferências que estão disponíveis 
+para ambos os tipos de marcas d’água (texto e sobreposição):</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="17%" />
@@ -770,77 +764,78 @@ watermarking (text or overlay)</p>
 <col width="53%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Preference</th>
-<th class="head">Default Value</th>
-<th class="head">Options</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">Preferência</th>
+<th class="head">Valor Padrão</th>
+<th class="head">Opções</th>
+<th class="head">Descrição</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>wm_type</strong></td>
 <td>text</td>
 <td>text, overlay</td>
-<td>Sets the type of watermarking that should be used.</td>
+<td>Define o tipo de marca d’água que deverá ser utilizado.</td>
 </tr>
 <tr class="row-odd"><td><strong>source_image</strong></td>
-<td>None</td>
-<td>None</td>
-<td>Sets the source image name/path. The path must be a relative or absolute
-server path, not a URL.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>Define o caminho e nome para o arquivo de origem. 
+O caminho deve ser relativo ou absoluto, não uma URL.</td>
 </tr>
 <tr class="row-even"><td><strong>dynamic_output</strong></td>
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
-<td>Determines whether the new image file should be written to disk or
-generated dynamically. Note: If you choose the dynamic setting, only one
-image can be shown at a time, and it can&#8217;t be positioned on the page. It
-simply outputs the raw image dynamically to your browser, along with
-image headers.</td>
+<td>Determina se o novo arquivo de imagem deve ser escrito no disco ou gerado dinamicamente. 
+Note: caso escolha a opção &#8220;dinâmica&#8221;, apenas uma imagem poderá ser gerada por vez e esta 
+imagem não poderá ser posicionada na página. A imagem de saída será direcionada 
+automaticamente ao navegador, juntamente com os cabeçalhos apropriados.</td>
 </tr>
 <tr class="row-odd"><td><strong>quality</strong></td>
 <td>90%</td>
 <td>1 - 100%</td>
-<td>Sets the quality of the image. The higher the quality the larger the
-file size.</td>
+<td>Define a qualidade da imagem. Quanto maior a qualidade, maior o tamanho do arquivo.</td>
 </tr>
 <tr class="row-even"><td><strong>wm_padding</strong></td>
-<td>None</td>
-<td>A number</td>
-<td>The amount of padding, set in pixels, that will be applied to the
-watermark to set it away from the edge of your images.</td>
+<td>Nenhum</td>
+<td>Um número</td>
+<td>A quantidade de preenchimento, definida em pixels, que será aplicada à 
+marca d’água para afastá-la das bordas da imagem.</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_vrt_alignment</strong></td>
 <td>bottom</td>
 <td>top, middle, bottom</td>
-<td>Sets the vertical alignment for the watermark image.</td>
+<td>Define o alinhamento vertical para a imagem da marca d’água.</td>
 </tr>
 <tr class="row-even"><td><strong>wm_hor_alignment</strong></td>
 <td>center</td>
 <td>left, center, right</td>
-<td>Sets the horizontal alignment for the watermark image.</td>
+<td>Define o alinhamento horizontal para a imagem da marca d’água.</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_hor_offset</strong></td>
-<td>None</td>
-<td>None</td>
-<td>You may specify a horizontal offset (in pixels) to apply to the
-watermark position. The offset normally moves the watermark to the
-right, except if you have your alignment set to &#8220;right&#8221; then your offset
-value will move the watermark toward the left of the image.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>
+Você pode especificar um deslocamento horizontal, em pixels, a ser aplicado à 
+posição da marca d’água. Normalmente, o deslocamento move a marca d’água para a direita, 
+exceto caso você tenha o seu alinhamento definido para &#8220;right&#8221;, o que fará com que o valor 
+do deslocamento desloque a marca d´água para a esquerda. 
+</td>
 </tr>
 <tr class="row-even"><td><strong>wm_vrt_offset</strong></td>
-<td>None</td>
-<td>None</td>
-<td>You may specify a vertical offset (in pixels) to apply to the watermark
-position. The offset normally moves the watermark down, except if you
-have your alignment set to &#8220;bottom&#8221; then your offset value will move the
-watermark toward the top of the image.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>
+Você pode especificar um deslocamento vertical, em pixels, a ser aplicado à posição da 
+marca d’água. Normalmente, o deslocamento move a marca d’água para baixo, exceto caso você 
+tenha o seu alinhamento definido para &#8220;bottom&#8221;, o que fará com que o valor do deslocamento 
+desloque a marca d´água para cima.
+</td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="text-preferences">
-<h4><a class="toc-backref" href="#id10">Text Preferences</a><a class="headerlink" href="#text-preferences" title="Permalink to this headline">¶</a></h4>
-<p>This table shows the preferences that are available for the text type of
-watermarking.</p>
+<h4><a class="toc-backref" href="#id10">Preferências de texto</a><a class="headerlink" href="#text-preferences" title="Permalink to this headline">¶</a></h4>
+<p>Esta tabela mostra as preferências que estão disponíveis para as marcas d’água do tipo texto:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="17%" />
@@ -849,58 +844,55 @@ watermarking.</p>
 <col width="55%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Preference</th>
-<th class="head">Default Value</th>
-<th class="head">Options</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">Preferência</th>
+<th class="head">Valor Padrão</th>
+<th class="head">Opções</th>
+<th class="head">Descrição</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>wm_text</strong></td>
-<td>None</td>
-<td>None</td>
-<td>The text you would like shown as the watermark. Typically this will be a
-copyright notice.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>O texto que você gostaria de exibir como marca d’água. 
+Tipicamente, uma informação sobre direitos autorais.</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_font_path</strong></td>
-<td>None</td>
-<td>None</td>
-<td>The server path to the True Type Font you would like to use. If you do
-not use this option, the native GD font will be used.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>O caminho no servidor para a fonte True Type que você gostaria de utilizar. 
+Caso você não defina esta preferência, a fonte nativa da biblioteca GD será utilizada.</td>
 </tr>
 <tr class="row-even"><td><strong>wm_font_size</strong></td>
 <td>16</td>
-<td>None</td>
-<td>The size of the text. Note: If you are not using the True Type option
-above, the number is set using a range of 1 - 5. Otherwise, you can use
-any valid pixel size for the font you&#8217;re using.</td>
+<td>Nenhum</td>
+<td>O tamanho do texto. Note: caso você não esteja usando a opção True Type acima, o número  é definido usando um intervalo entre 1 e 5. Caso contrário, 
+você pode usar qualquer tamanho de pixels válido para a fonte que você está utilizando.</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_font_color</strong></td>
 <td>ffffff</td>
-<td>None</td>
-<td>The font color, specified in hex. Both the full 6-length (ie, 993300) and
-the short three character abbreviated version (ie, fff) are supported.</td>
+<td>Nenhum</td>
+<td>A cor da fonte, especificada em hexadecimais. É possível informar esta opção com seis caracteres 
+(por exemplo, 993300) ou, abreviadamente, com três caracteres (por exemplo, fff).</td>
 </tr>
 <tr class="row-even"><td><strong>wm_shadow_color</strong></td>
-<td>None</td>
-<td>None</td>
-<td>The color of the drop shadow, specified in hex. If you leave this blank
-a drop shadow will not be used. Both the full 6-length (ie, 993300) and
-the short three character abbreviated version (ie, fff) are supported.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>A cor da sombra, especificada em hexadecimais. Caso deixe esta opção em branco, 
+nenhuma sombra será utilizada. É possível informar esta opção com seis caracteres 
+(por exemplo, 993300) ou, abreviadamente, com três caracteres (por exemplo, fff).</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_shadow_distance</strong></td>
 <td>3</td>
-<td>None</td>
-<td>The distance (in pixels) from the font that the drop shadow should
-appear.</td>
+<td>Nenhum</td>
+<td>A distância, em pixels, entre a fonte e a sombra.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="overlay-preferences">
-<h4><a class="toc-backref" href="#id11">Overlay Preferences</a><a class="headerlink" href="#overlay-preferences" title="Permalink to this headline">¶</a></h4>
-<p>This table shows the preferences that are available for the overlay type
-of watermarking.</p>
+<h4><a class="toc-backref" href="#id11">Preferências de Sobreposição</a><a class="headerlink" href="#overlay-preferences" title="Permalink to this headline">¶</a></h4>
+<p>Esta tabela mostra as preferências que estão disponíveis para a marca d’água do tipo sobreposição:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="17%" />
@@ -909,43 +901,42 @@ of watermarking.</p>
 <col width="55%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Preference</th>
-<th class="head">Default Value</th>
-<th class="head">Options</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">Preferência</th>
+<th class="head">Valor Padrão</th>
+<th class="head">Opções</th>
+<th class="head">Descrição</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>wm_overlay_path</strong></td>
-<td>None</td>
-<td>None</td>
-<td>The server path to the image you wish to use as your watermark. Required
-only if you are using the overlay method.</td>
+<td>Nenhum</td>
+<td>Nenhum</td>
+<td>O caminho no servidor para a imagem que você deseja utilizar 
+como marca d’água. Obrigatório apenas caso esteja usando o método de sobreposição.</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_opacity</strong></td>
 <td>50</td>
 <td>1 - 100</td>
-<td>Image opacity. You may specify the opacity (i.e. transparency) of your
-watermark image. This allows the watermark to be faint and not
-completely obscure the details from the original image behind it. A 50%
-opacity is typical.</td>
+<td>A opacidade da imagem. Você pode especificar a transparência da imagem da marca d’água. 
+Esta opção permite que a marca d’água não seja tão escura a ponto de impedir a visualização 
+de detalhes da imagem original que está por baixo dela. Um valor comum para a 
+opacidade é 50%.</td>
 </tr>
 <tr class="row-even"><td><strong>wm_x_transp</strong></td>
 <td>4</td>
-<td>A number</td>
-<td>If your watermark image is a PNG or GIF image, you may specify a color
-on the image to be &#8220;transparent&#8221;. This setting (along with the next)
-will allow you to specify that color. This works by specifying the &#8220;X&#8221;
-and &#8220;Y&#8221; coordinate pixel (measured from the upper left) within the image
-that corresponds to a pixel representative of the color you want to be
-transparent.</td>
+<td>Um número</td>
+<td>
+Caso você esteja inserindo marca d’água em uma imagem PNG ou GIF, você deve especificar 
+uma cor na imagem para ser &#8220;transparente&#8221;. Esta opção, em conjunto com a que está a seguir, 
+permitirá que você especifique esta cor. Funciona assim: você especifica as 
+coordenadas &#8220;X&#8221; e &#8220;Y&#8221;, medidas a partir do canto superior esquerdo da imagem, do pixel 
+que contém a cor que você pretende que seja transparente.</td>
 </tr>
 <tr class="row-odd"><td><strong>wm_y_transp</strong></td>
 <td>4</td>
-<td>A number</td>
-<td>Along with the previous setting, this allows you to specify the
-coordinate to a pixel representative of the color you want to be
-transparent.</td>
+<td>Um número</td>
+<td>Em conjunto com a configuração anterior, esta opção permite definir a coordenada do pixel que 
+representa a cor que você pretende que seja transparente.</td>
 </tr>
 </tbody>
 </table>
@@ -953,10 +944,10 @@ transparent.</td>
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id12">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Referência de Classe</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CI_Image_lib">
-<em class="property">class </em><tt class="descname">CI_Image_lib</tt><a class="headerlink" href="#CI_Image_lib" title="Permalink to this definition">¶</a></dt>
+<em class="property">classe </em><tt class="descname">CI_Image_lib</tt><a class="headerlink" href="#CI_Image_lib" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="CI_Image_lib::initialize">
 <tt class="descname">initialize</tt><big>(</big><span class="optional">[</span><em>$props = array()</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#CI_Image_lib::initialize" title="Permalink to this definition">¶</a></dt>
@@ -965,11 +956,11 @@ transparent.</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$props</strong> (<em>array</em>) &#8211; Image processing preferences</li>
+<li><strong>$props</strong> (<em>array</em>) &#8211; Preferências do processamento de imagem</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE on success, FALSE in case of invalid settings</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE em caso de sucesso, FALSE em caso de configurações inválidas.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
@@ -977,7 +968,7 @@ transparent.</td>
 </tr>
 </tbody>
 </table>
-<p>Initializes the class for processing an image.</p>
+<p>Inicializa a classe para o processamento de uma imagem.</p>
 </dd></dl>
 
 <dl class="method">
@@ -987,46 +978,45 @@ transparent.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE on success, FALSE on failure</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE em sucesso, FALSE em falha.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
-<p>The image resizing method lets you resize the original image, create a
-copy (with or without resizing), or create a thumbnail image.</p>
-<p>For practical purposes there is no difference between creating a copy
-and creating a thumbnail except a thumb will have the thumbnail marker
-as part of the name (i.e. mypic_thumb.jpg).</p>
-<p>All preferences listed in the <a class="reference internal" href="#processing-preferences"><em>Preferences</em></a> table are available for this
-method except these three: <em>rotation_angle</em>, <em>x_axis</em> and <em>y_axis</em>.</p>
-<p><strong>Creating a Thumbnail</strong></p>
-<p>The resizing method will create a thumbnail file (and preserve the
-original) if you set this preference to TRUE:</p>
+<p>O método de redimensionamento de imagem permite que você redimensione a imagem original, 
+crie uma cópia (com ou sem redimensionamento) ou uma miniatura da imagem.</p>
+<p>Para propósitos práticos, não há diferença entre criar uma cópia e criar uma miniatura, 
+exceto que a miniatura terá uma string indicadora concatenada como parte de seu nome (por exemplo, 
+<em>mypic_thumb.jpg</em>).</p>
+<p>Todas as preferências litadas na tabela de preferências estão disponíveis para este método, exceto 
+três: <em>rotation_angle</em>, <em>x_axis</em> e <em>y_axis</em>.</p>
+<p><strong>Criando uma miniatura</strong></p>
+<p>O método de redimensionamento criará um arquivo de miniatura (e preservará o original) 
+caso você defina esta preferência para TRUE:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;create_thumb&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>This single preference determines whether a thumbnail is created or not.</p>
-<p><strong>Creating a Copy</strong></p>
-<p>The resizing method will create a copy of the image file (and preserve
-the original) if you set a path and/or a new filename using this
-preference:</p>
+<p>Esta preferência determina se uma miniatura é criada ou não.</p>
+<p><strong>Criando uma cópia</strong></p>
+<p>O método de redimensionamento irá criar uma cópia do arquivo da imagem (e preservar o original) 
+caso você defina um caminho e/ou um novo nome para o arquivo usando esta preferência:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;new_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/path/to/new_image.jpg&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Notes regarding this preference:</p>
+<p>Notas sobre essa preferência:</p>
 <ul class="simple">
-<li>If only the new image name is specified it will be placed in the same
-folder as the original</li>
-<li>If only the path is specified, the new image will be placed in the
-destination with the same name as the original.</li>
-<li>If both the path and image name are specified it will placed in its
-own destination and given the new name.</li>
+<li>Caso somente o nome da nova imagem seja especificado, a imagem gerada será 
+armazenada no mesmo diretório da original;</li>
+<li>Caso somente o caminho seja especificado, a nova imagem será armazenada no destino 
+com o mesmo nome da original;</li>
+<li>Caso sejam especificados o caminho e o nome, a nova imagem será armazenada no caminho 
+especificado e receberá o nome, conforme escolhido.</li>
 </ul>
-<p><strong>Resizing the Original Image</strong></p>
-<p>If neither of the two preferences listed above (create_thumb, and
-new_image) are used, the resizing method will instead target the
-original image for processing.</p>
+<p><strong>Redimensionando a imagem original</strong></p>
+<p>Caso nenhuma das opções acima descritas (create_thumb e new_image) 
+seja utilizada, o método de redimensionamento irá processar o arquivo da imagem 
+original e substituí-lo pela nova imagem.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1036,22 +1026,22 @@ original image for processing.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE on success, FALSE on failure</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE em sucesso, FALSE em falha</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
-<p>The cropping method works nearly identically to the resizing function
-except it requires that you set preferences for the X and Y axis (in
-pixels) specifying where to crop, like this:</p>
+<p>O método de corte funciona de maneira muito semelhante ao método de redimensionamento, 
+exceto pelo fato de exigir que você defina as preferências 
+para os eixos X e Y, em pixels, especificando o ponto de corte:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;x_axis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;y_axis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>All preferences listed in the <a class="reference internal" href="#processing-preferences"><em>Preferences</em></a> table are available for this
-method except these: <em>rotation_angle</em>, <em>create_thumb</em> and <em>new_image</em>.</p>
-<p>Here&#8217;s an example showing how you might crop an image:</p>
+<p>Todas as preferências listadas na tabela de <a class="reference internal" href="#processing-preferences"><em>Preferências</em></a> estão disponíveis para este método, 
+exceto <em>rotation_angle</em>, <em>create_thumb</em> e <em>new_image</em>.</p>
+<p>Aqui está um exemplo mostrando como cortar uma imagem:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;image_library&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;imagemagick&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;library_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/usr/X11R6/bin/&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;source_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/path/to/image/mypic.jpg&#39;</span><span class="p">;</span>
@@ -1067,12 +1057,12 @@ method except these: <em>rotation_angle</em>, <em>create_thumb</em> and <em>new_
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Without a visual interface it is difficult to crop images, so this
-method is not very useful unless you intend to build such an
-interface. That&#8217;s exactly what we did using for the photo gallery module
-in ExpressionEngine, the CMS we develop. We added a JavaScript UI that
-lets the cropping area be selected.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Sem uma interface visual, é muito difícil cortar uma imagem. A utilidade desta 
+função é nula, exceto caso você tenha em mente construir tal interface. Foi exatamente isso que nós 
+fizemos no módulo de galeria de fotos do ExpressionEngine, o sistema gerenciador de conteúdo 
+que nós desenvolvemos. Nós adicionamos uma interface gráfica para o usuário, construída em 
+Javascript, que permite a seleção da área a ser cortada.</p>
 </div>
 </dd></dl>
 
@@ -1083,26 +1073,25 @@ lets the cropping area be selected.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE on success, FALSE on failure</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE em sucesso, FALSE em falha.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
-<p>The image rotation method requires that the angle of rotation be set
-via its preference:</p>
+<p>O método de rotação de imagem exige que o ângulo da rotação seja definido nas preferências:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rotation_angle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;90&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>There are 5 rotation options:</p>
+<p>Existem cinco opções de rotação:</p>
 <ol class="arabic simple">
-<li>90 - rotates counter-clockwise by 90 degrees.</li>
-<li>180 - rotates counter-clockwise by 180 degrees.</li>
-<li>270 - rotates counter-clockwise by 270 degrees.</li>
-<li>hor - flips the image horizontally.</li>
-<li>vrt - flips the image vertically.</li>
+<li>90 – Rotação em 90 graus anti-horária;</li>
+<li>180 – Rotação em 180 graus anti-horária;</li>
+<li>270 – Rotação em 270 graus anti-horária;</li>
+<li>hor – Inverte a imagem horizontalmente;</li>
+<li>vrt – Inverte a imagem verticalmente.</li>
 </ol>
-<p>Here&#8217;s an example showing how you might rotate an image:</p>
+<p>Aqui está um exemplo mostrando como você pode fazer a rotação de uma imagem:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;image_library&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;netpbm&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;library_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/usr/bin/&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;source_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/path/to/image/mypic.jpg&#39;</span><span class="p">;</span>
@@ -1125,14 +1114,14 @@ via its preference:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE on success, FALSE on failure</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE em sucesso, FALSE em falha</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
-<p>Creates a watermark over an image, please refer to the <a class="reference internal" href="#watermarking"><em>Watermarking an Image</em></a>
-section for more info.</p>
+<p>Cria uma marca d’água sobre uma imagem. Por gentileza, veja a seção 
+<a class="reference internal" href="#watermarking"><em>Inserindo uma marca d’água</em></a> para mais detalhes.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1146,9 +1135,8 @@ section for more info.</p>
 </tr>
 </tbody>
 </table>
-<p>The clear method resets all of the values used when processing an
-image. You will want to call this if you are processing images in a
-loop.</p>
+<p>O método “clear” redefine todos os valores usados no processamento de imagens. 
+Você deverá invocá-lo caso esteja processando imagens dentro de um loop.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -1162,12 +1150,12 @@ loop.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$open</strong> (<em>string</em>) &#8211; Error message opening tag</li>
-<li><strong>$close</strong> (<em>string</em>) &#8211; Error message closing tag</li>
+<li><strong>$open</strong> (<em>string</em>) &#8211; Tag de abertura da mensagem de erro</li>
+<li><strong>$close</strong> (<em>string</em>) &#8211; Tag de fechamento da mensagem de erro</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Error messages</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Mensagens de erro</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -1175,7 +1163,7 @@ loop.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns all detected errors formatted as a string.</p>
+<p>Retorna todos os erros detectados, formatados como uma string.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span><span class="o">-&gt;</span><span class="na">display_errors</span><span class="p">();</span>
 </pre></div>
 </div>
