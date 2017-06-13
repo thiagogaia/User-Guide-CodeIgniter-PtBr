@@ -484,7 +484,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO se suportado, FALSO se não</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE se suportado, FALSE se não</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
@@ -516,7 +516,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Valor do item ou FALSO se não encontrado</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Valor do item ou FALSE se não encontrado</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários</p>
@@ -524,7 +524,7 @@
 </tr>
 </tbody>
 </table>
-<p>Esse método tentará buscar um item da loja de cache. Se o item não existir, o método retornará FALSO.</p>
+<p>Esse método tentará buscar um item da loja de cache. Se o item não existir, o método retornará FALSE.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;my_cached_item&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -545,7 +545,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE em caso de sucesso, FALSO em falha</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE em caso de sucesso, FALSE em falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -553,14 +553,13 @@
 </tr>
 </tbody>
 </table>
-<p>Esse método salvará um item na loja de cache. Se o salvamento falhar, o método retornará FALSO.</p>
+<p>Esse método salvará um item na loja de cache. Se o salvamento falhar, o método retornará FALSE.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;cache_item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;data_to_cache&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">O parâmetro <tt class="docutils literal"><span class="pre">$raw</span></tt> é utilizado apenas pela APC e Memcache, para permitir o uso dos
-in order to allow usage of <tt class="docutils literal"><span class="pre">increment()</span></tt> e <tt class="docutils literal"><span class="pre">decrement()</span></tt>.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">O parâmetro <tt class="docutils literal"><span class="pre">$raw</span></tt> é utilizado apenas pela APC e Memcache, para permitir o uso dos <tt class="docutils literal"><span class="pre">increment()</span></tt> e <tt class="docutils literal"><span class="pre">decrement()</span></tt>.</p>
 </div>
 </dd></dl>
 
@@ -576,7 +575,7 @@ in order to allow usage of <tt class="docutils literal"><span class="pre">increm
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE em caso de sucesso, FALSO em falha</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE em caso de sucesso, FALSE em falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
@@ -584,7 +583,7 @@ in order to allow usage of <tt class="docutils literal"><span class="pre">increm
 </tr>
 </tbody>
 </table>
-<p>Este método eliminará um item específico da loja de cache. Se a eliminação do item falhar, o método retornará FALSO.</p>
+<p>Este método eliminará um item específico da loja de cache. Se a eliminação do item falhar, o método retornará FALSE.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;cache_item_id&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -603,7 +602,7 @@ in order to allow usage of <tt class="docutils literal"><span class="pre">increm
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Novo valor no sucesso, FALSO em falha</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Novo valor no sucesso, FALSE em falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários</p>
@@ -634,7 +633,7 @@ in order to allow usage of <tt class="docutils literal"><span class="pre">increm
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Novo valor no sucesso, FALSO em falha</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Novo valor no sucesso, FALSE em falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários</p>
@@ -659,13 +658,13 @@ in order to allow usage of <tt class="docutils literal"><span class="pre">increm
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">VERDADEIRO em caso de sucesso, FALSO em falha</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE em caso de sucesso, FALSE em falha</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">booleano</td>
 </tr>
 </tbody>
 </table>
-<p>Este método irá "limpar" todo o cache. Se a exclusão dos arquivos de cache falhar, o método retornará FALSO.</p>
+<p>Este método irá "limpar" todo o cache. Se a exclusão dos arquivos de cache falhar, o método retornará FALSE.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">clean</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -774,7 +773,7 @@ in order to allow usage of <tt class="docutils literal"><span class="pre">increm
 <h3><a class="toc-backref" href="#id8">Redis Caching</a><a class="headerlink" href="#redis-caching" title="Permalink to this headline">¶</a></h3>
 <p>Redis é uma loja de valores-chave na memória que pode operar no modo de cache LRU. Para usá-lo, você precisa da <a class="reference external" href="https://github.com/phpredis/phpredis">extensão do PHP Redis server e phpredis.</a>.</p>
 <p>As opções de configuração para se conectar ao servidor redis devem ser armazenadas no arquivo application/config/redis.php. As opções disponíveis são:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;socket_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tcp&#39;</span><span class="p">;</span> <span class="c1">//`tcp` or `unix`</span>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;socket_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tcp&#39;</span><span class="p">;</span> <span class="c1">//`tcp` ou `unix`</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;socket&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/var/run/redis.sock&#39;</span><span class="p">;</span> <span class="c1">// No caso do tipo de soquete `unix`</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
