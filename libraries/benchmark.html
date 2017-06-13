@@ -501,7 +501,7 @@ O processo de uso é o seguinte:</p>
 </div>
 <div class="section" id="displaying-total-execution-time">
 <h3><a class="toc-backref" href="#id3">Mostrando o Tempo Total de Execução</a><a class="headerlink" href="#displaying-total-execution-time" title="Permalink to this headline">¶</a></h3>
-<p>Se você quiser exibir o tempo total decorrido a partir do momento em que o CodeIgniter começa até o momento em que a saída final é enviada para o navegador, basta colocar isso em um dos suas visões de exibição:</p>
+<p>Se você quiser exibir o tempo total decorrido a partir do momento em que o CodeIgniter começa até o momento em que a saída final é enviada para o navegador, basta colocar isso em uma das suas visões de exibição:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">elapsed_time</span><span class="p">();</span><span class="cp">?&gt;</span>
 </pre></div>
 </div>
@@ -564,9 +564,9 @@ O processo de uso é o seguinte:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$point1</strong> (<em>string</em>) &#8211; a particular marked point</li>
-<li><strong>$point2</strong> (<em>string</em>) &#8211; a particular marked point</li>
-<li><strong>$decimals</strong> (<em>int</em>) &#8211; number of decimal places for precision</li>
+<li><strong>$point1</strong> (<em>string</em>) &#8211; um ponto particular marcado</li>
+<li><strong>$point2</strong> (<em>string</em>) &#8211; um ponto particular marcado</li>
+<li><strong>$decimals</strong> (<em>int</em>) &#8211; número de casas decimais para precisão</li>
 </ul>
 </td>
 </tr>
@@ -595,10 +595,9 @@ Pseudo-variável. Isso permite que o tempo total de execução do sistema seja m
 </tr>
 </tbody>
 </table>
-<p>Simply returns the <tt class="docutils literal"><span class="pre">{memory_usage}</span></tt> marcador.</p>
+<p>Simplesmente retorna o marcador <tt class="docutils literal"><span class="pre">{memory_usage}</span></tt>.</p>
 <p>Isso permite que ele seja colocado em qualquer lugar em um modelo sem a memória sendo calculada até o fim. 
-A <a class="reference internal" href="output.html"><em>Classe de Saída</em></a> will
-irá trocar o valor real dessa variável.</p>
+A <a class="reference internal" href="output.html"><em>Classe de Saída</em></a> irá trocar o valor real dessa variável.</p>
 </dd></dl>
 
 </dd></dl>
