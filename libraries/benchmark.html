@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Bibliotecas</a> &raquo;</li>
 
-    <li>Classe de Avaliação Comparativa</li>
+    <li>Classe de Benchmark</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,44 +424,38 @@
           <div role="main" class="document">
 
   <div class="section" id="benchmarking-class">
-<h1>Classe de Avaliação Comparativa<a class="headerlink" href="#benchmarking-class" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter has a Benchmarking class that is always active, enabling the
-time difference between any two marked points to be calculated.</p>
+<h1>Classe de Benchmark<a class="headerlink" href="#benchmarking-class" title="Permalink to this headline">¶</a></h1>
+<p>CodeIgniter tem uma classe de Benchmarking que está sempre ativa, permitindo que a diferença horária entre os dois pontos marcados seja calculada.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This class is initialized automatically by the system so there
-is no need to do it manually.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta classe é inicializada automaticamente pelo sistema, portanto, não há necessidade de fazê-lo manualmente.</p>
 </div>
-<p>In addition, the benchmark is always started the moment the framework is
-invoked, and ended by the output class right before sending the final
-view to the browser, enabling a very accurate timing of the entire
-system execution to be shown.</p>
+<p>Além disso, o benchmark sempre é iniciado no momento em que a estrutura é invocada e terminada pela classe de saída logo antes de enviar a visão final para o navegador, permitindo que seja exibido um tempo muito preciso de execução total do sistema.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#using-the-benchmark-class" id="id1">Using the Benchmark Class</a><ul>
-<li><a class="reference internal" href="#profiling-your-benchmark-points" id="id2">Profiling Your Benchmark Points</a></li>
-<li><a class="reference internal" href="#displaying-total-execution-time" id="id3">Displaying Total Execution Time</a></li>
-<li><a class="reference internal" href="#displaying-memory-consumption" id="id4">Displaying Memory Consumption</a></li>
+<li><a class="reference internal" href="#using-the-benchmark-class" id="id1">Usando a Classe de Benchmark</a><ul>
+<li><a class="reference internal" href="#profiling-your-benchmark-points" id="id2">Perfis dos Pontos de Benchmarking</a></li>
+<li><a class="reference internal" href="#displaying-total-execution-time" id="id3">Mostrando o Tempo Total de Execução</a></li>
+<li><a class="reference internal" href="#displaying-memory-consumption" id="id4">Mostrando o Consumo de Memória</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#class-reference" id="id5">Class Reference</a></li>
+<li><a class="reference internal" href="#class-reference" id="id5">Referência de Classe</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="using-the-benchmark-class">
-<h2><a class="toc-backref" href="#id1">Using the Benchmark Class</a><a class="headerlink" href="#using-the-benchmark-class" title="Permalink to this headline">¶</a></h2>
-<p>The Benchmark class can be used within your
-<a class="reference internal" href="../general/controllers.html"><em>controllers</em></a>,
-<a class="reference internal" href="../general/views.html"><em>views</em></a>, or your <a class="reference internal" href="../general/models.html"><em>models</em></a>.
-The process for usage is this:</p>
+<h2><a class="toc-backref" href="#id1">Usando a Classe de Benchmark</a><a class="headerlink" href="#using-the-benchmark-class" title="Permalink to this headline">¶</a></h2>
+<p>A classe Benchmark pode ser usada dentro de seus <a class="reference internal" href="../general/controllers.html"><em>controllers</em></a>,
+<a class="reference internal" href="../general/views.html"><em>visões</em></a>, ou em seus <a class="reference internal" href="../general/models.html"><em>models</em></a>.
+O processo de uso é o seguinte:</p>
 <ol class="arabic simple">
-<li>Mark a start point</li>
-<li>Mark an end point</li>
-<li>Run the &#8220;elapsed time&#8221; function to view the results</li>
+<li>Marque um ponto de partida</li>
+<li>Marque um ponto final</li>
+<li>Execute a função "tempo decorrido" para ver os resultados</li>
 </ol>
-<p>Here&#8217;s an example using real code:</p>
+<p>Aqui está um exemplo usando o código real:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">mark</span><span class="p">(</span><span class="s1">&#39;code_start&#39;</span><span class="p">);</span>
 
-<span class="c1">// Some code happens here</span>
+<span class="c1">// Algum código acontece aqui</span>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">mark</span><span class="p">(</span><span class="s1">&#39;code_end&#39;</span><span class="p">);</span>
 
@@ -469,17 +463,15 @@ The process for usage is this:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>The words &#8220;code_start&#8221; and &#8220;code_end&#8221; are arbitrary. They
-are simply words used to set two markers. You can use any words you
-want, and you can set multiple sets of markers. Consider this example:</p>
+<p class="first admonition-title">Nota</p>
+<p>As palavras "code_start" e "code_end" são arbitrárias. São apenas palavras usadas para definir dois marcadores. Você pode usar as palavras que deseja, e você pode definir vários conjuntos de marcadores. Considere este exemplo:</p>
 <div class="last highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">mark</span><span class="p">(</span><span class="s1">&#39;dog&#39;</span><span class="p">);</span>
 
-<span class="c1">// Some code happens here</span>
+<span class="c1">// Algum código acontece aqui</span>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">mark</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">);</span>
 
-<span class="c1">// More code happens here</span>
+<span class="c1">// Mais algum código acontece aqui</span>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">mark</span><span class="p">(</span><span class="s1">&#39;bird&#39;</span><span class="p">);</span>
 
@@ -490,11 +482,8 @@ want, and you can set multiple sets of markers. Consider this example:</p>
 </div>
 </div>
 <div class="section" id="profiling-your-benchmark-points">
-<h3><a class="toc-backref" href="#id2">Profiling Your Benchmark Points</a><a class="headerlink" href="#profiling-your-benchmark-points" title="Permalink to this headline">¶</a></h3>
-<p>If you want your benchmark data to be available to the
-<a class="reference internal" href="../general/profiling.html"><em>Profiler</em></a> all of your marked points must
-be set up in pairs, and each mark point name must end with _start and
-_end. Each pair of points must otherwise be named identically. Example:</p>
+<h3><a class="toc-backref" href="#id2">Perfis dos Pontos de Benchmarking</a><a class="headerlink" href="#profiling-your-benchmark-points" title="Permalink to this headline">¶</a></h3>
+<p>Se você quiser que seus dados de referência estejam disponíveis para <a class="reference internal" href="../general/profiling.html"><em>Perfis</em></a>, todos os seus pontos marcados devem ser configurados em pares e cada nome do ponto de marca deve terminar com _start e _end. Cada par de pontos devem ser nomeados de forma idêntica. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">mark</span><span class="p">(</span><span class="s1">&#39;my_mark_start&#39;</span><span class="p">);</span>
 
 <span class="c1">// Some code happens here...</span>
@@ -508,56 +497,42 @@ _end. Each pair of points must otherwise be named identically. Example:</p>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">mark</span><span class="p">(</span><span class="s1">&#39;another_mark_end&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Please read the <a class="reference internal" href="../general/profiling.html"><em>Profiler page</em></a> for more
-information.</p>
+<p>Leia a página <a class="reference internal" href="../general/profiling.html"><em>Perfis</em></a> para obter mais informações.</p>
 </div>
 <div class="section" id="displaying-total-execution-time">
-<h3><a class="toc-backref" href="#id3">Displaying Total Execution Time</a><a class="headerlink" href="#displaying-total-execution-time" title="Permalink to this headline">¶</a></h3>
-<p>If you would like to display the total elapsed time from the moment
-CodeIgniter starts to the moment the final output is sent to the
-browser, simply place this in one of your view templates:</p>
+<h3><a class="toc-backref" href="#id3">Mostrando o Tempo Total de Execução</a><a class="headerlink" href="#displaying-total-execution-time" title="Permalink to this headline">¶</a></h3>
+<p>Se você quiser exibir o tempo total decorrido a partir do momento em que o CodeIgniter começa até o momento em que a saída final é enviada para o navegador, basta colocar isso em um dos suas visões de exibição:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">elapsed_time</span><span class="p">();</span><span class="cp">?&gt;</span>
 </pre></div>
 </div>
-<p>You&#8217;ll notice that it&#8217;s the same function used in the examples above to
-calculate the time between two point, except you are <strong>not</strong> using any
-parameters. When the parameters are absent, CodeIgniter does not stop
-the benchmark until right before the final output is sent to the
-browser. It doesn&#8217;t matter where you use the function call, the timer
-will continue to run until the very end.</p>
-<p>An alternate way to show your elapsed time in your view files is to use
-this pseudo-variable, if you prefer not to use the pure PHP:</p>
+<p>Você notará que é a mesma função usada nos exemplos acima para calcular o tempo entre dois pontos, exceto que você <strong>não</strong> está usando nenhum parâmetro. Quando os parâmetros estão ausentes, o CodeIgniter não para o benchmark até logo antes que o resultado final seja enviado ao navegador. Não importa onde você use a chamada de função, o temporizador continuará a funcionar até o final.</p>
+<p>Uma maneira alternativa de mostrar o tempo decorrido em seus arquivos de exibição é usar essa pseudo-variável, se você preferir não usar o PHP puro:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="p">{</span><span class="nx">elapsed_time</span><span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you want to benchmark anything within your controller
-functions you must set your own start/end points.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Se você quiser comparar tudo nas funções do seu controlador, você deve definir seus próprios pontos de início/fim.</p>
 </div>
 </div>
 <div class="section" id="displaying-memory-consumption">
-<h3><a class="toc-backref" href="#id4">Displaying Memory Consumption</a><a class="headerlink" href="#displaying-memory-consumption" title="Permalink to this headline">¶</a></h3>
-<p>If your PHP installation is configured with &#8211;enable-memory-limit, you
-can display the amount of memory consumed by the entire system using the
-following code in one of your view file:</p>
+<h3><a class="toc-backref" href="#id4">Mostrando o Consumo de Memória</a><a class="headerlink" href="#displaying-memory-consumption" title="Permalink to this headline">¶</a></h3>
+<p>Se sua instalação PHP estiver configurada com -enable-memory-limit, você pode exibir a quantidade de memória consumida por todo o sistema usando o seguinte código em um de seus arquivos de exibição:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span><span class="o">-&gt;</span><span class="na">memory_usage</span><span class="p">();</span><span class="cp">?&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function can only be used in your view files. The consumption
-will reflect the total memory used by the entire app.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta função só pode ser usada em seus arquivos de exibição. O consumo refletirá a memória total usada por todo o aplicativo.</p>
 </div>
-<p>An alternate way to show your memory usage in your view files is to use
-this pseudo-variable, if you prefer not to use the pure PHP:</p>
+<p>Uma maneira alternativa de mostrar seu uso de memória em seus arquivos de exibição é usar esta pseudo-variável, se você preferir não usar o PHP puro:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="p">{</span><span class="nx">memory_usage</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id5">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Referência de Classe</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CI_Benchmark">
 <em class="property">class </em><tt class="descname">CI_Benchmark</tt><a class="headerlink" href="#CI_Benchmark" title="Permalink to this definition">¶</a></dt>
@@ -569,16 +544,16 @@ this pseudo-variable, if you prefer not to use the pure PHP:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$name</strong> (<em>string</em>) &#8211; the name you wish to assign to your marker</li>
+<li><strong>$name</strong> (<em>string</em>) &#8211; O nome que você deseja atribuir ao seu marcador</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">void</p>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">nada</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Sets a benchmark marker.</p>
+<p>Define um marcador de referência..</p>
 </dd></dl>
 
 <dl class="method">
@@ -595,7 +570,7 @@ this pseudo-variable, if you prefer not to use the pure PHP:</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Elapsed time</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Tempo gasto</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -603,13 +578,10 @@ this pseudo-variable, if you prefer not to use the pure PHP:</p>
 </tr>
 </tbody>
 </table>
-<p>Calculates and returns the time difference between two marked points.</p>
-<p>If the first parameter is empty this function instead returns the
-<tt class="docutils literal"><span class="pre">{elapsed_time}</span></tt> pseudo-variable. This permits the full system
-execution time to be shown in a template. The output class will
-swap the real value for this variable.</p>
+<p>Calcula e retorna a diferença de tempo entre dois pontos marcados.</p>
+<p>Se o primeiro parâmetro estiver vazio, esta função retornará o <tt class="docutils literal"><span class="pre">{elapsed_time}</span></tt>
+Pseudo-variável. Isso permite que o tempo total de execução do sistema seja mostrado em um modelo. A classe de saída irá trocar o valor real dessa variável</p>
 </dd></dl>
-
 <dl class="method">
 <dt id="CI_Benchmark::memory_usage">
 <tt class="descname">memory_usage</tt><big>(</big><big>)</big><a class="headerlink" href="#CI_Benchmark::memory_usage" title="Permalink to this definition">¶</a></dt>
@@ -617,16 +589,16 @@ swap the real value for this variable.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Memory usage info</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Informações de uso da memória</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">string</td>
 </tr>
 </tbody>
 </table>
-<p>Simply returns the <tt class="docutils literal"><span class="pre">{memory_usage}</span></tt> marker.</p>
-<p>This permits it to be put it anywhere in a template without the memory
-being calculated until the end. The <a class="reference internal" href="output.html"><em>Classe de Saída</em></a> will
-swap the real value for this variable.</p>
+<p>Simply returns the <tt class="docutils literal"><span class="pre">{memory_usage}</span></tt> marcador.</p>
+<p>Isso permite que ele seja colocado em qualquer lugar em um modelo sem a memória sendo calculada até o fim. 
+A <a class="reference internal" href="output.html"><em>Classe de Saída</em></a> will
+irá trocar o valor real dessa variável.</p>
 </dd></dl>
 
 </dd></dl>

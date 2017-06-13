@@ -411,7 +411,7 @@
 
         <li><a href="index.html">Bibliotecas</a> &raquo;</li>
 
-    <li>Caching Driver</li>
+    <li>Driver de cache</li>
     <li class="wy-breadcrumbs-aside">
 
     </li>
@@ -424,57 +424,51 @@
           <div role="main" class="document">
 
   <div class="section" id="caching-driver">
-<h1>Caching Driver<a class="headerlink" href="#caching-driver" title="Permalink to this headline">¶</a></h1>
-<p>CodeIgniter features wrappers around some of the most popular forms of
-fast and dynamic caching. All but file-based caching require specific
-server requirements, and a Fatal Exception will be thrown if server
-requirements are not met.</p>
+<h1>Driver de cache<a class="headerlink" href="#caching-driver" title="Permalink to this headline">¶</a></h1>
+<p>O CodeIgniter apresenta empacotamento em torno de algumas das formas mais populares de armazenamento em cache rápido e dinâmico. Todos, exceto o cache baseado em arquivos, exigem requisitos específicos do servidor, e uma exceção fatal será lançada se os requisitos do servidor não forem atendidos.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#example-usage" id="id1">Example Usage</a></li>
-<li><a class="reference internal" href="#class-reference" id="id2">Class Reference</a></li>
+<li><a class="reference internal" href="#example-usage" id="id1">Exemplo de Uso</a></li>
+<li><a class="reference internal" href="#class-reference" id="id2">Referência de Classe</a></li>
 <li><a class="reference internal" href="#drivers" id="id3">Drivers</a><ul>
-<li><a class="reference internal" href="#alternative-php-cache-apc-caching" id="id4">Alternative PHP Cache (APC) Caching</a></li>
-<li><a class="reference internal" href="#file-based-caching" id="id5">File-based Caching</a></li>
+<li><a class="reference internal" href="#alternative-php-cache-apc-caching" id="id4">Alternativa de Cache com PHP (APC) Caching</a></li>
+<li><a class="reference internal" href="#file-based-caching" id="id5">Armazenamento em cache baseado em arquivo</a></li>
 <li><a class="reference internal" href="#memcached-caching" id="id6">Memcached Caching</a></li>
 <li><a class="reference internal" href="#wincache-caching" id="id7">WinCache Caching</a></li>
 <li><a class="reference internal" href="#redis-caching" id="id8">Redis Caching</a></li>
-<li><a class="reference internal" href="#dummy-cache" id="id9">Dummy Cache</a></li>
+<li><a class="reference internal" href="#dummy-cache" id="id9">Cache Simulado</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="example-usage">
-<h2><a class="toc-backref" href="#id1">Example Usage</a><a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example will load the cache driver, specify <a class="reference external" href="#alternative-php-cache-apc-caching">APC</a>
-as the driver to use, and fall back to file-based caching if APC is not
-available in the hosting environment.</p>
+<h2><a class="toc-backref" href="#id1">Examplo de Uso</a><a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<p>O exemplo a seguir irá carregar o driver de cache, especificar o <a class="reference external" href="#alternative-php-cache-apc-caching">APC</a> como o driver a ser usado e retornar ao armazenamento em cache baseado em arquivos se a APC não estiver disponível no ambiente de hospedagem. </p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;adapter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;apc&#39;</span><span class="p">,</span> <span class="s1">&#39;backup&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;file&#39;</span><span class="p">));</span>
 
 <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">))</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;Saving to the cache!&lt;br /&gt;&#39;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;Salvando o cache!!&lt;br /&gt;&#39;</span><span class="p">;</span>
         <span class="nv">$foo</span> <span class="o">=</span> <span class="s1">&#39;foobarbaz!&#39;</span><span class="p">;</span>
 
-        <span class="c1">// Save into the cache for 5 minutes</span>
+        <span class="c1">// Salve no cache por 5 minutos</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nv">$foo</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>You can also prefix cache item names via the <strong>key_prefix</strong> setting, which is useful
-to avoid collisions when you&#8217;re running multiple applications on the same environment.</p>
+<p>Você também pode prefixar nomes de itens de cache pela configuração <strong>key_prefix</strong>, o que é útil para evitar colisões quando você está executando várias aplicações no mesmo ambiente.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">,</span>
         <span class="k">array</span><span class="p">(</span><span class="s1">&#39;adapter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;apc&#39;</span><span class="p">,</span> <span class="s1">&#39;backup&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;key_prefix&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;my_&#39;</span><span class="p">)</span>
 <span class="p">);</span>
 
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span> <span class="c1">// Will get the cache entry named &#39;my_foo&#39;</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span> <span class="c1">// Obterá a entrada do cache chamada &#39;my_foo&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id2">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Referência de Classe</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CI_Cache">
 <em class="property">class </em><tt class="descname">CI_Cache</tt><a class="headerlink" href="#CI_Cache" title="Permalink to this definition">¶</a></dt>
@@ -486,27 +480,24 @@ to avoid collisions when you&#8217;re running multiple applications on the same 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$driver</strong> (<em>string</em>) &#8211; the name of the caching driver</li>
+<li><strong>$driver</strong> (<em>string</em>) &#8211;   O nome do driver de armazenamento em cache</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE if supported, FALSE if not</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">VERDADEIRO se suportado, FALSO se não</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This method is automatically called when accessing drivers via
-<tt class="docutils literal"><span class="pre">$this-&gt;cache-&gt;get()</span></tt>. However, if the individual drivers are used,
-make sure to call this method to ensure the driver is supported in the
-hosting environment.</p>
+<p>Este método é chamado automaticamente ao acessar os drivers via <tt class="docutils literal"><span class="pre">$this-&gt;cache-&gt;get()</span></tt>. No entanto, se os drivers individuais forem usados, certifique-se de chamar esse método para garantir que o driver seja suportado no ambiente de hospedagem..</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">apc</span><span class="o">-&gt;</span><span class="na">is_supported</span><span class="p">())</span>
 <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">apc</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;my_cache&#39;</span><span class="p">))</span>
         <span class="p">{</span>
-                <span class="c1">// do things.</span>
+                <span class="c1">// nada a fazer.</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -521,20 +512,19 @@ hosting environment.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$id</strong> (<em>string</em>) &#8211; Cache item name</li>
+<li><strong>$id</strong> (<em>string</em>) &#8211; Nome do item de cache</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Item value or FALSE if not found</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Valor do item ou FALSO se não encontrado</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This method will attempt to fetch an item from the cache store. If the
-item does not exist, the method will return FALSE.</p>
+<p>Esse método tentará buscar um item da loja de cache. Se o item não existir, o método retornará FALSO.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;my_cached_item&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -548,14 +538,14 @@ item does not exist, the method will return FALSE.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$id</strong> (<em>string</em>) &#8211; Cache item name</li>
-<li><strong>$data</strong> (<em>mixed</em>) &#8211; the data to save</li>
-<li><strong>$ttl</strong> (<em>int</em>) &#8211; Time To Live, in seconds (default 60)</li>
-<li><strong>$raw</strong> (<em>bool</em>) &#8211; Whether to store the raw value</li>
+<li><strong>$id</strong> (<em>string</em>) &#8211; Nome do item de cache</li>
+<li><strong>$data</strong> (<em>mixed</em>) &#8211; Dados para salvar</li>
+<li><strong>$ttl</strong> (<em>int</em>) &#8211; Tempo de Vida, em segundos (padrão 60)</li>
+<li><strong>$raw</strong> (<em>bool</em>) &#8211; Seja para armazenar o valor bruto</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE on success, FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE em caso de sucesso, FALSO em falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -563,15 +553,14 @@ item does not exist, the method will return FALSE.</p>
 </tr>
 </tbody>
 </table>
-<p>This method will save an item to the cache store. If saving fails, the
-method will return FALSE.</p>
+<p>Esse método salvará um item na loja de cache. Se o salvamento falhar, o método retornará FALSO.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;cache_item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;data_to_cache&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The <tt class="docutils literal"><span class="pre">$raw</span></tt> parameter is only utilized by APC and Memcache,
-in order to allow usage of <tt class="docutils literal"><span class="pre">increment()</span></tt> and <tt class="docutils literal"><span class="pre">decrement()</span></tt>.</p>
+<p class="last">O parâmetro <tt class="docutils literal"><span class="pre">$raw</span></tt> é utilizado apenas pela APC e Memcache, para permitir o uso dos
+in order to allow usage of <tt class="docutils literal"><span class="pre">increment()</span></tt> e <tt class="docutils literal"><span class="pre">decrement()</span></tt>.</p>
 </div>
 </dd></dl>
 
@@ -583,20 +572,19 @@ in order to allow usage of <tt class="docutils literal"><span class="pre">increm
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$id</strong> (<em>string</em>) &#8211; name of cached item</li>
+<li><strong>$id</strong> (<em>string</em>) &#8211; Nome do item em cache</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE on success, FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">TRUE em caso de sucesso, FALSO em falha</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">booleano</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This method will delete a specific item from the cache store. If item
-deletion fails, the method will return FALSE.</p>
+<p>Este método eliminará um item específico da loja de cache. Se a eliminação do item falhar, o método retornará FALSO.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;cache_item_id&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -610,25 +598,25 @@ deletion fails, the method will return FALSE.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$id</strong> (<em>string</em>) &#8211; Cache ID</li>
-<li><strong>$offset</strong> (<em>int</em>) &#8211; Step/value to add</li>
+<li><strong>$id</strong> (<em>string</em>) &#8211; ID do Cache</li>
+<li><strong>$offset</strong> (<em>int</em>) &#8211; Passo / valor para adicionar</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">New value on success, FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Novo valor no sucesso, FALSO em falha</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Performs atomic incrementation of a raw stored value.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// &#39;iterator&#39; has a value of 2</span>
+<p>Executa a incrementação atômica de um valor bruto armazenado.</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// &#39;iterador&#39; tem o valor de 2</span>
 
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">increment</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 3</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">increment</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">);</span> <span class="c1">// &#39;iterador&#39; agora é 3</span>
 
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">increment</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 6</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">increment</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// &#39;iterador&#39; agora é 6</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -641,25 +629,25 @@ deletion fails, the method will return FALSE.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$id</strong> (<em>string</em>) &#8211; Cache ID</li>
-<li><strong>$offset</strong> (<em>int</em>) &#8211; Step/value to reduce by</li>
+<li><strong>$id</strong> (<em>string</em>) &#8211; Cache ID do Cache</li>
+<li><strong>$offset</strong> (<em>int</em>) &#8211; Passo / valor a reduzir por</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">New value on success, FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Novo valor no sucesso, FALSO em falha</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Performs atomic decrementation of a raw stored value.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// &#39;iterator&#39; has a value of 6</span>
+<p>Executa a decrementação atômica de um valor bruto armazenado.</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// &#39;iterador&#39; tem o valor de 6</span>
 
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">decrement</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 5</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">decrement</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">);</span> <span class="c1">// &#39;iterador&#39; agora é 5</span>
 
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">decrement</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 3</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">decrement</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// &#39;iterador&#39; agora é 3</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -671,14 +659,13 @@ deletion fails, the method will return FALSE.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">TRUE on success, FALSE on failure</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">VERDADEIRO em caso de sucesso, FALSO em falha</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">bool</td>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">booleano</td>
 </tr>
 </tbody>
 </table>
-<p>This method will &#8216;clean&#8217; the entire cache. If the deletion of the
-cache files fails, the method will return FALSE.</p>
+<p>Este método irá "limpar" todo o cache. Se a exclusão dos arquivos de cache falhar, o método retornará FALSO.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">clean</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -691,20 +678,19 @@ cache files fails, the method will return FALSE.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Information on the entire cache database</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Informações sobre todo o banco de dados do cache</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">mixed</td>
+<tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">vários</td>
 </tr>
 </tbody>
 </table>
-<p>This method will return information on the entire cache.</p>
+<p>Este método irá retornar informações sobre todo o cache.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nb">var_dump</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">cache_info</span><span class="p">());</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The information returned and the structure of the data is dependent
-on which adapter is being used.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">As informações retornadas e a estrutura dos dados dependem de qual adaptador está sendo usado.</p>
 </div>
 </dd></dl>
 
@@ -716,27 +702,25 @@ on which adapter is being used.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$id</strong> (<em>string</em>) &#8211; Cache item name</li>
+<li><strong>$id</strong> (<em>string</em>) &#8211; Nome do item de cache</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Metadata for the cached item</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Metadados para o item em cache</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
+<tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">vários</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This method will return detailed information on a specific item in the
-cache.</p>
+<p>Este método irá retornar informações detalhadas sobre um item específico no cache.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nb">var_dump</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">get_metadata</span><span class="p">(</span><span class="s1">&#39;my_cached_item&#39;</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The information returned and the structure of the data is dependent
-on which adapter is being used.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">As informações retornadas e a estrutura dos dados dependem de qual adaptador está sendo usado.</p>
 </div>
 </dd></dl>
 
@@ -746,24 +730,19 @@ on which adapter is being used.</p>
 <div class="section" id="drivers">
 <h2><a class="toc-backref" href="#id3">Drivers</a><a class="headerlink" href="#drivers" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="alternative-php-cache-apc-caching">
-<h3><a class="toc-backref" href="#id4">Alternative PHP Cache (APC) Caching</a><a class="headerlink" href="#alternative-php-cache-apc-caching" title="Permalink to this headline">¶</a></h3>
-<p>All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows:</p>
+<h3><a class="toc-backref" href="#id4">Alternativa de Cache com PHP (APC) Caching</a><a class="headerlink" href="#alternative-php-cache-apc-caching" title="Permalink to this headline">¶</a></h3>
+<p>Todos os métodos listados acima podem ser acessados ​​sem passar por um adaptador específico para o carregador do driver da seguinte maneira:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">apc</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>For more information on APC, please see
+<p>Para obter mais informações sobre a APC, consulte
 <a class="reference external" href="http://php.net/apc">http://php.net/apc</a>.</p>
 </div>
 <div class="section" id="file-based-caching">
-<h3><a class="toc-backref" href="#id5">File-based Caching</a><a class="headerlink" href="#file-based-caching" title="Permalink to this headline">¶</a></h3>
-<p>Unlike caching from the Classe de Saída, the driver file-based caching
-allows for pieces of view files to be cached. Use this with care, and
-make sure to benchmark your application, as a point can come where disk
-I/O will negate positive gains by caching.</p>
-<p>All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows:</p>
+<h3><a class="toc-backref" href="#id5">Armazenamento em cache baseado em arquivo</a><a class="headerlink" href="#file-based-caching" title="Permalink to this headline">¶</a></h3>
+<p>Ao contrário do cache da Classe de Saída, o armazenamento em cache baseado em arquivos do driver permite que os arquivos de exibição sejam armazenados em cache. Use isso com cuidado, e certifique-se de comparar o seu aplicativo, pois um ponto pode vir onde o disco I/O irá negar ganhos positivos pelo armazenamento em cache</p>
+<p>Todos os métodos listados acima podem ser acessados ​​sem passar por um adaptador específico para o carregador do driver da seguinte maneira:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">file</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 </pre></div>
@@ -771,57 +750,49 @@ specific adapter to the driver loader as follows:</p>
 </div>
 <div class="section" id="memcached-caching">
 <h3><a class="toc-backref" href="#id6">Memcached Caching</a><a class="headerlink" href="#memcached-caching" title="Permalink to this headline">¶</a></h3>
-<p>Multiple Memcached servers can be specified in the memcached.php
-configuration file, located in the _application/config/* directory.</p>
-<p>All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows:</p>
+<p>Vários servidores Memcached podem ser especificados no arquivo de configuração memcached.php, localizado no diretório _application/config/* .</p>
+<p>Todos os métodos listados acima podem ser acessados ​​sem passar por um adaptador específico para o carregador do driver da seguinte maneira:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">memcached</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>For more information on Memcached, please see
+<p>Para obter mais informações sobre o Memcached, consulte
 <a class="reference external" href="http://php.net/memcached">http://php.net/memcached</a>.</p>
 </div>
 <div class="section" id="wincache-caching">
 <h3><a class="toc-backref" href="#id7">WinCache Caching</a><a class="headerlink" href="#wincache-caching" title="Permalink to this headline">¶</a></h3>
-<p>Under Windows, you can also utilize the WinCache driver.</p>
-<p>All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows:</p>
+<p>No Windows, você também pode utilizar o driver WinCache.</p>
+<p>Todos os métodos listados acima podem ser acessados ​​sem passar por um adaptador específico para o carregador do driver da seguinte maneira:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">wincache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>For more information on WinCache, please see
+<p>Para obter mais informações sobre o WinCache, consulte
 <a class="reference external" href="http://php.net/wincache">http://php.net/wincache</a>.</p>
 </div>
 <div class="section" id="redis-caching">
 <h3><a class="toc-backref" href="#id8">Redis Caching</a><a class="headerlink" href="#redis-caching" title="Permalink to this headline">¶</a></h3>
-<p>Redis is an in-memory key-value store which can operate in LRU cache mode.
-To use it, you need <a class="reference external" href="https://github.com/phpredis/phpredis">Redis server and phpredis PHP extension</a>.</p>
-<p>Config options to connect to redis server must be stored in the application/config/redis.php file.
-Available options are:</p>
+<p>Redis é uma loja de valores-chave na memória que pode operar no modo de cache LRU. Para usá-lo, você precisa da <a class="reference external" href="https://github.com/phpredis/phpredis">extensão do PHP Redis server e phpredis.</a>.</p>
+<p>As opções de configuração para se conectar ao servidor redis devem ser armazenadas no arquivo application/config/redis.php. As opções disponíveis são:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;socket_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tcp&#39;</span><span class="p">;</span> <span class="c1">//`tcp` or `unix`</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;socket&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/var/run/redis.sock&#39;</span><span class="p">;</span> <span class="c1">// in case of `unix` socket type</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;socket&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/var/run/redis.sock&#39;</span><span class="p">;</span> <span class="c1">// No caso do tipo de soquete `unix`</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6379</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows:</p>
+<p>Todos os métodos listados acima podem ser acessados ​​sem passar por um adaptador específico para o carregador do driver da seguinte maneira:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">driver</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">redis</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>For more information on Redis, please see
+<p>Para obter mais informações sobre a Redis, consulte
 <a class="reference external" href="http://redis.io">http://redis.io</a>.</p>
 </div>
 <div class="section" id="dummy-cache">
-<h3><a class="toc-backref" href="#id9">Dummy Cache</a><a class="headerlink" href="#dummy-cache" title="Permalink to this headline">¶</a></h3>
-<p>This is a caching backend that will always &#8216;miss.&#8217; It stores no data,
-but lets you keep your caching code in place in environments that don&#8217;t
-support your chosen cache.</p>
+<h3><a class="toc-backref" href="#id9">Cache Simulado</a><a class="headerlink" href="#dummy-cache" title="Permalink to this headline">¶</a></h3>
+<p>Este é um backend de armazenamento em cache que sempre "perca". Ele não armazena dados, mas permite manter seu código de cache em locais que não suportam o cache escolhido.</p>
 </div>
 </div>
 </div>
