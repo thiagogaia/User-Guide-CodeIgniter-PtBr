@@ -22,6 +22,7 @@ Uma lista pode ser acompanhada no trello em: https://trello.com/b/s2JpLhqc
 * Vitors Silva Lima / [github](https://github.com/vitorsilvalima)
 * Marcos Pereira / [github](https://github.com/mvnp)
 * Cesar Edenir Balzer / [github](https://github.com/CesarBalzer)
+* Rafael Pinheiro / [github](https://github.com/rafaelwendel)
 
 https://github.com/CIBr/User-Guide-CodeIgniter-PtBr/graphs/contributors
 

@@ -425,8 +425,7 @@
 
   <div class="section" id="text-helper">
 <h1>Auxiliar de Texto<a class="headerlink" href="#text-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Texto file contains functions that assist in working with
-text.</p>
+<p>O arquivo Auxiliar de Texto contêm funções que auxiliam no trabalho com texto.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -466,7 +465,7 @@ text.</p>
 </tbody>
 </table>
 <p>Trunca uma string com o número de <em>palavras</em> especificadas. Exemplo:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui tem um bom texto string composto com onze palavras.&quot;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui tem um bom texto string composto com dez palavras.&quot;</span><span class="p">;</span>
 <span class="nv">$string</span> <span class="o">=</span> <span class="nx">word_limiter</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
 <span class="c1">// Retorna:  Aqui tem um bom</span>
 </pre></div>
@@ -498,9 +497,9 @@ text.</p>
 </table>
 <p>Trunca uma string com o número de <em>caracteres</em> especificados. Ele 
 mantém a integridade das palavras, então a quantidade de caracateres pode ser um 
-pouco diferente de sua especificação</p>
+pouco diferente de sua especificação.</p>
 <p>Exemplo:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui tem um bom texto string composto de onze palavras.&quot;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Aqui tem um bom texto string composto de dez palavras.&quot;</span><span class="p">;</span>
 <span class="nv">$string</span> <span class="o">=</span> <span class="nx">character_limiter</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="c1">// Retorna:  Aqui tem um bom texto string</span>
 </pre></div>
@@ -539,7 +538,7 @@ do MS Word que podem causar problemas quando usados em uma página da web. Dessa
 poderão ser mostrados de forma consistente, independente das configurações do navegador ou
 serem armazenados de forma confiável em um banco de dados. Existem algumas dependências dos 
 conjuntos de caracteres suportados pelo seu servidor, portanto pode ser que a função não funcione
-100% em todos os casos, mas na maioria das vezes ela indentificará corretamente os caracteres
+100% em todos os casos, mas na maioria das vezes ela identificará corretamente os caracteres
 fora do normal (como caracteres com acentos).</p>
 <p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">ascii_to_entities</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
@@ -605,7 +604,7 @@ array de conversão.</p>
 </tbody>
 </table>
 <p>Permite que você censure as palavras dentro de uma string de texto. O primeiro parâmetro
-deverá conter a tring original. O segundo parâmetro deverá conter um array de palavras
+deverá conter a string original. O segundo parâmetro deverá conter um array de palavras
 que você proíbe. O terceiro parâmetro (opcional) pode conter o valor que substituirá
 as palavras. Se não for especificado serão utilizados caracteres: ###</p>
 <p>Exemplo:</p>
@@ -763,7 +762,7 @@ a reticência será inserida, sendo 0 - 1, esquerda para a direita. Por exemplo,
 <span class="k">echo</span> <span class="nx">ellipsize</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Produces:</p>
+<p>Produz:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">this_string_is_e</span><span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;</span><span class="nx">ak_my_design</span><span class="o">.</span><span class="nx">jpg</span>
 </pre></div>
 </div>
