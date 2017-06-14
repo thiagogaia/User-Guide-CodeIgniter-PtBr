@@ -426,7 +426,7 @@
   <div class="section" id="typography-helper">
 <h1>Auxiliar de Tipografia<a class="headerlink" href="#typography-helper" title="Permalink to this headline">¶</a></h1>
 <p>O arquivo Auxiliar de Tipografia contêm funções que ajudam a formatar texto
-de modo semanticamente relavante.</p>
+de modo semanticamente relevante.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -451,12 +451,12 @@ de modo semanticamente relavante.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$reduce_linebreaks</strong> (<em>bool</em>) &#8211; Whether to reduce multiple instances of double newlines to two</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
+<li><strong>$reduce_linebreaks</strong> (<em>bool</em>) &#8211; Se para reduzir múltiplas instâncias de novas linhas duplas para dois</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML-formatted typography-safe string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String de tipografia segura com formato HTML</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -464,20 +464,16 @@ de modo semanticamente relavante.</p>
 </tr>
 </tbody>
 </table>
-<p>Formats text so that it is semantically and typographically correct
-HTML.</p>
-<p>This function is an alias for <tt class="docutils literal"><span class="pre">CI_Typography::auto_typography()</span></tt>.
-For more info, please see the <a class="reference internal" href="../libraries/typography.html"><em>Typography Library</em></a> documentation.</p>
-<p>Usage example:</p>
+<p>Formata o texto de forma que seja semanticamente e tipograficamente um HTML correto.</p>
+<p>Esta função é um apelido para <tt class="docutils literal"><span class="pre">CI_Typography::auto_typography()</span></tt>.
+Para mais informações, consulte a documentação da <a class="reference internal" href="../libraries/typography.html"><em>Classe Tipografia</em></a>.</p>
+<p>Exemplo de uso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">auto_typography</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Typographic formatting can be processor intensive, particularly if
-you have a lot of content being formatted. If you choose to use this
-function you may want to consider <a class="reference internal" href="../general/caching.html"><em>caching</em></a> your
-pages.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">A formatação tipográfica pode ser intensiva no processamento, especialmente se você tiver muito conteúdo sendo formatado. Se você optar por usar esta função, você pode querer considerar o armazenamento em <a class="reference internal" href="../general/caching.html"><em>cache</em></a> de suas páginas.</p>
 </div>
 </dd></dl>
 
@@ -489,11 +485,11 @@ pages.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String with HTML-formatted line breaks</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com quebras de linhas formatadas em HTML</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -501,10 +497,10 @@ pages.</p>
 </tr>
 </tbody>
 </table>
-<p>Converts newlines to &lt;br /&gt; tags unless they appear within &lt;pre&gt; tags.
-This function is identical to the native PHP <tt class="docutils literal"><span class="pre">nl2br()</span></tt> function,
-except that it ignores &lt;pre&gt; tags.</p>
-<p>Usage example:</p>
+<p>Converte novas linhas em tags &lt;br /&gt; sem que elas apareçam dentro de tags &lt;pre&gt;.
+Esta função é idêntica à função native PHP <tt class="docutils literal"><span class="pre">nl2br()</span></tt>,
+exceto que ignora as tags &lt;pre&gt;.</p>
+<p>Exemplo de uso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">nl2br_except_pre</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -518,12 +514,12 @@ except that it ignores &lt;pre&gt; tags.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) &#8211; String de entrada</li>
 <li><strong>$charset</strong> (<em>string</em>) &#8211; Character set</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String with decoded HTML entities</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String com entidades HTML descodificadas</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -531,8 +527,8 @@ except that it ignores &lt;pre&gt; tags.</p>
 </tr>
 </tbody>
 </table>
-<p>This function is an alias for <tt class="docutils literal"><span class="pre">CI_Security::entity_decode()</span></tt>.
-Fore more info, please see the <a class="reference internal" href="../libraries/security.html"><em>Security Library</em></a> documentation.</p>
+<p>Esta função é um apelido para <tt class="docutils literal"><span class="pre">CI_Security::entity_decode()</span></tt>.
+Para mais informações, consulte a documentação da <a class="reference internal" href="../libraries/security.html"><em>Classe de Segurança</em></a>.</p>
 </dd></dl>
 
 </div>
