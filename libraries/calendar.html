@@ -430,7 +430,7 @@
 <ul class="simple">
 <li><a class="reference internal" href="#using-the-calendaring-class" id="id1">Usando a Classe de Calendário</a><ul>
 <li><a class="reference internal" href="#initializing-the-class" id="id2">Inicializando a Classe</a></li>
-<li><a class="reference internal" href="#displaying-a-calendar" id="id3">Mostrando o Calendario</a></li>
+<li><a class="reference internal" href="#displaying-a-calendar" id="id3">Mostrando o Calendário</a></li>
 <li><a class="reference internal" href="#passing-data-to-your-calendar-cells" id="id4">Passando Dados para as Células do Calendário</a></li>
 <li><a class="reference internal" href="#setting-display-preferences" id="id5">Configurando Preferências de Exibição</a></li>
 <li><a class="reference internal" href="#showing-next-previous-month-links" id="id6">Mostrando Links do Mês Seguinte/Anterior</a></li>
@@ -441,7 +441,7 @@
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="using-the-calendaring-class">
-<h2><a class="toc-backref" href="#id1">Using the Classe de Calendário</a><a class="headerlink" href="#using-the-calendaring-class" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Usando a Classe de Calendário</a><a class="headerlink" href="#using-the-calendaring-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="initializing-the-class">
 <h3><a class="toc-backref" href="#id2">Inicializando a Classe</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h3>
 <p>Como a maioria das outras classes em CodeIgniter, a classe Calendar é inicializada no seu controlador usando a função $this-&gt;load-&gt;library:</p>
@@ -460,12 +460,12 @@
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>O código acima gerará um calendário para o mês / ano atual com base no tempo do servidor. Para mostrar um calendário por um mês e ano específicos, você passará essas informações para a função de geração do calendário:</p>
+<p>O código acima gerará um calendário para o mês/ano atual com base no tempo do servidor. Para mostrar um calendário por um mês e ano específicos, você passará essas informações para a função de geração do calendário:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;calendar&#39;</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>O código acima gerará um calendário que mostra o mês de junho de 2006. O primeiro parâmetro especifica o ano, o segundo parâmetro especifica o mês.</p>
+<p>O código acima irá gerar um calendário que mostra o mês de junho de 2006. O primeiro parâmetro especifica o ano, o segundo parâmetro especifica o mês.</p>
 </div>
 <div class="section" id="passing-data-to-your-calendar-cells">
 <h3><a class="toc-backref" href="#id4">Passando Dados para as Células do Calendário</a><a class="headerlink" href="#passing-data-to-your-calendar-cells" title="Permalink to this headline">¶</a></h3>
@@ -502,7 +502,7 @@
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>O código acima começaria o calendário no sábado, usaria o título "longo" do mês e os nomes dos "curtos" dias. Mais informações sobre as preferências abaixo.</p>
+<p>O código acima começaria o calendário no sábado, usaria o título "longo" do mês e os nomes dos dias "curtos". Mais informações sobre as preferências abaixo.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="15%" />
@@ -511,10 +511,10 @@
 <col width="45%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Preference</th>
-<th class="head">Default</th>
-<th class="head">Options</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">Preferência</th>
+<th class="head">Padrão</th>
+<th class="head">Opções</th>
+<th class="head">Descrição</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -534,7 +534,7 @@
 </tr>
 <tr class="row-even"><td><strong>start_day</strong></td>
 <td>sunday</td>
-<td>Any week day (sunday, monday, tuesday, etc.)</td>
+<td>Qualquer dia de semana (sunday, monday, tuesday, etc.)</td>
 <td>Define o dia da semana em que o calendário deve começar.</td>
 </tr>
 <tr class="row-odd"><td><strong>month_type</strong></td>
@@ -550,8 +550,8 @@
 <td>abr</td>
 <td>long, short, abr</td>
 <td><dl class="first last docutils">
-<dt>Determina a versão dos nomes dos dias da semana a serem usados ​​nos cabeçalhos das colunas</dt>
-<dd>the column headers. long = Segunda, short = Seg, abr = Su.</dd>
+<dt>Determina a versão dos nomes dos dias da semana a serem usados</dt>
+<dd>​​nos cabeçalhos das colunas. long = Segunda, short = Seg, abr = Su.</dd>
 </dl>
 </td>
 </tr>
@@ -559,7 +559,7 @@
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
 <td><dl class="first last docutils">
-<dt>Determina se deseja exibir links que permitem alternar para os meses /dt>
+<dt>Determina se deseja exibir links que permitem alternar para os meses </dt>
 <dd>seguintes/anteriores. Veja informações sobre este recurso abaixo.</dd>
 </dl>
 </td>
@@ -582,7 +582,7 @@
 </table>
 </div>
 <div class="section" id="showing-next-previous-month-links">
-<h3><a class="toc-backref" href="#id6">Mostrando Links do Mês Seguinte / Anterior</a><a class="headerlink" href="#showing-next-previous-month-links" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Mostrando Links do Mês Seguinte/Anterior</a><a class="headerlink" href="#showing-next-previous-month-links" title="Permalink to this headline">¶</a></h3>
 <p>Para permitir que seu calendário incremente ou diminua dinamicamente através dos links seguintes/anteriores, você deve configurar seu código de calendário semelhante a este exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$prefs</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;show_next_prev&#39;</span>  <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
@@ -599,7 +599,7 @@
 <li>Você deve configurar o "show_next_prev" para TRUE.</li>
 <li>Você deve fornecer o URL ao controlador que contém seu calendário na preferência "próximo_prev_url". Se você não estiver, ele será definido como o atual
 <em>controlador/método</em>.</li>
-<li>Você deve fornecer o "ano" e o "mês" para a função de geração de calendário através dos segmentos URI onde eles aparecem (Nota: A classe do calendário adiciona automaticamente o ano / mês ao URL básico que você fornece).</li>
+<li>Você deve fornecer o "ano" e o "mês" para a função de geração de calendário através dos segmentos URI onde eles aparecem (Nota: A classe do calendário adiciona automaticamente o ano/mês ao URL básico que você fornece).</li>
 </ul>
 </div>
 <div class="section" id="creating-a-calendar-template">
@@ -665,7 +665,7 @@
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id8">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Referência da Classe</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CI_Calendar">
 <em class="property">class </em><tt class="descname">CI_Calendar</tt><a class="headerlink" href="#CI_Calendar" title="Permalink to this definition">¶</a></dt>
@@ -714,7 +714,7 @@
 </tr>
 </tbody>
 </table>
-<p>Gere o calendário..</p>
+<p>Gere o calendário.</p>
 </dd></dl>
 
 <dl class="method">
@@ -748,7 +748,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$day_type</strong> (<em>string</em>) &#8211; &#8216;long&#8217;, &#8216;short&#8217;, or &#8216;abr&#8217;</li>
+<li><strong>$day_type</strong> (<em>string</em>) &#8211; &#8216;long&#8217;, &#8216;short&#8217;, ou &#8216;abr&#8217;</li>
 </ul>
 </td>
 </tr>
@@ -784,7 +784,7 @@
 </tr>
 </tbody>
 </table>
-<p>Este método garante que você tenha um mês / ano válido. Por exemplo, se você enviar 13 como o mês, o ano aumentará e o mês se tornará janeiro:</p>
+<p>Este método garante que você tenha um mês/ano válido. Por exemplo, se você enviar 13 como o mês, o ano aumentará e o mês se tornará janeiro:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nb">print_r</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">adjust_date</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">2014</span><span class="p">));</span>
 </pre></div>
 </div>
@@ -826,7 +826,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">Este método é um alias para a função <a class="reference internal" href="../helpers/date_helper.html"><em>Auxiliar de Data</em></a> <a class="reference internal" href="../helpers/date_helper.html#days_in_month" title="days_in_month"><tt class="xref php php-func docutils literal"><span class="pre">days_in_month()</span></tt></a>.</p>
+<p class="last">Este método é um alias para a função <a class="reference internal" href="../helpers/date_helper.html#days_in_month" title="days_in_month"><tt class="xref php php-func docutils literal"><span class="pre">days_in_month()</span></tt></a> do <a class="reference internal" href="../helpers/date_helper.html"><em>Auxiliar de Data</em></a>.</p>
 </div>
 </dd></dl>
 
