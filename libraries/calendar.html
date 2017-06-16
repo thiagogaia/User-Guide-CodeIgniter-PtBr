@@ -425,62 +425,51 @@
 
   <div class="section" id="calendaring-class">
 <h1>Classe de Calendário<a class="headerlink" href="#calendaring-class" title="Permalink to this headline">¶</a></h1>
-<p>The Calendar class enables you to dynamically create calendars. Your
-calendars can be formatted through the use of a calendar template,
-allowing 100% control over every aspect of its design. In addition, you
-can pass data to your calendar cells.</p>
+<p>A classe Calendário permite que você crie calendários dinamicamente. Os seus calendários podem ser formatados através do uso de um modelo de calendário, permitindo o controle de 100% em todos os aspectos do seu design. Além disso, você pode passar dados para suas células do calendário.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#using-the-calendaring-class" id="id1">Using the Classe de Calendário</a><ul>
-<li><a class="reference internal" href="#initializing-the-class" id="id2">Initializing the Class</a></li>
-<li><a class="reference internal" href="#displaying-a-calendar" id="id3">Displaying a Calendar</a></li>
-<li><a class="reference internal" href="#passing-data-to-your-calendar-cells" id="id4">Passing Data to your Calendar Cells</a></li>
-<li><a class="reference internal" href="#setting-display-preferences" id="id5">Setting Display Preferences</a></li>
-<li><a class="reference internal" href="#showing-next-previous-month-links" id="id6">Showing Next/Previous Month Links</a></li>
-<li><a class="reference internal" href="#creating-a-calendar-template" id="id7">Creating a Calendar Template</a></li>
+<li><a class="reference internal" href="#using-the-calendaring-class" id="id1">Usando a Classe de Calendário</a><ul>
+<li><a class="reference internal" href="#initializing-the-class" id="id2">Inicializando a Classe</a></li>
+<li><a class="reference internal" href="#displaying-a-calendar" id="id3">Mostrando o Calendario</a></li>
+<li><a class="reference internal" href="#passing-data-to-your-calendar-cells" id="id4">Passando Dados para as Células do Calendário</a></li>
+<li><a class="reference internal" href="#setting-display-preferences" id="id5">Configurando Preferências de Exibição</a></li>
+<li><a class="reference internal" href="#showing-next-previous-month-links" id="id6">Mostrando Links do Mês Seguinte/Anterior</a></li>
+<li><a class="reference internal" href="#creating-a-calendar-template" id="id7">Criando um Modelo de Calendário</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#class-reference" id="id8">Class Reference</a></li>
+<li><a class="reference internal" href="#class-reference" id="id8">Referência da Classe</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="using-the-calendaring-class">
 <h2><a class="toc-backref" href="#id1">Using the Classe de Calendário</a><a class="headerlink" href="#using-the-calendaring-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="initializing-the-class">
-<h3><a class="toc-backref" href="#id2">Initializing the Class</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h3>
-<p>Like most other classes in CodeIgniter, the Calendar class is
-initialized in your controller using the $this-&gt;load-&gt;library function:</p>
+<h3><a class="toc-backref" href="#id2">Inicializando a Classe</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h3>
+<p>Como a maioria das outras classes em CodeIgniter, a classe Calendar é inicializada no seu controlador usando a função $this-&gt;load-&gt;library:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;calendar&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Once loaded, the Calendar object will be available using:</p>
+<p>Uma vez carregado, o objeto Calendário estará disponível usando:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="displaying-a-calendar">
-<h3><a class="toc-backref" href="#id3">Displaying a Calendar</a><a class="headerlink" href="#displaying-a-calendar" title="Permalink to this headline">¶</a></h3>
-<p>Here is a very simple example showing how you can display a calendar:</p>
+<h3><a class="toc-backref" href="#id3">Mostrando o Calendário</a><a class="headerlink" href="#displaying-a-calendar" title="Permalink to this headline">¶</a></h3>
+<p>Aqui está um exemplo muito simples que mostra como você pode exibir um calendário:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;calendar&#39;</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The above code will generate a calendar for the current month/year based
-on your server time. To show a calendar for a specific month and year
-you will pass this information to the calendar generating function:</p>
+<p>O código acima gerará um calendário para o mês / ano atual com base no tempo do servidor. Para mostrar um calendário por um mês e ano específicos, você passará essas informações para a função de geração do calendário:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;calendar&#39;</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The above code will generate a calendar showing the month of June in
-2006. The first parameter specifies the year, the second parameter
-specifies the month.</p>
+<p>O código acima gerará um calendário que mostra o mês de junho de 2006. O primeiro parâmetro especifica o ano, o segundo parâmetro especifica o mês.</p>
 </div>
 <div class="section" id="passing-data-to-your-calendar-cells">
-<h3><a class="toc-backref" href="#id4">Passing Data to your Calendar Cells</a><a class="headerlink" href="#passing-data-to-your-calendar-cells" title="Permalink to this headline">¶</a></h3>
-<p>To add data to your calendar cells involves creating an associative
-array in which the keys correspond to the days you wish to populate and
-the array value contains the data. The array is passed to the third
-parameter of the calendar generating function. Consider this example:</p>
+<h3><a class="toc-backref" href="#id4">Passando Dados para as Células do Calendário</a><a class="headerlink" href="#passing-data-to-your-calendar-cells" title="Permalink to this headline">¶</a></h3>
+<p>Para adicionar dados às células do calendário, é necessário criar uma matriz associativa em que as chaves correspondam aos dias que você deseja preencher e o valor da matriz contém os dados. A matriz é passada para o terceiro parâmetro da função de geração de calendário. Considere este exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;calendar&#39;</span><span class="p">);</span>
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -493,21 +482,15 @@ parameter of the calendar generating function. Consider this example:</p>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Using the above example, day numbers 3, 7, 13, and 26 will become links
-pointing to the URLs you&#8217;ve provided.</p>
+<p>Usando o exemplo acima, os números de dias 3, 7, 13 e 26 se tornarão links apontando para os URLs que você forneceu.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">By default it is assumed that your array will contain links.
-In the section that explains the calendar template below you&#8217;ll see how
-you can customize how data passed to your cells is handled so you can
-pass different types of information.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Por padrão, assume-se que sua matriz conterá links. Na seção que explica o modelo de calendário abaixo, você verá como você pode personalizar como os dados passados ​​para suas células são tratados para que você possa passar diferentes tipos de informações.</p>
 </div>
 </div>
 <div class="section" id="setting-display-preferences">
-<h3><a class="toc-backref" href="#id5">Setting Display Preferences</a><a class="headerlink" href="#setting-display-preferences" title="Permalink to this headline">¶</a></h3>
-<p>There are seven preferences you can set to control various aspects of
-the calendar. Preferences are set by passing an array of preferences in
-the second parameter of the loading function. Here is an example:</p>
+<h3><a class="toc-backref" href="#id5">Configurando Preferências de Exibição</a><a class="headerlink" href="#setting-display-preferences" title="Permalink to this headline">¶</a></h3>
+<p>Existem sete preferências que você pode configurar para controlar vários aspectos do calendário. As preferências são definidas passando uma série de preferências no segundo parâmetro da função de carregamento. Aqui está um exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$prefs</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;start_day&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;saturday&#39;</span><span class="p">,</span>
         <span class="s1">&#39;month_type&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;long&#39;</span><span class="p">,</span>
@@ -519,9 +502,7 @@ the second parameter of the loading function. Here is an example:</p>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The above code would start the calendar on saturday, use the &#8220;long&#8221;
-month heading, and the &#8220;short&#8221; day names. More information regarding
-preferences below.</p>
+<p>O código acima começaria o calendário no sábado, usaria o título "longo" do mês e os nomes dos "curtos" dias. Mais informações sobre as preferências abaixo.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="15%" />
@@ -541,27 +522,27 @@ preferences below.</p>
 <td>None</td>
 <td>None</td>
 <td><dl class="first last docutils">
-<dt>A string or array containing your calendar template.</dt>
-<dd>See the template section below.</dd>
+<dt>Uma string ou um array contendo o modelo de calendário.</dt>
+<dd>Veja a seção de modelo abaixo.</dd>
 </dl>
 </td>
 </tr>
 <tr class="row-odd"><td><strong>local_time</strong></td>
 <td>time()</td>
 <td>None</td>
-<td>A Unix timestamp corresponding to the current time.</td>
+<td>Um timestamp Unix correspondente à hora atual.</td>
 </tr>
 <tr class="row-even"><td><strong>start_day</strong></td>
 <td>sunday</td>
 <td>Any week day (sunday, monday, tuesday, etc.)</td>
-<td>Sets the day of the week the calendar should start on.</td>
+<td>Define o dia da semana em que o calendário deve começar.</td>
 </tr>
 <tr class="row-odd"><td><strong>month_type</strong></td>
 <td>long</td>
 <td>long, short</td>
 <td><dl class="first last docutils">
-<dt>Determines what version of the month name to use in the header.</dt>
-<dd>long = January, short = Jan.</dd>
+<dt>Determina a versão do nome do mês a ser usada no cabeçalho.</dt>
+<dd>long = Janeiro, short = Jan.</dd>
 </dl>
 </td>
 </tr>
@@ -569,8 +550,8 @@ preferences below.</p>
 <td>abr</td>
 <td>long, short, abr</td>
 <td><dl class="first last docutils">
-<dt>Determines what version of the weekday names to use in</dt>
-<dd>the column headers. long = Sunday, short = Sun, abr = Su.</dd>
+<dt>Determina a versão dos nomes dos dias da semana a serem usados ​​nos cabeçalhos das colunas</dt>
+<dd>the column headers. long = Segunda, short = Seg, abr = Su.</dd>
 </dl>
 </td>
 </tr>
@@ -578,22 +559,22 @@ preferences below.</p>
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
 <td><dl class="first last docutils">
-<dt>Determines whether to display links allowing you to toggle</dt>
-<dd>to next/previous months. See information on this feature below.</dd>
+<dt>Determina se deseja exibir links que permitem alternar para os meses /dt>
+<dd>seguintes/anteriores. Veja informações sobre este recurso abaixo.</dd>
 </dl>
 </td>
 </tr>
 <tr class="row-even"><td><strong>next_prev_url</strong></td>
 <td>controller/method</td>
 <td>A URL</td>
-<td>Sets the basepath used in the next/previous calendar links.</td>
+<td>Define o caminho de base utilizado nos links do calendário seguinte/anterior.</td>
 </tr>
 <tr class="row-odd"><td><strong>show_other_days</strong></td>
 <td>FALSE</td>
 <td>TRUE/FALSE (boolean)</td>
 <td><dl class="first last docutils">
-<dt>Determines whether to display days of other months that share the</dt>
-<dd>first or last week of the calendar month.</dd>
+<dt>Determina se deve exibir dias de outros meses que compartilhem a</dt>
+<dd>Primeira ou última semana do mês do calendário.</dd>
 </dl>
 </td>
 </tr>
@@ -601,10 +582,8 @@ preferences below.</p>
 </table>
 </div>
 <div class="section" id="showing-next-previous-month-links">
-<h3><a class="toc-backref" href="#id6">Showing Next/Previous Month Links</a><a class="headerlink" href="#showing-next-previous-month-links" title="Permalink to this headline">¶</a></h3>
-<p>To allow your calendar to dynamically increment/decrement via the
-next/previous links requires that you set up your calendar code similar
-to this example:</p>
+<h3><a class="toc-backref" href="#id6">Mostrando Links do Mês Seguinte / Anterior</a><a class="headerlink" href="#showing-next-previous-month-links" title="Permalink to this headline">¶</a></h3>
+<p>Para permitir que seu calendário incremente ou diminua dinamicamente através dos links seguintes/anteriores, você deve configurar seu código de calendário semelhante a este exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$prefs</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;show_next_prev&#39;</span>  <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
         <span class="s1">&#39;next_prev_url&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;http://example.com/index.php/calendar/show/&#39;</span>
@@ -615,23 +594,17 @@ to this example:</p>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uri</span><span class="o">-&gt;</span><span class="na">segment</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uri</span><span class="o">-&gt;</span><span class="na">segment</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>You&#8217;ll notice a few things about the above example:</p>
+<p>Você notará algumas coisas sobre o exemplo acima:</p>
 <ul class="simple">
-<li>You must set the &#8220;show_next_prev&#8221; to TRUE.</li>
-<li>You must supply the URL to the controller containing your calendar in
-the &#8220;next_prev_url&#8221; preference. If you don&#8217;t, it will be set to the current
-<em>controller/method</em>.</li>
-<li>You must supply the &#8220;year&#8221; and &#8220;month&#8221; to the calendar generating
-function via the URI segments where they appear (Note: The calendar
-class automatically adds the year/month to the base URL you
-provide.).</li>
+<li>Você deve configurar o "show_next_prev" para TRUE.</li>
+<li>Você deve fornecer o URL ao controlador que contém seu calendário na preferência "próximo_prev_url". Se você não estiver, ele será definido como o atual
+<em>controlador/método</em>.</li>
+<li>Você deve fornecer o "ano" e o "mês" para a função de geração de calendário através dos segmentos URI onde eles aparecem (Nota: A classe do calendário adiciona automaticamente o ano / mês ao URL básico que você fornece).</li>
 </ul>
 </div>
 <div class="section" id="creating-a-calendar-template">
-<h3><a class="toc-backref" href="#id7">Creating a Calendar Template</a><a class="headerlink" href="#creating-a-calendar-template" title="Permalink to this headline">¶</a></h3>
-<p>By creating a calendar template you have 100% control over the design of
-your calendar. Using the string method, each component of your calendar
-will be placed within a pair of pseudo-variables as shown here:</p>
+<h3><a class="toc-backref" href="#id7">Criando um Modelo de Calendário</a><a class="headerlink" href="#creating-a-calendar-template" title="Permalink to this headline">¶</a></h3>
+<p>Ao criar um modelo de calendário, você possui 100% de controle sobre o design do seu calendário. Usando o método de seqüência, cada componente do seu calendário será colocado dentro de um par de pseudo-variáveis ​​como mostrado aqui:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$prefs</span><span class="p">[</span><span class="s1">&#39;template&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span>
 
 <span class="s1">        {table_open}&lt;table border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;{/table_open}</span>
@@ -676,10 +649,8 @@ will be placed within a pair of pseudo-variables as shown here:</p>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Using the array method, you will pass <cite>key =&gt; value</cite> pairs. You can pass as
-many or as few values as you&#8217;d like. Omitted keys will use the default values
-inherited in the calendar class.</p>
-<p>Example:</p>
+<p>Usando o método array, você passará um par de <cite>chave => valor</cite>. Você pode passar tantos ou poucos valores como você gostaria. As chaves omitidas usarão os valores padrão herdados na classe do calendário.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$prefs</span><span class="p">[</span><span class="s1">&#39;template&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;table_open&#39;</span>           <span class="o">=&gt;</span> <span class="s1">&#39;&lt;table class=&quot;calendar&quot;&gt;&#39;</span><span class="p">,</span>
         <span class="s1">&#39;cal_cell_start&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;&lt;td class=&quot;day&quot;&gt;&#39;</span><span class="p">,</span>
@@ -706,11 +677,11 @@ inherited in the calendar class.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$config</strong> (<em>array</em>) &#8211; Configuration parameters</li>
+<li><strong>$config</strong> (<em>array</em>) &#8211; Parâmetros de configuração</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">CI_Calendar instance (method chaining)</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">CI_Calendar Instância (encadeamento do método)</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">CI_Calendar</p>
@@ -718,7 +689,7 @@ inherited in the calendar class.</p>
 </tr>
 </tbody>
 </table>
-<p>Initializes the Calendaring preferences. Accepts an associative array as input, containing display preferences.</p>
+<p>Inicializa as preferências do Calendário. Aceita uma matriz associativa como entrada, contendo preferências de exibição.</p>
 </dd></dl>
 
 <dl class="method">
@@ -729,13 +700,13 @@ inherited in the calendar class.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$year</strong> (<em>int</em>) &#8211; Year</li>
-<li><strong>$month</strong> (<em>int</em>) &#8211; Month</li>
-<li><strong>$data</strong> (<em>array</em>) &#8211; Data to be shown in the calendar cells</li>
+<li><strong>$year</strong> (<em>int</em>) &#8211; Ano</li>
+<li><strong>$month</strong> (<em>int</em>) &#8211; Mês</li>
+<li><strong>$data</strong> (<em>array</em>) &#8211; Dados a serem mostrados nas células do calendário</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">HTML-formatted calendar</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Calendário formatado em HTML</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -743,7 +714,7 @@ inherited in the calendar class.</p>
 </tr>
 </tbody>
 </table>
-<p>Generate the calendar.</p>
+<p>Gere o calendário..</p>
 </dd></dl>
 
 <dl class="method">
@@ -754,11 +725,11 @@ inherited in the calendar class.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$month</strong> (<em>int</em>) &#8211; Month</li>
+<li><strong>$month</strong> (<em>int</em>) &#8211; Mês</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Month name</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Nome do mês</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -766,7 +737,7 @@ inherited in the calendar class.</p>
 </tr>
 </tbody>
 </table>
-<p>Generates a textual month name based on the numeric month provided.</p>
+<p>Gera um nome de mês textual com base no mês numérico fornecido.</p>
 </dd></dl>
 
 <dl class="method">
@@ -781,7 +752,7 @@ inherited in the calendar class.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Array of day names</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Array dos nomes dos dias</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
@@ -789,10 +760,7 @@ inherited in the calendar class.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns an array of day names (Sunday, Monday, etc.) based on the type
-provided. Options: long, short, abr. If no <tt class="docutils literal"><span class="pre">$day_type</span></tt> is provided (or
-if an invalid type is provided) this method will return the &#8220;abbreviated&#8221;
-style.</p>
+<p>Retorna uma série de nomes de dias (domingo, segunda-feira, etc.) com base no tipo fornecido. Opções: longa, curta. Se não for fornecido <tt class="docutils literal"><span class="pre">$day_type</span></tt> (ou se for fornecido um tipo inválido), esse método retornará o estilo "abreviado".</p>
 </dd></dl>
 
 <dl class="method">
@@ -803,12 +771,12 @@ style.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$month</strong> (<em>int</em>) &#8211; Month</li>
-<li><strong>$year</strong> (<em>int</em>) &#8211; Year</li>
+<li><strong>$month</strong> (<em>int</em>) &#8211; Mês</li>
+<li><strong>$year</strong> (<em>int</em>) &#8211; Ano</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">An associative array containing month and year</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Um array associativo contendo mês e ano</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">array</p>
@@ -816,13 +784,11 @@ style.</p>
 </tr>
 </tbody>
 </table>
-<p>This method makes sure that you have a valid month/year. For example, if
-you submit 13 as the month, the year will increment and the month will
-become January:</p>
+<p>Este método garante que você tenha um mês / ano válido. Por exemplo, se você enviar 13 como o mês, o ano aumentará e o mês se tornará janeiro:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nb">print_r</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">adjust_date</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">2014</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>outputs:</p>
+<p>saída:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">Array</span>
 <span class="p">(</span>
         <span class="p">[</span><span class="nx">month</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;01&#39;</span>
@@ -840,12 +806,12 @@ become January:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$month</strong> (<em>int</em>) &#8211; Month</li>
-<li><strong>$year</strong> (<em>int</em>) &#8211; Year</li>
+<li><strong>$month</strong> (<em>int</em>) &#8211; Mês</li>
+<li><strong>$year</strong> (<em>int</em>) &#8211; Ano</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Count of days in the specified month</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Contagem de dias no mês especificado</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
@@ -853,14 +819,14 @@ become January:</p>
 </tr>
 </tbody>
 </table>
-<p>Total days in a given month:</p>
+<p>Total de dias em um determinado mês:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span><span class="o">-&gt;</span><span class="na">get_total_days</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2012</span><span class="p">);</span>
 <span class="c1">// 29</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This method is an alias for <a class="reference internal" href="../helpers/date_helper.html"><em>Auxiliar de Data</em></a> function <a class="reference internal" href="../helpers/date_helper.html#days_in_month" title="days_in_month"><tt class="xref php php-func docutils literal"><span class="pre">days_in_month()</span></tt></a>.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">Este método é um alias para a função <a class="reference internal" href="../helpers/date_helper.html"><em>Auxiliar de Data</em></a> <a class="reference internal" href="../helpers/date_helper.html#days_in_month" title="days_in_month"><tt class="xref php php-func docutils literal"><span class="pre">days_in_month()</span></tt></a>.</p>
 </div>
 </dd></dl>
 
@@ -871,14 +837,13 @@ become January:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">An array of template values</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">Um array do modelo de valor </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">array</td>
 </tr>
 </tbody>
 </table>
-<p>Sets the default template. This method is used when you have not created
-your own template.</p>
+<p>Define o modelo padrão. Esse método é usado quando você não criou seu próprio modelo.</p>
 </dd></dl>
 
 <dl class="method">
@@ -888,14 +853,13 @@ your own template.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">CI_Calendar instance (method chaining)</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">CI_Calendar Instância (encadeamento do método)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">CI_Calendar</td>
 </tr>
 </tbody>
 </table>
-<p>Harvests the data within the template <tt class="docutils literal"><span class="pre">{pseudo-variables}</span></tt> used to
-display the calendar.</p>
+<p>Colhe os dados dentro do modelo <tt class="docutils literal"><span class="pre">{pseudo-variables}</span></tt> usados para exibir o calendário.</p>
 </dd></dl>
 
 </dd></dl>
