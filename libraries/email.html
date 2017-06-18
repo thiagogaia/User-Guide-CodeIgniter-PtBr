@@ -436,7 +436,7 @@
 <li>Quebra de Linha</li>
 <li>Prioridades</li>
 <li>Modo de Lote BCC, permitindo que grandes listas de e-mail sejam divididas em pequenos lotes BCC.</li>
-<li>Email Debugging tools</li>
+<li>Ferramentas de depuração de e-mail</li>
 </ul>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -492,11 +492,11 @@
 </div>
 <div class="section" id="setting-email-preferences-in-a-config-file">
 <h4><a class="toc-backref" href="#id4">Configurando Preferências de Email em um Arquivo de Configuração</a><a class="headerlink" href="#setting-email-preferences-in-a-config-file" title="Permalink to this headline">¶</a></h4>
-<p>Se você preferir não definir preferências usando o método acima, pode colocá-las em um arquivo de configuração. Simplesmente crie um novo arquivo chamado email.php, adicione a matriz $ config nesse arquivo. Em seguida, guarde o arquivo em config / email.php e será usado automaticamente. Você NÃO precisará usar o método <tt class="docutils literal"><span class="pre">$this-&gt;email-&gt;initialize()</span></tt> Se você salvar suas preferências em um arquivo de configuração.</p>
+<p>Se você preferir não definir preferências usando o método acima, pode colocá-las em um arquivo de configuração. Simplesmente crie um novo arquivo chamado email.php, adicione a matriz $config nesse arquivo. Em seguida, guarde o arquivo em config/email.php e será usado automaticamente. Você NÃO precisará usar o método <tt class="docutils literal"><span class="pre">$this-&gt;email-&gt;initialize()</span></tt> se você salvar suas preferências em um arquivo de configuração.</p>
 </div>
 </div>
 <div class="section" id="email-preferences">
-<h3><a class="toc-backref" href="#id5">Email Preferences</a><a class="headerlink" href="#email-preferences" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Preferência de Email</a><a class="headerlink" href="#email-preferences" title="Permalink to this headline">¶</a></h3>
 <p>A lista seguinte é uma lista de todas as preferências que podem ser definidas ao enviar e-mails.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -596,12 +596,12 @@
 <tr class="row-even"><td><strong>crlf</strong></td>
 <td>\n</td>
 <td>&#8220;\r\n&#8221; or &#8220;\n&#8221; or &#8220;\r&#8221;</td>
-<td>Nova quebra de linha com caractere. (Use &#8220;\r\n&#8221; para seguir with RFC 822).</td>
+<td>Nova quebra de linha com caractere. (Use &#8220;\r\n&#8221; para seguir com RFC 822).</td>
 </tr>
 <tr class="row-odd"><td><strong>newline</strong></td>
 <td>\n</td>
 <td>&#8220;\r\n&#8221; or &#8220;\n&#8221; or &#8220;\r&#8221;</td>
-<td>Nova quebra de linha com caractere (Use &#8220;\r\n&#8221; para seguir with RFC 822).</td>
+<td>Nova quebra de linha com caractere (Use &#8220;\r\n&#8221; para seguir com RFC 822).</td>
 </tr>
 <tr class="row-even"><td><strong>bcc_batch_mode</strong></td>
 <td>FALSE</td>
@@ -623,7 +623,7 @@
 </div>
 <div class="section" id="overriding-word-wrapping">
 <h3><a class="toc-backref" href="#id6">Sobrescrevendo Quebra de Linha</a><a class="headerlink" href="#overriding-word-wrapping" title="Permalink to this headline">¶</a></h3>
-<p>Se você tiver o pacote de palavras ativado (recomendado para seguir o RFC 822) e você tem um link muito longo em seu e-mail, ele também pode ser emcapsulado, fazendo com que ele não seja clicável pela pessoa que o recebe. CodeIgniter permite que você substitua manualmente o encapsulamento de palavras em parte da sua mensagem como esta:</p>
+<p>Se você tiver o pacote de palavras ativado (recomendado para seguir o RFC 822) e você tem um link muito longo em seu e-mail, ele também pode ser encapsulado, fazendo com que ele não seja clicável pela pessoa que o recebe. CodeIgniter permite que você substitua manualmente o encapsulamento de palavras em parte da sua mensagem como esta:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">O</span> <span class="nx">texto</span> <span class="nx">de</span> <span class="nx">seu</span> <span class="nx">email</span> <span class="nx">que</span>
 <span class="nx">quebra</span> <span class="nx">linha</span> <span class="nx">normalmente</span><span class="o">.</span>
 
@@ -672,8 +672,8 @@
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">O Caminho de Retorno Não pode ser usado se você configurou 'smtp' como seu protocolo.</p>
+<p class="first admonition-title">Nota</p>
+<p class="last">O caminho de retorno não pode ser usado se você configurou 'smtp' como seu protocolo.</p>
 </div>
 </dd></dl>
 
@@ -690,7 +690,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">CI_Email instance (method chaining)</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Instância do CI_Email (método de encadeamento)</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">CI_Email</p>
@@ -952,7 +952,7 @@
 </tr>
 </tbody>
 </table>
-<p>O método de envio de e-mail. Retorna boolean TRUE ou FALSE com base no sucesso ou na falha, permitindo que ele seja usado condicionalmente:</p>
+<p>O método de envio de e-mail. Retorna booleano TRUE ou FALSE com base no sucesso ou na falha, permitindo que ele seja usado condicionalmente:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">())</span>
 <span class="p">{</span>
         <span class="c1">// Geração do erro</span>
@@ -1013,7 +1013,7 @@
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;filename.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;attachment&#39;</span><span class="p">,</span> <span class="s1">&#39;report.pdf&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Se você precisar usar uma cadeia de buffer em vez de um arquivo real - físico, você pode usar o primeiro parâmetro como buffer, o terceiro parâmetro como nome do arquivo eo quarto parâmetro como mime-type:</p>
+<p>Se você precisar usar uma cadeia de buffer em vez de um arquivo real - físico, você pode usar o primeiro parâmetro como buffer, o terceiro parâmetro como nome do arquivo e o quarto parâmetro como mime-type:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$buffer</span><span class="p">,</span> <span class="s1">&#39;attachment&#39;</span><span class="p">,</span> <span class="s1">&#39;report.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;application/pdf&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1039,7 +1039,7 @@
 </tr>
 </tbody>
 </table>
-<p>Define e retorna o ID de conteúdo de um anexo, o que permite que você incorpore um anexo na imagem (imagem) no HTML. O primeiro parâmetro deve ser o nome de arquivo já anexado.</p>
+<p>Define e retorna o ID de conteúdo de um anexo, o que permite que você incorpore um anexo inline (imagem) no HTML. O primeiro parâmetro deve ser o nome de arquivo já anexado.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$filename</span> <span class="o">=</span> <span class="s1">&#39;/img/photo1.jpg&#39;</span><span class="p">;</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$filename</span><span class="p">);</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$list</span> <span class="k">as</span> <span class="nv">$address</span><span class="p">)</span>
@@ -1079,8 +1079,8 @@
 </table>
 <p>Retorna uma string contendo as mensagens do servidor, os cabeçalhos de e-mail e a mensagem de e-mail. Útil para depuração.</p>
 <p>Você pode opcionalmente especificar quais partes da mensagem devem ser impressas. As opções válidas são: <strong>headers</strong>, <strong>subject</strong>, <strong>body</strong>.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// ocê precisa passar FALSO ao enviar para obter os dados de e-mail para</span>
+<p>Exemplo:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Você precisa passar FALSO ao enviar para obter os dados de e-mail para</span>
 <span class="c1">// não ser limpo - se isso acontecer, print_debugger () teria</span>
 <span class="c1">// nada para a saída.</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="k">FALSE</span><span class="p">);</span>
