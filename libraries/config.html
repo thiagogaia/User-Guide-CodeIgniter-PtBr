@@ -427,7 +427,7 @@
 <h1>Classe de Configuração<a class="headerlink" href="#config-class" title="Permalink to this headline">¶</a></h1>
 <p>A classe Config fornece um meio para recuperar as preferências de configuração. Essas preferências podem vir do arquivo de configuração padrão (application/config/config.php) ou de seus próprios arquivos de configuração personalizados.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">Nota</p>
 <p class="last">Esta classe é inicializada automaticamente pelo sistema, portanto, não há necessidade de fazê-lo manualmente.</p>
 </div>
 <div class="contents local topic" id="contents">
@@ -451,7 +451,7 @@
 <h2><a class="toc-backref" href="#id1">Trabalhando com a Classe de Configuração</a><a class="headerlink" href="#working-with-the-config-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="anatomy-of-a-config-file">
 <h3><a class="toc-backref" href="#id2">Anatomia do Arquivo de Configuração</a><a class="headerlink" href="#anatomy-of-a-config-file" title="Permalink to this headline">¶</a></h3>
-<p>Por padrão, CodeIgniter possui um arquivo de configuração primário, localizado em application / config / config.php. Se você abrir o arquivo usando seu editor de texto, você verá que os itens de configuração estão armazenados em uma matriz chamado $config.</p>
+<p>Por padrão, o CodeIgniter possui um arquivo de configuração primário, localizado em application/config/config.php. Se você abrir o arquivo usando seu editor de texto, você verá que os itens de configuração estão armazenados em uma matriz chamado $config.</p>
 <p>Você pode adicionar seus próprios itens de configuração a este arquivo, ou se você preferir manter seus itens de configuração separados (supondo que você precise de itens de configuração), basta criar seu próprio arquivo e salvá-lo na pasta de configuração.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
@@ -485,7 +485,7 @@
 </div>
 <div class="section" id="auto-loading">
 <h4><a class="toc-backref" href="#id5">Auto-Careegamento</a><a class="headerlink" href="#auto-loading" title="Permalink to this headline">¶</a></h4>
-<p>Se você achar que precisa de um arquivo de configuração específico globalmente, pode fazê-lo carregar automaticamente pelo sistema. Para fazer isso, abra o arquivo <strong>autoload.php</strong>, localizado em application /config/autoload.php, e adicione seu arquivo de configuração conforme indicado no arquivo.</p>
+<p>Se você achar que precisa de um arquivo de configuração específico globalmente, pode fazê-lo carregar automaticamente pelo sistema. Para fazer isso, abra o arquivo <strong>autoload.php</strong>, localizado em application/config/autoload.php, e adicione seu arquivo de configuração conforme indicado no arquivo.</p>
 </div>
 </div>
 <div class="section" id="fetching-config-items">
@@ -499,7 +499,7 @@
 </pre></div>
 </div>
 <p>A função retorna NULL se o item que você está tentando buscar não existe.</p>
-<p>Se você estiver usando o segundo parâmetro da função $this-&gt;config-&gt;Para atribuir seus itens de configuração a um índice específico, você pode recuperá-lo especificando o nome do índice no segundo parâmetro da função $this-&gt;config-&gt;item(). Exemplo:</p>
+<p>Se você estiver usando o segundo parâmetro da função $this-&gt;config-&gt;load para atribuir seus itens de configuração a um índice específico, você pode recuperá-lo especificando o nome do índice no segundo parâmetro da função $this-&gt;config-&gt;item(). Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Carrega um arquivo de configuração chamado blog_settings.php e atribui-lo a um índice chamado "blog_settings"</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;blog_settings&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
 
@@ -522,7 +522,7 @@
 </div>
 <div class="section" id="environments">
 <span id="config-environments"></span><h3><a class="toc-backref" href="#id8">Ambientes</a><a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h3>
-<p>Você pode carregar diferentes arquivos de configuração dependendo do ambiente atual. A constante AMBIENTE é definida em index.php e é descrita em detalhes na seção <a class="reference internal" href="../general/environments.html"><em>Ambientes de Manipulação</em></a>.</p>
+<p>Você pode carregar diferentes arquivos de configuração dependendo do ambiente atual. A constante ENVIRONMENT é definida em index.php e é descrita em detalhes na seção <a class="reference internal" href="../general/environments.html"><em>Ambientes de Manipulação</em></a>.</p>
 <p>Para criar um arquivo de configuração específico do ambiente, crie ou copie um arquivo de configuração em application/config/{ENVIRONMENT}/{FILENAME}.php</p>
 <p>Por exemplo, para criar um config.php somente de produção, você deve:</p>
 <ol class="arabic simple">
@@ -580,7 +580,7 @@
 </tr>
 </tbody>
 </table>
-<p>Fetch a config file item.</p>
+<p>Obtenha um item de arquivo de configuração.</p>
 </dd></dl>
 
 <dl class="method">
@@ -665,7 +665,7 @@
 </tr>
 </tbody>
 </table>
-<p>Este método recupera o URL para o seu site, juntamente com o valor "índice" que você especificou no arquivo de configuração..</p>
+<p>Este método recupera o URL para o seu site, juntamente com o valor "índice" que você especificou no arquivo de configuração.</p>
 <p>Esse método é normalmente acessado através das funções correspondentes em <a class="reference internal" href="../helpers/url_helper.html"><em>Auxiliar de URL</em></a>.</p>
 </dd></dl>
 
@@ -694,7 +694,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">A URL apontando para o seu sistema CI / diretório</td>
+<tr class="field-odd field"><th class="field-name">Retorna:</th><td class="field-body">A URL apontando para o seu diretório system/ do CI</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Tipo de retorno:</th><td class="field-body">string</td>
 </tr>
