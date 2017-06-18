@@ -491,9 +491,9 @@
 <ul class="simple">
 <li><strong>id</strong> -   Cada produto em sua loja deve ter um identificador exclusivo. Normalmente, isso será um "sku" ou outro identificador desse tipo.</li>
 <li><strong>qty</strong> - A quantidade que está sendo comprada.</li>
-<li><strong>price</strong> - O preço do item of the item.</li>
+<li><strong>price</strong> - O preço do item.</li>
 <li><strong>name</strong> - O nome do item.</li>
-<li><strong>options</strong> - Quaisquer atributos adicionais que são necessários para identificar o produto. Estes devem ser transmitidos através de uma matriz..</li>
+<li><strong>options</strong> - Quaisquer atributos adicionais que são necessários para identificar o produto. Estes devem ser transmitidos através de uma matriz.</li>
 </ul>
 <p>Além dos cinco índices acima, existem duas palavras reservadas: rowid e subtotal. Estes são usados ​​internamente pela classe Cart, então NÃO use essas palavras como nomes de índice ao inserir dados no carrinho.</p>
 <p>Sua matriz pode conter dados adicionais. Qualquer coisa que você incluir na sua matriz será armazenada na sessão. No entanto, é melhor padronizar seus dados entre todos os seus produtos para facilitar a exibição das informações em uma tabela.</p>
@@ -648,7 +648,7 @@
 <h4><a class="toc-backref" href="#id7">O que é o Row ID?</a><a class="headerlink" href="#what-is-a-row-id" title="Permalink to this headline">¶</a></h4>
 <p>O row ID é um identificador exclusivo que é gerado pelo código do carrinho quando um item é adicionado ao carrinho. O motivo pelo qual uma ID única é criada é para que produtos idênticos com diferentes opções possam ser gerenciados pelo carrinho.</p>
 <p>Por exemplo, digamos que alguém compra duas camisas idênticas (ID do mesmo produto), mas em tamanhos diferentes. A identificação do produto (e outros atributos) será idêntica para ambos os tamanhos porque é a mesma camisa. A única diferença será o tamanho. O carrinho deve, portanto, ter um meio de identificar essa diferença para que os dois tamanhos de camisas possam ser gerenciados de forma independente. Ele faz isso criando um único "Row ID" com base no ID do produto e quaisquer opções associadas a ele.</p>
-<p>Em quase todos os casos, a atualização do carrinho será algo que o usuário faça através da página "carrinho de exibição", de modo que, como desenvolvedor, é improvável que você tenha que se preocupar com a "ID da linha", além de se certificar de sua A página "visualizar carrinho" contém essas informações em um campo de formulário oculto e certificando-se de que é passado para o método <tt class="docutils literal"><span class="pre">update()</span></tt> quando o formulário de atualização é enviado. Por favor, examine a construção da página "carrinho de exibição" acima para obter mais informações.</p>
+<p>Em quase todos os casos, a atualização do carrinho será algo que o usuário faça através da página "carrinho de exibição", de modo que, como desenvolvedor, é improvável que você tenha que se preocupar com a "ID da linha", além de se certificar de sua página "visualizar carrinho" contém essas informações em um campo de formulário oculto e certificando-se de que é passado para o método <tt class="docutils literal"><span class="pre">update()</span></tt> quando o formulário de atualização é enviado. Por favor, examine a construção da página "carrinho de exibição" acima para obter mais informações.</p>
 </div>
 </div>
 </div>
