@@ -425,80 +425,53 @@
 
   <div class="section" id="encrypt-class">
 <h1>Classe de Criptografia<a class="headerlink" href="#encrypt-class" title="Permalink to this headline">¶</a></h1>
-<p>The Classe de Criptografia provides two-way data encryption. It encrypted using
-the Mcrypt PHP extension, which is required for the Classe de Criptografia to run.</p>
+<p>A Classe de Criptografia fornece criptografia de dados bidirecional. Ele criptografou usando a extensão Mcrypt PHP, que é necessária para que a Classe de Criptografia seja executada.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">This library has been DEPRECATED and is only kept for
-backwards compatibility. Please use the new <a class="reference internal" href="encryption.html"><em>Biblioteca de Criptografia</em></a>.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last">Esta biblioteca foi DEPRECIADA e é mantida somente para compatibilidade com versões anteriores. Use a nova  <a class="reference internal" href="encryption.html"><em>Biblioteca de Criptografia</em></a>.</p>
 </div>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#using-the-encrypt-library" id="id1">Using the Encrypt Library</a><ul>
-<li><a class="reference internal" href="#setting-your-key" id="id2">Setting your Key</a></li>
-<li><a class="reference internal" href="#message-length" id="id3">Message Length</a></li>
-<li><a class="reference internal" href="#initializing-the-class" id="id4">Initializing the Class</a></li>
+<li><a class="reference internal" href="#using-the-encrypt-library" id="id1">Usando a Biblioteca de Criptografia</a><ul>
+<li><a class="reference internal" href="#setting-your-key" id="id2">Configurando sua chave</a></li>
+<li><a class="reference internal" href="#message-length" id="id3">Tamanho da mensagem</a></li>
+<li><a class="reference internal" href="#initializing-the-class" id="id4">Inicializando a Classe</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#class-reference" id="id5">Class Reference</a></li>
+<li><a class="reference internal" href="#class-reference" id="id5">Referência de Classe</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="using-the-encrypt-library">
-<h2><a class="toc-backref" href="#id1">Using the Encrypt Library</a><a class="headerlink" href="#using-the-encrypt-library" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Usando a Biblioteca de Criptografia</a><a class="headerlink" href="#using-the-encrypt-library" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="setting-your-key">
-<h3><a class="toc-backref" href="#id2">Setting your Key</a><a class="headerlink" href="#setting-your-key" title="Permalink to this headline">¶</a></h3>
-<p>A <em>key</em> is a piece of information that controls the cryptographic
-process and permits an encrypted string to be decoded. In fact, the key
-you chose will provide the <strong>only</strong> means to decode data that was
-encrypted with that key, so not only must you choose the key carefully,
-you must never change it if you intend use it for persistent data.</p>
-<p>It goes without saying that you should guard your key carefully. Should
-someone gain access to your key, the data will be easily decoded. If
-your server is not totally under your control it&#8217;s impossible to ensure
-key security so you may want to think carefully before using it for
-anything that requires high security, like storing credit card numbers.</p>
-<p>To take maximum advantage of the encryption algorithm, your key should
-be 32 characters in length (256 bits). The key should be as random a
-string as you can concoct, with numbers and uppercase and lowercase
-letters. Your key should <strong>not</strong> be a simple text string. In order to be
-cryptographically secure it needs to be as random as possible.</p>
-<p>Your key can be either stored in your <strong>application/config/config.php</strong>, or
-you can design your own storage mechanism and pass the key dynamically
-when encoding/decoding.</p>
-<p>To save your key to your <strong>application/config/config.php</strong>, open the file
-and set:</p>
+<h3><a class="toc-backref" href="#id2">Configurando sua chave</a><a class="headerlink" href="#setting-your-key" title="Permalink to this headline">¶</a></h3>
+<p>Uma <em>chave</em> é uma informação que controla o processo criptográfico e permite que uma seqüência criptografada seja decodificada. Na verdade, a chave que você escolherá fornecerá o único meio para decodificar dados que foram criptografados com essa chave, portanto, não só você deve escolher a chave com cuidado, você nunca deve alterá-la se você pretende usá-la para dados persistentes.</p>
+<p>Sem dizer que você deve proteger sua chave com cuidado. Se alguém tiver acesso à sua chave, os dados serão facilmente decodificados. Se o seu servidor não estiver totalmente sob seu controle, é impossível garantir a segurança das chaves, então você pode querer pensar com cuidado antes de usá-lo para qualquer coisa que exija alta segurança, como armazenar números de cartão de crédito.</p>
+<p>Para aproveitar ao máximo o algoritmo de criptografia, sua chave deve ter 32 caracteres de comprimento (256 bits). A chave deve ser uma seqüência aleatória como você pode inventar, com números e letras maiúsculas e minúsculas. Sua chave <strong>não</strong> deve ser uma string de texto simples. Para ser criptográficamente seguro, ele precisa ser o mais aleatório possível.</p>
+<p>Sua chave pode ser armazenada em <strong>application/config/config.php</strong>, ou você pode projetar seu próprio mecanismo de armazenamento e passar a chave dinamicamente ao codificar/decodificar.</p>
+<p>Para salvar sua chave em <strong>application/config/config.php</strong>, abra o arquivo e defina:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;encryption_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;YOUR KEY&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="message-length">
-<h3><a class="toc-backref" href="#id3">Message Length</a><a class="headerlink" href="#message-length" title="Permalink to this headline">¶</a></h3>
-<p>It&#8217;s important for you to know that the encoded messages the encryption
-function generates will be approximately 2.6 times longer than the
-original message. For example, if you encrypt the string &#8220;my super
-secret data&#8221;, which is 21 characters in length, you&#8217;ll end up with an
-encoded string that is roughly 55 characters (we say &#8220;roughly&#8221; because
-the encoded string length increments in 64 bit clusters, so it&#8217;s not
-exactly linear). Keep this information in mind when selecting your data
-storage mechanism. Cookies, for example, can only hold 4K of
-information.</p>
+<h3><a class="toc-backref" href="#id3">Tamanho da mensagem</a><a class="headerlink" href="#message-length" title="Permalink to this headline">¶</a></h3>
+<p>É importante que você saiba que as mensagens codificadas geradas pela função de criptografia serão aproximadamente 2,6 vezes mais do que a mensagem original. Por exemplo, se você criptografar a string "my super secrets", que tem 21 caracteres, você acabará com uma string codificada com aproximadamente 55 caracteres (dizemos "grosseiramente" porque o comprimento da seqüência codificada aumenta em 64 Bit clusters, então não é exatamente linear). Tenha em mente esta informação ao selecionar seu mecanismo de armazenamento de dados. Cookies, por exemplo, só podem conter 4K de informações.</p>
 </div>
 <div class="section" id="initializing-the-class">
-<h3><a class="toc-backref" href="#id4">Initializing the Class</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h3>
-<p>Like most other classes in CodeIgniter, the Encrypt class is
-initialized in your controller using the <tt class="docutils literal"><span class="pre">$this-&gt;load-&gt;library()</span></tt>
-method:</p>
+<h3><a class="toc-backref" href="#id4">Inicializando a Classe</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">¶</a></h3>
+<p>Como a maioria das outras classes no CodeIgniter, a classe Encrypt é inicializada no seu controlador usando o método <tt class="docutils literal"><span class="pre">$this-&gt;load-&gt;library()</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;encrypt&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Once loaded, the Encrypt library object will be available using:</p>
+<p>Uma vez carregado, o objeto da biblioteca Encrypt estará disponível usando:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id5">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Referência de Classe</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CI_Encrypt">
 <em class="property">class </em><tt class="descname">CI_Encrypt</tt><a class="headerlink" href="#CI_Encrypt" title="Permalink to this definition">¶</a></dt>
@@ -510,12 +483,12 @@ method:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$string</strong> (<em>string</em>) &#8211; Data to encrypt</li>
-<li><strong>$key</strong> (<em>string</em>) &#8211; Encryption key</li>
+<li><strong>$string</strong> (<em>string</em>) &#8211; Dados para criptografar</li>
+<li><strong>$key</strong> (<em>string</em>) &#8211; Chave de criptografia</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Encrypted string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String Criptografada</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -523,14 +496,13 @@ method:</p>
 </tr>
 </tbody>
 </table>
-<p>Performs the data encryption and returns it as a string. Example:</p>
+<p>Executa a criptografia de dados e retorna como uma string. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$msg</span> <span class="o">=</span> <span class="s1">&#39;My secret message&#39;</span><span class="p">;</span>
 
 <span class="nv">$encrypted_string</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="o">-&gt;</span><span class="na">encode</span><span class="p">(</span><span class="nv">$msg</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can optionally pass your encryption key via the second parameter if
-you don&#8217;t want to use the one in your config file:</p>
+<p>Você pode, opcionalmente, passar a sua chave de criptografia através do segundo parâmetro, se você não quiser usar o do seu arquivo de configuração:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$msg</span> <span class="o">=</span> <span class="s1">&#39;My secret message&#39;</span><span class="p">;</span>
 <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;super-secret-key&#39;</span><span class="p">;</span>
 
@@ -547,12 +519,12 @@ you don&#8217;t want to use the one in your config file:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$string</strong> (<em>string</em>) &#8211; String to decrypt</li>
-<li><strong>$key</strong> (<em>string</em>) &#8211; Encryption key</li>
+<li><strong>$string</strong> (<em>string</em>) &#8211; String para descriptografar</li>
+<li><strong>$key</strong> (<em>string</em>) &#8211; Chave Criptografada</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Plain-text string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String de Texto Plano</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -560,14 +532,13 @@ you don&#8217;t want to use the one in your config file:</p>
 </tr>
 </tbody>
 </table>
-<p>Decrypts an encoded string. Example:</p>
+<p>Decodifica uma string codificada. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$encrypted_string</span> <span class="o">=</span> <span class="s1">&#39;APANtByIGI1BpVXZTJgcsAG8GZl8pdwwa84&#39;</span><span class="p">;</span>
 
 <span class="nv">$plaintext_string</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="o">-&gt;</span><span class="na">decode</span><span class="p">(</span><span class="nv">$encrypted_string</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can optionally pass your encryption key via the second parameter if
-you don&#8217;t want to use the one in your config file:</p>
+<p>Você pode, opcionalmente, passar a sua chave de criptografia através do segundo parâmetro, se você não quiser usar o do seu arquivo de configuração:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$msg</span> <span class="o">=</span> <span class="s1">&#39;My secret message&#39;</span><span class="p">;</span>
 <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;super-secret-key&#39;</span><span class="p">;</span>
 
@@ -584,11 +555,11 @@ you don&#8217;t want to use the one in your config file:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$cipher</strong> (<em>int</em>) &#8211; Valid PHP MCrypt cypher constant</li>
+<li><strong>$cipher</strong> (<em>int</em>) &#8211; Constante Criptografada Válida do PHP MCrypt</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">CI_Encrypt instance (method chaining)</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Instância do CI_Encrypt (método de encadeamento)</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">CI_Encrypt</p>
@@ -596,14 +567,13 @@ you don&#8217;t want to use the one in your config file:</p>
 </tr>
 </tbody>
 </table>
-<p>Permits you to set an Mcrypt cipher. By default it uses
-<tt class="docutils literal"><span class="pre">MCRYPT_RIJNDAEL_256</span></tt>. Example:</p>
+<p>Permite que você defina uma criptografia Mcrypt. Por padrão, ele usa 
+<tt class="docutils literal"><span class="pre">MCRYPT_RIJNDAEL_256</span></tt>. Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="o">-&gt;</span><span class="na">set_cipher</span><span class="p">(</span><span class="nx">MCRYPT_BLOWFISH</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Please visit php.net for a list of <a class="reference external" href="http://php.net/mcrypt">available ciphers</a>.</p>
-<p>If you&#8217;d like to manually test whether your server supports MCrypt you
-can use:</p>
+<p>Visite php.net para obter uma lista de <a class="reference external" href="http://php.net/mcrypt">criptografias disponíveis</a>.</p>
+<p>Se você quiser verificar manualmente se o seu servidor aceita o MCrypt, você pode usar:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nb">extension_loaded</span><span class="p">(</span><span class="s1">&#39;mcrypt&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;Yup&#39;</span> <span class="o">:</span> <span class="s1">&#39;Nope&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -617,11 +587,11 @@ can use:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$mode</strong> (<em>int</em>) &#8211; Valid PHP MCrypt mode constant</li>
+<li><strong>$mode</strong> (<em>int</em>) &#8211; Constante válida do modo MCrypt PHP </li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">CI_Encrypt instance (method chaining)</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Instância do CI_Encrypt (método de encadeamento)</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">CI_Encrypt</p>
@@ -629,12 +599,12 @@ can use:</p>
 </tr>
 </tbody>
 </table>
-<p>Permits you to set an Mcrypt mode. By default it uses <strong>MCRYPT_MODE_CBC</strong>.
-Example:</p>
+<p>Permite que você defina um modo Mcrypt. Por padrão, ele usa <strong>MCRYPT_MODE_CBC</strong>.
+Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="o">-&gt;</span><span class="na">set_mode</span><span class="p">(</span><span class="nx">MCRYPT_MODE_CFB</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Please visit php.net for a list of <a class="reference external" href="http://php.net/mcrypt">available modes</a>.</p>
+<p>Visite php.net para obter uma lista de <a class="reference external" href="http://php.net/mcrypt">criptografias disponíveis</a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -645,13 +615,13 @@ Example:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$string</strong> (<em>string</em>) &#8211; String to encrypt</li>
-<li><strong>$legacy_mode</strong> (<em>int</em>) &#8211; Valid PHP MCrypt cipher constant</li>
-<li><strong>$key</strong> (<em>string</em>) &#8211; Encryption key</li>
+<li><strong>$string</strong> (<em>string</em>) &#8211; String para criptografar</li>
+<li><strong>$legacy_mode</strong> (<em>int</em>) &#8211; Constante válida do modo MCrypt PHP</li>
+<li><strong>$key</strong> (<em>string</em>) &#8211; Chave de criptografia</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Newly encrypted string</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">String recente criptografada</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -659,24 +629,11 @@ Example:</p>
 </tr>
 </tbody>
 </table>
-<p>Enables you to re-encode data that was originally encrypted with
-CodeIgniter 1.x to be compatible with the Encrypt library in
-CodeIgniter 2.x. It is only necessary to use this method if you have
-encrypted data stored permanently such as in a file or database and are
-on a server that supports Mcrypt. &#8220;Light&#8221; use encryption such as
-encrypted session data or transitory encrypted flashdata require no
-intervention on your part. However, existing encrypted Sessions will be
-destroyed since data encrypted prior to 2.x will not be decoded.</p>
+<p>Permite recodificar os dados originalmente criptografados com CodeIgniter 1.x para serem compatíveis com a biblioteca Encrypt no CodeIgniter 2.x. Só é necessário usar este método se você tiver dados criptografados armazenados permanentemente, como em um arquivo ou banco de dados e estiverem em um servidor que suporte o Mcrypt. A criptografia de uso "Light", como dados de sessão criptografados ou flashdata criptografado transitório, não requer intervenção de sua parte. No entanto, as sessões criptografadas existentes serão destruídas uma vez que os dados criptografados antes de 2.x não serão decodificados.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last"><strong>Why only a method to re-encode the data instead of maintaining legacy
-methods for both encoding and decoding?</strong> The algorithms in the
-Encrypt library have improved in CodeIgniter 2.x both for performance
-and security, and we do not wish to encourage continued use of the older
-methods. You can of course extend the Encryption library if you wish and
-replace the new methods with the old and retain seamless compatibility
-with CodeIgniter 1.x encrypted data, but this a decision that a
-developer should make cautiously and deliberately, if at all.</p>
+<p class="first admonition-title">Importante</p>
+<p class="last"><strong>Por que apenas um método para codificar novamente os dados em vez de manter métodos legados para codificação e decodificação?</strong> The algorithms in the
+Os algoritmos na biblioteca Encrypt melhoraram no CodeIgniter 2.x tanto para desempenho quanto para segurança, e não desejamos encorajar o uso contínuo dos métodos mais antigos. Você pode, naturalmente, estender a biblioteca de Criptografia se desejar e substituir os novos métodos com o antigo e manter a compatibilidade perfeita com os dados criptografados CodeIgniter 1.x, mas essa é uma decisão que um desenvolvedor deve fazer de forma cautelosa e deliberada, se for do todo.</p>
 </div>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$new_data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="o">-&gt;</span><span class="na">encode_from_legacy</span><span class="p">(</span><span class="nv">$old_encrypted_string</span><span class="p">);</span>
 </pre></div>
@@ -688,26 +645,23 @@ developer should make cautiously and deliberately, if at all.</p>
 <col width="66%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Default</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">Parâmetros</th>
+<th class="head">Padrão</th>
+<th class="head">Descrição</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>$orig_data</strong></td>
 <td>n/a</td>
-<td>The original encrypted data from CodeIgniter 1.x&#8217;s Encryption library</td>
+<td>Os dados criptografados originais da biblioteca de criptografia CodeIgniter 1.x</td>
 </tr>
 <tr class="row-odd"><td><strong>$legacy_mode</strong></td>
 <td>MCRYPT_MODE_ECB</td>
-<td>The Mcrypt mode that was used to generate the original encrypted data.
-CodeIgniter 1.x&#8217;s default was MCRYPT_MODE_ECB, and it will assume that
-to be the case unless overridden by this parameter.</td>
+<td>O modo Mcrypt que foi usado para gerar os dados criptografados originais. O padrão do CodeIgniter 1.x foi MCRYPT_MODE_ECB, e assumirá que, para ser o caso, a menos que seja substituído por este parâmetro.</td>
 </tr>
 <tr class="row-even"><td><strong>$key</strong></td>
 <td>n/a</td>
-<td>The encryption key. This it typically specified in your config file as
-outlined above.</td>
+<td>A chave de criptografia. Isso geralmente é especificado em seu arquivo de configuração conforme descrito acima.</td>
 </tr>
 </tbody>
 </table>
