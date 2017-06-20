@@ -451,13 +451,13 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$item</strong> (<em>string</em>) &#8211; Item to fetch from the array</li>
-<li><strong>$array</strong> (<em>array</em>) &#8211; Input array</li>
-<li><strong>$default</strong> (<em>bool</em>) &#8211; What to return if the array isn&#8217;t valid</li>
+<li><strong>$item</strong> (<em>string</em>) &#8211; Item para buscar no array</li>
+<li><strong>$array</strong> (<em>array</em>) &#8211; Array de entrada</li>
+<li><strong>$default</strong> (<em>bool</em>) &#8211; O que retornar se o array não for válido</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">NULL on failure or the array item.</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">NULL em caso de falha ou o item do array.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
@@ -465,19 +465,16 @@
 </tr>
 </tbody>
 </table>
-<p>Lets you fetch an item from an array. The function tests whether the
-array index is set and whether it has a value. If a value exists it is
-returned. If a value does not exist it returns NULL, or whatever you&#8217;ve
-specified as the default value via the third parameter.</p>
-<p>Example:</p>
+<p>Permite buscar um item de um array. A função verifica se o índice do array está definido e se ele possui um valor. Se um valor existir, ele é retornado. Se um valor não existir, ele retorna NULL, ou o que você especificou como o valor padrão através do terceiro parâmetro.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
         <span class="s1">&#39;shape&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
         <span class="s1">&#39;size&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span>
 <span class="p">);</span>
 
-<span class="k">echo</span> <span class="nx">element</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="nv">$array</span><span class="p">);</span> <span class="c1">// returns &quot;red&quot;</span>
-<span class="k">echo</span> <span class="nx">element</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="nv">$array</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">);</span> <span class="c1">// returns &quot;foobar&quot;</span>
+<span class="k">echo</span> <span class="nx">element</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="nv">$array</span><span class="p">);</span> <span class="c1">// retorna &quot;red&quot;</span>
+<span class="k">echo</span> <span class="nx">element</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="nv">$array</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">);</span> <span class="c1">// retorna &quot;foobar&quot;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -490,13 +487,13 @@ specified as the default value via the third parameter.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$item</strong> (<em>string</em>) &#8211; Item to fetch from the array</li>
-<li><strong>$array</strong> (<em>array</em>) &#8211; Input array</li>
-<li><strong>$default</strong> (<em>bool</em>) &#8211; What to return if the array isn&#8217;t valid</li>
+<li><strong>$item</strong> (<em>string</em>) &#8211; Item para buscar no array</li>
+<li><strong>$array</strong> (<em>array</em>) &#8211; Array de entrada</li>
+<li><strong>$default</strong> (<em>bool</em>) &#8211; O que retornar se o array não for válido</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">NULL on failure or the array item.</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">NULL em caso de falha ou o item do array.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
@@ -504,11 +501,8 @@ specified as the default value via the third parameter.</p>
 </tr>
 </tbody>
 </table>
-<p>Lets you fetch a number of items from an array. The function tests
-whether each of the array indices is set. If an index does not exist it
-is set to NULL, or whatever you&#8217;ve specified as the default value via
-the third parameter.</p>
-<p>Example:</p>
+<p>Permite obter uma série de itens de um array. A função verifica se cada um dos índices do array está configurado. Se um índice não existir, ele é definido como NULL, ou o que você especificou como o valor padrão através do terceiro parâmetro.</p>
+<p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
         <span class="s1">&#39;shape&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
@@ -519,7 +513,7 @@ the third parameter.</p>
 <span class="nv">$my_shape</span> <span class="o">=</span> <span class="nx">elements</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">),</span> <span class="nv">$array</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The above will return the following array:</p>
+<p>O código acima irá retornar o seguinte array:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
         <span class="s1">&#39;shape&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
@@ -527,11 +521,11 @@ the third parameter.</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>You can set the third parameter to any default value you like.</p>
+<p>Você pode definir o terceiro parâmetro para qualquer valor padrão que você goste.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$my_shape</span> <span class="o">=</span> <span class="nx">elements</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">),</span> <span class="nv">$array</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The above will return the following array:</p>
+<p>O código acima irá retornar o seguinte array:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;color&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
         <span class="s1">&#39;shape&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
@@ -539,17 +533,14 @@ the third parameter.</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>This is useful when sending the <tt class="docutils literal"><span class="pre">$_POST</span></tt> array to one of your Models.
-This prevents users from sending additional POST data to be entered into
-your tables.</p>
+<p>Isso é útil ao enviar um array <tt class="docutils literal"><span class="pre">$_POST</span></tt> para um de seus Modelos. Isso impede que os usuários enviem dados POST adicionais para serem inseridos em suas tabelas.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">model</span><span class="p">(</span><span class="s1">&#39;post_model&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">post_model</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span>
         <span class="nx">elements</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">),</span> <span class="nv">$_POST</span><span class="p">)</span>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>This ensures that only the id, title and content fields are sent to be
-updated.</p>
+<p>Isso garante que somente os campos id, title e content sejam enviados para serem atualizados.</p>
 </dd></dl>
 
 <dl class="function">
@@ -560,11 +551,11 @@ updated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$array</strong> (<em>array</em>) &#8211; Input array</li>
+<li><strong>$array</strong> (<em>array</em>) &#8211; Array de entrada</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">A random element from the array</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Um elemento aleatório do array</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
@@ -572,8 +563,8 @@ updated.</p>
 </tr>
 </tbody>
 </table>
-<p>Takes an array as input and returns a random element from it.</p>
-<p>Usage example:</p>
+<p>Toma um array como entrada e retorna um elemento aleatório dele.</p>
+<p>Exemplo de uso:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$quotes</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s2">&quot;I find that the harder I work, the more luck I seem to have. - Thomas Jefferson&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Don&#39;t stay in bed, unless you can make money in bed. - George Burns&quot;</span><span class="p">,</span>
