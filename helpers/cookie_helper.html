@@ -425,8 +425,7 @@
 
   <div class="section" id="cookie-helper">
 <h1>Auxiliar de Cookie<a class="headerlink" href="#cookie-helper" title="Permalink to this headline">¶</a></h1>
-<p>The Auxiliar de Cookie file contains functions that assist in working with
-cookies.</p>
+<p>O arquivo Auxiliar de Cookie contém funções que ajudam a trabalhar com cookies.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
@@ -451,14 +450,14 @@ cookies.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$name</strong> (<em>mixed</em>) &#8211; Cookie name <em>or</em> associative array of all of the parameters available to this function</li>
-<li><strong>$value</strong> (<em>string</em>) &#8211; Cookie value</li>
-<li><strong>$expire</strong> (<em>int</em>) &#8211; Number of seconds until expiration</li>
-<li><strong>$domain</strong> (<em>string</em>) &#8211; Cookie domain (usually: .yourdomain.com)</li>
-<li><strong>$path</strong> (<em>string</em>) &#8211; Cookie path</li>
-<li><strong>$prefix</strong> (<em>string</em>) &#8211; Cookie name prefix</li>
-<li><strong>$secure</strong> (<em>bool</em>) &#8211; Whether to only send the cookie through HTTPS</li>
-<li><strong>$httponly</strong> (<em>bool</em>) &#8211; Whether to hide the cookie from JavaScript</li>
+<li><strong>$name</strong> (<em>mixed</em>) &#8211; Nome do cookie <em>ou</em> array associativo de todos os parâmetros disponíveis para esta função</li>
+<li><strong>$value</strong> (<em>string</em>) &#8211; Valor do cookie</li>
+<li><strong>$expire</strong> (<em>int</em>) &#8211; Número de segundos até a expiração</li>
+<li><strong>$domain</strong> (<em>string</em>) &#8211; Domínio do cookie (geralmente: .seudominio.com)</li>
+<li><strong>$path</strong> (<em>string</em>) &#8211; Caminho do cookie</li>
+<li><strong>$prefix</strong> (<em>string</em>) &#8211; Prefixo de nome de cookie</li>
+<li><strong>$secure</strong> (<em>bool</em>) &#8211; Se envia o cookie apenas através do HTTPS</li>
+<li><strong>$httponly</strong> (<em>bool</em>) &#8211; Se deve ocultar o cookie do JavaScript</li>
 </ul>
 </td>
 </tr>
@@ -467,10 +466,7 @@ cookies.</p>
 </tr>
 </tbody>
 </table>
-<p>This helper function gives you friendlier syntax to set browser
-cookies. Refer to the <a class="reference internal" href="../libraries/input.html"><em>Input Library</em></a> for
-a description of its use, as this function is an alias for
-<tt class="docutils literal"><span class="pre">CI_Input::set_cookie()</span></tt>.</p>
+<p>Esta função auxiliar oferece uma sintaxe mais amigável para configurar cookies do navegador. Consulte a <a class="reference internal" href="../libraries/input.html"><em>Biblioteca de Entrada</em></a> para obter uma descrição de seu uso, pois esta função é um alias para <tt class="docutils literal"><span class="pre">CI_Input::set_cookie()</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -481,12 +477,12 @@ a description of its use, as this function is an alias for
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$index</strong> (<em>string</em>) &#8211; Cookie name</li>
-<li><strong>$xss_clean</strong> (<em>bool</em>) &#8211; Whether to apply XSS filtering to the returned value</li>
+<li><strong>$index</strong> (<em>string</em>) &#8211; Nome do cookie</li>
+<li><strong>$xss_clean</strong> (<em>bool</em>) &#8211; Se aplicar filtragem XSS ao valor retornado</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">The cookie value or NULL if not found</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">O valor do cookie ou NULL se não for encontrado</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">mixed</p>
@@ -494,12 +490,7 @@ a description of its use, as this function is an alias for
 </tr>
 </tbody>
 </table>
-<p>This helper function gives you friendlier syntax to get browser
-cookies. Refer to the <a class="reference internal" href="../libraries/input.html"><em>Input Library</em></a> for
-detailed description of its use, as this function acts very
-similarly to <tt class="docutils literal"><span class="pre">CI_Input::cookie()</span></tt>, except it will also prepend
-the <tt class="docutils literal"><span class="pre">$config['cookie_prefix']</span></tt> that you might&#8217;ve set in your
-<em>application/config/config.php</em> file.</p>
+<p>Esta função auxiliar oferece uma sintaxe mais amigável para obter cookies no navegador. Consulte a <a class="reference internal" href="../libraries/input.html"><em>Biblioteca de Entrada</em></a> para obter uma descrição detalhada do seu uso, pois esta função funciona de forma muito semelhante a <tt class="docutils literal"><span class="pre">CI_Input::cookie()</span></tt>, exceto que também irá adicionar o <tt class="docutils literal"><span class="pre">$config['cookie_prefix']</span></tt> que você pode ter configurado em seu arquivo <em>application/config/config.php</em>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -510,10 +501,10 @@ the <tt class="docutils literal"><span class="pre">$config['cookie_prefix']</spa
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$name</strong> (<em>string</em>) &#8211; Cookie name</li>
-<li><strong>$domain</strong> (<em>string</em>) &#8211; Cookie domain (usually: .yourdomain.com)</li>
-<li><strong>$path</strong> (<em>string</em>) &#8211; Cookie path</li>
-<li><strong>$prefix</strong> (<em>string</em>) &#8211; Cookie name prefix</li>
+<li><strong>$name</strong> (<em>string</em>) &#8211; Nome do cookie</li>
+<li><strong>$domain</strong> (<em>string</em>) &#8211; Domínio do cookie (geralmente: .seudominio.com)</li>
+<li><strong>$path</strong> (<em>string</em>) &#8211; Caminho do cookie</li>
+<li><strong>$prefix</strong> (<em>string</em>) &#8211; Prefixo de nome de cookie</li>
 </ul>
 </td>
 </tr>
@@ -522,15 +513,11 @@ the <tt class="docutils literal"><span class="pre">$config['cookie_prefix']</spa
 </tr>
 </tbody>
 </table>
-<p>Lets you delete a cookie. Unless you&#8217;ve set a custom path or other
-values, only the name of the cookie is needed.</p>
+<p>Permite excluir um cookie. A menos que você estabeleça um caminho personalizado ou outros valores, apenas o nome do cookie é necessário.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">delete_cookie</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>This function is otherwise identical to <tt class="docutils literal"><span class="pre">set_cookie()</span></tt>, except that it
-does not have the value and expiration parameters. You can submit an
-array of values in the first parameter or you can set discrete
-parameters.</p>
+<p>Esta função é idêntica a <tt class="docutils literal"><span class="pre">set_cookie()</span></tt>, exceto que não possui o valor e os parâmetros de validade. Você pode enviar um array de valores no primeiro parâmetro ou pode definir parâmetros discretos.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">delete_cookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$domain</span><span class="p">,</span> <span class="nv">$path</span><span class="p">,</span> <span class="nv">$prefix</span><span class="p">);</span>
 </pre></div>
 </div>
