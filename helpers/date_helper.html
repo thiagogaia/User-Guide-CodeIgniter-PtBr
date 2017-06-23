@@ -430,7 +430,7 @@
 <ul class="simple">
 <li><a class="reference internal" href="#loading-this-helper" id="id1">Carregando este Auxiliar</a></li>
 <li><a class="reference internal" href="#available-functions" id="id2">Funções disponíveis</a></li>
-<li><a class="reference internal" href="#timezone-reference" id="id3">Timezone Reference</a></li>
+<li><a class="reference internal" href="#timezone-reference" id="id3">Referência do fuso horário</a></li>
 </ul>
 </div>
 <div class="custom-index container"></div><div class="section" id="loading-this-helper">
@@ -615,7 +615,7 @@
 </tr>
 </tbody>
 </table>
-<p>Takes a UNIX timestamp as input and returns it as GMT.</p>
+<p>Toma um timestamp UNIX como entrada e retorna como GMT.</p>
 <p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$gmt</span> <span class="o">=</span> <span class="nx">local_to_gmt</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span>
 </pre></div>
@@ -631,8 +631,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$time</strong> (<em>int</em>) &#8211; UNIX timestamp</li>
-<li><strong>$timezone</strong> (<em>string</em>) &#8211; Timezone</li>
-<li><strong>$dst</strong> (<em>bool</em>) &#8211; Whether DST is active</li>
+<li><strong>$timezone</strong> (<em>string</em>) &#8211; Fuso horário</li>
+<li><strong>$dst</strong> (<em>bool</em>) &#8211; Se DST está ativo</li>
 </ul>
 </td>
 </tr>
@@ -644,9 +644,7 @@
 </tr>
 </tbody>
 </table>
-<p>Takes a UNIX timestamp (referenced to GMT) as input, and converts it to
-a localized timestamp based on the timezone and Daylight Saving Time
-submitted.</p>
+<p>Toma um timestamp UNIX (referenciado para GMT) como entrada e o converte em um timestamp localizado com base no fuso horário e no horário de verão enviado.</p>
 <p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$timestamp</span> <span class="o">=</span> <span class="mi">1140153693</span><span class="p">;</span>
 <span class="nv">$timezone</span>  <span class="o">=</span> <span class="s1">&#39;UM8&#39;</span><span class="p">;</span>
@@ -656,7 +654,7 @@ submitted.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">nota</p>
-<p class="last">For a list of timezones see the reference at the bottom of this page.</p>
+<p class="last">Para uma lista de fuso horário, consulte a referência na parte inferior desta página.</p>
 </div>
 </dd></dl>
 
@@ -680,7 +678,7 @@ submitted.</p>
 </tr>
 </tbody>
 </table>
-<p>Takes a MySQL Timestamp as input and returns it as a UNIX timestamp.</p>
+<p>Toma um Timestamp do MySQL como entrada e o retorna como um timestamp UNIX.</p>
 <p>Exemplo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$unix</span> <span class="o">=</span> <span class="nx">mysql_to_unix</span><span class="p">(</span><span class="s1">&#39;20061124092345&#39;</span><span class="p">);</span>
 </pre></div>
@@ -696,12 +694,12 @@ submitted.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
 <li><strong>$time</strong> (<em>int</em>) &#8211; UNIX timestamp</li>
-<li><strong>$seconds</strong> (<em>bool</em>) &#8211; Whether to show seconds</li>
-<li><strong>$fmt</strong> (<em>string</em>) &#8211; format (us or euro)</li>
+<li><strong>$seconds</strong> (<em>bool</em>) &#8211; Se exibe os segundos</li>
+<li><strong>$fmt</strong> (<em>string</em>) &#8211; Formato (us ou euro)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Formatted date</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Data formatada</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">string</p>
@@ -709,21 +707,18 @@ submitted.</p>
 </tr>
 </tbody>
 </table>
-<p>Takes a UNIX timestamp as input and returns it in a human readable
-format with this prototype:</p>
+<p>Toma um timestamp UNIX como entrada e retorna em um formato legível para humanos com este protótipo:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">YYYY</span><span class="o">-</span><span class="nx">MM</span><span class="o">-</span><span class="nx">DD</span> <span class="nx">HH</span><span class="o">:</span><span class="nx">MM</span><span class="o">:</span><span class="nx">SS</span> <span class="nx">AM</span><span class="o">/</span><span class="nx">PM</span>
 </pre></div>
 </div>
-<p>This can be useful if you need to display a date in a form field for
-submission.</p>
-<p>The time can be formatted with or without seconds, and it can be set to
-European or US format. If only the timestamp is submitted it will return
-the time without seconds formatted for the U.S.</p>
+<p>Isso pode ser útil se você precisar exibir uma data em um campo de formulário para submissão.</p>
+<p>O tempo pode ser formatado com ou sem segundos, e pode ser configurado para o formato europeu ou americano.
+Se apenas o timestamp for enviado, ele retornará o tempo sem segundos formatados para os EUA.</p>
 <p>Exemplos:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$now</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>
-<span class="k">echo</span> <span class="nx">unix_to_human</span><span class="p">(</span><span class="nv">$now</span><span class="p">);</span> <span class="c1">// U.S. time, no seconds</span>
-<span class="k">echo</span> <span class="nx">unix_to_human</span><span class="p">(</span><span class="nv">$now</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">,</span> <span class="s1">&#39;us&#39;</span><span class="p">);</span> <span class="c1">// U.S. time with seconds</span>
-<span class="k">echo</span> <span class="nx">unix_to_human</span><span class="p">(</span><span class="nv">$now</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">,</span> <span class="s1">&#39;eu&#39;</span><span class="p">);</span> <span class="c1">// Euro time with seconds</span>
+<span class="k">echo</span> <span class="nx">unix_to_human</span><span class="p">(</span><span class="nv">$now</span><span class="p">);</span> <span class="c1">// Hora dos EUA, sem segundos</span>
+<span class="k">echo</span> <span class="nx">unix_to_human</span><span class="p">(</span><span class="nv">$now</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">,</span> <span class="s1">&#39;us&#39;</span><span class="p">);</span> <span class="c1">// Hora dos EUA, com segundos</span>
+<span class="k">echo</span> <span class="nx">unix_to_human</span><span class="p">(</span><span class="nv">$now</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">,</span> <span class="s1">&#39;eu&#39;</span><span class="p">);</span> <span class="c1">// Hora da Europa, com segundos</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -736,11 +731,11 @@ the time without seconds formatted for the U.S.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first simple">
-<li><strong>$datestr</strong> (<em>int</em>) &#8211; Date string</li>
+<li><strong>$datestr</strong> (<em>int</em>) &#8211; String de data</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">UNIX timestamp or FALSE on failure</p>
+<tr class="field-even field"><th class="field-name">Retorna:</th><td class="field-body"><p class="first">Timestamp UNIX ou FALSE em caso de falha</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Tipo de retorno:</th><td class="field-body"><p class="first last">int</p>
@@ -748,11 +743,7 @@ the time without seconds formatted for the U.S.</p>
 </tr>
 </tbody>
 </table>
-<p>The opposite of the <tt class="xref php php-func docutils literal"><span class="pre">unix_to_time()</span></tt> function. Takes a &#8220;human&#8221;
-time as input and returns it as a UNIX timestamp. This is useful if you
-accept &#8220;human&#8221; formatted dates submitted via a form. Returns boolean FALSE
-date string passed to it is not formatted as indicated above.</p>
-<p>Exemplo:</p>
+<p>O oposto da função <tt class="xref php php-func docutils literal"><span class="pre">unix_to_time()</span></tt>. Toma um tempo "humano" como entrada e o retorna como um timestamp UNIX. Isso é útil se você aceitar as datas formatadas "humanas" enviadas por meio de um formulário. Retorna boolean FALSE caso uma string de data passada para ele não esteja formatado como indicado acima.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$now</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>
 <span class="nv">$human</span> <span class="o">=</span> <span class="nx">unix_to_human</span><span class="p">(</span><span class="nv">$now</span><span class="p">);</span>
 <span class="nv">$unix</span> <span class="o">=</span> <span class="nx">human_to_unix</span><span class="p">(</span><span class="nv">$human</span><span class="p">);</span>
@@ -1031,17 +1022,17 @@ language file: <cite>language/&lt;your_lang&gt;/date_lang.php</cite></p>
 
 </div>
 <div class="section" id="timezone-reference">
-<h2><a class="toc-backref" href="#id3">Timezone Reference</a><a class="headerlink" href="#timezone-reference" title="Permalink to this headline">¶</a></h2>
-<p>The following table indicates each timezone and its location.</p>
-<p>Note some of the location lists have been abridged for clarity and formatting.</p>
+<h2><a class="toc-backref" href="#id3">Referência do fuso horário</a><a class="headerlink" href="#timezone-reference" title="Permalink to this headline">¶</a></h2>
+<p>A tabela a seguir indica cada fuso horário e sua localização.</p>
+<p>Observe que algumas das localizações da lista foram resumidas para clareza e formatação.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="14%" />
 <col width="86%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Time Zone</th>
-<th class="head">Location</th>
+<tr class="row-odd"><th class="head">Fuso horário</th>
+<th class="head">Localização</th>
 </tr>
 </thead>
 <tbody valign="top">
